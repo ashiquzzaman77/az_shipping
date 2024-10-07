@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Hind Siliguri';
+    src: url('./path/to/font-file.woff2') format('woff2'), /* Modern Browsers */
+         url('./path/to/font-file.woff') format('woff');   /* Legacy Browsers */
+    /* Add additional font formats (eot, svg, ttf) if necessary */
+    /* You can also specify font-weight and font-style if needed */
+}
+
+/* Now you can use the font-family in your CSS rules */
+body {
+    font-family: 'Hind Siliguri', sans-serif;
+}
