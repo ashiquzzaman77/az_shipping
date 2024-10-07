@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ContactController;
 
 // use App\Http\Controllers\Admin\CourseContentController;
@@ -43,8 +44,6 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UserManagementController;
 
 
-
-use App\Http\Controllers\BannerController;
 use App\Http\Controllers\Controller;
 
 
@@ -153,11 +152,13 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'user' => UserController::class, //done
             'user-management' => UserManagementController::class,
             'admin-management' => AdminController::class,
-            'newsletters' => NewsletterController::class,
-            'contacts' => ContactController::class,
-            'about' => AboutUsController::class,
-            'service' => ServiceController::class,
-            'common_banner' => BannerController::class, 
+            // 'newsletters' => NewsletterController::class,
+            // 'contacts' => ContactController::class,
+            // 'about' => AboutUsController::class,
+            // 'service' => ServiceController::class,
+
+            //Shipping
+            'banner' => BannerController::class, 
 
         ],
 
@@ -172,6 +173,10 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us.index');
     Route::put('/about-us', [AboutUsController::class, 'updateOrcreateAboutUs'])->name('about-us.updateOrCreate');
+
+
+    //Banner Status
+    Route::put('banner/status/{id}', [BannerController::class, 'updateStatusBanner'])->name('banner.status.update');
 
 
 });

@@ -59,9 +59,10 @@
 
                  </div>
 
-                 {{-- Course  --}}
-                 {{-- <div data-kt-menu-trigger="click"
-                     class="menu-item menu-accordion {{ Request::routeIs('admin.service.index', 'admin.course_category.index', 'admin.course.index', 'admin.course_curriculam.index', 'admin.course_resource.index', 'admin.course_project.index', 'admin.course_section.index', 'admin.course_outline.index', 'admin.course_schedule.index', 'admin.course_content.index', 'admin.course_query.index', 'admin.course_management.index', 'admin.coupon.index') ? 'here show' : '' }}">
+                 {{-- Frontend Section  --}}
+
+                 <div data-kt-menu-trigger="click"
+                     class="menu-item menu-accordion {{ Request::routeIs('admin.banner.index') ? 'here show' : '' }}">
                      <span class="menu-link">
 
                          <span class="menu-icon">
@@ -83,30 +84,30 @@
                              <!--end::Svg Icon-->
                          </span>
 
-                         <span class="menu-title">Course Setting</span>
+                         <span class="menu-title">Frontend</span>
 
                          <span class="menu-arrow"></span>
 
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.service.index', 'admin.course_category.index', 'admin.course.index', 'admin.course_curriculam.index', 'admin.course_resource.index', 'admin.course_project.index', 'admin.course_section.index', 'admin.course_outline.index', 'admin.course_schedule.index', 'admin.course_content.index', 'admin.course_query.index', 'admin.course_management.index', 'admin.coupon.index') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.banner.index') ? 'here show' : '' }}">
 
-                         @if (Auth::guard('admin')->user()->can('service.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('service.menu')) --}}
                              <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.service'))
-                                     <a class="menu-link {{ Request::routeIs('admin.service.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.service.index') }}">
+                                 {{-- @if (Auth::guard('admin')->user()->can('all.service')) --}}
+                                     <a class="menu-link {{ Request::routeIs('admin.banner.index') ? 'active' : '' }}"
+                                         href="{{ route('admin.banner.index') }}">
                                          <span class="menu-bullet">
                                              <span class="bullet bullet-dot"></span>
                                          </span>
-                                         <span class="menu-title">Service</span>
+                                         <span class="menu-title">Banner</span>
                                      </a>
-                                 @endif
+                                 {{-- @endif --}}
                              </div>
-                         @endif
+                         {{-- @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('course-category.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('course-category.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.course-category'))
                                      <a class="menu-link {{ Request::routeIs('admin.course_category.index') ? 'active' : '' }}"
@@ -118,9 +119,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('course.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('course.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.course'))
                                      <a class="menu-link {{ Request::routeIs('admin.course.index') ? 'active' : '' }}"
@@ -132,9 +133,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('course-curriculam.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('course-curriculam.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.course-curriculam'))
                                      <a class="menu-link {{ Request::routeIs('admin.course_curriculam.index') ? 'active' : '' }}"
@@ -146,9 +147,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('resource.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('resource.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.resource'))
                                      <a class="menu-link {{ Request::routeIs('admin.course_resource.index') ? 'active' : '' }}"
@@ -160,9 +161,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('project.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('project.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.project'))
                                      <a class="menu-link {{ Request::routeIs('admin.course_project.index') ? 'active' : '' }}"
@@ -174,9 +175,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('course-section.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('course-section.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.course-section'))
                                      <a class="menu-link {{ Request::routeIs('admin.course_section.index') ? 'active' : '' }}"
@@ -188,9 +189,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('outline.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('outline.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.outline'))
                                      <a class="menu-link {{ Request::routeIs('admin.course_outline.index') ? 'active' : '' }}"
@@ -202,9 +203,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('schedule.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('schedule.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.schedule'))
                                      <a class="menu-link {{ Request::routeIs('admin.course_schedule.index') ? 'active' : '' }}"
@@ -216,9 +217,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('course-content.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('course-content.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.course-content'))
                                      <a class="menu-link {{ Request::routeIs('admin.course_content.index') ? 'active' : '' }}"
@@ -230,9 +231,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('course-query.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('course-query.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.course-query'))
                                      <a class="menu-link {{ Request::routeIs('admin.course_query.index') ? 'active' : '' }}"
@@ -244,9 +245,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('course-management.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('course-management.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.course-management'))
                                      <a class="menu-link {{ Request::routeIs('admin.course_management.index') ? 'active' : '' }}"
@@ -258,9 +259,9 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
-                         @if (Auth::guard('admin')->user()->can('coupon.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('coupon.menu'))
                              <div class="menu-item">
                                  @if (Auth::guard('admin')->user()->can('all.coupon'))
                                      <a class="menu-link {{ Request::routeIs('admin.coupon.index') ? 'active' : '' }}"
@@ -272,10 +273,10 @@
                                      </a>
                                  @endif
                              </div>
-                         @endif
+                         @endif --}}
 
                      </div>
-                 </div> --}}
+                 </div>
 
                  {{-- Site Content  --}}
                  {{-- <div data-kt-menu-trigger="click"
