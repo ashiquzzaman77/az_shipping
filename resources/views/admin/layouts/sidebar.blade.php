@@ -4,9 +4,11 @@
      data-kt-drawer-toggle="#kt_aside_mobile_toggle">
      <div class="aside-logo flex-column-auto" id="kt_aside_logo">
 
-         <a class="text-center" href="{{ route('dashboard') }}">
-             <img alt="Logo" src="{{ asset('backend/login/assets/logo/Logo_White.png') }}"
-                 style="width: 100px; height: 40px;" class="logo text-center" />
+         <a class="text-center mx-auto" href="{{ route('dashboard') }}">
+             {{-- <img alt="Logo" src="{{ asset('backend/login/assets/logo/Logo_White.png') }}"
+                 style="width: 100px; height: 40px;" class="logo text-center" /> --}}
+
+                 <h1 class="text-light">A Z Shipping</h1>
          </a>
 
          <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle active"
@@ -471,7 +473,9 @@
                  </div> --}}
 
                  {{-- Management --}}
-                 {{-- @if (Auth::guard('admin')->user()->can('admin.menu'))
+
+                 {{-- @if (Auth::guard('admin')->user()->can('admin.menu')) --}}
+
                      <div data-kt-menu-trigger="click"
                          class="menu-item menu-accordion {{ Request::routeIs('all.admin.permission', 'admin.user-management.index') ? 'here show' : '' }}">
 
@@ -493,7 +497,7 @@
                                  <!--end::Svg Icon-->
                              </span>
 
-                             <span class="menu-title">User Management</span>
+                             <span class="menu-title">Employee Management</span>
 
                              <span class="menu-arrow"></span>
 
@@ -502,9 +506,9 @@
                          <div
                              class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.admin.permission', 'admin.user-management.index') ? 'here show' : '' }}">
 
-                             @if (Auth::guard('admin')->user()->can('admin.menu'))
+                             {{-- @if (Auth::guard('admin')->user()->can('admin.menu')) --}}
                                  <div class="menu-item">
-                                     @if (Auth::guard('admin')->user()->can('all.admin'))
+                                     {{-- @if (Auth::guard('admin')->user()->can('all.admin')) --}}
                                          <a class="menu-link {{ Route::is('all.admin.permission') ? 'active' : '' }}"
                                              href="{{ route('all.admin.permission') }}">
                                              <span class="menu-bullet">
@@ -512,12 +516,12 @@
                                              </span>
                                              <span class="menu-title">Admin</span>
                                          </a>
-                                     @endif
+                                     {{-- @endif --}}
                                  </div>
-                             @endif
+                             {{-- @endif --}}
 
-                             @if (Auth::guard('admin')->user()->can('user.menu'))
-                                 <div class="menu-item">
+                             {{-- @if (Auth::guard('admin')->user()->can('user.menu')) --}}
+                                 {{-- <div class="menu-item">
                                      @if (Auth::guard('admin')->user()->can('all.user'))
                                          <a class="menu-link {{ Route::is('admin.user-management.index') ? 'active' : '' }}"
                                              href="{{ route('admin.user-management.index') }}">
@@ -527,12 +531,13 @@
                                              <span class="menu-title">User</span>
                                          </a>
                                      @endif
-                                 </div>
-                             @endif
+                                 </div> --}}
+                             {{-- @endif --}}
 
                          </div>
                      </div>
-                 @endif --}}
+
+                 {{-- @endif --}}
 
                  {{-- Setting  --}}
                  {{-- <div data-kt-menu-trigger="click"

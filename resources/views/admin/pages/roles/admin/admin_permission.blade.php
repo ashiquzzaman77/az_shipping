@@ -2,52 +2,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!--begin::Content-->
 
-
-    <!--begin::Toolbar-->
-    <div class="toolbar" id="kt_toolbar">
-        <!--begin::Container-->
-
-        {{-- <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-            <!--begin::Page title-->
-            <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
-                data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-                class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                <!--begin::Title-->
-                <h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Admin</h1>
-                <!--end::Title-->
-                <!--begin::Separator-->
-                <span class="h-20px border-gray-300 border-start mx-4"></span>
-                <!--end::Separator-->
-                <!--begin::Breadcrumb-->
-                <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-
-                    <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Total Admin<span
-                            class="badge bg-danger ms-2">{{ count($users) }}</span>
-                    </li>
-                    <!--end::Item-->
-
-                </ul>
-                <!--end::Breadcrumb-->
-            </div>
-            <!--end::Page title-->
-            <!--begin::Actions-->
-            <div class="d-flex align-items-center gap-2 gap-lg-3">
-
-                <!--begin::Primary button-->
-                <a href="{{ route('all.role') }}" class="btn btn-sm btn-light-primary">Role</a>
-                <a href="{{ route('all.permission') }}" class="btn btn-sm btn-light-info">Permission</a>
-                <a href="{{ route('all.roles.permission') }}" class="btn btn-sm btn-light-dark">Role In Permission</a>
-                <!--end::Primary button-->
-
-            </div>
-            <!--end::Actions-->
-        </div> --}}
-
-        <!--end::Container-->
-    </div>
-    <!--end::Toolbar-->
-
     <!--begin::Post-->
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
@@ -118,7 +72,7 @@
                                         @forelse ($user->roles as $role)
                                             <span class="badge badge-pill bg-danger">{{ $role->name }}</span>
                                         @empty
-                                            <span class="badge badge-pill bg-primary">No roles assigned</span>
+                                            <span class="badge badge-pill bg-dark">No roles assigned</span>
                                         @endforelse
                                     </td>
 

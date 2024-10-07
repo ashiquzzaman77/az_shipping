@@ -163,7 +163,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     );
 
-
     Route::get('activity_logs', [ActivityLogController::class, 'index'])->name('activity_logs.index');
     Route::get('activity_logs/{activity_log}', [ActivityLogController::class, 'show'])->name('activity_logs.show');
     Route::delete('activity_logs/{activity_log}', [ActivityLogController::class, 'destroy'])->name('activity_logs.destroy');
@@ -181,7 +180,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 // Terms & Condition Status
 Route::get('/terms-and-condition/{id}/inactive', [TermsConditionController::class, 'inactive'])->name('terms-and-condition.inactive');
 Route::get('/terms-and-condition/{id}/active', [TermsConditionController::class, 'active'])->name('terms-and-condition.active');
-
 
 //User Register
 Route::get('/register-user/inactive/{id}', [UserManagementController::class, 'userInactive'])->name('user-register.inactive');

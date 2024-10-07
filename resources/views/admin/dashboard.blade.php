@@ -70,7 +70,7 @@
                                     </div>
 
                                     <div class="m-0">
-                                        <a href="{{ route('admin.course.index') }}"
+                                        <a href=""
                                             class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">Ashik</a>
 
                                         <span class="text-gray-500 fw-semibold fs-6">Total Courses</span>
