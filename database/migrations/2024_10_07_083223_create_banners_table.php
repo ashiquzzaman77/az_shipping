@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('sub_title')->nullable();
             $table->string('image')->nullable();
             $table->string('contact')->nullable();
+            $table->integer('added_by')->nullable();
+            $table->string('status')->nullable();
 
             $table->timestamps();
         });

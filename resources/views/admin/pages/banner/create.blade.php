@@ -75,13 +75,13 @@
                             </div>
                         </div>
 
-                        <div class="col-4 mb-3">
+                        {{-- <div class="col-4 mb-3">
                             <div class="form-group">
                                 <label for="" class="mb-2">Contact</label>
                                 <input type="text" name="contact" placeholder="Banner Contact Url"
                                     class="form-control form-control-sm" value="{{ old('contact') }}">
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="col-4 mb-3">
