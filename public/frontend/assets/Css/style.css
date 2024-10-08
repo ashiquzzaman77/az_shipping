@@ -2346,7 +2346,9 @@ Preloader Area
   justify-content: center;
   position: fixed;
   z-index: 99999999;
-  background-color: #7d7d7d;
+  /* background-color: #fff; */
+  background: linear-gradient(#1E3A8A, #0F172A);
+
   text-align: center;
   top: 0;
   left: 0;
