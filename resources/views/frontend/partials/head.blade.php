@@ -1,4 +1,4 @@
-<meta charset="UTF-8" />
+{{-- <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
     {{ optional($setting)->site_name ?? 'NGenIT Training' }}
@@ -28,4 +28,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick-theme.css" />
 <link rel="stylesheet" href="{{ asset('frontend/assets/Css/bootstrap.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('frontend/assets/Css/main-style.css') }}" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/use-bootstrap-select@2.2.0/dist/use-bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/use-bootstrap-select@2.2.0/dist/use-bootstrap-select.min.css"> --}}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/boxicons.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/meanmenu.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/magnific-popup.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/odometer.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/dark.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
+
+<link rel="icon" type="image/png" href="{{ asset('frontend/assets/img/favicon.png') }}">
+
+<title>A Z Shipping</title>
