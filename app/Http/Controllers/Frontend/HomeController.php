@@ -27,6 +27,7 @@ use Illuminate\Http\Request;
 // use App\Models\TermsCondition;
 // use App\Models\CourseCurriculum;
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Hash;
 // use Illuminate\Support\Facades\Mail;
@@ -44,7 +45,8 @@ class HomeController extends Controller
     //Homepage
     public function index()
     {
-        return view('frontend.pages.home');
+        $banners = Banner::where('status','active')->latest()->get();
+        return view('frontend.pages.home',compact('banners'));
     }
     
 }

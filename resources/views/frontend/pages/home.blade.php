@@ -1,9 +1,35 @@
 @extends('frontend.master')
 @section('content')
- 
+
     <!-- Banner Section Start  -->
     <div class="hero-slider-three owl-carousel owl-theme">
-        <div class="hero-slider-three-item item-bg1">
+
+        @forelse ($banners as $item)
+            <div class="hero-slider-three-item"
+                style="background-image: url('{{ !empty($item->image) ? url('storage/banner/' . $item->image) : '' }}');">
+
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="container">
+                            <div class="row align-items-center mt-50">
+                                <div class="col-lg-8 col-md-8">
+                                    <div class="slider-three-text">
+                                        <span>{{ $item->badge }}</span>
+                                        <h1>{{ $item->title }}</h1>
+                                        <p>{{ $item->sub_title }}</p>
+                                        <a href="javascript:;" class="default-btn-one me-3">Contact Us</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <p>No Image Avaiable</p>
+        @endforelse
+        {{-- <div class="hero-slider-three-item">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
@@ -25,7 +51,8 @@
                 </div>
             </div>
         </div>
-        <div class="hero-slider-three-item item-bg2 ">
+
+        <div class="hero-slider-three-item">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
@@ -46,29 +73,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="hero-slider-three-item item-bg3">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <div class="row align-items-center mt-50">
-                            <div class="col-lg-8 col-md-8">
-                                <div class="slider-three-text">
-                                    <span>Since 1992</span>
-                                    <h1>Digital Solution for Transportation and Logistic </h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor
-                                        incididunt ut labore et dolore.</p>
-                                    <a href="#" class="default-btn-one me-3">Contact Us</a>
-                                    <a href="#" class="default-btn-two">Get A Quote</a>
-                                </div>
-                            </div>
+        </div> --}}
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- Banner Section End  -->
 
@@ -487,5 +493,4 @@
             </div>
         </div>
     </div>
-    
 @endsection

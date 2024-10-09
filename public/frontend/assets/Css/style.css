@@ -1066,7 +1066,7 @@ Hero Slider Area
   z-index: -1;
 }
 
-.hero-slider .hero-slider-item.item-bg1 {
+/* .hero-slider .hero-slider-item.item-bg1 {
   background-image: url("../img/hero-slider/hero-slider1.jpg");
 }
 
@@ -1076,7 +1076,7 @@ Hero Slider Area
 
 .hero-slider .hero-slider-item.item-bg3 {
   background-image: url("../img/hero-slider/hero-slider3.jpg");
-}
+} */
 
 .hero-slider .banner-content {
   position: relative;
