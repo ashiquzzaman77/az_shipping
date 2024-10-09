@@ -1157,7 +1157,7 @@ Hero Slider Two Area
   z-index: -1;
 }
 
-.hero-slider-two .hero-slider-two-item.item-bg1 {
+/* .hero-slider-two .hero-slider-two-item.item-bg1 {
   background-image: url("../img/hero-slider/hero-slider2.jpg");
 }
 
@@ -1167,7 +1167,7 @@ Hero Slider Two Area
 
 .hero-slider-two .hero-slider-two-item.item-bg3 {
   background-image: url("../img/hero-slider/hero-slider3.jpg");
-}
+} */
 
 .hero-slider-two .hero-slider-two-item .banner-content span {
   color: #ffffff;
@@ -1263,14 +1263,12 @@ Hero Slider Three Area
   width: 100%;
   height: 850px;
   position: relative;
-  top: 114px;
   
 }
 
 .hero-slider-three .hero-slider-three-item::before {
   content: "";
   position: absolute;
-  /* background: #301d4430; */
   background: #301d44;
   width: 100%;
   height: 100%;
