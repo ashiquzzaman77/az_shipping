@@ -1261,15 +1261,15 @@ Hero Slider Three Area
   background-size: cover;
   background-position: center center;
   width: 100%;
-  height: 800px;
+  height: 850px;
   position: relative;
-  top: 115px;
+  
 }
 
 .hero-slider-three .hero-slider-three-item::before {
   content: "";
   position: absolute;
-  background: #22162e61;
+  background: #301d4430;
   /* background: #301d44; */
   width: 100%;
   height: 100%;
