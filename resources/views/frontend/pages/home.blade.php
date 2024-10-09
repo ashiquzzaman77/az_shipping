@@ -1,6 +1,6 @@
 @extends('frontend.master')
 @section('content')
-
+ 
     <!-- Banner Section Start  -->
     <div class="hero-slider-three owl-carousel owl-theme">
         <div class="hero-slider-three-item item-bg1">
