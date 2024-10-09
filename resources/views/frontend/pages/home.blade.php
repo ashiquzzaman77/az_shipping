@@ -81,7 +81,7 @@
             </div>
             <div class="services-slider-two owl-carousel owl-theme">
                 <div class="service-card-two">
-                    <img class="freight-image" src="assets/img/freight/freight1.jpg" alt="image">
+                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight1.jpg') }}" alt="image">
                     <div class="service-caption">
                         <h3>Road Freight</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="service-card-two">
-                    <img class="freight-image" src="assets/img/freight/freight2.jpg" alt="image">
+                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight2.jpg') }}" alt="image">
                     <div class="service-caption">
                         <h3>Ocean Freight</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="service-card-two">
-                    <img class="freight-image" src="assets/img/freight/freight3.jpg" alt="image">
+                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight3.jpg') }}" alt="image">
                     <div class="service-caption">
                         <h3>Air Freight</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <div class="service-card-two">
-                    <img class="freight-image" src="assets/img/freight/freight1.jpg" alt="image">
+                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight1.jpg') }}" alt="image">
                     <div class="service-caption">
                         <h3>Road Freight</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <div class="service-card-two">
-                    <img class="freight-image" src="assets/img/freight/freight2.jpg" alt="image">
+                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight2.jpg') }}" alt="image">
                     <div class="service-caption">
                         <h3>Ocean Freight</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 <div class="service-card-two">
-                    <img class="freight-image" src="assets/img/freight/freight3.jpg" alt="image">
+                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight3.jpg') }}" alt="image">
                     <div class="service-caption">
                         <h3>Air Freight</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
