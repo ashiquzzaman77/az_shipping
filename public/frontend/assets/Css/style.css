@@ -1268,7 +1268,7 @@ Hero Slider Three Area
 .hero-slider-three .hero-slider-three-item::before {
   content: "";
   position: absolute;
-  background: #301d44;
+  background: #301d441f;
   width: 100%;
   height: 100%;
   top: 0;
