@@ -569,7 +569,7 @@
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.settings.index', 'admin.all.registration') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.settings.index') ? 'here show' : '' }}">
 
                          {{-- @if (Auth::guard('admin')->user()->can('setting.menu')) --}}
                          <div class="menu-item">
@@ -584,21 +584,7 @@
                              {{-- @endif --}}
                          </div>
                          {{-- @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('registration.menu')) --}}
-                         {{-- <div class="menu-item"> --}}
-                             {{-- @if (Auth::guard('admin')->user()->can('all.registration')) --}}
-                             {{-- <a class="menu-link {{ Route::is('admin.all.registration') ? 'active' : '' }}"
-                                 href="{{ route('admin.all.registration') }}">
-                                 <span class="menu-bullet">
-                                     <span class="bullet bullet-dot"></span>
-                                 </span>
-                                 <span class="menu-title">Registration</span>
-                             </a> --}}
-                             {{-- @endif --}}
-                         {{-- </div> --}}
-                         {{-- @endif --}}
-
+                         
                      </div>
                  </div>
 

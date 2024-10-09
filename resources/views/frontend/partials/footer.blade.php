@@ -3,13 +3,17 @@
         <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget">
+
                     <div class="logo">
-                        <img src="assets/img/logo.png" class="main-logo" alt="logo">
+
+                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" class="main-logo" style="width: 90px" alt="logo">
+
                         <img src="assets/img/logo-2.png" class="white-logo" alt="logo">
+
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        ut
-                        labore et dolore magna aliqua.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                    
                     <ul class="footer-socials">
                         <li>
                             <a href="#" target="_blank">
@@ -36,44 +40,41 @@
             </div>
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget pl-80">
-                    <h3>Company</h3>
+                    <h3>Important Links</h3>
                     <ul class="footer-text">
                         <li>
-                            <a href="about.html">About Us</a>
+                            <a href="javascript:;">DG Shipping</a>
                         </li>
                         <li>
-                            <a href="services.html">Services</a>
+                            <a href="javascript:;">Govt. Shipping Office</a>
                         </li>
                         <li>
-                            <a href="#">Features</a>
+                            <a href="javascript:;">Bangladesh Marine Academy</a>
                         </li>
                         <li>
-                            <a href="#">Cost calculator</a>
-                        </li>
-                        <li>
-                            <a href="#">Latest News</a>
+                            <a href="javascript:;">National Maritime Institute</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget pl-50">
-                    <h3>Support</h3>
+                    <h3>Quick Navigation</h3>
                     <ul class="footer-text">
                         <li>
-                            <a href="faq.html">FAQ’s</a>
+                            <a href="javascript:;">About Us</a>
                         </li>
                         <li>
-                            <a href="privacy-policy.html">Privacy Policy</a>
+                            <a href="javascript:;">Why Choose Us</a>
                         </li>
                         <li>
-                            <a href="terms-condition.html">Terms & Conditions</a>
+                            <a href="javascript:;">Job At Sea</a>
                         </li>
                         <li>
-                            <a href="#">Community</a>
+                            <a href="javascript:;">Services</a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact Us</a>
+                            <a href="javascript:;">Legal Docs</a>
                         </li>
                     </ul>
                 </div>
@@ -84,25 +85,19 @@
                     <ul class="info-list">
                         <li>
                             <i class="bx bxs-location-plus"></i>
-                            6th Floor, Barbosa, Sidney
+                            <p>{{ optional($setting)->address_line_one }}</p>
                         </li>
                         <li>
                             <i class="bx bxs-envelope"></i>
-                            <a
-                                href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#e189848d8d8ea18784939398cf828e8c"><span
-                                    class="__cf_email__"
-                                    data-cfemail="b8d0ddd4d4d7f8deddcacac196dbd7d5">[email&#160;protected]</span></a>
+                            <p>{{ optional($setting)->primary_email }}</p>
                         </li>
                         <li>
                             <i class="bx bxs-envelope"></i>
-                            <a
-                                href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#caa9a5a4beaba9be8aacafb8b8b3e4a9a5a7"><span
-                                    class="__cf_email__"
-                                    data-cfemail="62010d0c1603011622040710101b4c010d0f">[email&#160;protected]</span></a>
+                            <p>{{ optional($setting)->support_email }}</p>
                         </li>
                         <li>
                             <i class="bx bxs-phone"></i>
-                            <a href="tel:+0123456789">+0123 456 789</a>
+                            <p>{{ optional($setting)->primary_phone }}</p>
                         </li>
                     </ul>
                 </div>
@@ -113,7 +108,7 @@
 
 <div class="footer-bottom" id="contact">
     <div class="container">
-        <p>Copyright Ferry. All Rights Reserved <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
+        <p>Copyright @2024. All Rights Reserved <a href="javascript:;" target="_blank">AZ Shipping</a>
         </p>
     </div>
 </div>
