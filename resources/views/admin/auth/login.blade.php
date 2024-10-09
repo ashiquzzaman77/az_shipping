@@ -11,7 +11,7 @@
     <meta name="keywords"
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-    <title>NgenIt Training | Admin-Login</title>
+    <title>AZ Shipping | Admin-Login</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,7 +100,8 @@
                                                 <label for="email" class="form-label">Email Or Phone</label>
                                                 <input type="text" autocomplete="off"
                                                     class="form-control @error('login') is-invalid @enderror"
-                                                    name="login" value="{{ old('login') }}"  id="login" placeholder="">
+                                                    name="login" value="{{ old('login') }}" id="login"
+                                                    placeholder="">
 
                                                 @error('login')
                                                     <div class="text-danger">{{ $message }}</div>
