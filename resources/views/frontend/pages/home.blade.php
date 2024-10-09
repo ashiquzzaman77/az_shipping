@@ -151,7 +151,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="about-img-three">
-                        <img src="assets/img/about/about3.jpg" alt="Image">
+                        <img src="{{ asset('assets/img/about/about3.jpg') }}" alt="Image">
                     </div>
                 </div>
                 <div class="col-lg-6">
