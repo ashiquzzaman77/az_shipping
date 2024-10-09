@@ -33,17 +33,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/boxicons.min.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/meanmenu.min.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/magnific-popup.min.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.carousel.min.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.theme.default.min.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/odometer.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.min.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/dark.css') }}">
-<link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/boxicons.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/meanmenu.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/magnific-popup.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/odometer.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/animate.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/dark.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/Css/responsive.css') }}">
 
 <link rel="icon" type="image/png" href="{{ !empty(optional($setting)->site_favicon) && file_exists(public_path('storage/' . optional($setting)->site_favicon)) ? asset('storage/' . optional($setting)->site_favicon) : asset('frontend/images/no-logo(217-55).jpg') }}">
 
