@@ -23,7 +23,7 @@
         <!--end::Aside mobile toggle-->
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-            <a href="../../demo1/dist/index.html" class="d-lg-none">
+            <a href="javascript:;" class="d-lg-none">
                 <img alt="Logo" src="{{ asset('admin/assets/media/logos/logo-2.svg') }}" class="h-30px" />
             </a>
         </div>
@@ -32,6 +32,14 @@
         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
             <!--begin::Navbar-->
             <div class="d-flex align-items-stretch" id="kt_header_nav">
+
+                {{-- Frontend  --}}
+                <div class="my-auto">
+                    <a href="{{ route('homepage') }}" class="btn btn-secondary rounded-1 text-danger"
+                        target="blank">Frontend</a>
+                </div>
+                {{-- Frontend  --}}
+
             </div>
             <!--end::Navbar-->
             <!--begin::Toolbar wrapper-->
@@ -51,9 +59,9 @@
                         <!--end::Svg Icon-->
                     </div>
 
-                    @php
+                    {{-- @php
                         $ncount = Auth::guard('admin')->user()->unreadNotifications()->count();
-                    @endphp
+                    @endphp --}}
 
                     <!--begin::Menu-->
                     <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
@@ -62,7 +70,7 @@
                             style="background-image:url('{{ asset('admin/assets/media/misc/pattern-1.jpg') }}')">
                             <!--begin::Title-->
                             <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications
-                                <span class="fs-8 opacity-75 ps-3">{{ $ncount }} reports</span>
+                                {{-- <span class="fs-8 opacity-75 ps-3">{{ $ncount }} reports</span> --}}
                             </h3>
                             <!--end::Title-->
                             <!--begin::Tabs-->
@@ -85,47 +93,49 @@
                                 <!--begin::Items-->
                                 <div class="scroll-y mh-325px my-5 px-8">
 
-                                    @php
+                                    {{-- @php
                                         $admin = Auth::guard('admin')->user();
-                                    @endphp
+                                    @endphp --}}
 
                                     <!--begin::Item-->
-                                    @foreach ($admin->notifications as $notification)
-                                        <div class="d-flex flex-stack py-4">
-                                            <!--begin::Section-->
-                                            <div class="d-flex align-items-center">
+                                    {{-- @foreach ($admin->notifications as $notification) --}}
+                                    <div class="d-flex flex-stack py-4">
+                                        <!--begin::Section-->
+                                        <div class="d-flex align-items-center">
 
-                                                <!--begin::Symbol-->
-                                                <div class="symbol symbol-35px me-4">
-                                                    <span class="symbol-label bg-light-primary">
-                                                        <!--begin::Svg Icon | path: icons/duotune/technology/teh008.svg-->
+                                            <!--begin::Symbol-->
+                                            <div class="symbol symbol-35px me-4">
+                                                <span class="symbol-label bg-light-primary">
+                                                    <!--begin::Svg Icon | path: icons/duotune/technology/teh008.svg-->
 
-                                                        <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                            <i class="fa-solid fa-message"></i>
-                                                        </span>
-                                                        <!--end::Svg Icon-->
+                                                    <span class="svg-icon svg-icon-2 svg-icon-primary">
+                                                        <i class="fa-solid fa-message"></i>
                                                     </span>
-                                                </div>
-                                                <!--end::Symbol-->
-                                                <!--begin::Title-->
-                                                <div class="mb-0 me-2">
-                                                    @if (!empty($notification->data['name']))
-                                                        <a href="javascript:;"
-                                                            class="fs-6 text-gray-800 text-hover-primary fw-bolder">{{ $notification->data['name'] }}</a>
-                                                    @endif
-                                                    <div class="text-gray-400 fs-7">
-                                                        <a href="">{{ $notification->data['message'] }}</a>
-                                                    </div>
-                                                </div>
-                                                <!--end::Title-->
+                                                    <!--end::Svg Icon-->
+                                                </span>
                                             </div>
-                                            <!--end::Section-->
-                                            <!--begin::Label-->
-                                            <span
-                                                class="badge badge-light fs-9">{{ Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}</span>
-                                            <!--end::Label-->
+                                            <!--end::Symbol-->
+                                            <!--begin::Title-->
+                                            <div class="mb-0 me-2">
+                                                {{-- @if (!empty($notification->data['name'])) --}}
+                                                {{-- <a href="javascript:;"
+                                                            class="fs-6 text-gray-800 text-hover-primary fw-bolder">{{ $notification->data['name'] }}
+                                                        </a> --}}
+                                                {{-- @endif --}}
+                                                <div class="text-gray-400 fs-7">
+                                                    {{-- <a href="">{{ $notification->data['message'] }}</a> --}}
+                                                </div>
+                                            </div>
+                                            <!--end::Title-->
                                         </div>
-                                    @endforeach
+                                        <!--end::Section-->
+                                        <!--begin::Label-->
+                                        {{-- <span
+                                                class="badge badge-light fs-9">{{ Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
+                                            </span> --}}
+                                        <!--end::Label-->
+                                    </div>
+                                    {{-- @endforeach --}}
                                     <!--end::Item-->
 
 
