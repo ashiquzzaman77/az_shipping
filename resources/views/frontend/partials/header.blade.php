@@ -1,4 +1,5 @@
 <header class="header-area">
+    
     <div class="top-header">
         <div class="container">
             <div class="row align-items-center">
@@ -26,7 +27,7 @@
                             <a href="#contact">Contact</a>
                         </li>
                         <li class="mr-20">
-                            <a href="career.html">Career</a>
+                            <a href="">Career</a>
                         </li>
                         <!-- <li class="mr-20">
                             <a href="javascript:;">News & Media</a>
