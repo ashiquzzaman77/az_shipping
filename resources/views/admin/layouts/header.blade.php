@@ -1,3 +1,55 @@
+<style>
+    #clock {
+        font-family: 'Arial', sans-serif;
+        /* Font style */
+        font-size: 24px;
+        /* Font size */
+        color: #ffffff;
+        /* Text color */
+        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        /* Gradient with specified colors */
+        padding: 10px 20px;
+        /* Padding */
+        border-radius: 5px;
+        /* Rounded corners */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        /* Shadow for depth */
+        display: inline-flex;
+        /* Use flex for alignment */
+        justify-content: center;
+        /* Center items */
+        align-items: center;
+        /* Center items */
+        width: 250px;
+        /* Set width */
+        text-align: center;
+        /* Center text */
+        transition: all 0.3s ease;
+        /* Smooth transitions */
+    }
+
+    .time-segment {
+        margin: 0 5px;
+        /* Space between segments */
+    }
+
+    .colon {
+        margin: 0 5px;
+        /* Space around colons */
+    }
+
+    @media (max-width: 576px) {
+        #clock {
+            display: none;
+            /* Hide clock on small screens */
+        }
+
+        #frontend {
+            display: none;
+            /* Hide clock on small screens */
+        }
+    }
+</style>
 <!--begin::Header-->
 <div id="kt_header" class="header align-items-stretch">
     <!--begin::Container-->
@@ -34,14 +86,28 @@
             <div class="d-flex align-items-stretch" id="kt_header_nav">
 
                 {{-- Frontend  --}}
-                <div class="my-auto">
+                <div class="my-auto" id="frontend">
                     <a href="{{ route('homepage') }}" class="btn btn-secondary rounded-1 text-danger"
                         target="blank">Frontend</a>
                 </div>
                 {{-- Frontend  --}}
 
             </div>
+
+            {{-- Clock --}}
+            <div class="d-flex align-items-stretch" id="kt_header_nav">
+                <div class="my-auto" id="clock">
+                    <span class="time-segment" id="hours">00</span>
+                    <span class="colon">:</span>
+                    <span class="time-segment" id="minutes">00</span>
+                    <span class="colon">:</span>
+                    <span class="time-segment" id="seconds">00</span>
+                </div>
+            </div>
+            {{-- Clock --}}
+
             <!--end::Navbar-->
+
             <!--begin::Toolbar wrapper-->
             <div class="d-flex align-items-stretch flex-shrink-0">
                 <!--begin::Notifications-->
@@ -259,3 +325,25 @@
     <!--end::Container-->
 </div>
 <!--end::Header-->
+<script>
+    function updateClock() {
+        const now = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+        };
+
+        const timeString = now.toLocaleTimeString([], options).split(':');
+        document.getElementById('hours').textContent = timeString[0];
+        document.getElementById('minutes').textContent = timeString[1];
+        document.getElementById('seconds').textContent = timeString[2];
+    }
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+
+    // Initialize clock on page load
+    updateClock();
+</script>
