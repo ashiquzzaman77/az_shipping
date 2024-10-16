@@ -7,7 +7,7 @@
                     <ul class="left-info">
                         <li>
                             <a
-                                href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#8de5e8e1e1e2cdebe8fffff4a3eee2e0">
+                                href="javascript:;">
                                 <i class="bx bxs-envelope"></i>
                                 <span class="__cf_email__"
                                     data-cfemail="99f1fcf5f5f6d9fffcebebe0b7faf6f4">operation.azss@gmail.com</span>
@@ -64,8 +64,13 @@
                 <div class="ferry-responsive-menu">
                     <div class="logo">
                         <a href="index.html">
-                            <img src="assets/img/loA.jpg" class="main-logo" alt="logo">
-                            <img src="assets/img/loA.jpg" class="white-logo" alt="logo">
+
+                            <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" style="width: 120px; height: 50px;" class="main-logo" alt="logo">
+
+                            <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" style="width: 120px; height: 50px;" class="white-logo" alt="logo">
+
+                            {{-- <img src="assets/img/loA.jpg" class="white-logo" alt="logo"> --}}
+
                         </a>
                     </div>
                 </div>
@@ -74,11 +79,11 @@
         <div class="ferry-nav">
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{ route('homepage') }}">
 
-                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" class="main-logo" alt="logo">
+                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" class="main-logo" style="width: 160px; height: 70px;" alt="logo">
 
-                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" style="width: 400px;" class="white-logo" alt="logo">
+                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" style="width: 160px; height: 70px;" class="white-logo" alt="logo">
 
                     </a>
                     <div class="collapse navbar-collapse mean-menu">
