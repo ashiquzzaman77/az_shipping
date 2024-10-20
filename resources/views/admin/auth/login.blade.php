@@ -72,13 +72,14 @@
                             <div class="row">
 
                                 <div class="col-md-4 pe-md-0">
-                                    <div class="">
+                                    <div class="d-none d-md-block">
                                         <img alt="Logo" src="{{ asset('backend/login/assets/logo/5500661.jpg') }}"
                                             class="" style="width: 100%; height:100%;" />
                                     </div>
                                 </div>
+                                
 
-                                <div class="col-md-8 ps-md-0">
+                                <div class="col-md-8 ps-md-0 my-auto">
                                     <div class="auth-form-wrapper px-4 py-5">
 
                                         <a href="{{ route('admin.login') }}"
