@@ -84,9 +84,10 @@
                                         <a href="{{ route('admin.login') }}"
                                             class="noble-ui-logo logo-light d-block mb-2 text-center mb-4">
 
-                                            <img alt="Logo"
+                                            {{-- <img alt="Logo"
                                                 src="{{ asset('backend/login/assets/logo/Logo_White.png') }}"
-                                                class="" style="width: 90px; height: 100%;" />
+                                                class="" style="width: 90px; height: 100%;" /> --}}
+                                                <h1>AZ Shipping Service</h1>
 
                                         </a>
 
