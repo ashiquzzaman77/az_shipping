@@ -106,8 +106,6 @@
     @include('frontend.partials.footer')
     <!-- Footer Section End -->
 
-
-
     <!-- Main Section End -->
 
     <div class="go-top">
