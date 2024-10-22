@@ -133,6 +133,7 @@
                         <th width="10%">Academy</th>
                         <th width="10%">Batch</th>
                         <th width="10%">Contact</th>
+                        <th width="10%">Current Status</th>
                         {{-- <th width="5%">Status</th> --}}
                         <th width="5%">Actions</th>
                     </tr>
@@ -157,6 +158,7 @@
                             <td><h6>{{ $item->academy }}</h6></td>
                             <td><h6>{{ $item->batch }}</h6></td>
                             <td><h6>{{ $item->contact }}</h6></td>
+                            <td><h6>{{ $item->current_status }}</h6></td>
 
                             {{-- <td class="text-start">
                                 <label class="switch">

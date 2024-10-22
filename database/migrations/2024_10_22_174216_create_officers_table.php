@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('rank')->nullable();
             $table->string('cdc_no')->nullable();
             $table->string('contact')->nullable();
+            $table->string('status')->nullable();
 
             $table->string('academy')->nullable();
             $table->string('batch')->nullable();
