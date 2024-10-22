@@ -1,6 +1,5 @@
 @extends('frontend.master')
 @section('content')
-
     <!-- Banner Section Start  -->
     <div class="hero-slider-three owl-carousel owl-theme">
 
@@ -17,7 +16,9 @@
                                         <span>{{ $item->badge }}</span>
                                         <h1>{{ $item->title }}</h1>
                                         <p>{{ $item->sub_title }}</p>
+
                                         <a href="javascript:;" class="default-btn-one me-3">Contact Us</a>
+
                                     </div>
                                 </div>
 
