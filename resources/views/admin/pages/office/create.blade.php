@@ -311,13 +311,13 @@
                             </div>
                         </div>
 
-                        <div class="col-3 mb-3">
+                        {{-- <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="current_status" class="mb-2">Current Status</label>
                                 <input type="text" name="current_status" placeholder="Leave / OnLeave"
                                     class="form-control form-control-sm" value="{{ old('current_status') }}">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-3 mb-3">
                             <div class="form-group">

@@ -37,7 +37,7 @@ class OfficersController extends Controller
             'cdc_no' => 'nullable|string|max:255',
             'contact' => 'nullable|string|max:255',
             'status' => 'nullable|string',
-            
+
             'academy' => 'nullable|string|max:255',
             'batch' => 'nullable|string|max:255',
             'cdc' => 'nullable|string|max:255',
@@ -66,7 +66,7 @@ class OfficersController extends Controller
             'atoto' => 'nullable|string|max:255',
             'cor' => 'nullable|string|max:255',
             'covid' => 'nullable|string|max:255',
-            'current_status' => 'nullable|string|max:255',
+            // 'current_status' => 'nullable|string|max:255',
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
         ]);
@@ -144,7 +144,7 @@ class OfficersController extends Controller
             'atoto' => 'nullable|string|max:255',
             'cor' => 'nullable|string|max:255',
             'covid' => 'nullable|string|max:255',
-            'current_status' => 'nullable|string|max:255',
+            // 'current_status' => 'nullable|string|max:255',
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
         ]);

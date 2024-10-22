@@ -115,7 +115,7 @@
                          <div class="menu-item">
                             {{-- @if (Auth::guard('admin')->user()->can('all.service')) --}}
                             <a class="menu-link {{ Request::routeIs('admin.banner.index') ? 'active' : '' }}"
-                                href="{{ route('admin.banner.index') }}">
+                                href="">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>

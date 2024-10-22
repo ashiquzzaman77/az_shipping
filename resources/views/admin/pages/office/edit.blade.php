@@ -36,7 +36,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="name" class="mb-2">Name <span class="text-danger">*</span></label>
+                                <label for="name" class="mb-2">Name <span class="text-danger"></span></label>
                                 <input type="text" name="name" placeholder="Enter Name"
                                     class="form-control form-control-sm"
                                     value="{{ old('name', $officer->name ?? 'John Doe') }}" required>
@@ -63,7 +63,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="contact" class="mb-2">Contact <span class="text-danger">*</span></label>
+                                <label for="contact" class="mb-2">Contact <span class="text-danger"></span></label>
                                 <input type="tel" name="contact" placeholder="Enter Contact (e.g., 123-456-7890)"
                                     class="form-control form-control-sm"
                                     value="{{ old('contact', $officer->contact ?? '123-456-7890') }}" required>
@@ -344,14 +344,14 @@
                             </div>
                         </div>
 
-                        <div class="col-3 mb-3">
+                        {{-- <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="current_status" class="mb-2">Current Status</label>
                                 <input type="text" name="current_status" placeholder="Leave / On Leave"
                                     class="form-control form-control-sm"
                                     value="{{ old('current_status', $officer->current_status ?? 'On Leave') }}">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-3 mb-3">
                             <div class="form-group">

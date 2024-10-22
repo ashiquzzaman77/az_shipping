@@ -152,13 +152,33 @@
 
                             </td> --}}
 
-                            <td><h6>{{ $item->name }}</h6></td>
-                            <td><h6>{{ $item->rank }}</h6></td>
-                            <td><h6>{{ $item->cdc_no }}</h6></td>
-                            <td><h6>{{ $item->academy }}</h6></td>
-                            <td><h6>{{ $item->batch }}</h6></td>
-                            <td><h6>{{ $item->contact }}</h6></td>
-                            <td><h6>{{ $item->status }}</h6></td>
+                            <td>
+                                <h6>{{ $item->name }}</h6>
+                            </td>
+                            <td>
+                                <h6>{{ $item->rank }}</h6>
+                            </td>
+                            <td>
+                                <h6>{{ $item->cdc_no }}</h6>
+                            </td>
+                            <td>
+                                <h6>{{ $item->academy }}</h6>
+                            </td>
+                            <td>
+                                <h6>{{ $item->batch }}</h6>
+                            </td>
+                            <td>
+                                <h6>{{ $item->contact }}</h6>
+                            </td>
+                            <td>
+                                @if ($item->status == 'board')
+                                    <h6>On Board</h6>
+                                @elseif($item->status == 'leave')
+                                <h6>On Leave</h6>
+                                @elseif($item->status == 'fleet')
+                                <h6>Not in Fleet Yet</h6>
+                                @endif
+                            </td>
 
                             {{-- <td class="text-start">
                                 <label class="switch">
