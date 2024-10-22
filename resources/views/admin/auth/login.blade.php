@@ -73,11 +73,11 @@
 
                                 <div class="col-md-4 pe-md-0">
                                     <div class="d-none d-md-block">
-                                        <img alt="Logo" src="{{ asset('backend/login/assets/logo/5500661.jpg') }}"
-                                            class="" style="width: 100%; height:100%;" />
+                                        <img alt="Logo" src="{{ asset('backend/login/assets/logo/ship.png') }}"
+                                            class="" style="width: 100%; height:500px;" />
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="col-md-8 ps-md-0 my-auto">
                                     <div class="auth-form-wrapper px-4 py-5">
@@ -88,7 +88,7 @@
                                             {{-- <img alt="Logo"
                                                 src="{{ asset('backend/login/assets/logo/Logo_White.png') }}"
                                                 class="" style="width: 90px; height: 100%;" /> --}}
-                                                <h1>AZ Shipping Service</h1>
+                                            <h1>AZ Shipping Service</h1>
 
                                         </a>
 

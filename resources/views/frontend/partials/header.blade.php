@@ -162,10 +162,13 @@
                                         <a href="services.html" class="nav-link">Crew Management</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="service-details.html" class="nav-link">Crew Manning</a>
+                                        <a href="services.html" class="nav-link">PEME Medical Support</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="service-details.html" class="nav-link">Authorized Doctors</a>
+                                        <a href="service-details.html" class="nav-link">Flag Document Arrangement</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="service-details.html" class="nav-link">Travel & Visa Processing</a>
                                     </li>
                                 </ul>
                             </li>
