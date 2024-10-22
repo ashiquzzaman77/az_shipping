@@ -1,4 +1,5 @@
 <x-admin-app-layout :title="'Officer Create'">
+
     <div class="card card-flash">
         <div class="card-header">
             <div class="card-title">
@@ -27,9 +28,11 @@
                 enctype="multipart/form-data">
                 @csrf
 
-                <div class="card bg-light">
+                <div class="card bg-light mb-5">
 
                     <div class="row p-4">
+
+                        <h2 class="mb-4">Personal Information</h2>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -70,6 +73,15 @@
                                     class="form-control form-control-sm" value="{{ old('academy') }}">
                             </div>
                         </div>
+
+                    </div>
+                </div>
+
+                <div class="card bg-light mt-5">
+
+                    <div class="row p-4">
+
+                        <h2 class="mb-4">General Information</h2>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -317,8 +329,10 @@
                         </div>
 
                     </div>
-                    
+
                 </div>
+
+
             </form>
 
 

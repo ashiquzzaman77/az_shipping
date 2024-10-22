@@ -28,9 +28,11 @@
                 @csrf
                 @method('PUT')
 
-                <div class="card bg-light">
+                <div class="card bg-light mb-5">
 
                     <div class="row p-4">
+
+                        <h2 class="mb-4">Personal Information</h2>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -76,6 +78,15 @@
                                     value="{{ old('academy', $officer->academy ?? 'Naval Academy') }}">
                             </div>
                         </div>
+
+                    </div>
+                </div>
+
+                <div class="card bg-light mt-5">
+
+                    <div class="row p-4">
+
+                        <h2 class="mb-4">General Information</h2>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
