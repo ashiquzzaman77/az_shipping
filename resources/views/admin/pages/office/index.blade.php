@@ -158,7 +158,7 @@
                             <td><h6>{{ $item->academy }}</h6></td>
                             <td><h6>{{ $item->batch }}</h6></td>
                             <td><h6>{{ $item->contact }}</h6></td>
-                            <td><h6>{{ $item->current_status }}</h6></td>
+                            <td><h6>{{ $item->status }}</h6></td>
 
                             {{-- <td class="text-start">
                                 <label class="switch">
