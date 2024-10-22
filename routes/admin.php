@@ -45,8 +45,7 @@ use App\Http\Controllers\Admin\UserManagementController;
 
 
 use App\Http\Controllers\Controller;
-
-
+use App\Http\Controllers\OfficersController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -159,6 +158,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
             //Shipping
             'banner' => BannerController::class, 
+            'officer' => OfficersController::class, 
 
         ],
 
