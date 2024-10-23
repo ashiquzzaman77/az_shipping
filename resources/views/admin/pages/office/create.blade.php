@@ -94,7 +94,8 @@
                             </div>
                             <div id="additionalField" class="form-group mt-2" style="display: none;">
                                 <label for="details" class="mb-2">Ship Name</label>
-                                <input type="text" class="form-control form-control-sm" id="details" name="ship_name" placeholder="Enter Ship Name">
+                                <input type="text" class="form-control form-control-sm" id="details"
+                                    name="ship_name" placeholder="Enter Ship Name">
                             </div>
                         </div>
 
@@ -340,6 +341,19 @@
                             </div>
                         </div>
 
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="num_of_field" class="mb-2">Number Of Fields</label>
+                                <input type="number" id="num_of_field" max="4" name="num_of_field"
+                                    class="form-control form-control-sm" onchange="updateFields()">
+                            </div>
+                        </div>
+
+
+
+
+
+
                         <div class="col-12 mb-3 mt-4">
                             <button type="submit"
                                 class="btn btn-primary rounded-0 px-5 btn-sm float-end">Submit</button>
@@ -358,18 +372,18 @@
     </div>
 
     @push('scripts')
-    <script>
-        const statusSelect = document.getElementById('statusSelect');
-        const additionalField = document.getElementById('additionalField');
-    
-        statusSelect.addEventListener('change', function() {
-            if (this.value === 'board') {
-                additionalField.style.display = 'block';
-            } else {
-                additionalField.style.display = 'none';
-            }
-        });
-    </script>
+        <script>
+            const statusSelect = document.getElementById('statusSelect');
+            const additionalField = document.getElementById('additionalField');
+
+            statusSelect.addEventListener('change', function() {
+                if (this.value === 'board') {
+                    additionalField.style.display = 'block';
+                } else {
+                    additionalField.style.display = 'none';
+                }
+            });
+        </script>
     @endpush
 
 
