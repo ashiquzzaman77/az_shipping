@@ -28,7 +28,7 @@
             overflow: hidden;
         }
 
-        .custom-table th{
+        .custom-table th {
             width: 35%;
         }
     </style>
@@ -99,7 +99,7 @@
                             </td>
                             <td>
                                 @if ($item->status == 'board')
-                                    <h6>On Board</h6>
+                                    <h6>On Board ($item->ship_name)</h6>
                                 @elseif($item->status == 'leave')
                                     <h6>On Leave</h6>
                                 @elseif($item->status == 'fleet')
@@ -135,7 +135,8 @@
                                                 <div class="row">
 
                                                     <div class="col-12 mb-3">
-                                                        <h2>Name : <span class="text-danger">{{ $item->name }}</span></h3>
+                                                        <h2>Name : <span class="text-danger">{{ $item->name }}</span>
+                                                            </h3>
                                                     </div>
 
                                                     <div class="col-6">
@@ -157,7 +158,15 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">Status</th>
-                                                                    <td>{{ $item->status }}</td>
+                                                                    <td>
+                                                                        @if ($item->status == 'board')
+                                                                            <h6>On Board ($item->ship_name)</h6>
+                                                                        @elseif($item->status == 'leave')
+                                                                            <h6>On Leave</h6>
+                                                                        @elseif($item->status == 'fleet')
+                                                                            <h6>Not in Fleet Yet</h6>
+                                                                        @endif
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">Academy</th>
@@ -191,18 +200,18 @@
                                                                     <th class="fs-5">EFA</th>
                                                                     <td>{{ $item->efa }}</td>
                                                                 </tr>
-                                                                
+
                                                             </tbody>
                                                         </table>
 
                                                     </div>
 
                                                     <div class="col-6">
-                                                       
+
                                                         <table
                                                             class="table table-striped table-hover table-row-bordered custom-table">
                                                             <tbody>
-                                                                
+
                                                                 <tr>
                                                                     <th class="fs-5">PSCRB</th>
                                                                     <td>{{ $item->pscrb }}</td>
@@ -227,7 +236,7 @@
                                                                     <th class="fs-5">DSD</th>
                                                                     <td>{{ $item->dsd }}</td>
                                                                 </tr>
-                                                                
+
                                                                 <tr>
                                                                     <th class="fs-5">NWR</th>
                                                                     <td>{{ $item->nwr }}</td>
@@ -249,11 +258,13 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">Discharge Date</th>
-                                                                    <td>{{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">End Of Contact</th>
-                                                                    <td>{{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -311,8 +322,6 @@
                     ">"
             });
         </script>
-
-        
     @endpush
 
 </x-admin-app-layout>
