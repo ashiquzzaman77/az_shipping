@@ -91,7 +91,7 @@
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.officer.index','admin.officers.index') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.officer.index', 'admin.rating.index') ? 'here show' : '' }}">
 
 
                          {{-- Officres  --}}
@@ -113,17 +113,17 @@
                          {{-- Rating  --}}
                          {{-- @if (Auth::guard('admin')->user()->can('service.menu')) --}}
                          <div class="menu-item">
-                            {{-- @if (Auth::guard('admin')->user()->can('all.service')) --}}
-                            <a class="menu-link {{ Request::routeIs('admin.banner.index') ? 'active' : '' }}"
-                                href="">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Rating</span>
-                            </a>
-                            {{-- @endif --}}
-                        </div>
-                        {{-- @endif --}}
+                             {{-- @if (Auth::guard('admin')->user()->can('all.service')) --}}
+                             <a class="menu-link {{ Request::routeIs('admin.rating.index') ? 'active' : '' }}"
+                                 href="{{ route('admin.rating.index') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">Rating</span>
+                             </a>
+                             {{-- @endif --}}
+                         </div>
+                         {{-- @endif --}}
 
                          {{-- @if (Auth::guard('admin')->user()->can('course-category.menu'))
                              <div class="menu-item">
