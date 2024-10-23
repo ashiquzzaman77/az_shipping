@@ -23,6 +23,7 @@ return new class extends Migration
 
             $table->string('academy')->nullable();
             $table->string('batch')->nullable();
+            
             $table->string('cdc')->nullable();
             $table->string('coc')->nullable();
             $table->string('goc')->nullable();

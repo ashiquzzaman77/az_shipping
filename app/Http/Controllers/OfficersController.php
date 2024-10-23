@@ -37,6 +37,7 @@ class OfficersController extends Controller
             'cdc_no' => 'nullable|string|max:255',
             'contact' => 'nullable|string|max:255',
             'status' => 'nullable|string',
+            'ship_name' => 'nullable|string',
 
             'academy' => 'nullable|string|max:255',
             'batch' => 'nullable|string|max:255',
@@ -115,6 +116,7 @@ class OfficersController extends Controller
             'cdc_no' => 'nullable|string|max:255',
             'contact' => 'required|string|max:25', // Adjust the max length as necessary
             'status' => 'nullable|string',
+            'ship_name' => 'nullable|string',
 
             'academy' => 'nullable|string|max:255',
             'batch' => 'nullable|string|max:255',

@@ -38,6 +38,8 @@ class RatingController extends Controller
             'contact' => 'nullable|string|max:255',
             'academy' => 'nullable|string|max:255',
             'status' => 'nullable|string',
+            'ship_name' => 'nullable|string',
+
             'batch' => 'nullable|string|max:255',
             'cdc' => 'nullable|string|max:255',
             'passport' => 'nullable|string|max:255',
@@ -74,6 +76,8 @@ class RatingController extends Controller
         $rating->contact = $request->contact;
         $rating->academy = $request->academy;
         $rating->status = $request->status;
+        $rating->ship_name = $request->ship_name;
+
         $rating->batch = $request->batch;
         $rating->cdc = $request->cdc;
         $rating->passport = $request->passport;
@@ -126,12 +130,14 @@ class RatingController extends Controller
     {
         // Validate the incoming request data
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'rank' => 'required|string|max:255',
-            'cdc_no' => 'required|string|max:255',
-            'contact' => 'required|string|max:255',
+            'name' => 'nullable|string|max:255',
+            'rank' => 'nullable|string|max:255',
+            'cdc_no' => 'nullable|string|max:255',
+            'contact' => 'nullable|string|max:255',
             'academy' => 'nullable|string|max:255',
-            'status' => 'required|in:board,leave,fleet',
+            'status' => 'nullable|string',
+
+            'ship_name' => 'nullable|string',
             'batch' => 'nullable|string|max:255',
             'cdc' => 'nullable|string|max:255',
             'passport' => 'nullable|string|max:255',
