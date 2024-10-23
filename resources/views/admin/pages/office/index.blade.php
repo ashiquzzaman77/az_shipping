@@ -7,97 +7,33 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <script>
-        // Configure Toastr
-        toastr.options = {
-            "closeButton": true, // Add a close button
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": true, // Show a progress bar
-            "positionClass": "toast-top-right", // Position of the toast
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300", // Show duration in milliseconds
-            "hideDuration": "1000", // Hide duration in milliseconds
-            "timeOut": "5000", // Time to show the notification (5000ms = 5 seconds)
-            "extendedTimeOut": "1000", // Time to extend the notification on hover
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        };
-    </script>
-
-
     <style>
-        /* The switch - the box around the slider */
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
+        .custom-table th {
+            background: #9DBDFF;
+            color: #fff;
+            padding: 10px;
         }
 
-        /* Hide default HTML checkbox */
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
+        .custom-table td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
         }
 
-        /* The slider */
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
+        .custom-table tr:hover {
+            background-color: #f1f1f1;
         }
 
-        /* The slider before it is checked */
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            border-radius: 50%;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
+        .custom-table {
+            border-radius: 0.5rem;
+            overflow: hidden;
         }
 
-        /* Change background color when checked */
-        input:checked+.slider {
-            background-color: #49c464;
-            /* Green color for active */
-        }
-
-        /* Move the slider handle when checked */
-        input:checked+.slider:before {
-            transform: translateX(26px);
-        }
-
-        /* When the switch is inactive (danger color) */
-        input:not(:checked)+.slider {
-            background-color: #f44336;
-            /* Red color for inactive */
-        }
-
-        /* Rounded slider */
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        /* Rounded slider handle */
-        .slider.round:before {
-            border-radius: 50%;
+        .custom-table th{
+            width: 35%;
         }
     </style>
+
+
 
     <div class="card card-flash">
         <div class="card-header mt-6">
@@ -134,7 +70,6 @@
                         <th width="10%">Batch</th>
                         <th width="10%">Contact</th>
                         <th width="10%">Current Status</th>
-                        {{-- <th width="5%">Status</th> --}}
                         <th width="5%">Actions</th>
                     </tr>
                 </thead>
@@ -174,28 +109,215 @@
                                 @if ($item->status == 'board')
                                     <h6>On Board</h6>
                                 @elseif($item->status == 'leave')
-                                <h6>On Leave</h6>
+                                    <h6>On Leave</h6>
                                 @elseif($item->status == 'fleet')
-                                <h6>Not in Fleet Yet</h6>
+                                    <h6>Not in Fleet Yet</h6>
                                 @endif
                             </td>
 
-                            {{-- <td class="text-start">
-                                <label class="switch">
-                                    <input type="checkbox" class="status-toggle" data-id="{{ $item->id }}"
-                                        {{ $item->status == 'active' ? 'checked' : '' }}>
-                                    <span class="slider round"></span>
-                                </label>
-                            </td> --}}
-
 
                             <td>
+
+                                <a href="" data-bs-toggle="modal" data-bs-target="#showModal{{ $item->id }}"
+                                    class="text-primary">
+                                    <i class="fa-solid fa-eye text-success fs-5"></i>
+                                </a>
+
+                                <!-- showModal -->
+                                <div class="modal fade" id="showModal{{ $item->id }}" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="showModalLabel"
+                                    aria-hidden="true">
+
+                                    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header bg-secondary">
+                                                <h1 class="modal-title fs-3" id="staticBackdropLabel">Officer Details
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-body">
+
+                                                <div class="row">
+
+                                                    <div class="col-12 mb-3">
+                                                        <h2>Name : <span class="text-danger">{{ $item->name }}</span></h3>
+                                                    </div>
+
+                                                    <div class="col-6">
+
+                                                        <table
+                                                            class="table table-striped table-hover table-row-bordered custom-table">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th class="fs-5">Rank</th>
+                                                                    <td>{{ $item->rank }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">CDC NO</th>
+                                                                    <td>{{ $item->cdc_no }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Contact</th>
+                                                                    <td>{{ $item->contact }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Status</th>
+                                                                    <td>{{ $item->status }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Academy</th>
+                                                                    <td>{{ $item->academy }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Batch</th>
+                                                                    <td>{{ $item->batch }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">CDC</th>
+                                                                    <td>{{ $item->cdc }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">COC</th>
+                                                                    <td>{{ $item->coc }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">GOC</th>
+                                                                    <td>{{ $item->goc }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">SID</th>
+                                                                    <td>{{ $item->sid }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">PH</th>
+                                                                    <td>{{ $item->ph }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">PST</th>
+                                                                    <td>{{ $item->pst }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">FPFF</th>
+                                                                    <td>{{ $item->fpff }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">ETA</th>
+                                                                    <td>{{ $item->efa }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">PSSR</th>
+                                                                    <td>{{ $item->pssr }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">SAT</th>
+                                                                    <td>{{ $item->sat }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">DSD</th>
+                                                                    <td>{{ $item->dsd }}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                       
+                                                        <table
+                                                            class="table table-striped table-hover table-row-bordered custom-table">
+                                                            <tbody>
+                                                                
+                                                                <tr>
+                                                                    <th class="fs-5">PSCRB</th>
+                                                                    <td>{{ $item->pscrb }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Rader Navigation</th>
+                                                                    <td>{{ $item->radar_navigation }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">AFF</th>
+                                                                    <td>{{ $item->aff }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">MFA</th>
+                                                                    <td>{{ $item->mfa }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Medical Care</th>
+                                                                    <td>{{ $item->madical_care }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">ENS</th>
+                                                                    <td>{{ $item->ens }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">SSO</th>
+                                                                    <td>{{ $item->sso }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">BRM</th>
+                                                                    <td>{{ $item->brm }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">HVS</th>
+                                                                    <td>{{ $item->hvs }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Ship Simulation</th>
+                                                                    <td>{{ $item->ship_simulation }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Ecdis</th>
+                                                                    <td>{{ $item->ecdis }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Atoto</th>
+                                                                    <td>{{ $item->atoto }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">COR</th>
+                                                                    <td>{{ $item->cor }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Covid</th>
+                                                                    <td>{{ $item->covid }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Discharge Date</th>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">End Of Contact</th>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
-                                    <i class="fa-solid fa-pencil text-primary"></i>
+                                    <i class="fa-solid fa-pencil text-primary fs-5"></i>
                                 </a>
 
                                 <a href="{{ route('admin.officer.destroy', $item->id) }}" class="delete">
-                                    <i class="fa-solid fa-trash text-danger"></i>
+                                    <i class="fa-solid fa-trash text-danger fs-5"></i>
                                 </a>
 
                             </td>

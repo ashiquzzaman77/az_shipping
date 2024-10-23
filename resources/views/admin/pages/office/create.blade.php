@@ -68,6 +68,14 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="academy" class="mb-2">Academy</label>
+                                <input type="text" name="academy" placeholder="Enter Academy"
+                                    class="form-control form-control-sm" value="{{ old('academy') }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="contact" class="mb-2">Current Status</label>
                                 <select name="status" class="form-select form-select-sm" id="">
                                     <option disabled selected>Choose...</option>
@@ -87,13 +95,7 @@
 
                         <h2 class="mb-4">General Information</h2>
 
-                        <div class="col-3 mb-3">
-                            <div class="form-group">
-                                <label for="academy" class="mb-2">Academy</label>
-                                <input type="text" name="academy" placeholder="Enter Academy"
-                                    class="form-control form-control-sm" value="{{ old('academy') }}">
-                            </div>
-                        </div>
+                        
 
                         <div class="col-3 mb-3">
                             <div class="form-group">

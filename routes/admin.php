@@ -151,10 +151,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'user' => UserController::class, //done
             'user-management' => UserManagementController::class,
             'admin-management' => AdminController::class,
-            // 'newsletters' => NewsletterController::class,
-            // 'contacts' => ContactController::class,
-            // 'about' => AboutUsController::class,
-            // 'service' => ServiceController::class,
 
             //Shipping
             'banner' => BannerController::class, 
