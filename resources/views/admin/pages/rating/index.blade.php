@@ -99,7 +99,7 @@
                             </td>
                             <td>
                                 @if ($item->status == 'board')
-                                    <h6>On Board ($item->ship_name)</h6>
+                                    <h6>On Board ({{ $item->ship_name }})</h6>
                                 @elseif($item->status == 'leave')
                                     <h6>On Leave</h6>
                                 @elseif($item->status == 'fleet')
@@ -160,7 +160,7 @@
                                                                     <th class="fs-5">Status</th>
                                                                     <td>
                                                                         @if ($item->status == 'board')
-                                                                            <h6>On Board ($item->ship_name)</h6>
+                                                                            <h6>On Board ({{ $item->ship_name }})</h6>
                                                                         @elseif($item->status == 'leave')
                                                                             <h6>On Leave</h6>
                                                                         @elseif($item->status == 'fleet')
