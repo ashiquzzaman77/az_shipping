@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('cdc_no')->nullable();
             $table->string('contact')->nullable();
             $table->string('status')->nullable();
+            $table->string('ship_name')->nullable();
 
             $table->string('academy')->nullable();
             $table->string('batch')->nullable();

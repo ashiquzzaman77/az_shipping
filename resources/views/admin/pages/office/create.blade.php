@@ -76,13 +76,25 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="batch" class="mb-2">Batch</label>
+                                <input type="text" name="batch" placeholder="Enter Batch"
+                                    class="form-control form-control-sm" value="{{ old('batch') }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="contact" class="mb-2">Current Status</label>
-                                <select name="status" class="form-select form-select-sm" id="">
+                                <select name="status" class="form-select form-select-sm" id="statusSelect">
                                     <option disabled selected>Choose...</option>
                                     <option value="board">On Board</option>
                                     <option value="leave">On Leave</option>
                                     <option value="fleet">Not in Fleet Yet</option>
                                 </select>
+                            </div>
+                            <div id="additionalField" class="form-group mt-2" style="display: none;">
+                                <label for="details" class="mb-2">Ship Name</label>
+                                <input type="text" class="form-control form-control-sm" id="details" name="ship_name" placeholder="Enter Ship Name">
                             </div>
                         </div>
 
@@ -95,15 +107,6 @@
 
                         <h2 class="mb-4">General Information</h2>
 
-                        
-
-                        <div class="col-3 mb-3">
-                            <div class="form-group">
-                                <label for="batch" class="mb-2">Batch</label>
-                                <input type="text" name="batch" placeholder="Enter Batch"
-                                    class="form-control form-control-sm" value="{{ old('batch') }}">
-                            </div>
-                        </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -355,6 +358,18 @@
     </div>
 
     @push('scripts')
+    <script>
+        const statusSelect = document.getElementById('statusSelect');
+        const additionalField = document.getElementById('additionalField');
+    
+        statusSelect.addEventListener('change', function() {
+            if (this.value === 'board') {
+                additionalField.style.display = 'block';
+            } else {
+                additionalField.style.display = 'none';
+            }
+        });
+    </script>
     @endpush
 
 

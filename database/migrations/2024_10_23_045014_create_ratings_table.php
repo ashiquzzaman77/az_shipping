@@ -42,6 +42,8 @@ return new class extends Migration
             $table->string('atoto')->nullable();
             $table->string('covid')->nullable();
             $table->string('status')->nullable();
+            $table->string('ship_name')->nullable();
+
             $table->date('discharge_date')->nullable();
             $table->date('end_of_contract')->nullable();
             

@@ -77,21 +77,30 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="status" class="mb-2">Current Status</label>
-                                <select name="status" class="form-select form-select-sm">
-                                    <option disabled>Choose...</option>
-                                    <option value="board"
-                                        {{ old('status', $rating->status) == 'board' ? 'selected' : '' }}>On Board
-                                    </option>
-                                    <option value="leave"
-                                        {{ old('status', $rating->status) == 'leave' ? 'selected' : '' }}>On Leave
-                                    </option>
-                                    <option value="fleet"
-                                        {{ old('status', $rating->status) == 'fleet' ? 'selected' : '' }}>Not in Fleet
-                                        Yet</option>
-                                </select>
+                                <label for="batch" class="mb-2">Batch</label>
+                                <input type="text" name="batch" placeholder="Enter Batch"
+                                    class="form-control form-control-sm" value="{{ old('batch', $rating->batch) }}">
                             </div>
                         </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="contact" class="mb-2">Current Status</label>
+                                <select name="status" class="form-select form-select-sm" id="statusSelect">
+                                    <option disabled {{ $rating->status ? '' : 'selected' }}>Choose...</option>
+                                    <option value="board" {{ $rating->status == 'board' ? 'selected' : '' }}>On Board</option>
+                                    <option value="leave" {{ $rating->status == 'leave' ? 'selected' : '' }}>On Leave</option>
+                                    <option value="fleet" {{ $rating->status == 'fleet' ? 'selected' : '' }}>Not in Fleet Yet</option>
+                                </select>
+                            </div>
+                            
+                            <div id="additionalField" class="form-group mt-2" style="{{ $rating->status == 'board' ? '' : 'display: none;' }}">
+                                <label for="details" class="mb-2">Ship Name</label>
+                                <input type="text" class="form-control form-control-sm" id="details" name="ship_name" placeholder="Enter ship name">
+                            </div>
+                        </div>
+
+                        
 
                     </div>
                 </div>
@@ -102,13 +111,7 @@
 
                         <h2 class="mb-4">General Information</h2>
 
-                        <div class="col-3 mb-3">
-                            <div class="form-group">
-                                <label for="batch" class="mb-2">Batch</label>
-                                <input type="text" name="batch" placeholder="Enter Batch"
-                                    class="form-control form-control-sm" value="{{ old('batch', $rating->batch) }}">
-                            </div>
-                        </div>
+                        
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -273,6 +276,25 @@
     </div>
 
     @push('scripts')
+    <script>
+        const statusSelect = document.getElementById('statusSelect');
+        const additionalField = document.getElementById('additionalField');
+    
+        // Function to toggle the additional field
+        function toggleAdditionalField() {
+            if (statusSelect.value === 'board') {
+                additionalField.style.display = 'block';
+            } else {
+                additionalField.style.display = 'none';
+            }
+        }
+    
+        // Event listener for the dropdown
+        statusSelect.addEventListener('change', toggleAdditionalField);
+    
+        // Initial check to set visibility based on the selected status
+        toggleAdditionalField();
+    </script>
     @endpush
 
 </x-admin-app-layout>
