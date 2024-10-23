@@ -101,7 +101,7 @@
                             
                             <div id="additionalField" class="form-group mt-2" style="{{ $officer->status == 'board' ? '' : 'display: none;' }}">
                                 <label for="details" class="mb-2">Ship Name</label>
-                                <input type="text" class="form-control form-control-sm" id="details" name="ship_name" placeholder="Enter ship name">
+                                <input type="text" class="form-control form-control-sm" id="details" value="{{ $officer->ship_name }}" name="ship_name" placeholder="Enter ship name">
                             </div>
                         </div>
 

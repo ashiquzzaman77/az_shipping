@@ -297,6 +297,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">Discharge Date</th>
+                                                                    
                                                                     <td>{{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
                                                                     </td>
                                                                 </tr>
