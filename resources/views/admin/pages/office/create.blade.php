@@ -34,6 +34,22 @@
 
                         <h2 class="mb-4">Personal Information</h2>
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="name" class="mb-2">Name</label>
@@ -317,13 +333,6 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-3 mb-3">
-                            <div class="form-group">
-                                <label for="current_status" class="mb-2">Current Status</label>
-                                <input type="date" name="current_status" placeholder="Leave / OnLeave"
-                                    class="form-control form-control-sm" value="{{ old('current_status') }}">
-                            </div>
-                        </div> --}}
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -370,42 +379,6 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-lg-3">
-                            <div class="form-group mb-4">
-                                <label for="team_member">Num of Member</label>
-                                <input type="number" max="3" min="1" name="team_member"
-                                    value="{{ old('team_member') }}"
-                                    class="form-control form-control-sm p-3 @error('team_member') is-invalid @enderror"
-                                    id="team_member">
-                            </div>
-                        </div>
-
-                        <div id="additional_fields" style="display: none;">
-                            
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group mb-4">
-                                        <label for="member_1">Member 1</label>
-                                        <input type="date" name="member_1" class="form-control form-control-sm">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group mb-4" id="member_2_field" style="display: none;">
-                                        <label for="member_2">Member 2</label>
-                                        <input type="date" name="team_member_two"
-                                            class="form-control form-control-sm p-3">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group mb-4" id="member_3_field" style="display: none;">
-                                        <label for="member_3">Member 3</label>
-                                        <input type="date" name="team_member_three"
-                                            class="form-control form-control-sm p-3">
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-
 
                         <div class="col-12 mb-3 mt-4">
                             <button type="submit"
@@ -418,6 +391,250 @@
 
 
             </form>
+
+            {{-- <form id="myForm" method="post" action="{{ route('admin.officer.store') }}"
+                enctype="multipart/form-data">
+                @csrf
+
+                <div class="card bg-light mb-5">
+                    <div class="row p-4">
+                        <h2 class="mb-4">Personal Information</h2>
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="name" class="mb-2">Name</label>
+                                <input type="text" name="name" placeholder="Enter Name"
+                                    class="form-control form-control-sm @error('name') is-invalid @enderror"
+                                    value="{{ old('name') }}">
+                                @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="rank" class="mb-2">Rank</label>
+                                <input type="text" name="rank" placeholder="Enter Rank"
+                                    class="form-control form-control-sm @error('rank') is-invalid @enderror"
+                                    value="{{ old('rank') }}">
+                                @error('rank')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="cdc_no" class="mb-2">CDC No</label>
+                                <input type="text" name="cdc_no" placeholder="Enter CDC No"
+                                    class="form-control form-control-sm @error('cdc_no') is-invalid @enderror"
+                                    value="{{ old('cdc_no') }}">
+                                @error('cdc_no')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="contact" class="mb-2">Contact</label>
+                                <input type="text" name="contact" placeholder="Enter Contact"
+                                    class="form-control form-control-sm @error('contact') is-invalid @enderror"
+                                    value="{{ old('contact') }}">
+                                @error('contact')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="academy" class="mb-2">Academy</label>
+                                <input type="text" name="academy" placeholder="Enter Academy"
+                                    class="form-control form-control-sm @error('academy') is-invalid @enderror"
+                                    value="{{ old('academy') }}">
+                                @error('academy')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="batch" class="mb-2">Batch</label>
+                                <input type="text" name="batch" placeholder="Enter Batch"
+                                    class="form-control form-control-sm @error('batch') is-invalid @enderror"
+                                    value="{{ old('batch') }}">
+                                @error('batch')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="status" class="mb-2">Current Status</label>
+                                <select name="status"
+                                    class="form-select form-select-sm @error('status') is-invalid @enderror"
+                                    id="statusSelect">
+                                    <option disabled selected>Choose...</option>
+                                    <option value="board" {{ old('status') == 'board' ? 'selected' : '' }}>On Board
+                                    </option>
+                                    <option value="leave" {{ old('status') == 'leave' ? 'selected' : '' }}>On Leave
+                                    </option>
+                                    <option value="fleet" {{ old('status') == 'fleet' ? 'selected' : '' }}>Not in
+                                        Fleet Yet</option>
+                                </select>
+                                @error('status')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div id="additionalField" class="form-group mt-2" style="display: none;">
+                                <label for="details" class="mb-2">Ship Name</label>
+                                <input type="text" class="form-control form-control-sm" id="details"
+                                    name="ship_name" placeholder="Enter Ship Name" value="{{ old('ship_name') }}">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card bg-light mt-5">
+                    <div class="row p-4">
+                        <h2 class="mb-4">General Information</h2>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="cdc" class="mb-2">CDC</label>
+                                <input type="date" name="cdc"
+                                    class="form-control form-control-sm @error('cdc') is-invalid @enderror"
+                                    value="{{ old('cdc') }}">
+                                @error('cdc')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="coc" class="mb-2">COC</label>
+                                <input type="date" name="coc"
+                                    class="form-control form-control-sm @error('coc') is-invalid @enderror"
+                                    value="{{ old('coc') }}">
+                                @error('coc')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="goc" class="mb-2">GOC</label>
+                                <input type="date" name="goc"
+                                    class="form-control form-control-sm @error('goc') is-invalid @enderror"
+                                    value="{{ old('goc') }}">
+                                @error('goc')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="sid" class="mb-2">SID</label>
+                                <input type="date" name="sid"
+                                    class="form-control form-control-sm @error('sid') is-invalid @enderror"
+                                    value="{{ old('sid') }}">
+                                @error('sid')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="ph" class="mb-2">PH</label>
+                                <input type="date" name="ph"
+                                    class="form-control form-control-sm @error('ph') is-invalid @enderror"
+                                    value="{{ old('ph') }}">
+                                @error('ph')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="pst" class="mb-2">PST</label>
+                                <input type="date" name="pst"
+                                    class="form-control form-control-sm @error('pst') is-invalid @enderror"
+                                    value="{{ old('pst') }}">
+                                @error('pst')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="fpff" class="mb-2">FPFF</label>
+                                <input type="date" name="fpff"
+                                    class="form-control form-control-sm @error('fpff') is-invalid @enderror"
+                                    value="{{ old('fpff') }}">
+                                @error('fpff')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="efa" class="mb-2">EFA</label>
+                                <input type="date" name="efa"
+                                    class="form-control form-control-sm @error('efa') is-invalid @enderror"
+                                    value="{{ old('efa') }}">
+                                @error('efa')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="emergency_contact" class="mb-2">Emergency Contact</label>
+                                <input type="text" name="emergency_contact"
+                                    class="form-control form-control-sm @error('emergency_contact') is-invalid @enderror"
+                                    value="{{ old('emergency_contact') }}" placeholder="Enter Emergency Contact">
+                                @error('emergency_contact')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-3 mt-4">
+                            <button type="submit"
+                                class="btn btn-primary rounded-0 px-5 btn-sm float-end">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form> --}}
 
 
         </div>

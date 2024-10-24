@@ -34,12 +34,28 @@
 
                         <h2 class="mb-4">Personal Information</h2>
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="name" class="mb-2">Name <span class="text-danger"></span></label>
                                 <input type="text" name="name" placeholder="Enter Name"
                                     class="form-control form-control-sm"
-                                    value="{{ old('name', $officer->name ?? 'John Doe') }}" required>
+                                    value="{{ old('name', $officer->name ?? 'John Doe') }}">
                             </div>
                         </div>
 
@@ -93,15 +109,21 @@
                                 <label for="contact" class="mb-2">Current Status</label>
                                 <select name="status" class="form-select form-select-sm" id="statusSelect">
                                     <option disabled {{ $officer->status ? '' : 'selected' }}>Choose...</option>
-                                    <option value="board" {{ $officer->status == 'board' ? 'selected' : '' }}>On Board</option>
-                                    <option value="leave" {{ $officer->status == 'leave' ? 'selected' : '' }}>On Leave</option>
-                                    <option value="fleet" {{ $officer->status == 'fleet' ? 'selected' : '' }}>Not in Fleet Yet</option>
+                                    <option value="board" {{ $officer->status == 'board' ? 'selected' : '' }}>On Board
+                                    </option>
+                                    <option value="leave" {{ $officer->status == 'leave' ? 'selected' : '' }}>On
+                                        Leave</option>
+                                    <option value="fleet" {{ $officer->status == 'fleet' ? 'selected' : '' }}>Not in
+                                        Fleet Yet</option>
                                 </select>
                             </div>
-                            
-                            <div id="additionalField" class="form-group mt-2" style="{{ $officer->status == 'board' ? '' : 'display: none;' }}">
+
+                            <div id="additionalField" class="form-group mt-2"
+                                style="{{ $officer->status == 'board' ? '' : 'display: none;' }}">
                                 <label for="details" class="mb-2">Ship Name</label>
-                                <input type="text" class="form-control form-control-sm" id="details" value="{{ $officer->ship_name }}" name="ship_name" placeholder="Enter ship name">
+                                <input type="text" class="form-control form-control-sm" id="details"
+                                    value="{{ $officer->ship_name }}" name="ship_name"
+                                    placeholder="Enter ship name">
                             </div>
                         </div>
 
@@ -111,6 +133,10 @@
                                 <input type="text" name="remarks" placeholder="Enter Remarks"
                                     class="form-control form-control-sm"
                                     value="{{ old('remarks', $officer->remarks) }}">
+
+                                @error('remarks')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
@@ -389,34 +415,34 @@
                             <div class="form-group">
                                 <label for="other_one" class="mb-2">Other One</label>
                                 <input type="date" name="other_one" class="form-control form-control-sm"
-                                    value="{{ old('other_one',$officer->other_one) }}">
+                                    value="{{ old('other_one', $officer->other_one) }}">
                             </div>
                         </div>
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="other_two" class="mb-2">Other Two</label>
                                 <input type="date" name="other_two" class="form-control form-control-sm"
-                                    value="{{ old('other_two',$officer->other_two) }}">
+                                    value="{{ old('other_two', $officer->other_two) }}">
                             </div>
                         </div>
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="other_three" class="mb-2">Other Three</label>
                                 <input type="date" name="other_three" class="form-control form-control-sm"
-                                    value="{{ old('other_three',$officer->other_three) }}">
+                                    value="{{ old('other_three', $officer->other_three) }}">
                             </div>
                         </div>
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="other_four" class="mb-2">Other Four</label>
                                 <input type="date" name="other_four" class="form-control form-control-sm"
-                                    value="{{ old('other_four',$officer->other_four) }}">
+                                    value="{{ old('other_four', $officer->other_four) }}">
                             </div>
                         </div>
 
                         <div class="col-12 mb-3 mt-4">
-                            <button type="submit"
-                                class="btn btn-primary rounded-0 px-5 btn-sm float-end">Update Data</button>
+                            <button type="submit" class="btn btn-primary rounded-0 px-5 btn-sm float-end">Update
+                                Data</button>
                         </div>
 
                     </div>
@@ -431,25 +457,25 @@
     </div>
 
     @push('scripts')
-    <script>
-        const statusSelect = document.getElementById('statusSelect');
-        const additionalField = document.getElementById('additionalField');
-    
-        // Function to toggle the additional field
-        function toggleAdditionalField() {
-            if (statusSelect.value === 'board') {
-                additionalField.style.display = 'block';
-            } else {
-                additionalField.style.display = 'none';
+        <script>
+            const statusSelect = document.getElementById('statusSelect');
+            const additionalField = document.getElementById('additionalField');
+
+            // Function to toggle the additional field
+            function toggleAdditionalField() {
+                if (statusSelect.value === 'board') {
+                    additionalField.style.display = 'block';
+                } else {
+                    additionalField.style.display = 'none';
+                }
             }
-        }
-    
-        // Event listener for the dropdown
-        statusSelect.addEventListener('change', toggleAdditionalField);
-    
-        // Initial check to set visibility based on the selected status
-        toggleAdditionalField();
-    </script>
+
+            // Event listener for the dropdown
+            statusSelect.addEventListener('change', toggleAdditionalField);
+
+            // Initial check to set visibility based on the selected status
+            toggleAdditionalField();
+        </script>
     @endpush
 
 

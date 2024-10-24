@@ -70,6 +70,7 @@
                         <th width="10%">Batch</th>
                         <th width="10%">Contact</th>
                         <th width="10%">Status</th>
+                        <th width="10%">Remarks</th>
                         <th width="5%">Actions</th>
                     </tr>
                 </thead>
@@ -105,6 +106,10 @@
                                 @elseif($item->status == 'fleet')
                                     <h6>Not in Fleet Yet</h6>
                                 @endif
+                            </td>
+
+                            <td>
+                                <h6>{{ $item->remarks }}</h6>
                             </td>
 
 
@@ -253,7 +258,7 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <th class="fs-5">Covid</th>
+                                                                    <th class="fs-5">Covid Vaccination</th>
                                                                     <td>{{ $item->covid }}</td>
                                                                 </tr>
                                                                 <tr>

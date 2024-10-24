@@ -20,15 +20,13 @@ return new class extends Migration
             $table->string('contact')->nullable();
             $table->string('status')->nullable();
             $table->string('ship_name')->nullable();
-            $table->string('reamrks')->nullable();
+            $table->string('remarks')->nullable();
+            $table->string('ship_cook')->nullable();
 
             $table->string('academy')->nullable();
             $table->string('batch')->nullable();
-            $table->string('ship_cook')->nullable();
             
             $table->date('cdc')->nullable();
-            $table->date('coc')->nullable();
-            $table->date('goc')->nullable();
             $table->date('sid')->nullable();
 
             $table->date('ph')->nullable();
@@ -40,21 +38,14 @@ return new class extends Migration
 
             $table->date('dsd')->nullable();
             $table->date('pscrb')->nullable();
-            $table->date('edh')->nullable();
-            $table->date('radar_navigation')->nullable();
             $table->date('aff')->nullable();
-            $table->date('mfa')->nullable();
 
-            $table->date('madical_care')->nullable();
-            $table->date('ens')->nullable();
-            $table->date('sso')->nullable();
-            $table->date('brm')->nullable();
-            $table->date('hvs')->nullable();
-
-            $table->date('ship_simulation')->nullable();
+            $table->date('passport')->nullable();
+            $table->date('nwr')->nullable();
+            $table->date('rasd')->nullable();
+            
             $table->date('ecdis')->nullable();
             $table->date('atoto')->nullable();
-            $table->date('cor')->nullable();
             $table->string('covid')->nullable();
 
             $table->string('current_status')->nullable();
@@ -65,6 +56,7 @@ return new class extends Migration
             $table->date('other_two')->nullable();
             $table->date('other_three')->nullable();
             $table->date('other_four')->nullable();
+
 
             $table->timestamps();
         });

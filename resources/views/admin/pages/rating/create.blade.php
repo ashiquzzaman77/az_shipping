@@ -109,12 +109,10 @@
                         <h2 class="mb-4">General Information</h2>
 
 
-
-
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="cdc" class="mb-2">CDC</label>
-                                <input type="text" name="cdc" placeholder="Enter CDC"
+                                <input type="date" name="cdc" placeholder="Enter CDC"
                                     class="form-control form-control-sm" value="{{ old('cdc') }}">
                             </div>
                         </div>
@@ -122,7 +120,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="coc" class="mb-2">Passport</label>
-                                <input type="text" name="passport" placeholder="Enter Passport"
+                                <input type="date" name="passport" placeholder="Enter Passport"
                                     class="form-control form-control-sm" value="{{ old('passport') }}">
                             </div>
                         </div>
@@ -131,7 +129,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="sid" class="mb-2">SID</label>
-                                <input type="text" name="sid" placeholder="Enter SID"
+                                <input type="date" name="sid" placeholder="Enter SID"
                                     class="form-control form-control-sm" value="{{ old('sid') }}">
                             </div>
                         </div>
@@ -139,7 +137,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="ph" class="mb-2">PH</label>
-                                <input type="text" name="ph" placeholder="Enter PH"
+                                <input type="date" name="ph" placeholder="Enter PH"
                                     class="form-control form-control-sm" value="{{ old('ph') }}">
                             </div>
                         </div>
@@ -147,7 +145,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="pst" class="mb-2">PST</label>
-                                <input type="text" name="pst" placeholder="Enter PST"
+                                <input type="date" name="pst" placeholder="Enter PST"
                                     class="form-control form-control-sm" value="{{ old('pst') }}">
                             </div>
                         </div>
@@ -155,7 +153,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="aff" class="mb-2">AFF</label>
-                                <input type="text" name="aff" placeholder="Enter AFF"
+                                <input type="date" name="aff" placeholder="Enter AFF"
                                     class="form-control form-control-sm" value="{{ old('aff') }}">
                             </div>
                         </div>
@@ -163,7 +161,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="fpff" class="mb-2">FPFF</label>
-                                <input type="text" name="fpff" placeholder="Enter FPFF"
+                                <input type="date" name="fpff" placeholder="Enter FPFF"
                                     class="form-control form-control-sm" value="{{ old('fpff') }}">
                             </div>
                         </div>
@@ -171,7 +169,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="efa" class="mb-2">EFA</label>
-                                <input type="text" name="efa" placeholder="Enter EFA"
+                                <input type="date" name="efa" placeholder="Enter EFA"
                                     class="form-control form-control-sm" value="{{ old('efa') }}">
                             </div>
                         </div>
@@ -179,7 +177,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="pssr" class="mb-2">PSSR</label>
-                                <input type="text" name="pssr" placeholder="Enter PSSR"
+                                <input type="date" name="pssr" placeholder="Enter PSSR"
                                     class="form-control form-control-sm" value="{{ old('pssr') }}">
                             </div>
                         </div>
@@ -187,7 +185,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="sat" class="mb-2">SAT</label>
-                                <input type="text" name="sat" placeholder="Enter SAT"
+                                <input type="date" name="sat" placeholder="Enter SAT"
                                     class="form-control form-control-sm" value="{{ old('sat') }}">
                             </div>
                         </div>
@@ -195,7 +193,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="atoto" class="mb-2">ATOTO</label>
-                                <input type="text" name="atoto" placeholder="Enter ATOTO"
+                                <input type="date" name="atoto" placeholder="Enter ATOTO"
                                     class="form-control form-control-sm" value="{{ old('atoto') }}">
                             </div>
                         </div>
@@ -203,7 +201,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="dsd" class="mb-2">DSD</label>
-                                <input type="text" name="dsd" placeholder="Enter DSD"
+                                <input type="date" name="dsd" placeholder="Enter DSD"
                                     class="form-control form-control-sm" value="{{ old('dsd') }}">
                             </div>
                         </div>
@@ -211,7 +209,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="pscrb" class="mb-2">PSCRB</label>
-                                <input type="text" name="pscrb" placeholder="Enter PSCRB"
+                                <input type="date" name="pscrb" placeholder="Enter PSCRB"
                                     class="form-control form-control-sm" value="{{ old('pscrb') }}">
                             </div>
                         </div>
@@ -219,7 +217,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="edh" class="mb-2">NWR</label>
-                                <input type="text" name="nwr" placeholder="Enter NWR"
+                                <input type="date" name="nwr" placeholder="Enter NWR"
                                     class="form-control form-control-sm" value="{{ old('nwr') }}">
                             </div>
                         </div>
@@ -227,16 +225,24 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="rasd" class="mb-2">RASD</label>
-                                <input type="text" name="rasd" placeholder="Enter RASD"
+                                <input type="date" name="rasd" placeholder="Enter RASD"
                                     class="form-control form-control-sm" value="{{ old('rasd') }}">
                             </div>
                         </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="covid" class="mb-2">COVID</label>
-                                <input type="text" name="covid" placeholder="Enter COVID Training"
+                                <label for="covid" class="mb-2">COVID VACCINATION</label>
+                                <input type="date" name="covid" placeholder="Enter COVID Training"
                                     class="form-control form-control-sm" value="{{ old('covid') }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="ship_cook" class="mb-2">Ship Cook</label>
+                                <input type="text" name="ship_cook" placeholder="Enter Ship Cook"
+                                    class="form-control form-control-sm" value="{{ old('ship_cook') }}">
                             </div>
                         </div>
 
@@ -254,6 +260,35 @@
                                 <label for="end_of_contract" class="mb-2">End of Contract</label>
                                 <input type="date" name="end_of_contract" class="form-control form-control-sm"
                                     value="{{ old('end_of_contract') }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="other_one" class="mb-2">Other One</label>
+                                <input type="date" name="other_one" class="form-control form-control-sm"
+                                    value="{{ old('other_one') }}">
+                            </div>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="other_two" class="mb-2">Other Two</label>
+                                <input type="date" name="other_two" class="form-control form-control-sm"
+                                    value="{{ old('other_two') }}">
+                            </div>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="other_three" class="mb-2">Other Three</label>
+                                <input type="date" name="other_three" class="form-control form-control-sm"
+                                    value="{{ old('other_three') }}">
+                            </div>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="other_four" class="mb-2">Other Four</label>
+                                <input type="date" name="other_four" class="form-control form-control-sm"
+                                    value="{{ old('other_four') }}">
                             </div>
                         </div>
 
