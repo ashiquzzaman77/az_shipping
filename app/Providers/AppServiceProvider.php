@@ -49,7 +49,7 @@ class AppServiceProvider extends ServiceProvider
 
         Paginator::useBootstrap();
 
-        Schema::defaultStringLength(191);
+        // Schema::defaultStringLength(191);
 
     }
 }
