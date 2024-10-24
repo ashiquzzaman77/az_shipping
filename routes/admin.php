@@ -49,6 +49,7 @@ use App\Http\Controllers\OfficersController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -157,6 +158,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'banner' => BannerController::class, 
             'officer' => OfficersController::class, 
             'rating' => RatingController::class, 
+            'team' => TeamController::class, 
 
         ],
 
@@ -175,6 +177,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     //Banner Status
     Route::put('banner/status/{id}', [BannerController::class, 'updateStatusBanner'])->name('banner.status.update');
+    Route::put('team/status/{id}', [TeamController::class, 'updateStatusTeam'])->name('team.status.update');
 
 
 });

@@ -743,7 +743,7 @@
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.admin.permission', 'admin.user-management.index') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.admin.permission', 'admin.team.index') ? 'here show' : '' }}">
 
                          {{-- @if (Auth::guard('admin')->user()->can('admin.menu')) --}}
                          <div class="menu-item">
@@ -760,17 +760,17 @@
                          {{-- @endif --}}
 
                          {{-- @if (Auth::guard('admin')->user()->can('user.menu')) --}}
-                         {{-- <div class="menu-item">
-                                     @if (Auth::guard('admin')->user()->can('all.user'))
-                                         <a class="menu-link {{ Route::is('admin.user-management.index') ? 'active' : '' }}"
-                                             href="{{ route('admin.user-management.index') }}">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">User</span>
-                                         </a>
-                                     @endif
-                                 </div> --}}
+                         <div class="menu-item">
+                             {{-- @if (Auth::guard('admin')->user()->can('all.user')) --}}
+                                 <a class="menu-link {{ Route::is('admin.team.index') ? 'active' : '' }}"
+                                     href="{{ route('admin.team.index') }}">
+                                     <span class="menu-bullet">
+                                         <span class="bullet bullet-dot"></span>
+                                     </span>
+                                     <span class="menu-title">Team Member</span>
+                                 </a>
+                             {{-- @endif --}}
+                         </div>
                          {{-- @endif --}}
 
                      </div>
@@ -826,7 +826,7 @@
                  </div>
 
 
-                 @if (Auth::guard('admin')->user()->can('role.menu'))
+                 {{-- @if (Auth::guard('admin')->user()->can('role.menu')) --}}
 
                      {{-- Permission & Role  --}}
 
@@ -901,9 +901,9 @@
                          <div
                              class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.role', 'all.permission') ? 'here show' : '' }}">
 
-                             @if (Auth::guard('admin')->user()->can('role.menu'))
+                             {{-- @if (Auth::guard('admin')->user()->can('role.menu')) --}}
                                  <div class="menu-item">
-                                     @if (Auth::guard('admin')->user()->can('all.role'))
+                                     {{-- @if (Auth::guard('admin')->user()->can('all.role')) --}}
                                          <a class="menu-link {{ Route::is('all.role') ? 'active' : '' }}"
                                              href="{{ route('all.role') }}">
                                              <span class="menu-bullet">
@@ -911,13 +911,13 @@
                                              </span>
                                              <span class="menu-title">Role</span>
                                          </a>
-                                     @endif
+                                     {{-- @endif --}}
                                  </div>
-                             @endif
+                             {{-- @endif
 
-                             @if (Auth::guard('admin')->user()->can('permission.menu'))
+                             @if (Auth::guard('admin')->user()->can('permission.menu')) --}}
                                  <div class="menu-item">
-                                     @if (Auth::guard('admin')->user()->can('all.permission'))
+                                     {{-- @if (Auth::guard('admin')->user()->can('all.permission')) --}}
                                          <a class="menu-link {{ Route::is('all.permission') ? 'active' : '' }}"
                                              href="{{ route('all.permission') }}">
                                              <span class="menu-bullet">
@@ -925,14 +925,14 @@
                                              </span>
                                              <span class="menu-title">Permission</span>
                                          </a>
-                                     @endif
+                                     {{-- @endif --}}
                                  </div>
-                             @endif
+                             {{-- @endif --}}
 
                          </div>
                      </div>
 
-                 @endif
+                 {{-- @endif --}}
 
 
              </div>
