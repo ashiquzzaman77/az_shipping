@@ -341,17 +341,41 @@
                             </div>
                         </div>
 
-                        <div class="col-3 mb-3">
-                            <div class="form-group">
-                                <label for="num_of_field" class="mb-2">Number Of Fields</label>
-                                <input type="number" id="num_of_field" max="4" name="num_of_field"
-                                    class="form-control form-control-sm" onchange="updateFields()">
+                        {{-- <div class="col-lg-3">
+                            <div class="form-group mb-4">
+                                <label for="team_member">Num of Member</label>
+                                <input type="number" max="3" min="1" name="team_member"
+                                    value="{{ old('team_member') }}"
+                                    class="form-control form-control-sm p-3 @error('team_member') is-invalid @enderror"
+                                    id="team_member">
                             </div>
                         </div>
 
-
-
-
+                        <div id="additional_fields" style="display: none;">
+                            
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group mb-4">
+                                        <label for="member_1">Member 1</label>
+                                        <input type="text" name="member_1" class="form-control form-control-sm">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group mb-4" id="member_2_field" style="display: none;">
+                                        <label for="member_2">Member 2</label>
+                                        <input type="text" name="team_member_two"
+                                            class="form-control form-control-sm p-3">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group mb-4" id="member_3_field" style="display: none;">
+                                        <label for="member_3">Member 3</label>
+                                        <input type="text" name="team_member_three"
+                                            class="form-control form-control-sm p-3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
 
 
                         <div class="col-12 mb-3 mt-4">
@@ -381,6 +405,23 @@
                     additionalField.style.display = 'block';
                 } else {
                     additionalField.style.display = 'none';
+                }
+            });
+        </script>
+
+        <script>
+            document.getElementById('team_member').addEventListener('input', function() {
+                const numMembers = parseInt(this.value);
+                const additionalFields = document.getElementById('additional_fields');
+                const member2Field = document.getElementById('member_2_field');
+                const member3Field = document.getElementById('member_3_field');
+
+                if (numMembers > 0) {
+                    additionalFields.style.display = 'block';
+                    member2Field.style.display = (numMembers >= 2) ? 'block' : 'none';
+                    member3Field.style.display = (numMembers === 3) ? 'block' : 'none';
+                } else {
+                    additionalFields.style.display = 'none';
                 }
             });
         </script>
