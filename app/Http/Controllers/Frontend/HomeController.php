@@ -53,7 +53,7 @@ class HomeController extends Controller
     //allTeam
     public function allTeam()
     {
-        $teams = Team::where('status','active')->latest()->get();
+        $teams = Team::where('status','active')->orderBy('order_team')->get();
         return view('frontend.pages.team',compact('teams'));
     }
     

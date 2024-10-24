@@ -133,6 +133,7 @@
                         <th width="10%">Facebook</th>
                         <th width="10%">What's up</th>
                         <th width="10%">Phone</th>
+                        <th width="10%">Order</th>
                         <th width="5%">Status</th>
                         <th width="5%">Actions</th>
                     </tr>
@@ -168,6 +169,9 @@
                                 <h6>{{ $item->phone }}</h6>
                             </td>
 
+                            <td>
+                                <h6>{{ $item->order_team }}</h6>
+                            </td>
 
                             <td class="text-start">
                                 <label class="switch">

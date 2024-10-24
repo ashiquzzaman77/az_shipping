@@ -118,6 +118,17 @@
 
                             </div>
                         </div>
+
+                        <div class="col-1 mb-3">
+                            <div class="form-group">
+                                <label for="" class="mb-2">Order</label>
+                                <input type="number" name="order_team" placeholder="" class="form-control form-control-sm" value="{{ old('order_team',$team->order_team) }}">
+                                @error('order')
+                                    <div class="text-danger small">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="col-12 mb-3 mt-4">
                             <button type="submit"
                                 class="btn btn-primary rounded-0 px-5 btn-sm float-end">Update</button>

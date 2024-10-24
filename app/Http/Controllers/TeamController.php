@@ -34,6 +34,7 @@ class TeamController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'position' => 'required|string|max:255',
+            'order_team' => 'required|integer',
             'short_descp' => 'nullable|string',
             'facebook' => 'nullable|url|max:255',
             'whatup' => 'nullable|string|max:15',
@@ -49,6 +50,7 @@ class TeamController extends Controller
 
             'name' => $request->name,
             'position' => $request->position,
+            'order_team' => $request->order_team,
             'short_descp' => $request->short_descp,
             'facebook' => $request->facebook,
             'whatup' => $request->whatup,
@@ -126,6 +128,7 @@ class TeamController extends Controller
 
                 'name' => $request->name,
                 'position' => $request->position,
+                'order_team' => $request->order_team,
                 'short_descp' => $request->short_descp,
                 'facebook' => $request->facebook,
                 'whatup' => $request->whatup,

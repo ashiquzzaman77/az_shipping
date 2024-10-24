@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 @empty
-                    <p>No Team Member Avaiable</p>
+                    <p class="mb-5">No Team Member Avaiable</p>
                 @endforelse
 
                 {{-- <div class="col-lg-12 col-md-12">
