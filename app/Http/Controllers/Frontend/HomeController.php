@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use id;
 // use App\Models\Faq;
 // use App\Models\User;
-use App\Models\Admin;
+use App\Models\Team;
 // use App\Models\Course;
 // use App\Models\AboutUs;
 // use App\Models\Contact;
@@ -15,9 +15,9 @@ use App\Models\Admin;
 // use App\Models\NewsTrend;
 // use App\Models\CourseQuery;
 // use App\Models\FaqCategory;
+use App\Models\Admin;
+use App\Models\Banner;
 use Illuminate\Support\Str;
-use App\Mail\CourseRegister;
-use Illuminate\Http\Request;
 // use App\Models\CourseOutline;
 // use App\Models\CourseProject;
 // use App\Models\CourseSection;
@@ -26,8 +26,9 @@ use Illuminate\Http\Request;
 // use App\Models\CourseSchedule;
 // use App\Models\TermsCondition;
 // use App\Models\CourseCurriculum;
+use App\Mail\CourseRegister;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Banner;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Hash;
 // use Illuminate\Support\Facades\Mail;
@@ -47,6 +48,13 @@ class HomeController extends Controller
     {
         $banners = Banner::where('status','active')->latest()->get();
         return view('frontend.pages.home',compact('banners'));
+    }
+
+    //allTeam
+    public function allTeam()
+    {
+        $teams = Team::where('status','active')->latest()->get();
+        return view('frontend.pages.team',compact('teams'));
     }
     
 }

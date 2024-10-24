@@ -148,7 +148,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="team.html" class="nav-link">
+                                <a href="{{ route('all.team') }}" class="nav-link">
                                     Our Team
                                 </a>
                             </li>
