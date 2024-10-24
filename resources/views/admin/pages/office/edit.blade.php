@@ -108,7 +108,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="remarks" class="mb-2">Remarks</label>
-                                <input type="name" name="remarks" placeholder="Enter Remarks"
+                                <input type="text" name="remarks" placeholder="Enter Remarks"
                                     class="form-control form-control-sm"
                                     value="{{ old('remarks', $officer->remarks) }}">
                             </div>
