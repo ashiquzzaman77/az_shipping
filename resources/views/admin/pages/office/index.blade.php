@@ -70,6 +70,7 @@
                         <th width="10%">Batch</th>
                         <th width="10%">Contact</th>
                         <th width="10%">Current Status</th>
+                        <th width="10%">Remarks</th>
                         <th width="5%">Actions</th>
                     </tr>
                 </thead>
@@ -115,6 +116,9 @@
                                 @endif
                             </td>
 
+                            <td>
+                                <h6>{{ $item->remarks }}</h6>
+                            </td>
 
                             <td>
 
@@ -297,7 +301,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">Discharge Date</th>
-                                                                    
+
                                                                     <td>{{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
                                                                     </td>
                                                                 </tr>

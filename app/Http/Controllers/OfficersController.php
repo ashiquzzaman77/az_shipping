@@ -70,6 +70,12 @@ class OfficersController extends Controller
             // 'current_status' => 'nullable|string|max:255',
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
+
+            'other_one' => 'nullable|date',
+            'other_two' => 'nullable|date',
+            'other_three' => 'nullable|date',
+            'other_four' => 'nullable|date',
+
         ]);
 
         if ($validator->fails()) {
@@ -117,6 +123,7 @@ class OfficersController extends Controller
             'contact' => 'required|string|max:25', // Adjust the max length as necessary
             'status' => 'nullable|string',
             'ship_name' => 'nullable|string',
+            'remarks' => 'nullable|string',
 
             'academy' => 'nullable|string|max:255',
             'batch' => 'nullable|string|max:255',
@@ -149,6 +156,11 @@ class OfficersController extends Controller
             // 'current_status' => 'nullable|string|max:255',
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
+
+            'other_one' => 'nullable|date',
+            'other_two' => 'nullable|date',
+            'other_three' => 'nullable|date',
+            'other_four' => 'nullable|date',
         ]);
 
         // Update the officer's attributes
