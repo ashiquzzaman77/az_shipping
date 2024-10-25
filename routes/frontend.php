@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\NewsLetterController;
-use App\Http\Controllers\Frontend\CourseEnrollController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,12 +7,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
 //Training
-Route::get('/training', [HomeController::class, 'training'])->name('training');
-
-
+// Route::get('/training', [HomeController::class, 'training'])->name('training');
 
 Route::controller(HomeController::class)->group(function () {
 
+    //all Team
     Route::get('/team', 'allTeam')->name('all.team');
 
     //All Job
@@ -24,9 +21,10 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/drop/cv', 'dropCv')->name('drop.cv');
     Route::post('/job-apply/employee', 'jobApplyEmployee')->name('apply.job.post');
 
-
-
 });
+
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('/contact_us', [HomeController::class, 'contactStore'])->name('contact.store');
 
 // //Course All & Deatils Start
 // Route::get('/all-courses', [HomeController::class, 'allCourses'])->name('courses.all');
@@ -42,7 +40,6 @@ Route::controller(HomeController::class)->group(function () {
 
 //courseCategoryDetails
 // Route::get('/course/category/{id}/{slug}', [HomeController::class, 'courseCategoryDetails']);
-
 
 // Course Registration Start
 // Route::get('/course-registration', [HomeController::class, 'courseRegistration'])->name('course.registration');
@@ -64,7 +61,6 @@ Route::controller(HomeController::class)->group(function () {
 
 // Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 // // Route::get('/event', [HomeController::class, 'event'])->name('event');
-
 
 // //serviceDetails
 // Route::get('/services/details/{id}/{slug}', [HomeController::class, 'serviceDetails']);
@@ -96,9 +92,7 @@ Route::controller(HomeController::class)->group(function () {
 // Route::get('/events/{id}', [HomeController::class, 'eventDetails'])->name('event.details');
 // Route::get('/event/registration', [HomeController::class, 'eventRegistration'])->name('event.registration');
 
-
 //Course Enroll
-
 
 // //Course Search By Home Page
 // Route::post('/search-course', [HomeController::class, 'SearchCourse'])->name('search.course');
@@ -111,7 +105,6 @@ Route::controller(HomeController::class)->group(function () {
 //     // Payment
 //     Route::post('/course/payment/{id}', [HomeController::class, 'PaymentCourse'])->name('course.payment');
 
-
 // });
 
 // Route::get('/verify/{activation_code}', [HomeController::class, 'verifyEmail'])
@@ -119,6 +112,3 @@ Route::controller(HomeController::class)->group(function () {
 
 // Route::get('/verify/{activation_code}', 'App\Http\Controllers\Auth\VerificationController@verify')->name('verification.verify');
 // In routes/web.php or routes/api.php
-
-
-

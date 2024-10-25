@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\ApplyPost;
 use App\Models\Banner;
+use App\Models\Contact;
 use App\Models\Job;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -59,7 +60,7 @@ class HomeController extends Controller
     public function dropCv()
     {
         $jobs = Job::latest()->get();
-        return view('frontend.pages.drop_cv',compact('jobs'));
+        return view('frontend.pages.drop_cv', compact('jobs'));
     }
 
     public function jobApplyEmployee(Request $request)
@@ -107,6 +108,47 @@ class HomeController extends Controller
 
         // Redirect with success message
         return redirect()->route('all.job')->with('success', 'Application submitted successfully!');
+    }
+
+    //Contact
+    public function contact()
+    {
+        return view('frontend.pages.contact');
+    }
+
+    public function contactStore(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:150',
+            'email' => 'required|email|max:150',
+            'phone' => 'nullable|string|max:20',
+            'subject' => 'nullable|string',
+            'message' => 'nullable|string',
+            'ip_address' => 'nullable|ip|max:100',
+            // 'g-recaptcha-response' => ['required', new Recaptcha],
+        ]);
+
+        $typePrefix = ($request->type == 'contact') ? 'MSG' : 'AZS';
+        $today = date('dmy');
+        $lastCode = Contact::where('code', 'like', $typePrefix . '-' . $today . '%')
+            ->orderBy('id', 'desc')
+            ->first();
+
+        $newNumber = $lastCode ? (int) explode('-', $lastCode->code)[2] + 1 : 1;
+        $code = $typePrefix . '-' . $today . '-' . $newNumber;
+
+        Contact::create([
+            'code' => $code,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'ip_address' => request()->ip(),
+        ]);
+
+        // success('Thank You. We have received your message. We will contact with you very soon.');
+        return redirect()->back()->with('success', 'Thank You. We have received your message. We will contact with you very soon');
     }
 
 }
