@@ -20,6 +20,8 @@ Route::controller(HomeController::class)->group(function () {
     //All Job
     Route::get('/job', 'allJob')->name('all.job');
     Route::get('/job-details/{id}', 'jobDetails')->name('view.job.details');
+    Route::get('/job-apply/{id}', 'jobApply')->name('apply.job');
+    Route::post('/job-apply/employee', 'jobApplyEmployee')->name('apply.job.post');
 
 
 

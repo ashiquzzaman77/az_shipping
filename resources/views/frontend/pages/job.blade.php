@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6">
                                     <span class="small-text d-block"><i class="fas fa-angle-right mr-1 color-accent"></i><a
-                                            href="apply-now?id=NDE=">Apply Now</a></span>
+                                            href="{{ route('apply.job', $job->id) }}">Apply Now</a></span>
                                 </div>
                             </div>
                         </div>

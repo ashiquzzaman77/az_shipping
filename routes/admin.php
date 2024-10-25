@@ -169,6 +169,10 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::put('team/status/{id}', [TeamController::class, 'updateStatusTeam'])->name('team.status.update');
     Route::put('job/status/{id}', [EmployeeJobController::class, 'updateStatusJob'])->name('job.status.update');
 
+    //Apply Post
+    Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');
+    
+
 });
 
 // Terms & Condition Status
@@ -216,3 +220,6 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/admin-active/{id}', 'ActiveAdmin')->name('admin.active');
     });
 });
+
+Route::get('/download-attachment/{id}', [AdminController::class, 'downloadAttachment'])->name('download.attachment');
+Route::delete('/apply/post/delete/{id}', [AdminController::class, 'applyPostDelete'])->name('admin.apply.post.delete');

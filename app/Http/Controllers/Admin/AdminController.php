@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
-use App\Models\Course;
-use App\Models\CourseSection;
-use App\Models\UserCourseRegistration;
-use Carbon\Carbon;
+use App\Models\ApplyPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +15,6 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        
         return view('admin/dashboard');
     }
 
@@ -29,8 +25,8 @@ class AdminController extends Controller
 
     public function create()
     {
-        $roles = Role::orderBy('name','ASC')->get();
-        return view('admin.pages.admin-management.create',compact('roles'));
+        $roles = Role::orderBy('name', 'ASC')->get();
+        return view('admin.pages.admin-management.create', compact('roles'));
     }
 
     public function store(Request $request)
@@ -61,7 +57,7 @@ class AdminController extends Controller
         } else {
             $imageName = null; // Or handle a default image if needed
         }
-    //    dd($request->input('role'));
+        //    dd($request->input('role'));
 
         // Create a new admin record
         $admin = new Admin();
@@ -82,7 +78,7 @@ class AdminController extends Controller
     {
         return view('admin.pages.admin-management.edit', [
             'admin' => Admin::find($id),
-            'roles' => Role::orderBy('name','ASC')->get(),
+            'roles' => Role::orderBy('name', 'ASC')->get(),
         ]);
     }
 
@@ -141,6 +137,27 @@ class AdminController extends Controller
 
         // Delete the admin record
         $admin->delete();
+
+    }
+
+    public function applyPost()
+    {
+        $items = ApplyPost::orderBy('job_id')->get();
+        return view('admin.pages.apply.post', compact('items'));
+    }
+
+    public function downloadAttachment($id)
+    {
+        $application = ApplyPost::findOrFail($id);
+        $filePath = storage_path('app/public/attachments/' . $application->attachment);
+
+        return response()->download($filePath);
+    }
+
+    public function applyPostDelete($id)
+    {
+        ApplyPost::findOrfail($id)->delete();
+        return redirect()->back()->with('success', 'Delete successfully.');
 
     }
 }
