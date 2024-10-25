@@ -29,7 +29,8 @@
                 <!-- First Job  -->
                 @forelse ($jobs as $job)
                     <div class="col-md-6 col-lg-6">
-                        <div class="feature-job-block border rounded my-3 gray-light-bg">
+                        <div class="feature-job-block rounded my-3 gray-light-bg shadow"
+                            style="border: 2px dotted rgb(48, 36, 71);"> <!-- Solid border -->
                             <div class="job-content px-5 pt-5">
                                 <h4>{{ $job->rank }}</h4>
                                 <p></p>
@@ -50,7 +51,6 @@
                                         <span class="small-text d-block"><i
                                                 class="fas fa-angle-right mr-1 color-accent"></i>Salary:
                                             {{ $job->salary }}</span>
-
                                         <span class="small-text d-block"><i
                                                 class="fas fa-angle-right mr-1 color-accent"></i>Experienced:
                                             {{ $job->experienced }}</span>
@@ -65,7 +65,7 @@
                             <div class="row no-gutters px-5 py-3 border-top">
                                 <div class="col-12 col-sm-6 col-md-6">
                                     <span class="small-text d-block"><i class="fas fa-angle-right mr-1 color-accent"></i><a
-                                            href="{{ route('view.job.details',$job->id) }}">View Details</a></span>
+                                            href="{{ route('view.job.details', $job->id) }}">View Details</a></span>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6">
                                     <span class="small-text d-block"><i class="fas fa-angle-right mr-1 color-accent"></i><a
@@ -74,6 +74,7 @@
                             </div>
                         </div>
                     </div>
+
                 @empty
                     <p>No Job Offer Avaiable</p>
                 @endforelse
