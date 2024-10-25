@@ -28,8 +28,18 @@
                         <div class="col-12 col-lg-12">
                             <div class="form-group">
                                 <label for="" class="mb-2">Rank Name:</label>
-                                <input type="hidden" name="job_id" value="{{ $job->id }}">
-                                <input type="text" class="form-control" value="{{ $job->rank }}" disabled id="rank" placeholder="Enter Rank Name">
+
+                                <select name="job_id" class="form-control" id="">
+                                    <option disabled selected></option>
+                                    @foreach ($jobs as $job)
+                                        <option value="{{ $job->id }}">{{ $job->rank }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('job_id')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
                             </div>
                         </div>
                 

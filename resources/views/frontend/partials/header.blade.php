@@ -196,7 +196,7 @@
                                         <a href="{{ route('all.job') }}" class="nav-link">Current Requirements</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="" class="nav-link">Drop Your CV</a>
+                                        <a href="{{ route('drop.cv') }}" class="nav-link">Drop Your CV</a>
                                     </li>
                                 </ul>
                             </li>

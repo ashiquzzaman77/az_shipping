@@ -56,6 +56,12 @@ class HomeController extends Controller
         return view('frontend.pages.job_apply', compact('job'));
     }
 
+    public function dropCv()
+    {
+        $jobs = Job::latest()->get();
+        return view('frontend.pages.drop_cv',compact('jobs'));
+    }
+
     public function jobApplyEmployee(Request $request)
     {
         // Validation rules
