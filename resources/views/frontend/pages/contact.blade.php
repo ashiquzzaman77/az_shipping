@@ -18,31 +18,24 @@
                     <div class="contact-info">
                         <i class="bx bxs-phone"></i>
                         <h4>Contact Number</h4>
-                        <p> <a href="tel:+0123654987">+0123 654 987</a></p>
-                        <p><a href="tel:+0123456789">+0123 456 789</a></p>
+                        <p> <a href="tel:+0123654987">{{ optional($setting)->primary_phone }}</a></p>
+                        <p><a href="tel:+0123456789">{{ optional($setting)->secondary_phone }}</a></p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="contact-info">
                         <i class="bx bxs-location-plus"></i>
                         <h4>Our Location</h4>
-                        <p>6th floor, anthina</p>
-                        <p>Barbosa Sidney</p>
+                        <p>{{ optional($setting)->address_line_one }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
                     <div class="contact-info">
                         <i class="bx bxs-envelope"></i>
                         <h4>Contact Number</h4>
-                        <p><a
-                                href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#d5bdb0b9b9ba95b3b0a7a7acfbb6bab8"><span
-                                    class="__cf_email__"
-                                    data-cfemail="e68e838a8a89a6808394949fc885898b">[email&#160;protected]</span></a>
+                        <p>{{ optional($setting)->primary_email }}
                         </p>
-                        <p><a
-                                href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#81e8efe7eec1e7e4f3f3f8afe2eeec"><span
-                                    class="__cf_email__"
-                                    data-cfemail="620b0c040d22040710101b4c010d0f">[email&#160;protected]</span></a></p>
+                        <p>{{ optional($setting)->support_email }}</p>
                     </div>
                 </div>
             </div>
