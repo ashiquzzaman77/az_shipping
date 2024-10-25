@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use id;
+use App\Http\Controllers\Controller;
 // use App\Models\Faq;
 // use App\Models\User;
-use App\Models\Team;
 // use App\Models\Course;
 // use App\Models\AboutUs;
 // use App\Models\Contact;
@@ -15,9 +14,8 @@ use App\Models\Team;
 // use App\Models\NewsTrend;
 // use App\Models\CourseQuery;
 // use App\Models\FaqCategory;
-use App\Models\Admin;
 use App\Models\Banner;
-use Illuminate\Support\Str;
+use App\Models\Job;
 // use App\Models\CourseOutline;
 // use App\Models\CourseProject;
 // use App\Models\CourseSection;
@@ -26,10 +24,8 @@ use Illuminate\Support\Str;
 // use App\Models\CourseSchedule;
 // use App\Models\TermsCondition;
 // use App\Models\CourseCurriculum;
-use App\Mail\CourseRegister;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Team;
+
 // use Illuminate\Support\Facades\Hash;
 // use Illuminate\Support\Facades\Mail;
 // use Illuminate\Support\Facades\View;
@@ -46,15 +42,28 @@ class HomeController extends Controller
     //Homepage
     public function index()
     {
-        $banners = Banner::where('status','active')->latest()->get();
-        return view('frontend.pages.home',compact('banners'));
+        $banners = Banner::where('status', 'active')->latest()->get();
+        return view('frontend.pages.home', compact('banners'));
     }
 
     //allTeam
     public function allTeam()
     {
-        $teams = Team::where('status','active')->orderBy('order_team')->get();
-        return view('frontend.pages.team',compact('teams'));
+        $teams = Team::where('status', 'active')->orderBy('order_team')->get();
+        return view('frontend.pages.team', compact('teams'));
     }
-    
+
+    //allJob
+    public function allJob()
+    {
+        $jobs = Job::where('status', 'active')->latest()->get();
+        return view('frontend.pages.job', compact('jobs'));
+    }
+
+    public function jobDetails($id)
+    {
+        $job = Job::findOrfail($id);
+        return view('frontend.pages.job_details', compact('job'));
+    }
+
 }

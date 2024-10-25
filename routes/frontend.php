@@ -11,9 +11,15 @@ Route::get('/', [HomeController::class, 'index'])->name('homepage');
 //Training
 Route::get('/training', [HomeController::class, 'training'])->name('training');
 
+
+
 Route::controller(HomeController::class)->group(function () {
 
     Route::get('/team', 'allTeam')->name('all.team');
+
+    //All Job
+    Route::get('/job', 'allJob')->name('all.job');
+    Route::get('/job-details/{id}', 'jobDetails')->name('view.job.details');
 
 
 

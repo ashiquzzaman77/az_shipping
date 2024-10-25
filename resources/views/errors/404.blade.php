@@ -144,7 +144,7 @@
                         <h1 class="card-title">Enhance Your Skills with Us</h1>
                         <h3 class="pt-2 mb-5">Discover our full range of training and professional courses.</h3>
                     </div>
-                    <a href="{{ route('courses.all') }}" class="primary-btn-one mt-5">
+                    <a href="" class="primary-btn-one mt-5">
                         View all courses <i class="fa-solid fa-long-arrow-right"></i>
                     </a>
                 </div>

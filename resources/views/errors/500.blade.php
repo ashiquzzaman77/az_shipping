@@ -144,7 +144,7 @@
                         <h1 class="card-title">Need Assistance?</h1>
                         <h3 class="pt-2 mb-5">Explore our support resources or contact us for help.</h3>
                     </div>
-                    <a href="{{ route('support') }}" class="primary-btn-one mt-5">
+                    <a href="" class="primary-btn-one mt-5">
                         Contact Support <i class="fa-solid fa-long-arrow-right"></i>
                     </a>
                 </div>
