@@ -175,20 +175,24 @@
                                 @endif
                             </td>
 
+                            @if (Auth::guard('admin')->user()->can('delete.apply_post'))
+                                <td>
 
-                            <td>
+                                    <form action="{{ route('admin.apply.post.delete', $item->id) }}" method="POST"
+                                        style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class=""
+                                            style="border: none; background: none; cursor: pointer;">
+                                            <i class="fa-solid fa-trash text-danger"></i>
+                                        </button>
+                                    </form>
 
-                                <form action="{{ route('admin.apply.post.delete', $item->id) }}" method="POST"
-                                    style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class=""
-                                        style="border: none; background: none; cursor: pointer;">
-                                        <i class="fa-solid fa-trash text-danger"></i>
-                                    </button>
-                                </form>
+                                </td>
+                            @endif
 
-                            </td>
+
+
                         </tr>
                     @endforeach
 
