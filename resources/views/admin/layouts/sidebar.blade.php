@@ -396,70 +396,70 @@
 
                  {{-- Management --}}
 
-                 {{-- @if (Auth::guard('admin')->user()->can('admin.menu')) --}}
+                 @if (Auth::guard('admin')->user()->can('admin.menu'))
 
-                 <div data-kt-menu-trigger="click"
-                     class="menu-item menu-accordion {{ Request::routeIs('all.admin.permission', 'admin.user-management.index') ? 'here show' : '' }}">
+                     <div data-kt-menu-trigger="click"
+                         class="menu-item menu-accordion {{ Request::routeIs('all.admin.permission', 'admin.user-management.index') ? 'here show' : '' }}">
 
-                     <span class="menu-link">
+                         <span class="menu-link">
 
-                         <span class="menu-icon">
-                             <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
-                             <span class="svg-icon svg-icon-2">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                     viewBox="0 0 24 24" fill="none">
-                                     <path opacity="0.3"
-                                         d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z"
-                                         fill="currentColor" />
-                                     <path
-                                         d="M14.854 11.321C14.7568 11.2282 14.6388 11.1818 14.4998 11.1818H14.3333V10.2272C14.3333 9.61741 14.1041 9.09378 13.6458 8.65628C13.1875 8.21876 12.639 8 12 8C11.361 8 10.8124 8.21876 10.3541 8.65626C9.89574 9.09378 9.66663 9.61739 9.66663 10.2272V11.1818H9.49999C9.36115 11.1818 9.24306 11.2282 9.14583 11.321C9.0486 11.4138 9 11.5265 9 11.6591V14.5227C9 14.6553 9.04862 14.768 9.14583 14.8609C9.24306 14.9536 9.36115 15 9.49999 15H14.5C14.6389 15 14.7569 14.9536 14.8542 14.8609C14.9513 14.768 15 14.6553 15 14.5227V11.6591C15.0001 11.5265 14.9513 11.4138 14.854 11.321ZM13.3333 11.1818H10.6666V10.2272C10.6666 9.87594 10.7969 9.57597 11.0573 9.32743C11.3177 9.07886 11.6319 8.9546 12 8.9546C12.3681 8.9546 12.6823 9.07884 12.9427 9.32743C13.2031 9.57595 13.3333 9.87594 13.3333 10.2272V11.1818Z"
-                                         fill="currentColor" />
-                                 </svg>
+                             <span class="menu-icon">
+                                 <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
+                                 <span class="svg-icon svg-icon-2">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                         viewBox="0 0 24 24" fill="none">
+                                         <path opacity="0.3"
+                                             d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z"
+                                             fill="currentColor" />
+                                         <path
+                                             d="M14.854 11.321C14.7568 11.2282 14.6388 11.1818 14.4998 11.1818H14.3333V10.2272C14.3333 9.61741 14.1041 9.09378 13.6458 8.65628C13.1875 8.21876 12.639 8 12 8C11.361 8 10.8124 8.21876 10.3541 8.65626C9.89574 9.09378 9.66663 9.61739 9.66663 10.2272V11.1818H9.49999C9.36115 11.1818 9.24306 11.2282 9.14583 11.321C9.0486 11.4138 9 11.5265 9 11.6591V14.5227C9 14.6553 9.04862 14.768 9.14583 14.8609C9.24306 14.9536 9.36115 15 9.49999 15H14.5C14.6389 15 14.7569 14.9536 14.8542 14.8609C14.9513 14.768 15 14.6553 15 14.5227V11.6591C15.0001 11.5265 14.9513 11.4138 14.854 11.321ZM13.3333 11.1818H10.6666V10.2272C10.6666 9.87594 10.7969 9.57597 11.0573 9.32743C11.3177 9.07886 11.6319 8.9546 12 8.9546C12.3681 8.9546 12.6823 9.07884 12.9427 9.32743C13.2031 9.57595 13.3333 9.87594 13.3333 10.2272V11.1818Z"
+                                             fill="currentColor" />
+                                     </svg>
+                                 </span>
+                                 <!--end::Svg Icon-->
                              </span>
-                             <!--end::Svg Icon-->
+
+                             <span class="menu-title">Employee Management</span>
+
+                             <span class="menu-arrow"></span>
+
                          </span>
 
-                         <span class="menu-title">Employee Management</span>
+                         <div
+                             class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.admin.permission', 'admin.team.index') ? 'here show' : '' }}">
 
-                         <span class="menu-arrow"></span>
+                             @if (Auth::guard('admin')->user()->can('admin.menu'))
+                                 <div class="menu-item">
+                                     @if (Auth::guard('admin')->user()->can('all.admin'))
+                                         <a class="menu-link {{ Route::is('all.admin.permission') ? 'active' : '' }}"
+                                             href="{{ route('all.admin.permission') }}">
+                                             <span class="menu-bullet">
+                                                 <span class="bullet bullet-dot"></span>
+                                             </span>
+                                             <span class="menu-title">Admin</span>
+                                         </a>
+                                     @endif
+                                 </div>
+                             @endif
 
-                     </span>
+                             @if (Auth::guard('admin')->user()->can('team.menu'))
+                                 <div class="menu-item">
+                                     @if (Auth::guard('admin')->user()->can('all.team'))
+                                         <a class="menu-link {{ Route::is('admin.team.index') ? 'active' : '' }}"
+                                             href="{{ route('admin.team.index') }}">
+                                             <span class="menu-bullet">
+                                                 <span class="bullet bullet-dot"></span>
+                                             </span>
+                                             <span class="menu-title">Team Member</span>
+                                         </a>
+                                     @endif
+                                 </div>
+                             @endif
 
-                     <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.admin.permission', 'admin.team.index') ? 'here show' : '' }}">
-
-                         {{-- @if (Auth::guard('admin')->user()->can('admin.menu')) --}}
-                         <div class="menu-item">
-                             {{-- @if (Auth::guard('admin')->user()->can('all.admin')) --}}
-                             <a class="menu-link {{ Route::is('all.admin.permission') ? 'active' : '' }}"
-                                 href="{{ route('all.admin.permission') }}">
-                                 <span class="menu-bullet">
-                                     <span class="bullet bullet-dot"></span>
-                                 </span>
-                                 <span class="menu-title">Admin</span>
-                             </a>
-                             {{-- @endif --}}
                          </div>
-                         {{-- @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('user.menu')) --}}
-                         <div class="menu-item">
-                             {{-- @if (Auth::guard('admin')->user()->can('all.user')) --}}
-                             <a class="menu-link {{ Route::is('admin.team.index') ? 'active' : '' }}"
-                                 href="{{ route('admin.team.index') }}">
-                                 <span class="menu-bullet">
-                                     <span class="bullet bullet-dot"></span>
-                                 </span>
-                                 <span class="menu-title">Team Member</span>
-                             </a>
-                             {{-- @endif --}}
-                         </div>
-                         {{-- @endif --}}
-
                      </div>
-                 </div>
 
-                 {{-- @endif --}}
+                 @endif
 
                  {{-- Setting  --}}
                  <div data-kt-menu-trigger="click"
@@ -534,112 +534,111 @@
 
                  </div>
 
-                 {{-- @if (Auth::guard('admin')->user()->can('role.menu')) --}}
-
                  {{-- Permission & Role  --}}
+                 @if (Auth::guard('admin')->user()->can('role.menu'))
+                     <div data-kt-menu-trigger="click"
+                         class="menu-item menu-accordion {{ Request::routeIs('all.role', 'all.permission') ? 'here show' : '' }}">
 
-                 <div data-kt-menu-trigger="click"
-                     class="menu-item menu-accordion {{ Request::routeIs('all.role', 'all.permission') ? 'here show' : '' }}">
+                         <span class="menu-link">
+                             <span class="menu-icon">
 
-                     <span class="menu-link">
-                         <span class="menu-icon">
-
-                             <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
-                             <span class="svg-icon svg-icon-2">
-                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297"
-                                     xml:space="preserve" fill="#000000">
-                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
-                                     </g>
-                                     <g id="SVGRepo_iconCarrier">
-                                         <g>
+                                 <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
+                                 <span class="svg-icon svg-icon-2">
+                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297"
+                                         xml:space="preserve" fill="#000000">
+                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                             stroke-linejoin="round">
+                                         </g>
+                                         <g id="SVGRepo_iconCarrier">
                                              <g>
                                                  <g>
                                                      <g>
                                                          <g>
                                                              <g>
-                                                                 <circle style="fill:#345065;" cx="148.5"
-                                                                     cy="148.5" r="148.5"></circle>
+                                                                 <g>
+                                                                     <circle style="fill:#345065;" cx="148.5"
+                                                                         cy="148.5" r="148.5"></circle>
+                                                                 </g>
                                                              </g>
                                                          </g>
                                                      </g>
                                                  </g>
-                                             </g>
-                                             <path style="fill:#243F4F;"
-                                                 d="M264,148.5L67.438,208.223l88.783,88.579c68.287-3.498,124.388-53.124,137.752-118.329L264,148.5z">
-                                             </path>
-                                             <g>
-                                                 <rect x="66" y="95.25" style="fill:#9ADAD9;" width="65.666"
-                                                     height="33"></rect>
-                                             </g>
-                                             <g>
-                                                 <rect x="66" y="119.75" style="fill:#FFFFFF;" width="115.5"
-                                                     height="33"></rect>
-                                             </g>
-                                             <g>
-                                                 <rect x="149.167" y="119.75" style="fill:#BDC3C7;" width="32.333"
-                                                     height="33"></rect>
-                                             </g>
-                                             <g>
-                                                 <path style="fill:#1ABC9C;"
-                                                     d="M82.429,214.5h106.855c5.581,0,10.933-2.217,14.879-6.163L264,148.5H49.5l12.515,50.062 C64.357,207.929,72.773,214.5,82.429,214.5z">
+                                                 <path style="fill:#243F4F;"
+                                                     d="M264,148.5L67.438,208.223l88.783,88.579c68.287-3.498,124.388-53.124,137.752-118.329L264,148.5z">
                                                  </path>
-                                             </g>
-                                             <g>
-                                                 <path style="fill:#17AB93;"
-                                                     d="M149.167,148.5v66h40.117c5.581,0,10.933-2.217,14.879-6.163L264,148.5H149.167z">
-                                                 </path>
+                                                 <g>
+                                                     <rect x="66" y="95.25" style="fill:#9ADAD9;" width="65.666"
+                                                         height="33"></rect>
+                                                 </g>
+                                                 <g>
+                                                     <rect x="66" y="119.75" style="fill:#FFFFFF;" width="115.5"
+                                                         height="33"></rect>
+                                                 </g>
+                                                 <g>
+                                                     <rect x="149.167" y="119.75" style="fill:#BDC3C7;" width="32.333"
+                                                         height="33"></rect>
+                                                 </g>
+                                                 <g>
+                                                     <path style="fill:#1ABC9C;"
+                                                         d="M82.429,214.5h106.855c5.581,0,10.933-2.217,14.879-6.163L264,148.5H49.5l12.515,50.062 C64.357,207.929,72.773,214.5,82.429,214.5z">
+                                                     </path>
+                                                 </g>
+                                                 <g>
+                                                     <path style="fill:#17AB93;"
+                                                         d="M149.167,148.5v66h40.117c5.581,0,10.933-2.217,14.879-6.163L264,148.5H149.167z">
+                                                     </path>
+                                                 </g>
                                              </g>
                                          </g>
-                                     </g>
-                                 </svg>
+                                     </svg>
+                                 </span>
+                                 <!--end::Svg Icon-->
+
                              </span>
-                             <!--end::Svg Icon-->
+
+                             <span class="menu-title">Role & Permission</span>
+
+                             <span class="menu-arrow"></span>
 
                          </span>
 
-                         <span class="menu-title">Role & Permission</span>
+                         <div
+                             class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.role', 'all.permission') ? 'here show' : '' }}">
 
-                         <span class="menu-arrow"></span>
+                             @if (Auth::guard('admin')->user()->can('role.menu'))
+                                 <div class="menu-item">
+                                     @if (Auth::guard('admin')->user()->can('all.role'))
+                                         <a class="menu-link {{ Route::is('all.role') ? 'active' : '' }}"
+                                             href="{{ route('all.role') }}">
+                                             <span class="menu-bullet">
+                                                 <span class="bullet bullet-dot"></span>
+                                             </span>
+                                             <span class="menu-title">Role</span>
+                                         </a>
+                                     @endif
+                                 </div>
+                             @endif
 
-                     </span>
+                             @if (Auth::guard('admin')->user()->can('permission.menu'))
+                                 <div class="menu-item">
+                                     @if (Auth::guard('admin')->user()->can('all.permission'))
+                                         <a class="menu-link {{ Route::is('all.permission') ? 'active' : '' }}"
+                                             href="{{ route('all.permission') }}">
+                                             <span class="menu-bullet">
+                                                 <span class="bullet bullet-dot"></span>
+                                             </span>
+                                             <span class="menu-title">Permission</span>
+                                         </a>
+                                     @endif
+                                 </div>
+                             @endif
 
-                     <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.role', 'all.permission') ? 'here show' : '' }}">
-
-                         {{-- @if (Auth::guard('admin')->user()->can('role.menu')) --}}
-                         <div class="menu-item">
-                             {{-- @if (Auth::guard('admin')->user()->can('all.role')) --}}
-                             <a class="menu-link {{ Route::is('all.role') ? 'active' : '' }}"
-                                 href="{{ route('all.role') }}">
-                                 <span class="menu-bullet">
-                                     <span class="bullet bullet-dot"></span>
-                                 </span>
-                                 <span class="menu-title">Role</span>
-                             </a>
-                             {{-- @endif --}}
                          </div>
-                         {{-- @endif
-
-                             @if (Auth::guard('admin')->user()->can('permission.menu')) --}}
-                         <div class="menu-item">
-                             {{-- @if (Auth::guard('admin')->user()->can('all.permission')) --}}
-                             <a class="menu-link {{ Route::is('all.permission') ? 'active' : '' }}"
-                                 href="{{ route('all.permission') }}">
-                                 <span class="menu-bullet">
-                                     <span class="bullet bullet-dot"></span>
-                                 </span>
-                                 <span class="menu-title">Permission</span>
-                             </a>
-                             {{-- @endif --}}
-                         </div>
-                         {{-- @endif --}}
-
                      </div>
-                 </div>
 
-                 {{-- @endif --}}
+                 @endif
 
 
              </div>
