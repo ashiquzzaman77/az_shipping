@@ -63,14 +63,30 @@
         {{-- Total Job  --}}
 
         {{-- Middle Section  --}}
+
+        @php
+            $hour = \Carbon\Carbon::now()->format('H');
+            $greeting = '';
+
+            if ($hour < 12) {
+                $greeting = 'Good Morning';
+            } elseif ($hour < 18) {
+                $greeting = 'Good Afternoon';
+            } else {
+                $greeting = 'Good Evening';
+            }
+        @endphp
         <div class="col-xl-4">
             <div class="card card-flush h-xl-100">
                 <div class="card-header rounded bgi-no-repeat bgi-size-cover bgi-position-y-top bgi-position-x-center align-items-start h-200px"
                     style="background-image:url('https://preview.keenthemes.com/metronic8/demo1/assets/media/svg/shapes/top-green.png"
                     data-bs-theme="light">
-                    <h3 class="card-title align-items-start flex-column text-white pt-15">
-                        <span class="fw-bold fs-2x mb-3">Good Day : {{ Auth::guard('admin')->user()->name }}</span>
-                    </h3>
+
+                    <h5 class="align-items-start flex-column text-white pt-15">
+                        <span class="fw-bold fs-2x mb-3">{{ $greeting }} :
+                            {{ Auth::guard('admin')->user()->name }}</span>
+                    </h5>
+
                 </div>
 
                 <div class="card-body mt-n20">
@@ -80,7 +96,7 @@
                                 <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
                                     <div class="symbol symbol-30px me-5 mb-8">
                                         <span class="symbol-label">
-                                            <i class="fas fa-check" style="font-size: 30px; color: green;"></i> 
+                                            <i class="fas fa-check" style="font-size: 30px; color: green;"></i>
                                         </span>
                                     </div>
 
