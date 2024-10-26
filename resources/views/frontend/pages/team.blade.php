@@ -3,7 +3,7 @@
     <div class="page-banner bg-3">
         <div class="d-table">
             <div class="d-table-cell">
-                <div class="container">
+                {{-- <div class="container">
                     <div class="page-content">
                         <h2>Our Expert Team</h2>
                         <ul>
@@ -11,7 +11,7 @@
                             <li>Team</li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
             <div class="row">
 
                 @forelse ($teams as $team)
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="team-card">
                             <div class="team-image">
                                 <img src="{{ !empty($team->image) ? url('storage/team/' . $team->image) : 'https://ui-avatars.com/api/?name=' . urlencode($team->name) }}"

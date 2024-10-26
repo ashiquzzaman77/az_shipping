@@ -1,5 +1,6 @@
 @extends('frontend.master')
 @section('content')
+
     <div class="page-banner bg-1">
         <div class="d-table">
             <div class="d-table-cell">
