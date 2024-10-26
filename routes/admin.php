@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
@@ -11,8 +12,6 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\BannerController;
-
-
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Controller;
@@ -42,8 +41,6 @@ Route::middleware('guest:admin')->group(function () {
         ->name('admin.password.store');
 });
 
-
-
 Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('verification.notice');
@@ -70,7 +67,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware(['verified'])->name('dashboard');
 
-
     Route::resources(
         [
 
@@ -80,6 +76,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'rating' => RatingController::class,
             'team' => TeamController::class,
             'job' => EmployeeJobController::class,
+            'about' => AboutController::class,
 
         ],
 
@@ -99,7 +96,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     //Apply Post
     Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');
 });
-
 
 // Role In Permission
 Route::middleware(['auth:admin'])->group(function () {

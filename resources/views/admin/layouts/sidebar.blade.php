@@ -62,7 +62,6 @@
                  </div>
 
                  {{-- SeaFear Section  --}}
-
                  <div data-kt-menu-trigger="click"
                      class="menu-item menu-accordion {{ Request::routeIs('admin.officer.index', 'admin.rating.index') ? 'here show' : '' }}">
                      <span class="menu-link">
@@ -235,7 +234,7 @@
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index','admin.about.index') ? 'here show' : '' }}">
 
                          @if (Auth::guard('admin')->user()->can('job.menu'))
                              <div class="menu-item">
@@ -265,6 +264,21 @@
                                  @endif
                              </div>
                          @endif
+
+                         {{-- About Section  --}}
+                         {{-- @if (Auth::guard('admin')->user()->can('banner.menu')) --}}
+                             <div class="menu-item">
+                                 {{-- @if (Auth::guard('admin')->user()->can('all.banner')) --}}
+                                     <a class="menu-link {{ Request::routeIs('admin.about.index') ? 'active' : '' }}"
+                                         href="{{ route('admin.about.index') }}">
+                                         <span class="menu-bullet">
+                                             <span class="bullet bullet-dot"></span>
+                                         </span>
+                                         <span class="menu-title">About Us</span>
+                                     </a>
+                                 {{-- @endif --}}
+                             </div>
+                         {{-- @endif --}}
 
 
                      </div>
