@@ -395,7 +395,6 @@
                  </div> --}}
 
                  {{-- Employee Management --}}
-
                  @if (Auth::guard('admin')->user()->can('admin.menu'))
                      <div data-kt-menu-trigger="click"
                          class="menu-item menu-accordion {{ Request::routeIs('all.admin.permission', 'admin.user-management.index') ? 'here show' : '' }}">
@@ -461,7 +460,7 @@
 
                  {{-- Setting  --}}
                  <div data-kt-menu-trigger="click"
-                     class="menu-item menu-accordion {{ Request::routeIs('admin.settings.index', 'admin.all.registration', 'admin.event-page.index', 'admin.event.index', 'admin.appointment-slot.index') ? 'here show' : '' }}">
+                     class="menu-item menu-accordion {{ Request::routeIs('admin.settings.index') ? 'here show' : '' }}">
 
                      <span class="menu-link">
                          <span class="menu-icon">
@@ -489,19 +488,19 @@
                      <div
                          class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.settings.index') ? 'here show' : '' }}">
 
-                         {{-- @if (Auth::guard('admin')->user()->can('setting.menu')) --}}
-                         <div class="menu-item">
-                             {{-- @if (Auth::guard('admin')->user()->can('all.setting')) --}}
-                             <a class="menu-link {{ Route::is('admin.settings.index') ? 'active' : '' }}"
-                                 href="{{ route('admin.settings.index') }}">
-                                 <span class="menu-bullet">
-                                     <span class="bullet bullet-dot"></span>
-                                 </span>
-                                 <span class="menu-title">Website Setting</span>
-                             </a>
-                             {{-- @endif --}}
-                         </div>
-                         {{-- @endif --}}
+                         @if (Auth::guard('admin')->user()->can('setting.menu'))
+                             <div class="menu-item">
+                                 @if (Auth::guard('admin')->user()->can('all.setting'))
+                                     <a class="menu-link {{ Route::is('admin.settings.index') ? 'active' : '' }}"
+                                         href="{{ route('admin.settings.index') }}">
+                                         <span class="menu-bullet">
+                                             <span class="bullet bullet-dot"></span>
+                                         </span>
+                                         <span class="menu-title">Website Setting</span>
+                                     </a>
+                                 @endif
+                             </div>
+                         @endif
 
                      </div>
                  </div>
