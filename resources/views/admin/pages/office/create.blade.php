@@ -380,10 +380,6 @@
                         </div>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8ba897555bc57573ec73e2b8ea500d713e753cf5
                         <div class="col-12 mb-3 mt-4">
                             <button type="submit"
                                 class="btn btn-primary rounded-0 px-5 btn-sm float-end">Submit</button>
