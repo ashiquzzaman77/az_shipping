@@ -1,59 +1,75 @@
 <x-admin-app-layout>
+
     <div class="row gy-5 g-xl-8">
+
+        {{-- Total Job  --}}
         <div class="col-xl-4">
             <div class="card h-xl-100">
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold text-gray-900">Course Section</span>
+                        <span class="card-label fw-bold text-gray-900">Total Job Offer</span>
                     </h3>
                 </div>
 
                 <div class="card-body pt-6">
 
-                
+                    @forelse ($jobs as $job)
                         <div class="d-flex flex-stack">
-                            <div class="symbol  me-5">
-                                <div class="text-inverse-danger">
-                                    <img src=""
-                                        alt="Avatar">
 
+                            <div class="symbol me-5">
+                                <div class="text-inverse-danger">
+                                    <img src="https://ui-avatars.com/api/?name=Job+Offer&size=40" alt="Avatar">
                                 </div>
                             </div>
+
+                            @php
+                                $deadline = \Carbon\Carbon::parse($job->deadline);
+                                $currentDate = \Carbon\Carbon::now();
+                            @endphp
 
                             <div class="d-flex align-items-center flex-row-fluid flex-wrap">
 
                                 <div class="flex-grow-1 me-2">
-                                    <a href="https://preview.keenthemes.com/metronic8/demo1/pages/user-profile/overview.html"
-                                        class="text-gray-800 text-hover-primary fs-6 fw-bold">Ashik</a>
+                                    <a href="javascript:;"
+                                        class="text-gray-800 text-hover-primary fs-6 fw-bold">{{ $job->rank }}</a>
 
-                                    <span class="text-muted fw-semibold d-block fs-7">+
-                                        Courses</span>
+                                    <span class="text-muted fw-semibold d-block fs-7">
+                                        Deadline:
+                                        @if ($currentDate->isAfter($deadline))
+                                            <span class="text-danger">Error: Job time deadline has passed.</span>
+                                        @else
+                                            {{ $deadline->format('F j, Y h:i A') }}
+                                        @endif
+                                    </span>
 
                                 </div>
 
-                                <a href="javascript:;"
+                                <a title="Needed Person" href="javascript:;"
                                     class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-                                    Ashik
+                                    {{ $job->total_needed }}
                                 </a>
 
                             </div>
                         </div>
 
                         <div class="separator separator-dashed my-4"></div>
-                    
-
-
+                    @empty
+                        <p>No Job Offer Avaiable</p>
+                    @endforelse
 
                 </div>
             </div>
         </div>
+        {{-- Total Job  --}}
+
+        {{-- Middle Section  --}}
         <div class="col-xl-4">
             <div class="card card-flush h-xl-100">
-                <div class="card-header rounded bgi-no-repeat bgi-size-cover bgi-position-y-top bgi-position-x-center align-items-start h-250px"
+                <div class="card-header rounded bgi-no-repeat bgi-size-cover bgi-position-y-top bgi-position-x-center align-items-start h-200px"
                     style="background-image:url('https://preview.keenthemes.com/metronic8/demo1/assets/media/svg/shapes/top-green.png"
                     data-bs-theme="light">
                     <h3 class="card-title align-items-start flex-column text-white pt-15">
-                        <span class="fw-bold fs-2x mb-3">Information</span>
+                        <span class="fw-bold fs-2x mb-3">Good Day : {{ Auth::guard('admin')->user()->name }}</span>
                     </h3>
                 </div>
 
@@ -64,16 +80,13 @@
                                 <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
                                     <div class="symbol symbol-30px me-5 mb-8">
                                         <span class="symbol-label">
-                                            <i class="fa-solid fa-flask fs-1 text-primary"><span
-                                                    class="path1"></span><span class="path2"></span></i>
+                                            <i class="fas fa-check" style="font-size: 30px; color: green;"></i> 
                                         </span>
                                     </div>
 
                                     <div class="m-0">
-                                        <a href=""
-                                            class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">Ashik</a>
-
-                                        <span class="text-gray-500 fw-semibold fs-6">Total Courses</span>
+                                        <h4>Total Visited Person</h4>
+                                        <span class="text-gray-500 fw-semibold fs-6">{{ $visitCount }}+</span>
                                     </div>
 
                                 </div>
@@ -82,16 +95,31 @@
                                 <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
                                     <div class="symbol symbol-30px me-5 mb-8">
                                         <span class="symbol-label">
-                                            <i class="fa-solid fa-bank fs-1 text-primary"><span
-                                                    class="path1"></span><span class="path2"></span></i>
+                                            <i class="fas fa-user" style="font-size: 30px; color: green;"></i>
                                         </span>
                                     </div>
 
                                     <div class="m-0">
-                                        <a href=""
-                                            class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">Ashik</a>
+                                        <h4>Total Employee</h4>
 
-                                        <span class="text-gray-500 fw-semibold fs-6">Total Enrolled</span>
+                                        <span class="text-gray-500 fw-semibold fs-6">{{ count($team) }}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+
+                                    <div class="symbol symbol-30px me-5 mb-8">
+                                        <span class="symbol-label">
+                                            <i class="fas fa-user-check" style="font-size: 30px; color: green;"></i>
+                                        </span>
+                                    </div>
+
+                                    <div class="m-0">
+                                        <h4>Apply Job</h4>
+
+                                        <span class="text-gray-500 fw-semibold fs-6">{{ count($items) }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -100,36 +128,14 @@
 
                                     <div class="symbol symbol-30px me-5 mb-8">
                                         <span class="symbol-label">
-                                            <i class="fa-solid fa-award fs-1 text-primary"><span
-                                                    class="path1"></span><span class="path2"></span><span
-                                                    class="path3"></span></i>
+                                            <i class="fas fa-briefcase" style="font-size: 30px; color: green;"></i>
                                         </span>
                                     </div>
 
                                     <div class="m-0">
-                                        <a href=""
-                                            class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">Ashik</a>
+                                        <h4>Total Job</h4>
 
-                                        <span class="text-gray-500 fw-semibold fs-6">Monthly Enrolled</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
-
-                                    <div class="symbol symbol-30px me-5 mb-8">
-                                        <span class="symbol-label">
-                                            <i class="fa-solid fa-award fs-1 text-primary"><span
-                                                    class="path1"></span><span class="path2"></span><span
-                                                    class="path3"></span></i>
-                                        </span>
-                                    </div>
-
-                                    <div class="m-0">
-                                        <a href=""
-                                            class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">Ashik</a>
-
-                                        <span class="text-gray-500 fw-semibold fs-6">Today Enrolled</span>
+                                        <span class="text-gray-500 fw-semibold fs-6">{{ count($jobs) }}</span>
                                     </div>
 
                                 </div>
@@ -141,18 +147,13 @@
 
         </div>
 
-        {{-- @if (Auth::guard('admin')->user()->hasRole('Super Admin'))
-            <!-- Code to execute if the user is a Super Admin -->
-        @endif --}}
 
-        
         <div class="col-xl-4">
             <div class="card card-flush h-md-100 mb-5 mb-xl-10">
                 <div class="card-header pt-5">
                     <div class="card-title d-flex flex-column">
                         <div class="d-flex align-items-center">
-                            <span
-                                class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">Ashik
+                            <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">Ashik
                                 Tk</span>
 
                             {{-- <span class="badge badge-light-success fs-base">
@@ -188,11 +189,12 @@
             </div>
         </div>
 
-        {{-- <div class="col-xl-12">
+        {{-- Apply For Job  --}}
+        <div class="col-xl-12">
             <div class="card card-flush">
                 <div class="card-header pt-5">
                     <div class="card-title d-flex flex-column">
-                        <span class="text-gray-500 pt-1 fw-semibold fs-2">Courses Info</span>
+                        <span class="text-gray-500 pt-1 fw-semibold fs-2">Apply For Job</span>
                     </div>
                 </div>
 
@@ -202,36 +204,69 @@
                         <thead class="bg-dark text-light">
                             <tr>
                                 <th width="5%">No</th>
-                                <th width="8%">Image</th>
-                                <th>Course Name</th>
-                                <th>Lecture</th>
-                                <th>Seat</th>
-                                <th>Price</th>
-                                <th>Discount Price</th>
-                                
+                                <th width="10%">Rank Name</th>
+                                <th width="10%">Name</th>
+                                <th width="10%">Email</th>
+                                <th width="10%">Phone</th>
+                                <th width="10%">Passport Number</th>
+                                <th width="10%">Nationality</th>
+                                <th width="10%">CV</th>
+                                <th width="5%">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="fw-bold text-gray-600">
 
-                            @foreach ($courses as $key => $course)
+                            @foreach ($items as $key => $item)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td class="">
 
-                                        <img class=""
-                                            src="{{ !empty($course->thumbnail_image) ? url('storage/course/' . $course->thumbnail_image) : 'https://ui-avatars.com/api/?name=' . urlencode($course->name) }}"
-                                            height="40" width="40" alt="">
-
+                                    <td>
+                                        <h6>{{ $item->jobName->rank }}</h6>
                                     </td>
 
-                                    <td class="text-start">{{ $course->name }}</td>
-                                    <td class="text-start">{{ $course->lecture }}</td>
-                                    <td class="text-start">{{ $course->available_seats }}</td>
-                                    <td class="text-start">{{ $course->price }} Tk</td>
-                                    <td class="text-start">{{ $course->discount_price }} Tk</td>
+                                    <td>
+                                        <h6>{{ $item->name }}</h6>
+                                    </td>
 
-                                    
+                                    <td>
+                                        <h6>{{ $item->email }}</h6>
+                                    </td>
 
+                                    <td>
+                                        <h6>{{ $item->phone }}</h6>
+                                    </td>
+                                    <td>
+                                        <h6>{{ $item->passport_number }}</h6>
+                                    </td>
+
+                                    <td>
+                                        <h6>{{ $item->nationality }}</h6>
+                                    </td>
+
+                                    <td>
+                                        @if ($item->attachment == null)
+                                            <p>No File</p>
+                                        @else
+                                            <a href="{{ route('download.attachment', $item->id) }}"
+                                                class="text-danger">Download
+                                                CV</a>
+                                        @endif
+                                    </td>
+
+
+                                    <td>
+
+                                        <form action="{{ route('admin.apply.post.delete', $item->id) }}"
+                                            method="POST" style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class=""
+                                                style="border: none; background: none; cursor: pointer;">
+                                                <i class="fa-solid fa-trash text-danger"></i>
+                                            </button>
+                                        </form>
+
+                                    </td>
                                 </tr>
                             @endforeach
 
@@ -241,9 +276,11 @@
                 </div>
 
             </div>
-        </div> --}}
+        </div>
+        {{-- Apply For Job  --}}
 
     </div>
+
     @push('scripts')
         <script>
             $("#kt_datatable_example_5").DataTable({

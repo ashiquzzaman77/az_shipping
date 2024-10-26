@@ -127,8 +127,10 @@
     <script src="{{ asset($hostUrl . 'js/custom/widgets.js') }}"></script>
     <script src="{{ asset($hostUrl . 'js/custom/apps/chat/chat.js') }}"></script>
     <script src="{{ asset($hostUrl . 'js/custom/documentation/editors/tinymce/plugins.js') }}"></script>
-    <script src="https://cdn.tiny.cloud/1/n4jpbhtanca801bcjejx1pc9j033yn0de5ral6e7r0wd6383/tinymce/6/tinymce.min.js"
-        referrerpolicy="origin"></script>
+
+    {{-- <script src="https://cdn.tiny.cloud/1/n4jpbhtanca801bcjejx1pc9j033yn0de5ral6e7r0wd6383/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script> --}}
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
@@ -155,7 +157,7 @@
     <!--end::Javascript-->
 
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Initialize CKEditor for each textarea with the class 'editor'

@@ -2,20 +2,28 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Visit;
 use App\Models\ApplyPost;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules;
 use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
+use App\Models\Job;
+use App\Models\Team;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin/dashboard');
+        $visitCount = Visit::first()->count;
+        $items = ApplyPost::orderBy('job_id')->get();
+        $jobs = Job::latest('id')->limit(5)->get();
+        $team = Team::latest()->get();
+
+        return view('admin/dashboard', compact('visitCount','items','jobs','team'));
     }
 
     public function index()
@@ -38,7 +46,8 @@ class AdminController extends Controller
             'phone' => 'required|string|max:20',
             'password' => [
                 'required',
-                'string', Rules\Password::min(8)
+                'string',
+                Rules\Password::min(8)
                     ->mixedCase()
                     ->letters()
                     ->numbers()
@@ -137,7 +146,6 @@ class AdminController extends Controller
 
         // Delete the admin record
         $admin->delete();
-
     }
 
     public function applyPost()
@@ -158,6 +166,5 @@ class AdminController extends Controller
     {
         ApplyPost::findOrfail($id)->delete();
         return redirect()->back()->with('success', 'Delete successfully.');
-
     }
 }

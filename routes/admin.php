@@ -12,59 +12,15 @@ use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\BannerController;
 
-// use App\Http\Controllers\Admin\CourseContentController;
-// use App\Http\Controllers\Admin\CourseController;
-// use App\Http\Controllers\Admin\CourseCurriculamController;
-// use App\Http\Controllers\Admin\CourseManagentController;
-// use App\Http\Controllers\Admin\CourseOutlineController;
-// use App\Http\Controllers\Admin\CourseProjectController;
-// use App\Http\Controllers\Admin\CourseQueryController;
-// use App\Http\Controllers\Admin\CourseScheduleController;
-// use App\Http\Controllers\Admin\DynamicCssController;
-
-use App\Http\Controllers\Admin\EmailSettingController;
-
-// use App\Http\Controllers\Admin\EventController;
-// use App\Http\Controllers\Admin\EventPageController;
-
-// use App\Http\Controllers\Admin\HomepageController;
 
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\TermsConditionController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmployeeJobController;
 use App\Http\Controllers\OfficersController;
-use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
-
-// Route::get('/', function () {
-//     return redirect()->route('admin.dashboard');
-// });
-
-// Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function () {
-
-//     Route::get('login', [AuthenticatedSessionController::class, 'create'])
-//         ->name('login');
-
-//     Route::post('login', [AuthenticatedSessionController::class, 'store']);
-
-//     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-//         ->name('password.request');
-
-//     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-//         ->name('password.email');
-
-//     Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-//         ->name('password.reset');
-
-//     Route::post('reset-password', [NewPasswordController::class, 'store'])
-//         ->name('password.store');
-// });
 
 Route::middleware('guest:admin')->group(function () {
 
@@ -86,7 +42,7 @@ Route::middleware('guest:admin')->group(function () {
         ->name('admin.password.store');
 });
 
-// Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth:admin'])->prefix(LaravelLocalization::setLocale() . '/admin')->name('admin.')->group(function () {
+
 
 Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
@@ -114,36 +70,11 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware(['verified'])->name('dashboard');
 
-    Route::resources(
-        [
-            // 'role' => RoleController::class,
-            // 'permission' => PermissionController::class,
-            'email-settings' => EmailSettingController::class,
-
-            // Created By Ashiquzzaman
-            'terms-and-condition' => TermsConditionController::class,
-            'privacy-policy' => PrivacyPolicyController::class,
-        ],
-
-        ['except' => ['show']]
-    );
-
-    //Registration start
-
-    // Route::get('/registration', [RegistrationController::class, 'registration'])->name('all.registration');
-    // Route::get('/pending-registration', [RegistrationController::class, 'registrationPending'])->name('registration.pending');
-    // Route::get('/paid-registration', [RegistrationController::class, 'registrationPaid'])->name('registration.paid');
-    // Route::get('/registration-delete/{id}', [RegistrationController::class, 'DeleteRegistration'])->name('delete.registration');
-
-    //Registration end
 
     Route::resources(
         [
-            'user' => UserController::class, //done
-            'user-management' => UserManagementController::class,
-            'admin-management' => AdminController::class,
 
-            //Shipping
+            // Shipping All Admin Controller
             'banner' => BannerController::class,
             'officer' => OfficersController::class,
             'rating' => RatingController::class,
@@ -153,10 +84,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
         ],
 
     );
-
-    // Route::get('activity_logs', [ActivityLogController::class, 'index'])->name('activity_logs.index');
-    // Route::get('activity_logs/{activity_log}', [ActivityLogController::class, 'show'])->name('activity_logs.show');
-    // Route::delete('activity_logs/{activity_log}', [ActivityLogController::class, 'destroy'])->name('activity_logs.destroy');
 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::put('/settings', [SettingController::class, 'updateOrcreateSetting'])->name('settings.updateOrCreate');
@@ -173,13 +100,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');
 });
 
-// Terms & Condition Status
-Route::get('/terms-and-condition/{id}/inactive', [TermsConditionController::class, 'inactive'])->name('terms-and-condition.inactive');
-Route::get('/terms-and-condition/{id}/active', [TermsConditionController::class, 'active'])->name('terms-and-condition.active');
-
-//User Register
-Route::get('/register-user/inactive/{id}', [UserManagementController::class, 'userInactive'])->name('user-register.inactive');
-Route::get('/register-user/active/{id}', [UserManagementController::class, 'userActive'])->name('user-register.active');
 
 // Role In Permission
 Route::middleware(['auth:admin'])->group(function () {
