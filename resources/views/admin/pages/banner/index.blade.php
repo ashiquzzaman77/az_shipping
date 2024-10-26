@@ -161,13 +161,17 @@
 
 
                             <td>
-                                <a href="{{ route('admin.banner.edit', $item->id) }}" class="text-primary">
-                                    <i class="fa-solid fa-pencil text-primary"></i>
-                                </a>
+                                @if (Auth::guard('admin')->user()->can('edit.banner'))
+                                    <a href="{{ route('admin.banner.edit', $item->id) }}" class="text-primary">
+                                        <i class="fa-solid fa-pencil text-primary"></i>
+                                    </a>
+                                @endif
 
-                                <a href="{{ route('admin.banner.destroy', $item->id) }}" class="delete">
-                                    <i class="fa-solid fa-trash text-danger"></i>
-                                </a>
+                                @if (Auth::guard('admin')->user()->can('delete.banner'))
+                                    <a href="{{ route('admin.banner.destroy', $item->id) }}" class="delete">
+                                        <i class="fa-solid fa-trash text-danger"></i>
+                                    </a>
+                                @endif
 
                             </td>
                         </tr>
