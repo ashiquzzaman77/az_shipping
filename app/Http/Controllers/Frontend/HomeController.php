@@ -14,12 +14,9 @@ use Illuminate\Support\Facades\Validator;
 // use Illuminate\Support\Facades\Hash;
 // use Illuminate\Support\Facades\Mail;
 // use Illuminate\Support\Facades\View;
-// use App\Models\UserCourseRegistration;
-// use Illuminate\Support\Facades\Validator;
 // use Illuminate\Support\Facades\Notification;
 // use App\Mail\AdminCourseRegistrationNotification;
-// use App\Models\Event;
-// use App\Models\EventPage;
+
 // use App\Notifications\UserRegistrationNotification;
 
 class HomeController extends Controller

@@ -5,13 +5,6 @@
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
-                    <div class="page-content">
-                        <h2>{{ $job->rank }}</h2>
-                        {{-- <ul>
-                            <li><a href="{{ route('homepage') }}">Home</a></li>
-                            <li>Job</li>
-                        </ul> --}}
-                    </div>
                 </div>
             </div>
         </div>
@@ -48,7 +41,7 @@
             </div>
 
             <div class="col-lg-12 mt-3">
-                <p>{!!  $job->long_descp !!}</p>
+                <p>{!! $job->long_descp !!}</p>
             </div>
 
         </div>

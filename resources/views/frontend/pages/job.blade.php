@@ -4,13 +4,7 @@
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
-                    <div class="page-content">
-                        <h2>Our Job Offer</h2>
-                        <ul>
-                            <li><a href="{{ route('homepage') }}">Home</a></li>
-                            <li>Job</li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>
