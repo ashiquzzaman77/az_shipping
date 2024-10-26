@@ -70,19 +70,56 @@
                          <span class="menu-icon">
                              <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
                              <span class="svg-icon svg-icon-2">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                     viewBox="0 0 24 24" fill="none">
-                                     <path
-                                         d="M21 10H13V11C13 11.6 12.6 12 12 12C11.4 12 11 11.6 11 11V10H3C2.4 10 2 10.4 2 11V13H22V11C22 10.4 21.6 10 21 10Z"
-                                         fill="currentColor" />
-                                     <path opacity="0.3"
-                                         d="M12 12C11.4 12 11 11.6 11 11V3C11 2.4 11.4 2 12 2C12.6 2 13 2.4 13 3V11C13 11.6 12.6 12 12 12Z"
-                                         fill="currentColor" />
-                                     <path opacity="0.3"
-                                         d="M18.1 21H5.9C5.4 21 4.9 20.6 4.8 20.1L3 13H21L19.2 20.1C19.1 20.6 18.6 21 18.1 21ZM13 18V15C13 14.4 12.6 14 12 14C11.4 14 11 14.4 11 15V18C11 18.6 11.4 19 12 19C12.6 19 13 18.6 13 18ZM17 18V15C17 14.4 16.6 14 16 14C15.4 14 15 14.4 15 15V18C15 18.6 15.4 19 16 19C16.6 19 17 18.6 17 18ZM9 18V15C9 14.4 8.6 14 8 14C7.4 14 7 14.4 7 15V18C7 18.6 7.4 19 8 19C8.6 19 9 18.6 9 18Z"
-                                         fill="currentColor" />
-                                 </svg>
-                             </span>
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297"
+                                    xml:space="preserve" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                    </g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g>
+                                            <g>
+                                                <g>
+                                                    <g>
+                                                        <g>
+                                                            <g>
+                                                                <circle style="fill:#345065;" cx="148.5"
+                                                                    cy="148.5" r="148.5"></circle>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                            <path style="fill:#243F4F;"
+                                                d="M264,148.5L67.438,208.223l88.783,88.579c68.287-3.498,124.388-53.124,137.752-118.329L264,148.5z">
+                                            </path>
+                                            <g>
+                                                <rect x="66" y="95.25" style="fill:#9ADAD9;" width="65.666"
+                                                    height="33"></rect>
+                                            </g>
+                                            <g>
+                                                <rect x="66" y="119.75" style="fill:#FFFFFF;" width="115.5"
+                                                    height="33"></rect>
+                                            </g>
+                                            <g>
+                                                <rect x="149.167" y="119.75" style="fill:#BDC3C7;" width="32.333"
+                                                    height="33"></rect>
+                                            </g>
+                                            <g>
+                                                <path style="fill:#1ABC9C;"
+                                                    d="M82.429,214.5h106.855c5.581,0,10.933-2.217,14.879-6.163L264,148.5H49.5l12.515,50.062 C64.357,207.929,72.773,214.5,82.429,214.5z">
+                                                </path>
+                                            </g>
+                                            <g>
+                                                <path style="fill:#17AB93;"
+                                                    d="M149.167,148.5v66h40.117c5.581,0,10.933-2.217,14.879-6.163L264,148.5H149.167z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </span>
                              <!--end::Svg Icon-->
                          </span>
 
@@ -140,19 +177,56 @@
                          <span class="menu-icon">
                              <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
                              <span class="svg-icon svg-icon-2">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                     viewBox="0 0 24 24" fill="none">
-                                     <path
-                                         d="M21 10H13V11C13 11.6 12.6 12 12 12C11.4 12 11 11.6 11 11V10H3C2.4 10 2 10.4 2 11V13H22V11C22 10.4 21.6 10 21 10Z"
-                                         fill="currentColor" />
-                                     <path opacity="0.3"
-                                         d="M12 12C11.4 12 11 11.6 11 11V3C11 2.4 11.4 2 12 2C12.6 2 13 2.4 13 3V11C13 11.6 12.6 12 12 12Z"
-                                         fill="currentColor" />
-                                     <path opacity="0.3"
-                                         d="M18.1 21H5.9C5.4 21 4.9 20.6 4.8 20.1L3 13H21L19.2 20.1C19.1 20.6 18.6 21 18.1 21ZM13 18V15C13 14.4 12.6 14 12 14C11.4 14 11 14.4 11 15V18C11 18.6 11.4 19 12 19C12.6 19 13 18.6 13 18ZM17 18V15C17 14.4 16.6 14 16 14C15.4 14 15 14.4 15 15V18C15 18.6 15.4 19 16 19C16.6 19 17 18.6 17 18ZM9 18V15C9 14.4 8.6 14 8 14C7.4 14 7 14.4 7 15V18C7 18.6 7.4 19 8 19C8.6 19 9 18.6 9 18Z"
-                                         fill="currentColor" />
-                                 </svg>
-                             </span>
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297"
+                                    xml:space="preserve" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                    </g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g>
+                                            <g>
+                                                <g>
+                                                    <g>
+                                                        <g>
+                                                            <g>
+                                                                <circle style="fill:#345065;" cx="148.5"
+                                                                    cy="148.5" r="148.5"></circle>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                            <path style="fill:#243F4F;"
+                                                d="M264,148.5L67.438,208.223l88.783,88.579c68.287-3.498,124.388-53.124,137.752-118.329L264,148.5z">
+                                            </path>
+                                            <g>
+                                                <rect x="66" y="95.25" style="fill:#9ADAD9;" width="65.666"
+                                                    height="33"></rect>
+                                            </g>
+                                            <g>
+                                                <rect x="66" y="119.75" style="fill:#FFFFFF;" width="115.5"
+                                                    height="33"></rect>
+                                            </g>
+                                            <g>
+                                                <rect x="149.167" y="119.75" style="fill:#BDC3C7;" width="32.333"
+                                                    height="33"></rect>
+                                            </g>
+                                            <g>
+                                                <path style="fill:#1ABC9C;"
+                                                    d="M82.429,214.5h106.855c5.581,0,10.933-2.217,14.879-6.163L264,148.5H49.5l12.515,50.062 C64.357,207.929,72.773,214.5,82.429,214.5z">
+                                                </path>
+                                            </g>
+                                            <g>
+                                                <path style="fill:#17AB93;"
+                                                    d="M149.167,148.5v66h40.117c5.581,0,10.933-2.217,14.879-6.163L264,148.5H149.167z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </span>
                              <!--end::Svg Icon-->
                          </span>
 
@@ -404,6 +478,56 @@
                              <span class="menu-icon">
                                  <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
                                  <span class="svg-icon svg-icon-2">
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297"
+                                        xml:space="preserve" fill="#000000">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g>
+                                                <g>
+                                                    <g>
+                                                        <g>
+                                                            <g>
+                                                                <g>
+                                                                    <circle style="fill:#345065;" cx="148.5"
+                                                                        cy="148.5" r="148.5"></circle>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                                <path style="fill:#243F4F;"
+                                                    d="M264,148.5L67.438,208.223l88.783,88.579c68.287-3.498,124.388-53.124,137.752-118.329L264,148.5z">
+                                                </path>
+                                                <g>
+                                                    <rect x="66" y="95.25" style="fill:#9ADAD9;" width="65.666"
+                                                        height="33"></rect>
+                                                </g>
+                                                <g>
+                                                    <rect x="66" y="119.75" style="fill:#FFFFFF;" width="115.5"
+                                                        height="33"></rect>
+                                                </g>
+                                                <g>
+                                                    <rect x="149.167" y="119.75" style="fill:#BDC3C7;" width="32.333"
+                                                        height="33"></rect>
+                                                </g>
+                                                <g>
+                                                    <path style="fill:#1ABC9C;"
+                                                        d="M82.429,214.5h106.855c5.581,0,10.933-2.217,14.879-6.163L264,148.5H49.5l12.515,50.062 C64.357,207.929,72.773,214.5,82.429,214.5z">
+                                                    </path>
+                                                </g>
+                                                <g>
+                                                    <path style="fill:#17AB93;"
+                                                        d="M149.167,148.5v66h40.117c5.581,0,10.933-2.217,14.879-6.163L264,148.5H149.167z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </span>ss="svg-icon svg-icon-2">
                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                          viewBox="0 0 24 24" fill="none">
                                          <path opacity="0.3"
