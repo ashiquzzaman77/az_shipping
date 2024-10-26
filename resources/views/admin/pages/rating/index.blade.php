@@ -289,13 +289,19 @@
                                     </div>
                                 </div>
 
-                                <a href="{{ route('admin.rating.edit', $item->id) }}" class="text-primary">
-                                    <i class="fa-solid fa-pencil text-primary fs-5"></i>
-                                </a>
+                                @if (Auth::guard('admin')->user()->can('edit.rating'))
+                                    <a href="{{ route('admin.rating.edit', $item->id) }}" class="text-primary">
+                                        <i class="fa-solid fa-pencil text-primary fs-5"></i>
+                                    </a>
+                                @endif
 
-                                <a href="{{ route('admin.rating.destroy', $item->id) }}" class="delete">
-                                    <i class="fa-solid fa-trash text-danger fs-5"></i>
-                                </a>
+                                @if (Auth::guard('admin')->user()->can('delete.rating'))
+                                    <a href="{{ route('admin.rating.destroy', $item->id) }}" class="delete">
+                                        <i class="fa-solid fa-trash text-danger fs-5"></i>
+                                    </a>
+                                @endif
+
+
 
                             </td>
                         </tr>

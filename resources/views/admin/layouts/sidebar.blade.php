@@ -98,34 +98,34 @@
 
                          {{-- Officres  --}}
 
-                         {{-- @if (Auth::guard('admin')->user()->can('service.menu')) --}}
-                         <div class="menu-item">
-                             {{-- @if (Auth::guard('admin')->user()->can('all.service')) --}}
-                             <a class="menu-link {{ Request::routeIs('admin.officer.index') ? 'active' : '' }}"
-                                 href="{{ route('admin.officer.index') }}">
-                                 <span class="menu-bullet">
-                                     <span class="bullet bullet-dot"></span>
-                                 </span>
-                                 <span class="menu-title">Officers</span>
-                             </a>
-                             {{-- @endif --}}
-                         </div>
-                         {{-- @endif --}}
+                         @if (Auth::guard('admin')->user()->can('officer.menu'))
+                             <div class="menu-item">
+                                 @if (Auth::guard('admin')->user()->can('all.officer'))
+                                     <a class="menu-link {{ Request::routeIs('admin.officer.index') ? 'active' : '' }}"
+                                         href="{{ route('admin.officer.index') }}">
+                                         <span class="menu-bullet">
+                                             <span class="bullet bullet-dot"></span>
+                                         </span>
+                                         <span class="menu-title">Officers</span>
+                                     </a>
+                                 @endif
+                             </div>
+                         @endif
 
                          {{-- Rating  --}}
-                         {{-- @if (Auth::guard('admin')->user()->can('service.menu')) --}}
-                         <div class="menu-item">
-                             {{-- @if (Auth::guard('admin')->user()->can('all.service')) --}}
-                             <a class="menu-link {{ Request::routeIs('admin.rating.index') ? 'active' : '' }}"
-                                 href="{{ route('admin.rating.index') }}">
-                                 <span class="menu-bullet">
-                                     <span class="bullet bullet-dot"></span>
-                                 </span>
-                                 <span class="menu-title">Rating</span>
-                             </a>
-                             {{-- @endif --}}
-                         </div>
-                         {{-- @endif --}}
+                         @if (Auth::guard('admin')->user()->can('rating.menu'))
+                             <div class="menu-item">
+                                 @if (Auth::guard('admin')->user()->can('all.rating'))
+                                     <a class="menu-link {{ Request::routeIs('admin.rating.index') ? 'active' : '' }}"
+                                         href="{{ route('admin.rating.index') }}">
+                                         <span class="menu-bullet">
+                                             <span class="bullet bullet-dot"></span>
+                                         </span>
+                                         <span class="menu-title">Rating</span>
+                                     </a>
+                                 @endif
+                             </div>
+                         @endif
 
 
                      </div>
@@ -165,19 +165,19 @@
                      <div
                          class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index') ? 'here show' : '' }}">
 
-                         {{-- @if (Auth::guard('admin')->user()->can('service.menu')) --}}
-                         <div class="menu-item">
-                             {{-- @if (Auth::guard('admin')->user()->can('all.service')) --}}
-                             <a class="menu-link {{ Request::routeIs('admin.job.index') ? 'active' : '' }}"
-                                 href="{{ route('admin.job.index') }}">
-                                 <span class="menu-bullet">
-                                     <span class="bullet bullet-dot"></span>
-                                 </span>
-                                 <span class="menu-title">Job Created</span>
-                             </a>
-                             {{-- @endif --}}
-                         </div>
-                         {{-- @endif --}}
+                         @if (Auth::guard('admin')->user()->can('job.menu'))
+                             <div class="menu-item">
+                                 @if (Auth::guard('admin')->user()->can('all.job'))
+                                     <a class="menu-link {{ Request::routeIs('admin.job.index') ? 'active' : '' }}"
+                                         href="{{ route('admin.job.index') }}">
+                                         <span class="menu-bullet">
+                                             <span class="bullet bullet-dot"></span>
+                                         </span>
+                                         <span class="menu-title">Job Created</span>
+                                     </a>
+                                 @endif
+                             </div>
+                         @endif
 
                          {{-- Banner Section  --}}
                          @if (Auth::guard('admin')->user()->can('banner.menu'))
@@ -394,10 +394,9 @@
                      </div>
                  </div> --}}
 
-                 {{-- Management --}}
+                 {{-- Employee Management --}}
 
                  @if (Auth::guard('admin')->user()->can('admin.menu'))
-
                      <div data-kt-menu-trigger="click"
                          class="menu-item menu-accordion {{ Request::routeIs('all.admin.permission', 'admin.user-management.index') ? 'here show' : '' }}">
 
@@ -458,7 +457,6 @@
 
                          </div>
                      </div>
-
                  @endif
 
                  {{-- Setting  --}}

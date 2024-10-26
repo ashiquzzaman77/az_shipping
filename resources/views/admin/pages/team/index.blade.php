@@ -194,7 +194,7 @@
                                         <i class="fa-solid fa-trash text-danger"></i>
                                     </a>
                                 @endif
-                                
+
                             </td>
                         </tr>
                     @endforeach
