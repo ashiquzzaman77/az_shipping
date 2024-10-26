@@ -266,9 +266,9 @@
                          @endif
 
                          {{-- About Section  --}}
-                         {{-- @if (Auth::guard('admin')->user()->can('banner.menu')) --}}
+                         @if (Auth::guard('admin')->user()->can('about.menu'))
                              <div class="menu-item">
-                                 {{-- @if (Auth::guard('admin')->user()->can('all.banner')) --}}
+                                 @if (Auth::guard('admin')->user()->can('all.about'))
                                      <a class="menu-link {{ Request::routeIs('admin.about.index') ? 'active' : '' }}"
                                          href="{{ route('admin.about.index') }}">
                                          <span class="menu-bullet">
@@ -276,9 +276,9 @@
                                          </span>
                                          <span class="menu-title">About Us</span>
                                      </a>
-                                 {{-- @endif --}}
+                                 @endif
                              </div>
-                         {{-- @endif --}}
+                         @endif
 
 
                      </div>
