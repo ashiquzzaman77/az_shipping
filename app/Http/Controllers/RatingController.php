@@ -32,13 +32,14 @@ class RatingController extends Controller
     {
         // Validate the incoming request data
         $validator = Validator::make($request->all(), [
-            'name' => 'nullable|string|max:255',
+            'name' => 'required|string|max:255',
             'rank' => 'nullable|string|max:255',
             'cdc_no' => 'nullable|string|max:255',
             'contact' => 'nullable|string|max:255',
             'academy' => 'nullable|string|max:255',
             'status' => 'nullable|string',
             'ship_name' => 'nullable|string',
+            'ship_cook' => 'nullable|string',
 
             'batch' => 'nullable|string|max:255',
             'cdc' => 'nullable|string|max:255',
@@ -59,6 +60,11 @@ class RatingController extends Controller
             'covid' => 'nullable|string|max:255',
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
+
+            'other_one' => 'nullable|date',
+            'other_two' => 'nullable|date',
+            'other_three' => 'nullable|date',
+            'other_four' => 'nullable|date',
         ]);
 
         // Check if validation fails
@@ -77,6 +83,7 @@ class RatingController extends Controller
         $rating->academy = $request->academy;
         $rating->status = $request->status;
         $rating->ship_name = $request->ship_name;
+        $rating->ship_cook = $request->ship_cook;
 
         $rating->batch = $request->batch;
         $rating->cdc = $request->cdc;
@@ -97,6 +104,11 @@ class RatingController extends Controller
         $rating->covid = $request->covid;
         $rating->discharge_date = $request->discharge_date;
         $rating->end_of_contract = $request->end_of_contract;
+
+        $rating->other_one = $request->other_one;
+        $rating->other_two = $request->other_two;
+        $rating->other_three = $request->other_three;
+        $rating->other_four = $request->other_four;
 
         // Save the new rating to the database
         $rating->save();
@@ -136,6 +148,9 @@ class RatingController extends Controller
             'contact' => 'nullable|string|max:255',
             'academy' => 'nullable|string|max:255',
             'status' => 'nullable|string',
+            
+            'ship_cook' => 'nullable|string',
+            'remarks' => 'nullable|string',
 
             'ship_name' => 'nullable|string',
             'batch' => 'nullable|string|max:255',
@@ -157,6 +172,11 @@ class RatingController extends Controller
             'covid' => 'nullable|string|max:255',
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
+
+            'other_one' => 'nullable|date',
+            'other_two' => 'nullable|date',
+            'other_three' => 'nullable|date',
+            'other_four' => 'nullable|date',
         ]);
 
         // Find the rating by ID and update it
@@ -165,7 +185,7 @@ class RatingController extends Controller
 
         // Redirect back to the edit form with success message
         return redirect()->route('admin.rating.index', $rating->id)
-                         ->with('success', 'Rating updated successfully!');
+            ->with('success', 'Rating updated successfully!');
     }
 
     /**

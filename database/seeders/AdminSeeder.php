@@ -18,12 +18,12 @@ class AdminSeeder extends Seeder
         Admin::factory()->create([
             'name' => 'Super Admin',
             'email' => 'ngenit@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('12345678'),
         ]);
         Admin::factory()->create([
             'name' => 'Khandker Shahed',
             'email' => 'khandkershahed23@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('12345678'),
         ]);
     }
 }

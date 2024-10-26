@@ -146,7 +146,7 @@
                         <h3 class="pt-2 mb-5">Our team is actively working to restore the service. We appreciate your
                             patience.</h3>
                     </div>
-                    <a href="{{ route('support') }}" class="primary-btn-one mt-5">
+                    <a href="" class="primary-btn-one mt-5">
                         Contact Support <i class="fa-solid fa-long-arrow-right"></i>
                     </a>
                 </div>

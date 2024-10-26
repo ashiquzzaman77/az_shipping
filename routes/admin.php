@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutUsController;
-use App\Http\Controllers\Admin\ActivityLogController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
@@ -12,7 +11,6 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\ContactController;
 
 // use App\Http\Controllers\Admin\CourseContentController;
 // use App\Http\Controllers\Admin\CourseController;
@@ -29,26 +27,19 @@ use App\Http\Controllers\Admin\EmailSettingController;
 // use App\Http\Controllers\Admin\EventController;
 // use App\Http\Controllers\Admin\EventPageController;
 
-use App\Http\Controllers\Admin\FaqController;
-
 // use App\Http\Controllers\Admin\HomepageController;
 
-use App\Http\Controllers\Admin\LogController;
-use App\Http\Controllers\Admin\NewsletterController;
-use App\Http\Controllers\Admin\PermissionController;
-use App\Http\Controllers\Admin\RegistrationController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TermsConditionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UserManagementController;
-
-
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\EmployeeJobController;
 use App\Http\Controllers\OfficersController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\RatingController;
-use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -128,7 +119,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             // 'role' => RoleController::class,
             // 'permission' => PermissionController::class,
             'email-settings' => EmailSettingController::class,
-            
 
             // Created By Ashiquzzaman
             'terms-and-condition' => TermsConditionController::class,
@@ -154,17 +144,19 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'admin-management' => AdminController::class,
 
             //Shipping
-            'banner' => BannerController::class, 
-            'officer' => OfficersController::class, 
-            'rating' => RatingController::class, 
+            'banner' => BannerController::class,
+            'officer' => OfficersController::class,
+            'rating' => RatingController::class,
+            'team' => TeamController::class,
+            'job' => EmployeeJobController::class,
 
         ],
 
     );
 
-    Route::get('activity_logs', [ActivityLogController::class, 'index'])->name('activity_logs.index');
-    Route::get('activity_logs/{activity_log}', [ActivityLogController::class, 'show'])->name('activity_logs.show');
-    Route::delete('activity_logs/{activity_log}', [ActivityLogController::class, 'destroy'])->name('activity_logs.destroy');
+    // Route::get('activity_logs', [ActivityLogController::class, 'index'])->name('activity_logs.index');
+    // Route::get('activity_logs/{activity_log}', [ActivityLogController::class, 'show'])->name('activity_logs.show');
+    // Route::delete('activity_logs/{activity_log}', [ActivityLogController::class, 'destroy'])->name('activity_logs.destroy');
 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::put('/settings', [SettingController::class, 'updateOrcreateSetting'])->name('settings.updateOrCreate');
@@ -172,13 +164,16 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us.index');
     Route::put('/about-us', [AboutUsController::class, 'updateOrcreateAboutUs'])->name('about-us.updateOrCreate');
 
-
     //Banner Status
     Route::put('banner/status/{id}', [BannerController::class, 'updateStatusBanner'])->name('banner.status.update');
+    Route::put('team/status/{id}', [TeamController::class, 'updateStatusTeam'])->name('team.status.update');
+    Route::put('job/status/{id}', [EmployeeJobController::class, 'updateStatusJob'])->name('job.status.update');
 
+    //Apply Post
+    Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');
+    
 
 });
-
 
 // Terms & Condition Status
 Route::get('/terms-and-condition/{id}/inactive', [TermsConditionController::class, 'inactive'])->name('terms-and-condition.inactive');
@@ -225,3 +220,6 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/admin-active/{id}', 'ActiveAdmin')->name('admin.active');
     });
 });
+
+Route::get('/download-attachment/{id}', [AdminController::class, 'downloadAttachment'])->name('download.attachment');
+Route::delete('/apply/post/delete/{id}', [AdminController::class, 'applyPostDelete'])->name('admin.apply.post.delete');

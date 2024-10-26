@@ -17,7 +17,7 @@
                                         <h1>{{ $item->title }}</h1>
                                         <p>{{ $item->sub_title }}</p>
 
-                                        <a href="javascript:;" class="default-btn-one me-3">Contact Us</a>
+                                        <a href="{{ route('contact') }}" class="default-btn-one me-3">Contact Us</a>
 
                                     </div>
                                 </div>

@@ -148,7 +148,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="team.html" class="nav-link">
+                                <a href="{{ route('all.team') }}" class="nav-link">
                                     Our Team
                                 </a>
                             </li>
@@ -193,10 +193,10 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a href="" class="nav-link">Current Requirements</a>
+                                        <a href="{{ route('all.job') }}" class="nav-link">Current Requirements</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="" class="nav-link">Drop Your CV</a>
+                                        <a href="{{ route('drop.cv') }}" class="nav-link">Drop Your CV</a>
                                     </li>
                                 </ul>
                             </li>

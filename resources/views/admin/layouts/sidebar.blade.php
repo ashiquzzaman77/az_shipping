@@ -4,7 +4,7 @@
      data-kt-drawer-toggle="#kt_aside_mobile_toggle">
      <div class="aside-logo flex-column-auto" id="kt_aside_logo">
 
-         <a class="text-center mx-auto" href="{{ route('dashboard') }}">
+         <a class="text-center mx-auto" href="javascript:;">
              {{-- <img alt="Logo" src="{{ asset('backend/login/assets/logo/Logo_White.png') }}"
                  style="width: 100px; height: 40px;" class="logo text-center" /> --}}
 
@@ -27,13 +27,14 @@
              </span>
          </div>
      </div>
+
      <div class="aside-menu flex-column-fluid">
+
          <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true"
              data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto"
              data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu"
              data-kt-scroll-offset="0" style="height: 318px;">
-             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
-                 id="#kt_aside_menu" data-kt-menu="true" data-kt-menu-expand="false">
+             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true" data-kt-menu-expand="false">
 
                  <div class="menu-item">
 
@@ -125,173 +126,6 @@
                          </div>
                          {{-- @endif --}}
 
-                         {{-- @if (Auth::guard('admin')->user()->can('course-category.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-category'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_category.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_category.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Category</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('course.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Courses</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('course-curriculam.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-curriculam'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_curriculam.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_curriculam.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Curriculam</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('resource.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.resource'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_resource.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_resource.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Resource</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('project.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.project'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_project.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_project.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Project</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('course-section.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-section'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_section.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_section.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Section</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('outline.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.outline'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_outline.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_outline.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Outline</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('schedule.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.schedule'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_schedule.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_schedule.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Schedule</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('course-content.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-content'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_content.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_content.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Content</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('course-query.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-query'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_query.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_query.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Query</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('course-management.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-management'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_management.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_management.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Management</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('coupon.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.coupon'))
-                                     <a class="menu-link {{ Request::routeIs('admin.coupon.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.coupon.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Coupon</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
 
                      </div>
                  </div>
@@ -328,7 +162,7 @@
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.banner.index') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.banner.index', 'admin.job.index') ? 'here show' : '' }}">
 
                          {{-- @if (Auth::guard('admin')->user()->can('service.menu')) --}}
                          <div class="menu-item">
@@ -344,173 +178,21 @@
                          </div>
                          {{-- @endif --}}
 
-                         {{-- @if (Auth::guard('admin')->user()->can('course-category.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-category'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_category.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_category.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Category</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
+                         {{-- @if (Auth::guard('admin')->user()->can('service.menu')) --}}
+                         <div class="menu-item">
+                             {{-- @if (Auth::guard('admin')->user()->can('all.service')) --}}
+                             <a class="menu-link {{ Request::routeIs('admin.job.index') ? 'active' : '' }}"
+                                 href="{{ route('admin.job.index') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">Job Created</span>
+                             </a>
+                             {{-- @endif --}}
+                         </div>
+                         {{-- @endif --}}
 
-                         {{-- @if (Auth::guard('admin')->user()->can('course.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Courses</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
 
-                         {{-- @if (Auth::guard('admin')->user()->can('course-curriculam.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-curriculam'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_curriculam.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_curriculam.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Curriculam</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('resource.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.resource'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_resource.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_resource.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Resource</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('project.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.project'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_project.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_project.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Project</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('course-section.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-section'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_section.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_section.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Section</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('outline.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.outline'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_outline.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_outline.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Outline</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('schedule.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.schedule'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_schedule.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_schedule.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Schedule</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('course-content.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-content'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_content.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_content.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Content</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('course-query.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-query'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_query.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_query.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Query</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('course-management.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.course-management'))
-                                     <a class="menu-link {{ Request::routeIs('admin.course_management.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.course_management.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Course Management</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
-
-                         {{-- @if (Auth::guard('admin')->user()->can('coupon.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.coupon'))
-                                     <a class="menu-link {{ Request::routeIs('admin.coupon.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.coupon.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">Coupon</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif --}}
 
                      </div>
                  </div>
@@ -743,7 +425,7 @@
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.admin.permission', 'admin.user-management.index') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.admin.permission', 'admin.team.index') ? 'here show' : '' }}">
 
                          {{-- @if (Auth::guard('admin')->user()->can('admin.menu')) --}}
                          <div class="menu-item">
@@ -760,17 +442,17 @@
                          {{-- @endif --}}
 
                          {{-- @if (Auth::guard('admin')->user()->can('user.menu')) --}}
-                         {{-- <div class="menu-item">
-                                     @if (Auth::guard('admin')->user()->can('all.user'))
-                                         <a class="menu-link {{ Route::is('admin.user-management.index') ? 'active' : '' }}"
-                                             href="{{ route('admin.user-management.index') }}">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">User</span>
-                                         </a>
-                                     @endif
-                                 </div> --}}
+                         <div class="menu-item">
+                             {{-- @if (Auth::guard('admin')->user()->can('all.user')) --}}
+                             <a class="menu-link {{ Route::is('admin.team.index') ? 'active' : '' }}"
+                                 href="{{ route('admin.team.index') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">Team Member</span>
+                             </a>
+                             {{-- @endif --}}
+                         </div>
                          {{-- @endif --}}
 
                      </div>
@@ -825,114 +507,137 @@
                      </div>
                  </div>
 
+                 {{-- Apply Post --}}
+                 <div class="menu-item">
 
-                 @if (Auth::guard('admin')->user()->can('role.menu'))
+                    <a class="menu-link {{ Route::is('admin.apply.post') ? 'active' : '' }}"
+                        href="{{ route('admin.apply.post') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor">
+                                    </rect>
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+                                        fill="currentColor"></rect>
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor"></rect>
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+                                        fill="currentColor"></rect>
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="menu-title">Apply Post</span>
+                    </a>
 
-                     {{-- Permission & Role  --}}
+                </div>
 
-                     <div data-kt-menu-trigger="click"
-                         class="menu-item menu-accordion {{ Request::routeIs('all.role', 'all.permission') ? 'here show' : '' }}">
+                 {{-- @if (Auth::guard('admin')->user()->can('role.menu')) --}}
 
-                         <span class="menu-link">
-                             <span class="menu-icon">
+                 {{-- Permission & Role  --}}
 
-                                 <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
-                                 <span class="svg-icon svg-icon-2">
-                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297"
-                                         xml:space="preserve" fill="#000000">
-                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                             stroke-linejoin="round">
-                                         </g>
-                                         <g id="SVGRepo_iconCarrier">
+                 <div data-kt-menu-trigger="click"
+                     class="menu-item menu-accordion {{ Request::routeIs('all.role', 'all.permission') ? 'here show' : '' }}">
+
+                     <span class="menu-link">
+                         <span class="menu-icon">
+
+                             <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
+                             <span class="svg-icon svg-icon-2">
+                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297"
+                                     xml:space="preserve" fill="#000000">
+                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                     </g>
+                                     <g id="SVGRepo_iconCarrier">
+                                         <g>
                                              <g>
                                                  <g>
                                                      <g>
                                                          <g>
                                                              <g>
-                                                                 <g>
-                                                                     <circle style="fill:#345065;" cx="148.5"
-                                                                         cy="148.5" r="148.5"></circle>
-                                                                 </g>
+                                                                 <circle style="fill:#345065;" cx="148.5"
+                                                                     cy="148.5" r="148.5"></circle>
                                                              </g>
                                                          </g>
                                                      </g>
                                                  </g>
-                                                 <path style="fill:#243F4F;"
-                                                     d="M264,148.5L67.438,208.223l88.783,88.579c68.287-3.498,124.388-53.124,137.752-118.329L264,148.5z">
+                                             </g>
+                                             <path style="fill:#243F4F;"
+                                                 d="M264,148.5L67.438,208.223l88.783,88.579c68.287-3.498,124.388-53.124,137.752-118.329L264,148.5z">
+                                             </path>
+                                             <g>
+                                                 <rect x="66" y="95.25" style="fill:#9ADAD9;" width="65.666"
+                                                     height="33"></rect>
+                                             </g>
+                                             <g>
+                                                 <rect x="66" y="119.75" style="fill:#FFFFFF;" width="115.5"
+                                                     height="33"></rect>
+                                             </g>
+                                             <g>
+                                                 <rect x="149.167" y="119.75" style="fill:#BDC3C7;" width="32.333"
+                                                     height="33"></rect>
+                                             </g>
+                                             <g>
+                                                 <path style="fill:#1ABC9C;"
+                                                     d="M82.429,214.5h106.855c5.581,0,10.933-2.217,14.879-6.163L264,148.5H49.5l12.515,50.062 C64.357,207.929,72.773,214.5,82.429,214.5z">
                                                  </path>
-                                                 <g>
-                                                     <rect x="66" y="95.25" style="fill:#9ADAD9;" width="65.666"
-                                                         height="33"></rect>
-                                                 </g>
-                                                 <g>
-                                                     <rect x="66" y="119.75" style="fill:#FFFFFF;" width="115.5"
-                                                         height="33"></rect>
-                                                 </g>
-                                                 <g>
-                                                     <rect x="149.167" y="119.75" style="fill:#BDC3C7;" width="32.333"
-                                                         height="33"></rect>
-                                                 </g>
-                                                 <g>
-                                                     <path style="fill:#1ABC9C;"
-                                                         d="M82.429,214.5h106.855c5.581,0,10.933-2.217,14.879-6.163L264,148.5H49.5l12.515,50.062 C64.357,207.929,72.773,214.5,82.429,214.5z">
-                                                     </path>
-                                                 </g>
-                                                 <g>
-                                                     <path style="fill:#17AB93;"
-                                                         d="M149.167,148.5v66h40.117c5.581,0,10.933-2.217,14.879-6.163L264,148.5H149.167z">
-                                                     </path>
-                                                 </g>
+                                             </g>
+                                             <g>
+                                                 <path style="fill:#17AB93;"
+                                                     d="M149.167,148.5v66h40.117c5.581,0,10.933-2.217,14.879-6.163L264,148.5H149.167z">
+                                                 </path>
                                              </g>
                                          </g>
-                                     </svg>
-                                 </span>
-                                 <!--end::Svg Icon-->
-
+                                     </g>
+                                 </svg>
                              </span>
-
-                             <span class="menu-title">Role & Permission</span>
-
-                             <span class="menu-arrow"></span>
+                             <!--end::Svg Icon-->
 
                          </span>
 
-                         <div
-                             class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.role', 'all.permission') ? 'here show' : '' }}">
+                         <span class="menu-title">Role & Permission</span>
 
-                             @if (Auth::guard('admin')->user()->can('role.menu'))
-                                 <div class="menu-item">
-                                     @if (Auth::guard('admin')->user()->can('all.role'))
-                                         <a class="menu-link {{ Route::is('all.role') ? 'active' : '' }}"
-                                             href="{{ route('all.role') }}">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">Role</span>
-                                         </a>
-                                     @endif
-                                 </div>
-                             @endif
+                         <span class="menu-arrow"></span>
 
-                             @if (Auth::guard('admin')->user()->can('permission.menu'))
-                                 <div class="menu-item">
-                                     @if (Auth::guard('admin')->user()->can('all.permission'))
-                                         <a class="menu-link {{ Route::is('all.permission') ? 'active' : '' }}"
-                                             href="{{ route('all.permission') }}">
-                                             <span class="menu-bullet">
-                                                 <span class="bullet bullet-dot"></span>
-                                             </span>
-                                             <span class="menu-title">Permission</span>
-                                         </a>
-                                     @endif
-                                 </div>
-                             @endif
+                     </span>
 
+                     <div
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('all.role', 'all.permission') ? 'here show' : '' }}">
+
+                         {{-- @if (Auth::guard('admin')->user()->can('role.menu')) --}}
+                         <div class="menu-item">
+                             {{-- @if (Auth::guard('admin')->user()->can('all.role')) --}}
+                             <a class="menu-link {{ Route::is('all.role') ? 'active' : '' }}"
+                                 href="{{ route('all.role') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">Role</span>
+                             </a>
+                             {{-- @endif --}}
                          </div>
-                     </div>
+                         {{-- @endif
 
-                 @endif
+                             @if (Auth::guard('admin')->user()->can('permission.menu')) --}}
+                         <div class="menu-item">
+                             {{-- @if (Auth::guard('admin')->user()->can('all.permission')) --}}
+                             <a class="menu-link {{ Route::is('all.permission') ? 'active' : '' }}"
+                                 href="{{ route('all.permission') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">Permission</span>
+                             </a>
+                             {{-- @endif --}}
+                         </div>
+                         {{-- @endif --}}
+
+                     </div>
+                 </div>
+
+                 {{-- @endif --}}
 
 
              </div>
