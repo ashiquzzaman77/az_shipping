@@ -234,7 +234,7 @@
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index','admin.about.index') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index', 'admin.about.index', 'admin.legal.index') ? 'here show' : '' }}">
 
                          @if (Auth::guard('admin')->user()->can('job.menu'))
                              <div class="menu-item">
@@ -266,19 +266,34 @@
                          @endif
 
                          {{-- About Section  --}}
-                         @if (Auth::guard('admin')->user()->can('about.menu'))
-                             <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.about'))
-                                     <a class="menu-link {{ Request::routeIs('admin.about.index') ? 'active' : '' }}"
-                                         href="{{ route('admin.about.index') }}">
-                                         <span class="menu-bullet">
-                                             <span class="bullet bullet-dot"></span>
-                                         </span>
-                                         <span class="menu-title">About Us</span>
-                                     </a>
-                                 @endif
-                             </div>
-                         @endif
+                         {{-- @if (Auth::guard('admin')->user()->can('about.menu')) --}}
+                         <div class="menu-item">
+                             {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
+                             <a class="menu-link {{ Request::routeIs('admin.about.index') ? 'active' : '' }}"
+                                 href="{{ route('admin.about.index') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">Good To Know</span>
+                             </a>
+                             {{-- @endif --}}
+                         </div>
+                         {{-- @endif --}}
+
+                         {{-- Legal Section  --}}
+                         {{-- @if (Auth::guard('admin')->user()->can('about.menu')) --}}
+                         <div class="menu-item">
+                             {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
+                             <a class="menu-link {{ Request::routeIs('admin.legal.index') ? 'active' : '' }}"
+                                 href="{{ route('admin.legal.index') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">Legal</span>
+                             </a>
+                             {{-- @endif --}}
+                         </div>
+                         {{-- @endif --}}
 
 
                      </div>
@@ -488,7 +503,6 @@
                          <span class="menu-link">
 
                              <span class="menu-icon">
-                                 <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
                                  <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
                                  <span class="svg-icon svg-icon-2">
                                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"

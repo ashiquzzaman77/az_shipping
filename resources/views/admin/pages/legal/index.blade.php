@@ -1,4 +1,4 @@
-<x-admin-app-layout :title="'About All'">
+<x-admin-app-layout :title="'Legal All'">
 
     {{-- Font Awesome CDN --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
@@ -104,7 +104,7 @@
             <div class="card-title"></div>
             <div class="card-toolbar">
 
-                <a href="{{ route('admin.about.create') }}" class="btn btn-light-danger">
+                <a href="{{ route('admin.legal.create') }}" class="btn btn-light-primary">
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none">
@@ -116,52 +116,7 @@
                                 fill="currentColor" />
                         </svg>
                     </span>
-                    About
-                </a>
-
-                <a href="{{ route('admin.legal.create') }}" class="btn btn-light-primary ms-3">
-                    <span class="svg-icon svg-icon-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none">
-                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
-                                fill="currentColor" />
-                            <rect x="10.8891" y="17.8033" width="12" height="2" rx="1"
-                                transform="rotate(-90 10.8891 17.8033)" fill="currentColor" />
-                            <rect x="6.01041" y="10.9247" width="12" height="2" rx="1"
-                                fill="currentColor" />
-                        </svg>
-                    </span>
-                    Legal
-                </a>
-
-                <a href="{{ route('admin.vision.create') }}" class="btn btn-light-info ms-3">
-                    <span class="svg-icon svg-icon-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none">
-                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
-                                fill="currentColor" />
-                            <rect x="10.8891" y="17.8033" width="12" height="2" rx="1"
-                                transform="rotate(-90 10.8891 17.8033)" fill="currentColor" />
-                            <rect x="6.01041" y="10.9247" width="12" height="2" rx="1"
-                                fill="currentColor" />
-                        </svg>
-                    </span>
-                    Vision
-                </a>
-
-                <a href="{{ route('admin.mision.create') }}" class="btn btn-light-primary ms-3">
-                    <span class="svg-icon svg-icon-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none">
-                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5"
-                                fill="currentColor" />
-                            <rect x="10.8891" y="17.8033" width="12" height="2" rx="1"
-                                transform="rotate(-90 10.8891 17.8033)" fill="currentColor" />
-                            <rect x="6.01041" y="10.9247" width="12" height="2" rx="1"
-                                fill="currentColor" />
-                        </svg>
-                    </span>
-                    Mission
+                    Create
                 </a>
 
             </div>
@@ -171,9 +126,9 @@
             <table id="kt_datatable_example_5" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
                 <thead class="bg-dark text-light">
                     <tr>
-                        <th width="5%">No</th>
-                        <th width="8%">Image</th>
-                        <th width="10%">Title</th>
+                        <th width="2%">No</th>
+                        <th width="5%">Image</th>
+                        <th width="5%">Status</th>
                         <th width="5%">Actions</th>
                     </tr>
                 </thead>
@@ -185,28 +140,33 @@
 
                             <td class="">
 
-                                <img src="{{ !empty($item->image) ? url('storage/' . $item->image) : 'https://ui-avatars.com/api/?name=' . urlencode($item->title) }}"
-                                    height="60" width="60" alt="{{ $item->title }}">
+                                <img class=""
+                                    src="{{ !empty($item->image) ? url('storage/' . $item->image) : 'https://ui-avatars.com/api/?name=' . urlencode($item->image) }}"
+                                    height="60" width="60" alt="">
 
                             </td>
 
-                            <td>
-                                <h6>{{ $item->title }}</h6>
+                            <td class="text-start">
+                                <label class="switch">
+                                    <input type="checkbox" class="status-toggle" data-id="{{ $item->id }}"
+                                        {{ $item->status == 'active' ? 'checked' : '' }}>
+                                    <span class="slider round"></span>
+                                </label>
                             </td>
 
 
                             <td>
-                                @if (Auth::guard('admin')->user()->can('edit.about'))
-                                    <a href="{{ route('admin.about.edit', $item->id) }}" class="text-primary">
+                                {{-- @if (Auth::guard('admin')->user()->can('edit.legal')) --}}
+                                    <a href="{{ route('admin.legal.edit', $item->id) }}" class="text-primary">
                                         <i class="fa-solid fa-pencil text-primary"></i>
                                     </a>
-                                @endif
+                                {{-- @endif
 
-                                @if (Auth::guard('admin')->user()->can('delete.about'))
-                                    <a href="{{ route('admin.about.destroy', $item->id) }}" class="delete">
+                                @if (Auth::guard('admin')->user()->can('delete.legal')) --}}
+                                    <a href="{{ route('admin.legal.destroy', $item->id) }}" class="delete">
                                         <i class="fa-solid fa-trash text-danger"></i>
                                     </a>
-                                @endif
+                                {{-- @endif --}}
 
                             </td>
                         </tr>
@@ -246,7 +206,7 @@
                     var newStatus = $(this).is(':checked') ? 'active' : 'inactive';
 
                     $.ajax({
-                        url: '/admin/banner/status/' + bannerId,
+                        url: '/admin/legal/status/' + bannerId,
                         method: 'PUT',
                         data: {
                             _token: '{{ csrf_token() }}',
@@ -254,9 +214,9 @@
                         },
                         success: function(response) {
                             if (newStatus === 'active') {
-                                toastr.success('Banner has been activated successfully.');
+                                toastr.success('Legal has been activated successfully.');
                             } else {
-                                toastr.error('Banner has been deactivated successfully.');
+                                toastr.error('Legal has been deactivated successfully.');
                             }
                         },
                         error: function(xhr) {
