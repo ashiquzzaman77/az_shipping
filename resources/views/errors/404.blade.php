@@ -27,7 +27,7 @@
         <!-- Stylesheet Responsive CSS -->
         <link rel="stylesheet" href="{{ asset('frontend/Css/responsive.css') }}">
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="{{ !empty(optional($setting)->site_favicon) && file_exists(public_path('storage/' . optional($setting)->site_favicon)) ? asset('storage/' . optional($setting)->site_favicon) : asset('frontend/images/no-logo(217-55).jpg') }}">
         <!-- Title -->
         <title>AZ Shipping Services</title>
     </head>
