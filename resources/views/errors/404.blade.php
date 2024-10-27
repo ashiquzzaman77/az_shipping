@@ -1,154 +1,84 @@
-<x-admin-guest-layout :title="'404 Error'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --white-color: #ffff;
-            --white: #ffff;
-            --primary-color: #0a1d5b;
-            --secondary-color: #051225;
-            --extra-color: #28a745;
-            --font-one-font: "Hind Siliguri", sans-serif;
-            --font-two-font: "Inter", sans-serif;
-            --font-three-font: "Bebas Neue", sans-serif;
-            --font-four-font: "Dancing Script", cursive;
-            --font-two-font-weight: 400;
-            --font-size-base: 16px;
-        }
-
-        .error-title {
-            color: var(--primary-color);
-            font-size: 45px;
-        }
-
-        .error-page {
-            width: 100%;
-            overflow: hidden;
-            height: 100vh;
-        }
-
-        .fullscreen-bg {
-            background-image: url('https://i.ibb.co/84wgNwT/Training-error-page-BG-1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 70vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            overflow: hidden;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .content-bottom {
-            align-items: center;
-            text-align: center;
-        }
-
-        .primary-btn-one {
-            appearance: none;
-            backface-visibility: hidden;
-            background-color: var(--primary-color);
-            border-radius: 8px;
-            border: 1px solid var(--secondary-color);
-            box-shadow: none;
-            color: #fff;
-            cursor: pointer;
-            display: inline-block;
-            font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
-            font-size: 15px;
-            font-weight: 500;
-            height: auto;
-            letter-spacing: normal;
-            line-height: 0.8;
-            outline: none;
-            overflow: hidden;
-            padding: 15px !important;
-            position: relative;
-            text-align: center;
-            text-decoration: none;
-            transform: translate3d(0, 0, 0);
-            transition: all 0.3s;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            vertical-align: top;
-            white-space: nowrap;
-        }
-
-        .primary-btn-one:hover {
-            cursor: pointer;
-            background-color: #fff;
-            border: 1px solid var(--secondary-color);
-            box-shadow: rgba(0, 0, 0, 0.05) 0 5px 30px, rgba(0, 0, 0, 0.05) 0 1px 4px;
-            opacity: 1;
-            padding: 15px !important;
-            transition-duration: 0.35s;
-            color: var(--secondary-color);
-            display: inline-block;
-            font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
-            font-size: 15px;
-            font-weight: 500;
-            height: auto;
-            letter-spacing: normal;
-            line-height: 0.8;
-            outline: none;
-            overflow: hidden;
-            position: relative;
-            text-align: center;
-            text-decoration: none;
-            transform: translate3d(0, 0, 0);
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            vertical-align: top;
-            white-space: nowrap;
-        }
-
-        .error-footer {
-            position: relative;
-            top: 70px;
-        }
-    </style>
-    <div class="container-fluid px-0 error-page">
-        <!-- Background section -->
-        <div class="row fullscreen-bg px-0">
-            <div class="col-lg-12 content">
-                <div class="pb-5 mb-5">
-                    <a class="navbar-brand" href="{{ route('homepage') }}">
-                        <img class="img-fluid"
-                            src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
-                            alt="" />
-                    </a>
-                </div>
-                <div>
-                    <h1 class="error-title">Hello, Learner!</h1>
-                    <h3 class="pt-5">We couldn’t find the page you’re looking for. <br> Please try a different approach.</h3>
-                </div>
-                <div class="mt-5 pt-5">
-                    <a href="{{ route('homepage') }}" class="primary-btn-one">
-                        Back to the home page <i class="fa-solid fa-long-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Additional content below -->
-        <div class="row">
-            <div class="col-lg-12 content-bottom">
-                <div class="error-footer">
-                    <div>
-                        <h1 class="card-title">Enhance Your Skills with Us</h1>
-                        <h3 class="pt-2 mb-5">Discover our full range of training and professional courses.</h3>
+<!DOCTYPE html>
+<html lang="zxx">
+    
+<!-- Mirrored from templates.hibootstrap.com/ferry/default/error-404.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Oct 2024 07:03:25 GMT -->
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/Css/bootstrap.min.css') }}">
+        <!-- Icofont CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/Css/boxicons.min.css') }}">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/Css/meanmenu.min.css') }}">
+        <!-- Magnific CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/Css/magnific-popup.min.css') }}">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/Css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/Css/owl.theme.default.min.css') }}">
+        <!-- Odometer CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/Css/odometer.css') }}">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/Css/animate.min.css') }}">
+        <!-- Stylesheet CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/Css/style.css') }}">
+        <!-- Stylesheet Dark CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/Css/dark.css') }}">
+        <!-- Stylesheet Responsive CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/Css/responsive.css') }}">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <!-- Title -->
+        <title>AZ Shipping Services</title>
+    </head>
+    <body>
+        
+        <!-- Preloder -->
+        
+        <!-- End Preloder -->
+        
+        <!-- 404 Error Area -->
+        <div class="error-area">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="error">
+                            <img class="error-image" src="{{ asset('frontend/img/error.png') }}" alt="image">
+                            <h2>Page Not Found</h2>
+                            <div class="error-btn">
+                                <a href="{{ route('homepage') }}">Back To Home</a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="" class="primary-btn-one mt-5">
-                        View all courses <i class="fa-solid fa-long-arrow-right"></i>
-                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</x-admin-guest-layout>
+        <!-- End 404 Error Area -->
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        {{-- <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <!-- Meanmenu JS -->
+        <script src="assets/js/meanmenu.min.js"></script>
+        <!-- Owl carousel JS -->
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <!-- Magnific JS -->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!-- Odometer JS -->
+        <script src="assets/js/odometer.min.js"></script>
+        <script src="assets/js/jquery.appear.js"></script>
+        <!-- Form Validator JS -->
+		<script src="assets/js/form-validator.min.js"></script>
+		<!-- Contact JS -->
+		<script src="assets/js/contact-form-script.js"></script>
+		<!-- Ajaxchimp JS -->
+		<script src="assets/js/jquery.ajaxchimp.min.js"></script>
+        <!--Animate JS -->
+        <script src="assets/js/wow.min.js"></script>
+        <!-- Custom JS --> --}}
+        <script src="assets/js/custom.js"></script>
+    </body>
+
+<!-- Mirrored from templates.hibootstrap.com/ferry/default/error-404.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Oct 2024 07:03:25 GMT -->
+</html>
