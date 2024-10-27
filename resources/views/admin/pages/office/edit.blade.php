@@ -106,6 +106,15 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="passport_number" class="mb-2">Passport Number</label>
+                                <input type="text" name="passport_number" placeholder="Enter Passport Number"
+                                    class="form-control form-control-sm"
+                                    value="{{ old('batch', $officer->passport_number) }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="contact" class="mb-2">Current Status</label>
                                 <select name="status" class="form-select form-select-sm" id="statusSelect">
                                     <option disabled {{ $officer->status ? '' : 'selected' }}>Choose...</option>
