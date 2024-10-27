@@ -196,16 +196,16 @@
 
 
                             <td>
-                                @if (Auth::guard('admin')->user()->can('edit.about'))
+                                {{-- @if (Auth::guard('admin')->user()->can('edit.about')) --}}
                                     <a href="{{ route('admin.about.edit', $item->id) }}" class="text-primary">
                                         <i class="fa-solid fa-pencil text-primary"></i>
                                     </a>
-                                @endif
+                                {{-- @endif --}}
 
                                 @if (Auth::guard('admin')->user()->can('delete.about'))
-                                    <a href="{{ route('admin.about.destroy', $item->id) }}" class="delete">
+                                    {{-- <a href="{{ route('admin.about.destroy', $item->id) }}" class="delete">
                                         <i class="fa-solid fa-trash text-danger"></i>
-                                    </a>
+                                    </a> --}}
                                 @endif
 
                             </td>

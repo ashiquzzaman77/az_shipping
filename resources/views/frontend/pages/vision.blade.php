@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', 'About')
+@section('title', 'Vision')
 
 @section('content')
 
@@ -130,5 +130,74 @@
         </div>
     </div>
     <!-- End Vission Info -->
+
+    <!-- Digital Area -->
+    {{-- <div class="digital-area ptb-100">
+        <div class="container">
+            <div class="digital-top-contant">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="digital-image">
+                            <img src="assets/img/blog/blog7.jpg" alt="image">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="digital-text">
+                            <h2>Trusted Digital Shipping From <span>1998</span></h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua cillum dolore eu fugiat nulla pariatur cillum dolore eu fugiat
+                                nulla pariatur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="digital-card-contant">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="digital-card">
+                            <div class="card-text">
+                                <i class='bx bx-cart-alt'></i>
+                                <h3><span>1998</span> - Company Started</h3>
+                                <p>orem ipsum dolor sit amet elit, sed do eiusmod tempor incididunt ut labore et .</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="digital-card">
+                            <div class="card-text">
+                                <i class='bx bx-map-alt'></i>
+                                <h3><span>2008</span> - Office worldwide</h3>
+                                <p>orem ipsum dolor sit amet elit, sed do eiusmod tempor incididunt ut labore et .</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="digital-card">
+                            <div class="card-text">
+                                <i class='bx bxs-truck'></i>
+                                <h3><span>2004</span> - Vehicles Adding</h3>
+                                <p>orem ipsum dolor sit amet elit, sed do eiusmod tempor incididunt ut labore et .</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="digital-card">
+                            <div class="card-text">
+                                <i class='bx bx-award'></i>
+                                <h3><span>2012</span> - Award Of The Year Won</h3>
+                                <p>orem ipsum dolor sit amet elit, sed do eiusmod tempor incididunt ut labore et .</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <!-- End Digital Area -->
 
 @endsection

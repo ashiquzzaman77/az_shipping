@@ -138,7 +138,8 @@
                     </div>
                 </div>
                 <div class="service-card-two">
-                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight3.jpg') }}" alt="image">
+                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight3.jpg') }}"
+                        alt="image">
                     <div class="service-caption">
                         <h3>Air Freight</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -157,32 +158,42 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div class="about-img-three">
-                        <img src="{{ asset('frontend/assets/img/about/about3.jpg') }}" alt="Image">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="about-img-three">
+                                <img src="{{ !empty($about->image_two) ? url('storage/' . $about->image_two) : 'https://ui-avatars.com/api/?name=' . urlencode($about->title) }}"
+                                    style="width: 100%" alt="{{ $about->title }}" alt="Image">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about-img-three">
+                                <img src="{{ !empty($about->image_one) ? url('storage/' . $about->image_one) : 'https://ui-avatars.com/api/?name=' . urlencode($about->title) }}"
+                                    style="width: 100%" alt="{{ $about->title }}">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-contant-others">
                         <div class="section-title">
                             <span>About Us</span>
-                            <h2>Safe and Faster Logistic Service Near You</h2>
+                            <h2>{{ $about->title }}</h2>
                         </div>
                         <div class="about-two-text">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                doloremque,
-                                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                                beatae vitae dicta sunt explicabo. Nemo enim ipsam quia voluptas.</p>
-                            <p class="mb-30">Accusantium doloremque, totam rem aperiam, eaque ipsa quae ab illo
-                                inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
-                            <a href="#" class="default-btn-one me-3">Contact Us</a>
-                            <div class="watch-video">
+                            <p class="">{!! $about->short_descp !!}</p>
+
+                            <a href="{{ route('contact') }}" style="margin-top: 20px" class="default-btn-one me-3">Contact
+                                Us</a>
+
+                            {{-- <div class="watch-video">
                                 <div class="video-btn">
                                     <a href="https://www.youtube.com/watch?v=bk7McNUjWgw" class="popup-youtube">
                                         <i class="bx bx-play whiteText"></i>
                                         Watch Video
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
+
                         </div>
                     </div>
                 </div>

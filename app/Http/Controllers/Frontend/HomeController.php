@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use App\Models\ApplyPost;
-use App\Models\Banner;
-use App\Models\Contact;
 use App\Models\Job;
-use App\Models\Legal;
 use App\Models\Team;
+use App\Models\Legal;
+use App\Models\Banner;
+use App\Models\Vision;
+use App\Models\Contact;
+use App\Models\ApplyPost;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\About;
+use App\Models\Mision;
 use Illuminate\Support\Facades\Validator;
 
 // use Illuminate\Support\Facades\Hash;
@@ -26,7 +29,8 @@ class HomeController extends Controller
     public function index()
     {
         $banners = Banner::where('status', 'active')->latest()->get();
-        return view('frontend.pages.home', compact('banners'));
+        $about = About::latest('id')->first();
+        return view('frontend.pages.home', compact('banners','about'));
     }
 
     //allTeam
@@ -41,6 +45,26 @@ class HomeController extends Controller
     {
         $legals = Legal::where('status','active')->latest()->get();
         return view('frontend.pages.legal_papers',compact('legals'));
+    }
+
+    //vision
+    public function vision()
+    {
+        $missions = Mision::where('status','active')->latest()->limit(8)->get();
+        $visions = Vision::where('status','active')->latest()->limit(8)->get();
+        $about = About::latest('id')->first();
+        
+        return view('frontend.pages.vision',compact('visions','missions','about'));
+    }
+
+    //about
+    public function about()
+    {
+        $missions = Mision::where('status','active')->latest()->limit(8)->get();
+        $visions = Vision::where('status','active')->latest()->limit(8)->get();
+        $about = About::latest('id')->first();
+
+        return view('frontend.pages.about',compact('visions','missions','about'));
     }
 
     //allJob

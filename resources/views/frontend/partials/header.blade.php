@@ -1,13 +1,12 @@
 <header class="header-area">
-    
+
     <div class="top-header">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-sm-6">
                     <ul class="left-info">
                         <li>
-                            <a
-                                href="javascript:;">
+                            <a href="javascript:;">
                                 <i class="bx bxs-envelope"></i>
                                 <span class="__cf_email__"
                                     data-cfemail="99f1fcf5f5f6d9fffcebebe0b7faf6f4">operation.azss@gmail.com</span>
@@ -65,9 +64,11 @@
                     <div class="logo">
                         <a href="index.html">
 
-                            <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" style="width: 120px; height: 50px;" class="main-logo" alt="logo">
+                            <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+                                style="width: 120px; height: 50px;" class="main-logo" alt="logo">
 
-                            <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" style="width: 120px; height: 50px;" class="white-logo" alt="logo">
+                            <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+                                style="width: 120px; height: 50px;" class="white-logo" alt="logo">
 
                             {{-- <img src="assets/img/loA.jpg" class="white-logo" alt="logo"> --}}
 
@@ -81,16 +82,18 @@
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" href="{{ route('homepage') }}">
 
-                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" class="main-logo" style="width: 160px; height: 70px;" alt="logo">
+                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+                            class="main-logo" style="width: 160px; height: 70px;" alt="logo">
 
-                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" style="width: 160px; height: 70px;" class="white-logo" alt="logo">
+                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+                            style="width: 160px; height: 70px;" class="white-logo" alt="logo">
 
                     </a>
                     <div class="collapse navbar-collapse mean-menu">
                         <ul class="navbar-nav ms-auto">
 
                             <li class="nav-item active">
-                                <a href="index-3.html" class="nav-link">
+                                <a href="{{ route('homepage') }}" class="nav-link">
                                     Home
                                 </a>
                             </li>
@@ -103,7 +106,7 @@
                                 <ul class="dropdown-menu">
 
                                     <li class="nav-item">
-                                        <a href="about.html" class="nav-link">About Us</a>
+                                        <a href="{{ route('about') }}" class="nav-link">About Us</a>
                                     </li>
 
                                     <li class="nav-item">
@@ -111,11 +114,11 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="about.html" class="nav-link">Our Vision</a>
+                                        <a href="{{ route('vision') }}" class="nav-link">Our Vision</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="about.html" class="nav-link">Why Choose Us</a>
+                                        <a href="" class="nav-link">Why Choose Us</a>
                                     </li>
 
                                     <li class="nav-item">

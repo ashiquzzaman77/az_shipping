@@ -4,22 +4,34 @@
 
 @section('content')
 
+    <!-- Page banner Area -->
+    <div class="page-banner bg-3">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page banner Area -->
+
     <!-- Gallery Area -->
-    <div class="gallery-area pt-100 pb-70">
-        <div class="container" >
+    <div class="gallery-area pb-70">
+        <div class="container">
 
-            
-
-            <div class="row" style="margin-top: 120px">
+            <div class="row" style="margin-top: 60px">
 
                 @forelse ($legals as $lagal)
                     <div class="col-lg-4 col-md-6">
                         <div class="ferry-gallery">
-                            <img src="{{ !empty($lagal->image) ? url('storage/' . $lagal->image) : 'https://ui-avatars.com/api/?name=' . urlencode($lagal->image) }}" alt="image">
+                            <img src="{{ !empty($lagal->image) ? url('storage/' . $lagal->image) : 'https://ui-avatars.com/api/?name=' . urlencode($lagal->image) }}"
+                                alt="image">
                             <div class="caption">
                                 <div class="d-table">
                                     <div class="d-table-cell">
-                                        <a href="{{ !empty($lagal->image) ? url('storage/' . $lagal->image) : 'https://ui-avatars.com/api/?name=' . urlencode($lagal->image) }}">
+                                        <a
+                                            href="{{ !empty($lagal->image) ? url('storage/' . $lagal->image) : 'https://ui-avatars.com/api/?name=' . urlencode($lagal->image) }}">
                                             <i class='bx bx-show-alt'></i>
                                         </a>
                                     </div>

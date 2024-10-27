@@ -28,5 +28,9 @@ Route::post('/contact_us', [HomeController::class, 'contactStore'])->name('conta
 
 //legal Paper
 Route::get('/legal/papers', [HomeController::class, 'legalPapers'])->name('legal.papers');
+//vision
+Route::get('/vision', [HomeController::class, 'vision'])->name('vision');
+//About
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 
