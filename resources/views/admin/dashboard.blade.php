@@ -68,7 +68,7 @@
             $hour = \Carbon\Carbon::now()->format('H');
             $greeting = '';
 
-            if ($hour < 12) {
+            if ($hour > 12) {
                 $greeting = 'Good Morning';
             } elseif ($hour < 18) {
                 $greeting = 'Good Afternoon';
@@ -82,10 +82,11 @@
                     style="background-image:url('https://preview.keenthemes.com/metronic8/demo1/assets/media/svg/shapes/top-green.png"
                     data-bs-theme="light">
 
-                    <h5 class="align-items-start flex-column text-white pt-15">
-                        <span class="fw-bold fs-2x mb-3">{{ $greeting }} :
+                    <h2 style="font-size: 22px"
+                        class="align-items-center justify-content-center flex-column text-white pt-15">
+                        <span class="fw-bold mb-3">{{ $greeting }} :
                             {{ Auth::guard('admin')->user()->name }}</span>
-                    </h5>
+                    </h2>
 
                 </div>
 
@@ -101,7 +102,7 @@
                                     </div>
 
                                     <div class="m-0">
-                                        <h4>Total Visited Person</h4>
+                                        <h4>Total Visited</h4>
                                         <span class="text-gray-500 fw-semibold fs-6">{{ $visitCount }}+</span>
                                     </div>
 
