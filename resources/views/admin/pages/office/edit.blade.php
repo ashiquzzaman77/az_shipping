@@ -109,7 +109,7 @@
                                 <label for="passport_number" class="mb-2">Passport Number</label>
                                 <input type="text" name="passport_number" placeholder="Enter Passport Number"
                                     class="form-control form-control-sm"
-                                    value="{{ old('batch', $officer->passport_number) }}">
+                                    value="{{ old('passport_number', $officer->passport_number) }}">
                             </div>
                         </div>
 
