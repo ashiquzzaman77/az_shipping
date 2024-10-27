@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('ship_name')->nullable();
             $table->string('remarks')->nullable();
+            $table->string('passport_number')->nullable();
 
             $table->string('academy')->nullable();
             $table->string('batch')->nullable();
@@ -36,6 +37,7 @@ return new class extends Migration
             $table->date('efa')->nullable();
             $table->date('pssr')->nullable();
             $table->date('sat')->nullable();
+            $table->date('passport')->nullable();
 
             $table->date('dsd')->nullable();
             $table->date('pscrb')->nullable();

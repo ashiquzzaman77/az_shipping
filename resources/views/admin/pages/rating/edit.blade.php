@@ -85,6 +85,14 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="batch" class="mb-2">Passport Number</label>
+                                <input type="text" name="passport_number" placeholder="Enter Passport Number"
+                                    class="form-control form-control-sm" value="{{ old('passport_number',$rating->passport_number) }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="contact" class="mb-2">Current Status</label>
                                 <select name="status" class="form-select form-select-sm" id="statusSelect">
                                     <option disabled {{ $rating->status ? '' : 'selected' }}>Choose...</option>
@@ -245,7 +253,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="covid" class="mb-2">COVID VACCINATION</label>
-                                <input type="text" name="covid" placeholder="Enter COVID Training"
+                                <input type="text" name="covid" placeholder="Enter COVID Vaccination"
                                     class="form-control form-control-sm" value="{{ old('covid', $rating->covid) }}">
                             </div>
                         </div>
@@ -253,7 +261,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="ship_cook" class="mb-2">Ship Cook</label>
-                                <input type="text" name="ship_cook" placeholder="Enter Ship Cook"
+                                <input type="date" name="ship_cook" placeholder="Enter Ship Cook"
                                     class="form-control form-control-sm" value="{{ old('ship_cook', $rating->ship_cook) }}">
                             </div>
                         </div>
@@ -271,6 +279,35 @@
                                 <label for="end_of_contract" class="mb-2">End of Contract</label>
                                 <input type="date" name="end_of_contract" class="form-control form-control-sm"
                                     value="{{ old('end_of_contract', $rating->end_of_contract) }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="other_one" class="mb-2">Readiness</label>
+                                <input type="date" name="other_one" class="form-control form-control-sm"
+                                    value="{{ old('other_one', $rating->other_one) }}">
+                            </div>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="other_two" class="mb-2">Other Two</label>
+                                <input type="date" name="other_two" class="form-control form-control-sm"
+                                    value="{{ old('other_two', $rating->other_two) }}">
+                            </div>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="other_three" class="mb-2">Other Three</label>
+                                <input type="date" name="other_three" class="form-control form-control-sm"
+                                    value="{{ old('other_three', $rating->other_three) }}">
+                            </div>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="other_four" class="mb-2">Other Four</label>
+                                <input type="date" name="other_four" class="form-control form-control-sm"
+                                    value="{{ old('other_four', $rating->other_four) }}">
                             </div>
                         </div>
 

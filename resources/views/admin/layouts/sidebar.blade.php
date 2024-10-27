@@ -133,9 +133,9 @@
 
                          {{-- Officres  --}}
 
-                         @if (Auth::guard('admin')->user()->can('officer.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('officer.menu')) --}}
                              <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.officer'))
+                                 {{-- @if (Auth::guard('admin')->user()->can('all.officer')) --}}
                                      <a class="menu-link {{ Request::routeIs('admin.officer.index') ? 'active' : '' }}"
                                          href="{{ route('admin.officer.index') }}">
                                          <span class="menu-bullet">
@@ -143,14 +143,14 @@
                                          </span>
                                          <span class="menu-title">Officers</span>
                                      </a>
-                                 @endif
+                                 {{-- @endif --}}
                              </div>
-                         @endif
+                         {{-- @endif --}}
 
                          {{-- Rating  --}}
-                         @if (Auth::guard('admin')->user()->can('rating.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('rating.menu')) --}}
                              <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.rating'))
+                                 {{-- @if (Auth::guard('admin')->user()->can('all.rating')) --}}
                                      <a class="menu-link {{ Request::routeIs('admin.rating.index') ? 'active' : '' }}"
                                          href="{{ route('admin.rating.index') }}">
                                          <span class="menu-bullet">
@@ -158,9 +158,9 @@
                                          </span>
                                          <span class="menu-title">Rating</span>
                                      </a>
-                                 @endif
+                                 {{-- @endif --}}
                              </div>
-                         @endif
+                         {{-- @endif --}}
 
 
                      </div>

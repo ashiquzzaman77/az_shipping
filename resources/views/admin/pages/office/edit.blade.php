@@ -269,6 +269,14 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="passport" class="mb-2">Passport</label>
+                                <input type="date" name="passport" placeholder=""
+                                    class="form-control form-control-sm" value="{{ old('passport',$officer->passport) }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="radar_navigation" class="mb-2">Radar Navigation</label>
                                 <input type="date" name="radar_navigation" placeholder="Enter Radar Navigation"
                                     class="form-control form-control-sm"
@@ -377,8 +385,8 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="covid" class="mb-2">COVID Training</label>
-                                <input type="text" name="covid" placeholder="Enter COVID Training"
+                                <label for="covid" class="mb-2">COVID Vaccination</label>
+                                <input type="text" name="covid" placeholder="Enter COVID Vaccination"
                                     class="form-control form-control-sm"
                                     value="{{ old('covid', $officer->covid ?? 'COVID12345') }}">
                             </div>
@@ -413,7 +421,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="other_one" class="mb-2">Other One</label>
+                                <label for="other_one" class="mb-2">Readiness</label>
                                 <input type="date" name="other_one" class="form-control form-control-sm"
                                     value="{{ old('other_one', $officer->other_one) }}">
                             </div>

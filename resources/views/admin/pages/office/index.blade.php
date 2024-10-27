@@ -185,6 +185,10 @@
                                                                     <td>{{ $item->academy }}</td>
                                                                 </tr>
                                                                 <tr>
+                                                                    <th class="fs-5">Passport Number</th>
+                                                                    <td>{{ $item->passport_number }}</td>
+                                                                </tr>
+                                                                <tr>
                                                                     <th class="fs-5">Batch</th>
                                                                     <td>{{ $item->batch }}</td>
                                                                 </tr>
@@ -296,7 +300,11 @@
                                                                     <td>{{ $item->cor }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th class="fs-5">Covid</th>
+                                                                    <th class="fs-5">Passport</th>
+                                                                    <td>{{ $item->passport }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Covid Vaccination</th>
                                                                     <td>{{ $item->covid }}</td>
                                                                 </tr>
                                                                 <tr>
@@ -328,17 +336,17 @@
                                     </div>
                                 </div>
 
-                                @if (Auth::guard('admin')->user()->can('edit.officer'))
+                                {{-- @if (Auth::guard('admin')->user()->can('edit.officer')) --}}
                                     <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
                                         <i class="fa-solid fa-pencil text-primary fs-5"></i>
                                     </a>
-                                @endif
+                                {{-- @endif
 
-                                @if (Auth::guard('admin')->user()->can('delete.officer'))
+                                @if (Auth::guard('admin')->user()->can('delete.officer')) --}}
                                     <a href="{{ route('admin.officer.destroy', $item->id) }}" class="delete">
                                         <i class="fa-solid fa-trash text-danger fs-5"></i>
                                     </a>
-                                @endif
+                                {{-- @endif --}}
 
 
 

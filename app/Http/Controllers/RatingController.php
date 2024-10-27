@@ -39,7 +39,8 @@ class RatingController extends Controller
             'academy' => 'nullable|string|max:255',
             'status' => 'nullable|string',
             'ship_name' => 'nullable|string',
-            'ship_cook' => 'nullable|string',
+            'ship_cook' => 'nullable|date',
+            'passport_number' => 'nullable|string',
 
             'batch' => 'nullable|string|max:255',
             'cdc' => 'nullable|string|max:255',
@@ -84,6 +85,7 @@ class RatingController extends Controller
         $rating->status = $request->status;
         $rating->ship_name = $request->ship_name;
         $rating->ship_cook = $request->ship_cook;
+        $rating->passport_number = $request->passport_number;
 
         $rating->batch = $request->batch;
         $rating->cdc = $request->cdc;
@@ -149,8 +151,9 @@ class RatingController extends Controller
             'academy' => 'nullable|string|max:255',
             'status' => 'nullable|string',
             
-            'ship_cook' => 'nullable|string',
+            'ship_cook' => 'nullable|date',
             'remarks' => 'nullable|string',
+            'passport_number' => 'nullable|string',
 
             'ship_name' => 'nullable|string',
             'batch' => 'nullable|string|max:255',

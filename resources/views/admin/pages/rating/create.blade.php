@@ -84,6 +84,14 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="batch" class="mb-2">Passport Number</label>
+                                <input type="text" name="passport_number" placeholder="Enter Passport Number"
+                                    class="form-control form-control-sm" value="{{ old('passport_number') }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="contact" class="mb-2">Current Status</label>
                                 <select name="status" class="form-select form-select-sm" id="statusSelect">
                                     <option disabled selected>Choose...</option>
@@ -233,7 +241,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="covid" class="mb-2">COVID VACCINATION</label>
-                                <input type="date" name="covid" placeholder="Enter COVID Training"
+                                <input type="text" name="covid" placeholder="Enter COVID Vaccination"
                                     class="form-control form-control-sm" value="{{ old('covid') }}">
                             </div>
                         </div>
@@ -241,7 +249,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="ship_cook" class="mb-2">Ship Cook</label>
-                                <input type="text" name="ship_cook" placeholder="Enter Ship Cook"
+                                <input type="date" name="ship_cook" placeholder="Enter Ship Cook"
                                     class="form-control form-control-sm" value="{{ old('ship_cook') }}">
                             </div>
                         </div>
@@ -265,7 +273,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="other_one" class="mb-2">Other One</label>
+                                <label for="other_one" class="mb-2">Readiness</label>
                                 <input type="date" name="other_one" class="form-control form-control-sm"
                                     value="{{ old('other_one') }}">
                             </div>

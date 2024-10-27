@@ -182,6 +182,10 @@
                                                                     <td>{{ $item->batch }}</td>
                                                                 </tr>
                                                                 <tr>
+                                                                    <th class="fs-5">Passport Number</th>
+                                                                    <td>{{ $item->passport_number }}</td>
+                                                                </tr>
+                                                                <tr>
                                                                     <th class="fs-5">CDC</th>
                                                                     <td>{{ $item->cdc }}</td>
                                                                 </tr>
@@ -289,17 +293,17 @@
                                     </div>
                                 </div>
 
-                                @if (Auth::guard('admin')->user()->can('edit.rating'))
+                                {{-- @if (Auth::guard('admin')->user()->can('edit.rating')) --}}
                                     <a href="{{ route('admin.rating.edit', $item->id) }}" class="text-primary">
                                         <i class="fa-solid fa-pencil text-primary fs-5"></i>
                                     </a>
-                                @endif
+                                {{-- @endif
 
-                                @if (Auth::guard('admin')->user()->can('delete.rating'))
+                                @if (Auth::guard('admin')->user()->can('delete.rating')) --}}
                                     <a href="{{ route('admin.rating.destroy', $item->id) }}" class="delete">
                                         <i class="fa-solid fa-trash text-danger fs-5"></i>
                                     </a>
-                                @endif
+                                {{-- @endif --}}
 
 
 

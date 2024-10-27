@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('ship_name')->nullable();
             $table->string('remarks')->nullable();
-            $table->string('ship_cook')->nullable();
+            $table->date('ship_cook')->nullable();
+            $table->string('passport_number')->nullable();
 
             $table->string('academy')->nullable();
             $table->string('batch')->nullable();

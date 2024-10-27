@@ -53,7 +53,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="name" class="mb-2">Name</label>
-                                <input type="name" name="name" placeholder="Enter Name"
+                                <input type="text" name="name" required placeholder="Enter Name"
                                     class="form-control form-control-sm" value="{{ old('name') }}">
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="rank" class="mb-2">Rank</label>
-                                <input type="name" name="rank" placeholder="Enter Rank"
+                                <input type="text" name="rank" required placeholder="Enter Rank"
                                     class="form-control form-control-sm" value="{{ old('rank') }}">
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="cdc_no" class="mb-2">CDC No</label>
-                                <input type="name" name="cdc_no" placeholder="Enter CDC No"
+                                <input type="text" name="cdc_no" required placeholder="Enter CDC No"
                                     class="form-control form-control-sm" value="{{ old('cdc_no') }}">
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="contact" class="mb-2">Contact</label>
-                                <input type="name" name="contact" placeholder="Enter Contact"
+                                <input type="text" name="contact" required placeholder="Enter Contact"
                                     class="form-control form-control-sm" value="{{ old('contact') }}">
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="academy" class="mb-2">Academy</label>
-                                <input type="name" name="academy" placeholder="Enter Academy"
+                                <input type="text" name="academy" required placeholder="Enter Academy"
                                     class="form-control form-control-sm" value="{{ old('academy') }}">
                             </div>
                         </div>
@@ -93,7 +93,15 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="batch" class="mb-2">Batch</label>
-                                <input type="name" name="batch" placeholder="Enter Batch"
+                                <input type="text" name="batch" required placeholder="Enter Batch"
+                                    class="form-control form-control-sm" value="{{ old('batch') }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="batch" class="mb-2">Passport Number</label>
+                                <input type="text" name="passport_number" required placeholder="Enter Passport Number"
                                     class="form-control form-control-sm" value="{{ old('batch') }}">
                             </div>
                         </div>
@@ -231,6 +239,14 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="passport" class="mb-2">Passport</label>
+                                <input type="date" name="passport" placeholder=""
+                                    class="form-control form-control-sm" value="{{ old('passport') }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="radar_navigation" class="mb-2">Radar Navigation</label>
                                 <input type="date" name="radar_navigation" placeholder="Enter Radar Navigation"
                                     class="form-control form-control-sm" value="{{ old('radar_navigation') }}">
@@ -327,8 +343,8 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="covid" class="mb-2">COVID Training</label>
-                                <input type="name" name="covid" placeholder="Enter COVID Training"
+                                <label for="covid" class="mb-2">COVID Vaccination</label>
+                                <input type="text" name="covid" placeholder="Enter COVID Vaccination"
                                     class="form-control form-control-sm" value="{{ old('covid') }}">
                             </div>
                         </div>
@@ -352,7 +368,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="other_one" class="mb-2">Other One</label>
+                                <label for="other_one" class="mb-2">Readiness</label>
                                 <input type="date" name="other_one" class="form-control form-control-sm"
                                     value="{{ old('other_one') }}">
                             </div>
