@@ -101,48 +101,26 @@
                                     Good To Know <i class="bx bx-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu">
+
                                     <li class="nav-item">
                                         <a href="about.html" class="nav-link">About Us</a>
                                     </li>
+
                                     <li class="nav-item">
-                                        <a href="" class="nav-link">Legal Papers</a>
+                                        <a href="{{ route('legal.papers') }}" class="nav-link">Legal Papers</a>
                                     </li>
+
                                     <li class="nav-item">
                                         <a href="about.html" class="nav-link">Our Vision</a>
                                     </li>
+
                                     <li class="nav-item">
                                         <a href="about.html" class="nav-link">Why Choose Us</a>
                                     </li>
+
                                     <li class="nav-item">
                                         <a href="" class="nav-link">Officals</a>
                                     </li>
-
-                                    <!-- <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            User <i class="bx bx-chevron-right"></i>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item">
-                                                <a href="sign-in.html" class="nav-link">Sign In</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="sign-up.html" class="nav-link">Sign Up</a>
-                                            </li>
-                                        </ul>
-                                    </li> -->
-
-                                    <!-- <li class="nav-item">
-                                        <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="terms-condition.html" class="nav-link">Terms & Condition</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="coming-soon.html" class="nav-link">Coming Soon</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="error-404.html" class="nav-link">404 Error Page</a>
-                                    </li> -->
 
                                 </ul>
                             </li>

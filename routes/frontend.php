@@ -22,7 +22,11 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/job-apply/employee', 'jobApplyEmployee')->name('apply.job.post');
 });
 
+//contact
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact_us', [HomeController::class, 'contactStore'])->name('contact.store');
+
+//legal Paper
+Route::get('/legal/papers', [HomeController::class, 'legalPapers'])->name('legal.papers');
 
 

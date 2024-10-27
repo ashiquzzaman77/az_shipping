@@ -7,6 +7,7 @@ use App\Models\ApplyPost;
 use App\Models\Banner;
 use App\Models\Contact;
 use App\Models\Job;
+use App\Models\Legal;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -33,6 +34,13 @@ class HomeController extends Controller
     {
         $teams = Team::where('status', 'active')->orderBy('order_team')->get();
         return view('frontend.pages.team', compact('teams'));
+    }
+
+    //legal Papers
+    public function legalPapers()
+    {
+        $legals = Legal::where('status','active')->latest()->get();
+        return view('frontend.pages.legal_papers',compact('legals'));
     }
 
     //allJob
