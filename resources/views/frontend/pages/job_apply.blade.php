@@ -22,51 +22,56 @@
 
                 <form method="POST" action="{{ route('apply.job.post') }}" enctype="multipart/form-data">
                     @csrf
-                
+
                     <div class="row">
-                
+
                         <div class="col-12 col-lg-12">
                             <div class="form-group">
                                 <label for="" class="mb-2">Rank Name:</label>
                                 <input type="hidden" name="job_id" value="{{ $job->id }}">
-                                <input type="text" class="form-control" value="{{ $job->rank }}" disabled id="rank" placeholder="Enter Rank Name">
+                                <input type="text" class="form-control" value="{{ $job->rank }}" disabled
+                                    id="rank" placeholder="Enter Rank Name">
                             </div>
                         </div>
-                
+
                         <div class="col-12 col-lg-12">
                             <div class="form-group">
                                 <label for="" class="mb-2">Name:</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" value="{{ old('name') }}">
+                                <input type="text" name="name" class="form-control" id="name"
+                                    placeholder="Enter Name" value="{{ old('name') }}">
                                 @error('name')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
-                
+
                         <div class="col-12 col-lg-6">
                             <div class="form-group">
                                 <label for="" class="mb-2">Email:</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email" value="{{ old('email') }}">
+                                <input type="email" name="email" class="form-control" id="email"
+                                    placeholder="Enter Email" value="{{ old('email') }}">
                                 @error('email')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
-                
+
                         <div class="col-12 col-lg-6">
                             <div class="form-group">
                                 <label for="" class="mb-2">Phone:</label>
-                                <input type="number" name="phone" class="form-control" id="phone" placeholder="Enter Phone" value="{{ old('phone') }}">
+                                <input type="number" name="phone" class="form-control" id="phone"
+                                    placeholder="Enter Phone" value="{{ old('phone') }}">
                                 @error('phone')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
-                
+
                         <div class="col-12 col-lg-6">
                             <div class="form-group">
                                 <label for="" class="mb-2">Passport Number:</label>
-                                <input type="text" class="form-control" name="passport_number" id="passport_number" placeholder="Passport Number" value="{{ old('passport_number') }}">
+                                <input type="text" class="form-control" name="passport_number" id="passport_number"
+                                    placeholder="Passport Number" value="{{ old('passport_number') }}">
                                 @error('passport_number')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -76,23 +81,25 @@
                         <div class="col-12 col-lg-6">
                             <div class="form-group">
                                 <label for="" class="mb-2">CDC Number:</label>
-                                <input type="text" class="form-control" name="cdc_number" id="cdc_number" placeholder="CDC Number" value="{{ old('cdc_number') }}">
+                                <input type="text" class="form-control" name="cdc_number" id="cdc_number"
+                                    placeholder="CDC Number" value="{{ old('cdc_number') }}">
                                 @error('cdc_number')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
-                
+
                         <div class="col-12 col-lg-12">
                             <div class="form-group">
                                 <label for="" class="mb-2">Nationality:</label>
-                                <input type="text" class="form-control" name="nationality" id="nationality" placeholder="Type Country Name" value="{{ old('nationality') }}">
+                                <input type="text" class="form-control" name="nationality" id="nationality"
+                                    placeholder="Type Country Name" value="{{ old('nationality') }}">
                                 @error('nationality')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
-                
+
                         <div class="col-12 col-lg-12">
                             <div class="">
                                 <label for="" class="mb-2">Drop CV</label>
@@ -102,28 +109,47 @@
                                 @enderror
                             </div>
                         </div>
-                
+
                     </div>
-                
+
                     <div class="form-group form-check text-center mt-4">
                         <input type="checkbox" name="agree" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">I agree to the terms & conditions.</label>
+                        <label class="form-check-label" for="exampleCheck1">I agree to the terms & policy.<span
+                                class="text-primary"><a href="" data-bs-toggle="modal"
+                                    data-bs-target="#policyModal">Terms & Policy</a> </span></label>
                         @error('agree')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                
+
                     <div class="text-center">
                         <button type="submit" class="btn default-btn-one">Apply Post</button>
                     </div>
-                
+
                 </form>
-                
+
 
             </div>
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="policyModal" tabindex="-1" aria-labelledby="policyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="policyModalLabel">Terms & Policy</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
 
-   
+                <div class="modal-body">
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
