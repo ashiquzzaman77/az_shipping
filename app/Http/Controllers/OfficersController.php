@@ -164,6 +164,7 @@ class OfficersController extends Controller
             'status' => 'nullable|string',
             'ship_name' => 'nullable|string',
             'remarks' => 'nullable|string',
+            'passport_numder' => 'nullable|string',
 
             'academy' => 'nullable|string|max:255',
             'batch' => 'nullable|string|max:255',
