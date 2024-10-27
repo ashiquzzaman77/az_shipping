@@ -82,8 +82,18 @@
                                 @enderror
                             </div>
                         </div>
-                
+
                         <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="" class="mb-2">CDC Number:</label>
+                                <input type="text" class="form-control" name="cdc_number" id="cdc_number" placeholder="CDC Number" value="{{ old('cdc_number') }}">
+                                @error('cdc_number')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                
+                        <div class="col-12 col-lg-12">
                             <div class="form-group">
                                 <label for="" class="mb-2">Nationality:</label>
                                 <input type="text" class="form-control" name="nationality" id="nationality" placeholder="Type Country Name" value="{{ old('nationality') }}">

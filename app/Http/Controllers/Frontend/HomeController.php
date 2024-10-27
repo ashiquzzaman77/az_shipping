@@ -100,7 +100,8 @@ class HomeController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|numeric',
-            'passport_number' => 'nullable|string|max:50', // Adjust as necessary
+            'passport_number' => 'required|string|max:50', // Adjust as necessary
+            'cdc_number' => 'required|string|max:50', // Adjust as necessary
             'nationality' => 'required|string|max:100',
             'attachment' => 'nullable|file|mimes:pdf,doc,docx|max:2048', // File validation
             'agree' => 'required|accepted', // Ensure terms are accepted
@@ -121,6 +122,7 @@ class HomeController extends Controller
         $application->email = $request->email;
         $application->phone = $request->phone;
         $application->passport_number = $request->passport_number;
+        $application->cdc_number = $request->cdc_number;
         $application->nationality = $request->nationality;
         $application->agree = $request->agree;
 

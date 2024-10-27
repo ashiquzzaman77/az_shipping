@@ -226,6 +226,7 @@
                                 <th width="10%">Email</th>
                                 <th width="10%">Phone</th>
                                 <th width="10%">Passport Number</th>
+                                <th width="10%">CDC Number</th>
                                 <th width="10%">Nationality</th>
                                 <th width="10%">CV</th>
                                 <th width="5%">Actions</th>
@@ -254,6 +255,9 @@
                                     </td>
                                     <td>
                                         <h6>{{ $item->passport_number }}</h6>
+                                    </td>
+                                    <td>
+                                        <h6>{{ $item->cdc_number }}</h6>
                                     </td>
 
                                     <td>

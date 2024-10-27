@@ -161,14 +161,14 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="about-img-three">
-                                <img src="{{ !empty($about->image_two) ? url('storage/' . $about->image_two) : 'https://ui-avatars.com/api/?name=' . urlencode($about->title) }}"
-                                    style="width: 100%" alt="{{ $about->title }}" alt="Image">
+                                <img src="{{ !empty($about->image_two) ? url('storage/' . $about->image_two) : 'https://ui-avatars.com/api/?name=' . urlencode('A') }}"
+                                    style="width: 100%" alt="" alt="Image">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="about-img-three">
-                                <img src="{{ !empty($about->image_one) ? url('storage/' . $about->image_one) : 'https://ui-avatars.com/api/?name=' . urlencode($about->title) }}"
-                                    style="width: 100%" alt="{{ $about->title }}">
+                                <img src="{{ !empty($about->image_one) ? url('storage/' . $about->image_one) : 'https://ui-avatars.com/api/?name=' . urlencode('A') }}"
+                                    style="width: 100%" alt="">
                             </div>
                         </div>
                     </div>
@@ -177,10 +177,10 @@
                     <div class="about-contant-others">
                         <div class="section-title">
                             <span>About Us</span>
-                            <h2>{{ $about->title }}</h2>
+                            <h2>{{ optional($about)->title }}</h2>
                         </div>
                         <div class="about-two-text">
-                            <p class="">{!! $about->short_descp !!}</p>
+                            <p class="">{!! optional($about)->short_descp !!}</p>
 
                             <a href="{{ route('contact') }}" style="margin-top: 20px" class="default-btn-one me-3">Contact
                                 Us</a>

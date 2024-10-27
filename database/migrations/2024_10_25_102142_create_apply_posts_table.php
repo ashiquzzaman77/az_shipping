@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('passport_number')->nullable();
+            $table->string('cdc_number')->nullable();
             $table->string('nationality')->nullable();
             $table->string('attachment')->nullable();
             $table->string('agree')->nullable();

@@ -236,9 +236,9 @@
                      <div
                          class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index', 'admin.about.index', 'admin.legal.index') ? 'here show' : '' }}">
 
-                         @if (Auth::guard('admin')->user()->can('job.menu'))
+                         {{-- @if (Auth::guard('admin')->user()->can('job.menu')) --}}
                              <div class="menu-item">
-                                 @if (Auth::guard('admin')->user()->can('all.job'))
+                                 {{-- @if (Auth::guard('admin')->user()->can('all.job')) --}}
                                      <a class="menu-link {{ Request::routeIs('admin.job.index') ? 'active' : '' }}"
                                          href="{{ route('admin.job.index') }}">
                                          <span class="menu-bullet">
@@ -246,9 +246,9 @@
                                          </span>
                                          <span class="menu-title">Job Created</span>
                                      </a>
-                                 @endif
+                                 {{-- @endif --}}
                              </div>
-                         @endif
+                         {{-- @endif --}}
 
                          {{-- Banner Section  --}}
                          @if (Auth::guard('admin')->user()->can('banner.menu'))
