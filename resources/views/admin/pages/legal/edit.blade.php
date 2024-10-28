@@ -129,7 +129,7 @@
                                                 accept="image/*" class="form-control form-control-sm"
                                                 style="display:none;">
 
-                                            <p>Drag & Drop your image here or click to select (Size 400 x 550).For Less
+                                            <p>Drag & Drop your image here or click to select (Size 800 x 800).For Less
                                                 Than
                                                 5Mb </p>
                                         </div>
@@ -189,8 +189,8 @@
                 const imageSizeDisplay = document.getElementById('image-size');
                 const removeButton = document.getElementById('remove-image');
                 const maxFileSize = 5 * 1024 * 1024; // 5MB max file size
-                const requiredWidth = 400;
-                const requiredHeight = 550;
+                const requiredWidth = 800;
+                const requiredHeight = 800;
 
                 // Show the file input when clicking the dropzone
                 dropzone.addEventListener('click', () => {
