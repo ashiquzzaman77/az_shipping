@@ -144,6 +144,12 @@
 
                 <div class="modal-body">
 
+                    @if (optional($policy)->content == null)
+                        <p>No Terms & Policy Avaiable</p>
+                    @else
+                        {!! $policy->content !!}
+                    @endif
+
                 </div>
 
                 <div class="modal-footer">

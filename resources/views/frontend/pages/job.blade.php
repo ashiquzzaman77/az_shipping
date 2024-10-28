@@ -76,52 +76,10 @@
 
             </div>
 
-            {{-- <div class="newsletter-content mb-5">
-                <div class="row align-items-center">
-                    <div class="col-lg-5">
-                        <div class="newsletter-title">
-                            <h3>Send To Your CV:</h3>
-                            <p>Highlight Key Skills and Expertise</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="newsletter-form">
-                            <form>
-                                <input type="file" class="form-control" placeholder="Email Address">
-                                <button type="submit" class="btn btn-primary">
-                                    Drop CV
-                                </button>
-                                <div id="validator-newsletter" class="form-result"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
+            
 
         </div>
     </div>
 
 
-    {{-- <div class="newsletter-area">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="row align-items-center">
-                    <div class="col-lg-5">
-                        <div class="newsletter-title">
-                            <h3>Subscribe to our newsletter:</h3>
-                            <p>Focused on the transport and logistic industry</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <form class="newsletter-form" data-bs-toggle="validator">
-                            <input type="email" class="form-control" placeholder="Enter your email" name="EMAIL"
-                                required autocomplete="off">
-                            <button type="submit" class="btn btn-primary">Subscribe</button>
-                            <div id="validator-newsletter" class="form-result"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
 @endsection

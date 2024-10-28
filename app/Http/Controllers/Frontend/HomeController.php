@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\CeoMessage;
 use App\Models\Mision;
+use App\Models\Policy;
 use App\Models\Service;
 use Illuminate\Support\Facades\Validator;
 
@@ -94,7 +95,9 @@ class HomeController extends Controller
     public function jobApply($id)
     {
         $job = Job::findOrfail($id);
-        return view('frontend.pages.job_apply', compact('job'));
+        $policy = Policy::where('status','active')->latest('id')->first();
+
+        return view('frontend.pages.job_apply', compact('job','policy'));
     }
 
     public function dropCv()
