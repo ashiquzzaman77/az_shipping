@@ -16,11 +16,10 @@ return new class extends Migration
             
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
-            $table->longText('header')->nullable();
+            $table->text('short_descp')->nullable();
             $table->longText('description')->nullable();
-            $table->string('logo')->nullable();
-            $table->string('banner_image')->nullable();
             $table->string('thumbnail_image')->nullable();
+            $table->string('status')->nullable();
 
             $table->timestamps();
         });

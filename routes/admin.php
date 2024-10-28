@@ -19,10 +19,13 @@ use App\Http\Controllers\EmployeeJobController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\MisionController;
 use App\Http\Controllers\OfficersController;
+use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VisionController;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Architecture\Services\ServiceContainer;
 
 Route::middleware('guest:admin')->group(function () {
 
@@ -83,6 +86,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'legal' => LegalController::class,
             'vision' => VisionController::class,
             'mision' => MisionController::class,
+            'policy' => PolicyController::class,
+            'service' => ServiceController::class,
 
         ],
 
@@ -91,16 +96,17 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::put('/settings', [SettingController::class, 'updateOrcreateSetting'])->name('settings.updateOrCreate');
 
-    Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us.index');
-    Route::put('/about-us', [AboutUsController::class, 'updateOrcreateAboutUs'])->name('about-us.updateOrCreate');
+    
 
-    //Banner Status
+    //All Status
     Route::put('banner/status/{id}', [BannerController::class, 'updateStatusBanner'])->name('banner.status.update');
     Route::put('team/status/{id}', [TeamController::class, 'updateStatusTeam'])->name('team.status.update');
     Route::put('job/status/{id}', [EmployeeJobController::class, 'updateStatusJob'])->name('job.status.update');
     Route::put('legal/status/{id}', [LegalController::class, 'updateStatusLegal'])->name('legal.status.update');
     Route::put('vision/status/{id}', [VisionController::class, 'updateStatusVision'])->name('vision.status.update');
     Route::put('mision/status/{id}', [MisionController::class, 'updateStatusMision'])->name('mision.status.update');
+    Route::put('policy/status/{id}', [PolicyController::class, 'updateStatusPolicy'])->name('policy.status.update');
+    Route::put('service/status/{id}', [ServiceController::class, 'updateStatusService'])->name('service.status.update');
 
     //Apply Post
     Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');

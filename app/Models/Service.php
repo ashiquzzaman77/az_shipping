@@ -17,7 +17,5 @@ class Service extends Model
      */
     protected $guarded = [];
 
-    public function courses() {
-        return $this->hasMany(Course::class,'service_id','id');
-    }
+    
 }
