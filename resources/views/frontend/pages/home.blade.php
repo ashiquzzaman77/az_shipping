@@ -137,10 +137,10 @@
                     <div class="about-contant-others">
                         <div class="section-title">
                             <span>About Us</span>
-                            <h2>{{ optional($about)->title }}</h2>
+                            <h4>{{ optional($about)->title }}</h4>
                         </div>
                         <div class="about-two-text">
-                            <p class="">{!! optional($about)->short_descp !!}</p>
+                            <p class="" style="text-align: justify;">{!! optional($about)->short_descp !!}</p>
 
                             <a href="{{ route('contact') }}" style="margin-top: 20px" class="default-btn-one me-3">Contact
                                 Us</a>
