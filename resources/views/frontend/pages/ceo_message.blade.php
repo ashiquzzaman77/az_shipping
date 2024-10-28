@@ -31,7 +31,9 @@
                         <div class="shipping-title">
                             <h2>Message From CEO</h2>
                         </div>
-                        <p>{!! $message->message !!}</p>
+
+                        <p style="text-align: justify;">{!! $message->message !!}</p>
+
 
                         <div class="shipping-card">
                             <div class="shipping-contant">
