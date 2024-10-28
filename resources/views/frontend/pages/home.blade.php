@@ -1,5 +1,6 @@
 @extends('frontend.master')
 @section('content')
+
     <!-- Banner Section Start  -->
     <div class="hero-slider-three owl-carousel owl-theme">
 
@@ -85,7 +86,7 @@
 
             <div class="section-title">
                 <span>Our Services</span>
-                <h2>Safe, Faster And Reliable Logistic Services</h2>
+                <h2>The Great Services, You Will Get From Us</h2>
             </div>
 
             <div class="services-slider-two owl-carousel owl-theme">
@@ -95,7 +96,10 @@
                     <img class="freight-image" src="{{ !empty($service->thumbnail_image) ? url('storage/' . $service->thumbnail_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}" alt="image">
                     <div class="service-caption">
                         <h3>{{ $service->name }}</h3>
-                        <p>{!! $service->short_descp !!}</p>
+
+                        <p style="text-align: justify;">{!! $service->short_descp !!}</p>
+
+
                         {{-- <a href="#" class="default-btn-two">Read More</a> --}}
                     </div>
                 </div>
