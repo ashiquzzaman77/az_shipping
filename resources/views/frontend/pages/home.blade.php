@@ -1,6 +1,11 @@
 @extends('frontend.master')
 @section('content')
 
+<style>
+    .bxs-star {
+        color: #f7941d;
+    }
+</style>
     <!-- Banner Section Start  -->
     <div class="hero-slider-three owl-carousel owl-theme">
 
@@ -92,22 +97,24 @@
             <div class="services-slider-two owl-carousel owl-theme">
 
                 @forelse ($services as $service)
-                <div class="service-card-two">
-                    <img class="freight-image" src="{{ !empty($service->thumbnail_image) ? url('storage/' . $service->thumbnail_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}" alt="image">
-                    <div class="service-caption">
-                        <h3>{{ $service->name }}</h3>
+                    <div class="service-card-two">
+                        <img class="freight-image"
+                            src="{{ !empty($service->thumbnail_image) ? url('storage/' . $service->thumbnail_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}"
+                            alt="image">
+                        <div class="service-caption">
+                            <h3>{{ $service->name }}</h3>
 
-                        <p style="text-align: justify;">{!! $service->short_descp !!}</p>
+                            <p style="text-align: justify;">{!! $service->short_descp !!}</p>
 
 
-                        {{-- <a href="#" class="default-btn-two">Read More</a> --}}
+                            {{-- <a href="#" class="default-btn-two">Read More</a> --}}
+                        </div>
                     </div>
-                </div>
-                
+
                 @empty
                     <p>No Service Avaiable</p>
                 @endforelse
-                
+
             </div>
         </div>
     </div>
@@ -165,77 +172,62 @@
     <!-- Client Section Start -->
     <div class="clients-area pt-100 pb-70">
         <div class="container">
+
             <div class="section-title">
                 <span>Clients Review</span>
                 <h2>Clients Around The World Makes Us Special</h2>
             </div>
+
             <div class="clients-slider owl-carousel owl-theme">
-                <div class="clients-slider-item">
-                    <div class="quote-icon">
-                        <i class="bx bxs-quote-right"></i>
-                    </div>
-                    <div class="item-contant">
-                        <div class="clients-image">
-                            <img src="assets/img/clients/client1.jpg" alt="image">
+                @foreach ($clients as $client)
+                    <div class="clients-slider-item">
+                        <div class="quote-icon">
+                            <i class="bx bxs-quote-right"></i>
                         </div>
-                        <h3>Minthy Sananda</h3>
-                        <span>CEO of LTD company</span>
-                        <div class="rating">
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
+                        <div class="item-content">
+
+                            <div class="clients-image">
+                                <img src="{{ asset('storage/' . $client->image) }}" alt="image"
+                                    style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
+                            </div>
+
+
+
+                            <h3>{{ $client->name }}</h3>
+                            <span>{{ $client->position }}</span>
+
+                            <div class="rating">
+                                @if ($client->star == 5)
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                @elseif ($client->star == 4)
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                @elseif ($client->star == 3)
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                @elseif ($client->star == 2)
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                @elseif ($client->star == 1)
+                                    <i class="bx bxs-star"></i>
+                                @endif
+                            </div>
+
+                            <p>{{ $client->testimonial }}</p>
                         </div>
-                        <p>On the other hand, we denounce with righteous indignation dislike men who are so beguiled
-                            and.</p>
                     </div>
-                </div>
-                <div class="clients-slider-item">
-                    <div class="quote-icon">
-                        <i class="bx bxs-quote-right"></i>
-                    </div>
-                    <div class="item-contant">
-                        <div class="clients-image">
-                            <img src="assets/img/clients/client2.jpg" alt="image">
-                        </div>
-                        <h3>Ramos Jhon Smith </h3>
-                        <span>CEO of LTD company</span>
-                        <div class="rating">
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                        </div>
-                        <p>On the other hand, we denounce with righteous indignation dislike men who are so beguiled
-                            and.</p>
-                    </div>
-                </div>
-                <div class="clients-slider-item">
-                    <div class="quote-icon">
-                        <i class="bx bxs-quote-right"></i>
-                    </div>
-                    <div class="item-contant">
-                        <div class="clients-image">
-                            <img src="assets/img/clients/client4.jpg" alt="image">
-                        </div>
-                        <h3>JACK Smith </h3>
-                        <span>CEO of LTD company</span>
-                        <div class="rating">
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                        </div>
-                        <p>On the other hand, we denounce with righteous indignation dislike men who are so beguiled
-                            and.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
+
+
         </div>
     </div>
     <!-- Client Section End -->
-
 @endsection

@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\CeoMessage;
 use App\Models\Choose;
+use App\Models\Client;
 use App\Models\Mision;
 use App\Models\Policy;
 use App\Models\Service;
@@ -35,8 +36,9 @@ class HomeController extends Controller
         $banners = Banner::where('status', 'active')->latest()->get();
         $services = Service::where('status', 'active')->latest()->get();
         $about = About::latest('id')->first();
+        $clients = Client::where('status', 'active')->latest()->get();
         
-        return view('frontend.pages.home', compact('banners','about','services'));
+        return view('frontend.pages.home', compact('banners','about','services','clients'));
     }
 
     //allTeam
@@ -75,6 +77,13 @@ class HomeController extends Controller
     {
         $choose = Choose::where('status','active')->latest('id')->first();
         return view('frontend.pages.choose',compact('choose'));
+    }
+
+    //client
+    public function client()
+    {
+        $clients = Client::where('status', 'active')->latest()->get();
+        return view('frontend.pages.client', compact('clients'));
     }
 
     //about

@@ -234,7 +234,7 @@
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index', 'admin.about.index', 'admin.legal.index', 'admin.service.index','admin.ceo_message.index','admin.choose.index') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index', 'admin.about.index', 'admin.legal.index', 'admin.service.index','admin.ceo_message.index','admin.choose.index','admin.client.index') ? 'here show' : '' }}">
 
                          {{-- @if (Auth::guard('admin')->user()->can('job.menu')) --}}
                          <div class="menu-item">
@@ -325,7 +325,7 @@
                          </div>
                          {{-- @endif --}}
 
-                         {{-- Legal Section  --}}
+                         {{-- Choose Section  --}}
                          {{-- @if (Auth::guard('admin')->user()->can('about.menu')) --}}
                          <div class="menu-item">
                             {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
@@ -340,6 +340,20 @@
                         </div>
                         {{-- @endif --}}
                         
+                        {{-- Client Section  --}}
+                         {{-- @if (Auth::guard('admin')->user()->can('about.menu')) --}}
+                         <div class="menu-item">
+                            {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
+                            <a class="menu-link {{ Request::routeIs('admin.client.index') ? 'active' : '' }}"
+                                href="{{ route('admin.client.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Clent</span>
+                            </a>
+                            {{-- @endif --}}
+                        </div>
+                        {{-- @endif --}}
 
 
                      </div>

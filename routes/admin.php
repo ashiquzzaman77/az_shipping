@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\CeoMessageController;
 use App\Http\Controllers\ChooseController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmployeeJobController;
 use App\Http\Controllers\LegalController;
@@ -95,6 +96,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'ceo_message' => CeoMessageController::class,
 
             'choose' => ChooseController::class,
+            'client' => ClientController::class,
 
         ],
 
@@ -116,6 +118,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::put('service/status/{id}', [ServiceController::class, 'updateStatusService'])->name('service.status.update');
     Route::put('ceo/status/{id}', [CeoMessageController::class, 'updateStatusCEO'])->name('ceo.status.update');
     Route::put('choose/status/{id}', [ChooseController::class, 'updateStatusChoose'])->name('choose.status.update');
+    Route::put('client/status/{id}', [ClientController::class, 'updateStatusClient'])->name('client.status.update');
 
     //Apply Post
     Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');
