@@ -114,7 +114,7 @@
                         <h3>Our Vission</h3>
                         <ul>
 
-                            @forelse ($visions as $visions)
+                            @forelse ($visions as $vision)
                                 <li>
                                     <i class='bx bx-check'></i>
                                     {{ $vision->vision }}
