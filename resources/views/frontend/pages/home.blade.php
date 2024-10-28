@@ -238,31 +238,4 @@
     </div>
     <!-- Client Section End -->
 
-   
-
-    <div class="newsletter-area" style="margin-top: 100px">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="row align-items-center">
-                    <div class="col-lg-5">
-                        <div class="newsletter-title">
-                            <h3>Subscribe to our newsletter:</h3>
-                            <p>Focused on the transport and logistic industry</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="newsletter-form">
-                            <form>
-                                <input type="email" class="form-control" placeholder="Email Address">
-                                <button type="submit" class="btn btn-primary">
-                                    Subscribe
-                                </button>
-                                <div id="validator-newsletter" class="form-result"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
