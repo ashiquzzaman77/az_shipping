@@ -23,7 +23,7 @@
             <div class="row" style="margin-top: 60px">
 
                 @forelse ($legals as $lagal)
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="ferry-gallery">
                             <img src="{{ !empty($lagal->image) ? url('storage/' . $lagal->image) : 'https://ui-avatars.com/api/?name=' . urlencode($lagal->image) }}"
                                 alt="image">
