@@ -105,7 +105,7 @@
                             <div id="errorMessage" class="text-danger mt-2" style="display:none;"></div>
                         </div>
 
-                        {{-- <div class="col-4 mb-3">
+                        <div class="col-4 mb-3">
                             <div class="">
                                 <label for="" class="mb-2">Banner Image</label>
                                 <input type="file" name="image" accept="image/*"
@@ -114,7 +114,7 @@
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>
-                        </div> --}}
+                        </div>
 
                         <div class="col-12 mb-3 mt-4">
                             <button type="submit"

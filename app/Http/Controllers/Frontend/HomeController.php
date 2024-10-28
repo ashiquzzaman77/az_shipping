@@ -80,11 +80,11 @@ class HomeController extends Controller
     }
 
     //client
-    public function client()
-    {
-        $clients = Client::where('status', 'active')->latest()->get();
-        return view('frontend.pages.client', compact('clients'));
-    }
+    // public function client()
+    // {
+    //     $clients = Client::where('status', 'active')->latest()->get();
+    //     return view('frontend.pages.client', compact('clients'));
+    // }
 
     //about
     public function about()

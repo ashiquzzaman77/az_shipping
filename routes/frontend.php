@@ -42,6 +42,6 @@ Route::get('/ceo-message', [HomeController::class, 'ceoMessage'])->name('ceo.mes
 Route::get('/why-choose-us', [HomeController::class, 'whyChooseUs'])->name('why.choose.us');
 
 //Client
-Route::get('/client', [HomeController::class, 'client'])->name('client');
+// Route::get('/client', [HomeController::class, 'client'])->name('client');
 
 
