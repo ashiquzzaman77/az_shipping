@@ -122,7 +122,7 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="" class="nav-link">Message From CEO</a>
+                                        <a href="{{ route('ceo.messge') }}" class="nav-link">Message From CEO</a>
                                     </li>
 
                                 </ul>

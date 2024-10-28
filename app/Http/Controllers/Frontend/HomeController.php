@@ -12,6 +12,7 @@ use App\Models\ApplyPost;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\CeoMessage;
 use App\Models\Mision;
 use App\Models\Service;
 use Illuminate\Support\Facades\Validator;
@@ -58,6 +59,13 @@ class HomeController extends Controller
         $about = About::latest('id')->first();
         
         return view('frontend.pages.vision',compact('visions','missions','about'));
+    }
+
+    //ceoMessage
+    public function ceoMessage()
+    {
+        $message = CeoMessage::latest('id')->first();
+        return view('frontend.pages.ceo_message',compact('message'));
     }
 
     //about
