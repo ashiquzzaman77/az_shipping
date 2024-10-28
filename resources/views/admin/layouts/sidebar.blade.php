@@ -234,7 +234,7 @@
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index', 'admin.about.index', 'admin.legal.index', 'admin.service.index') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index', 'admin.about.index', 'admin.legal.index', 'admin.service.index','admin.ceo_message.index') ? 'here show' : '' }}">
 
                          {{-- @if (Auth::guard('admin')->user()->can('job.menu')) --}}
                          <div class="menu-item">
@@ -309,6 +309,21 @@
                              {{-- @endif --}}
                          </div>
                          {{-- @endif --}}
+
+                         {{-- Legal Section  --}}
+                         {{-- @if (Auth::guard('admin')->user()->can('about.menu')) --}}
+                         <div class="menu-item">
+                            {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
+                            <a class="menu-link {{ Request::routeIs('admin.ceo_message.index') ? 'active' : '' }}"
+                                href="{{ route('admin.ceo_message.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">CEO Message</span>
+                            </a>
+                            {{-- @endif --}}
+                        </div>
+                        {{-- @endif --}}
 
 
                      </div>

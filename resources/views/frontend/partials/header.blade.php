@@ -114,7 +114,7 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="{{ route('vision') }}" class="nav-link">Our Vision</a>
+                                        <a href="{{ route('vision') }}" class="nav-link">Our Mission & Vision</a>
                                     </li>
 
                                     <li class="nav-item">
@@ -122,7 +122,7 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="" class="nav-link">Officals</a>
+                                        <a href="" class="nav-link">Message From CEO</a>
                                     </li>
 
                                 </ul>
@@ -153,20 +153,6 @@
                                     </li>
                                 </ul>
                             </li>
-
-                            <!-- <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Blog <i class="bx bx-chevron-down"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="blog.html" class="nav-link">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="blog-details.html" class="nav-link">Single Blog</a>
-                                    </li>
-                                </ul>
-                            </li> -->
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">

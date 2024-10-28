@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\CeoMessageController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmployeeJobController;
 use App\Http\Controllers\LegalController;
@@ -81,13 +82,16 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'officer' => OfficersController::class,
             'rating' => RatingController::class,
             'team' => TeamController::class,
+
             'job' => EmployeeJobController::class,
             'about' => AboutController::class,
             'legal' => LegalController::class,
             'vision' => VisionController::class,
+
             'mision' => MisionController::class,
             'policy' => PolicyController::class,
             'service' => ServiceController::class,
+            'ceo_message' => CeoMessageController::class,
 
         ],
 
@@ -107,6 +111,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::put('mision/status/{id}', [MisionController::class, 'updateStatusMision'])->name('mision.status.update');
     Route::put('policy/status/{id}', [PolicyController::class, 'updateStatusPolicy'])->name('policy.status.update');
     Route::put('service/status/{id}', [ServiceController::class, 'updateStatusService'])->name('service.status.update');
+    Route::put('ceo/status/{id}', [CeoMessageController::class, 'updateStatusCEO'])->name('ceo.status.update');
 
     //Apply Post
     Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');
