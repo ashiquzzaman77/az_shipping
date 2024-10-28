@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\CeoMessage;
+use App\Models\Choose;
 use App\Models\Mision;
 use App\Models\Policy;
 use App\Models\Service;
@@ -67,6 +68,13 @@ class HomeController extends Controller
     {
         $message = CeoMessage::latest('id')->first();
         return view('frontend.pages.ceo_message',compact('message'));
+    }
+
+    //why Choose Us
+    public function whyChooseUs()
+    {
+        $choose = Choose::where('status','active')->latest('id')->first();
+        return view('frontend.pages.choose',compact('choose'));
     }
 
     //about

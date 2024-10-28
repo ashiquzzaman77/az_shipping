@@ -38,4 +38,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 //CEO Message
 Route::get('/ceo-message', [HomeController::class, 'ceoMessage'])->name('ceo.messge');
 
+//Why Choose Us
+Route::get('/why-choose-us', [HomeController::class, 'whyChooseUs'])->name('why.choose.us');
+
 

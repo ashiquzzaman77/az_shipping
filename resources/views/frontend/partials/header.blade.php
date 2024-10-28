@@ -118,7 +118,7 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="" class="nav-link">Why Choose Us</a>
+                                        <a href="{{ route('why.choose.us') }}" class="nav-link">Why Choose Us</a>
                                     </li>
 
                                     <li class="nav-item">
