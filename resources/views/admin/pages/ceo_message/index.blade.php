@@ -172,9 +172,9 @@
                                 {{-- @endif
 
                                 @if (Auth::guard('admin')->user()->can('delete.banner')) --}}
-                                <a href="{{ route('admin.ceo_message.destroy', $item->id) }}" class="delete">
+                                {{-- <a href="{{ route('admin.ceo_message.destroy', $item->id) }}" class="delete">
                                     <i class="fa-solid fa-trash text-danger"></i>
-                                </a>
+                                </a> --}}
                                 {{-- @endif --}}
 
                             </td>
