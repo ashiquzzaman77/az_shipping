@@ -23,7 +23,7 @@
         </div>
         <div class="card-body">
 
-            <form id="myForm" method="post" action="{{ route('admin.ceo_message.update',$ceo->id) }}"
+            <form id="myForm" method="post" action="{{ route('admin.ceo_message.update', $ceo->id) }}"
                 enctype="multipart/form-data">
                 @csrf
 
@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <label for="" class="mb-2">Name</label>
                                 <input type="text" name="name" placeholder="Enter CEO Name"
-                                    class="form-control form-control-sm" value="{{ old('name',$ceo->name) }}">
+                                    class="form-control form-control-sm" value="{{ old('name', $ceo->name) }}">
                                 @error('name')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
@@ -62,7 +62,7 @@
                             <div class="form-group">
                                 <label for="" class="mb-2">Position</label>
                                 <input type="text" name="position" placeholder="CEO Position"
-                                    class="form-control form-control-sm" value="{{ old('position',$ceo->position) }}">
+                                    class="form-control form-control-sm" value="{{ old('position', $ceo->position) }}">
                                 @error('position')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
@@ -92,8 +92,20 @@
                         <div class="col-4 mb-3">
                             <div class="">
                                 <label for="" class="mb-2">CEO Image</label>
-                                <input type="file" name="ceo_image" accept="image/*"
-                                    class="form-control form-control-sm" id="thumbnailInput">
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="file" name="ceo_image" accept="image/*"
+                                            class="form-control form-control-sm" id="thumbnailInput">
+                                    </div>
+                                    <div class="col-6">
+                                        <img class=""
+                                            src="{{ !empty($ceo->ceo_image) ? url('storage/' . $ceo->ceo_image) : 'https://ui-avatars.com/api/?name=' . urlencode('CEO') }}"
+                                            height="60" width="60" alt="">
+                                    </div>
+                                </div>
+
+
                                 @error('ceo_image')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
