@@ -36,6 +36,8 @@ class ServiceController extends Controller
             'name' => 'required|string|max:255',
             'short_descp' => 'required|string|max:300',
             'thumbnail_image' => 'required|image|max:2048', // Max size 2MB
+            'banner_top_image' => 'required|image|max:2048', // Max size 2MB
+            'banner_center_image' => 'required|image|max:2048', // Max size 2MB
         ]);
 
         // Create a new About instance
@@ -48,6 +50,14 @@ class ServiceController extends Controller
         // Handle file uploads
         if ($request->hasFile('thumbnail_image')) {
             $service->thumbnail_image = $request->file('thumbnail_image')->store('service', 'public');
+        }
+
+        if ($request->hasFile('banner_top_image')) {
+            $service->banner_top_image = $request->file('banner_top_image')->store('service', 'public');
+        }
+
+        if ($request->hasFile('banner_center_image')) {
+            $service->banner_center_image = $request->file('banner_center_image')->store('service', 'public');
         }
 
         // Save the About instance to the database
@@ -87,7 +97,9 @@ class ServiceController extends Controller
             'status' => 'required|in:active,inactive',
             'name' => 'required|string|max:255',
             'short_descp' => 'required|string|max:500',
-            'thumbnail_image' => 'nullable|image|max:2048', // Allow null for updating
+            'thumbnail_image' => 'nullable|image|max:2048',
+            'banner_top_image' => 'nullable|image|max:2048', // Max size 2MB
+            'banner_center_image' => 'nullable|image|max:2048', // Max size 2MB // Allow null for updating
         ]);
 
         // Update the fields
@@ -106,6 +118,24 @@ class ServiceController extends Controller
             $service->thumbnail_image = $request->file('thumbnail_image')->store('service', 'public');
         }
 
+        if ($request->hasFile('banner_top_image')) {
+            // Delete the old banner_top_image if it exists
+            if ($service->banner_top_image) {
+                Storage::disk('public')->delete($service->banner_top_image);
+            }
+            // Store the new image
+            $service->banner_top_image = $request->file('banner_top_image')->store('service', 'public');
+        }
+
+        if ($request->hasFile('banner_center_image')) {
+            // Delete the old banner_center_image if it exists
+            if ($service->banner_center_image) {
+                Storage::disk('public')->delete($service->banner_center_image);
+            }
+            // Store the new image
+            $service->banner_center_image = $request->file('banner_center_image')->store('service', 'public');
+        }
+
         $service->save();
         return redirect()->route('admin.service.index')->with('success', 'Service Section updated successfully.');
     }
@@ -121,6 +151,12 @@ class ServiceController extends Controller
         // Delete associated images if they exist
         if ($service->thumbnail_image) {
             Storage::disk('public')->delete($service->thumbnail_image);
+        }
+        if ($service->banner_top_image) {
+            Storage::disk('public')->delete($service->banner_top_image);
+        }
+        if ($service->banner_center_image) {
+            Storage::disk('public')->delete($service->banner_center_image);
         }
 
         $service->delete();

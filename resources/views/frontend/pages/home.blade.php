@@ -102,12 +102,12 @@
                             src="{{ !empty($service->thumbnail_image) ? url('storage/' . $service->thumbnail_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}"
                             alt="image">
                         <div class="service-caption">
-                            <h3>{{ $service->name }}</h3>
+                            <h3 style="text-align: start;">{{ $service->name }}</h3>
 
                             <p style="text-align: justify;">{!! $service->short_descp !!}</p>
 
+                            <a href="{{ route('service.details', [$service->slug, $service->id]) }}" class="default-btn-two">See More</a>
 
-                            {{-- <a href="#" class="default-btn-two">Read More</a> --}}
                         </div>
                     </div>
 
@@ -195,6 +195,7 @@
 
                             <h3>{{ $client->name }}</h3>
                             <span>{{ $client->position }}</span>
+                            <p>{!! $client->message !!}</p>
 
                             <div class="rating">
                                 @if ($client->star == 5)
@@ -230,4 +231,5 @@
         </div>
     </div>
     <!-- Client Section End -->
+
 @endsection

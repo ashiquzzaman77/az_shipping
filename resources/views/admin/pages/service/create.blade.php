@@ -23,35 +23,41 @@
         </div>
         <div class="card-body">
 
-            <form id="myForm" method="post" action="{{ route('admin.service.store') }}" enctype="multipart/form-data">
+            <form id="myForm" method="post" action="{{ route('admin.service.store') }}"
+                enctype="multipart/form-data">
                 @csrf
-            
+
                 <div class="card bg-light">
                     <div class="row p-4">
-            
+
                         <div class="col-4 mb-3">
                             <div class="form-group">
                                 <label for="" class="mb-2">Status</label>
-                                <select name="status" data-placeholder="Select Row One.." class="form-select form-select-sm" data-control="select2" data-placeholder="Select an option">
-                                    <option value="active" {{ old('status') === 'active' ? 'selected' : '' }}>Active</option>
-                                    <option value="inactive" {{ old('status') === 'inactive' ? 'selected' : '' }}>Inactive</option>
+                                <select name="status" data-placeholder="Select Row One.."
+                                    class="form-select form-select-sm" data-control="select2"
+                                    data-placeholder="Select an option">
+                                    <option value="active" {{ old('status') === 'active' ? 'selected' : '' }}>Active
+                                    </option>
+                                    <option value="inactive" {{ old('status') === 'inactive' ? 'selected' : '' }}>
+                                        Inactive</option>
                                 </select>
                                 @error('status')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
-            
+
                         <div class="col-4 mb-3">
                             <div class="form-group">
                                 <label for="" class="mb-2">Name</label>
-                                <input type="text" name="name" placeholder="Service Name" class="form-control form-control-sm" value="{{ old('name') }}">
+                                <input type="text" name="name" placeholder="Service Name"
+                                    class="form-control form-control-sm" value="{{ old('name') }}">
                                 @error('name')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
-            
+
                         <div class="col-12 mb-3">
                             <div class="form-group">
                                 <label for="" class="mb-2">Short Description</label>
@@ -61,35 +67,106 @@
                                 @enderror
                             </div>
                         </div>
-            
-                        <div class="col-4 mb-3">
+
+                        <div class="col-12 mb-3">
+                            <div class="form-group">
+                                <label for="" class="mb-2">Long Description</label>
+                                <textarea name="description" class="form-control editor" id="" cols="4" rows="4">{{ old('description') }}</textarea>
+                                @error('description')
+                                    <div class="text-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
                             <div class="">
-                                <label for="" class="mb-2">Image</label>
-                                <input type="file" name="thumbnail_image" accept="image/*" class="form-control form-control-sm" id="thumbnailInput">
+                                <label for="" class="mb-2">Main Image</label>
+                                <input type="file" name="thumbnail_image" accept="image/*"
+                                    class="form-control form-control-sm" id="thumbnailInput">
                                 @error('thumbnail_image')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mt-2">
-                                <img id="thumbnailPreview" src="#" alt="Image Preview" style="display:none; width: 200px; height: 100px; object-fit: cover;" />
+                                <img id="thumbnailPreview" src="#" alt="Image Preview"
+                                    style="display:none; width: 200px; height: 100px; object-fit: cover;" />
                             </div>
                             <div id="errorMessage" class="text-danger mt-2" style="display:none;"></div>
                         </div>
-            
-                        <div class="col-12 mb-3 mt-4">
-                            <button type="submit" class="btn btn-primary rounded-0 px-5 btn-sm float-end">Submit</button>
+
+                        <div class="col-3 mb-3">
+                            <div>
+                                <label for="banner_top_image" class="mb-2">Banner Top Image</label>
+                                <input type="file" id="banner_top_image" name="banner_top_image" accept="image/*"
+                                    class="form-control form-control-sm"
+                                    onchange="previewImage(event, 'topImagePreview', 'topImageError')" />
+                                @error('banner_top_image')
+                                    <div class="text-danger mt-1">{{ $message }}</div>
+                                @enderror
+                                <img id="topImagePreview"
+                                    style="display: none; max-width: 50%; height: auto; margin-top: 10px;" />
+                                <p id="topImageError" style="color: red; display: none;"></p>
+                            </div>
                         </div>
-            
+
+                        <div class="col-3 mb-3">
+                            <div>
+                                <label for="banner_center_image" class="mb-2">Banner Center Image</label>
+                                <input type="file" id="banner_center_image" name="banner_center_image"
+                                    accept="image/*" class="form-control form-control-sm"
+                                    onchange="previewImage(event, 'centerImagePreview', 'centerImageError')" />
+                                @error('banner_center_image')
+                                    <div class="text-danger mt-1">{{ $message }}</div>
+                                @enderror
+                                <img id="centerImagePreview"
+                                    style="display: none; max-width: 50%; height: auto; margin-top: 10px;" />
+                                <p id="centerImageError" style="color: red; display: none;"></p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-3 mt-4">
+                            <button type="submit"
+                                class="btn btn-primary rounded-0 px-5 btn-sm float-end">Submit</button>
+                        </div>
+
                     </div>
                 </div>
             </form>
-            
+
 
         </div>
 
     </div>
 
     @push('scripts')
+    
+        <script>
+            function previewImage(event, previewId, errorId) {
+                const file = event.target.files[0];
+                const maxWidth = 760;
+                const maxHeight = 430;
+
+                if (file) {
+                    const img = new Image();
+                    img.src = URL.createObjectURL(file);
+
+                    img.onload = function() {
+                        if (img.width !== maxWidth || img.height !== maxHeight) {
+                            document.getElementById(previewId).style.display = 'none';
+                            document.getElementById(errorId).innerText = 'Image size must be 760x430 pixels.';
+                            document.getElementById(errorId).style.display = 'block';
+                            event.target.value = ''; // Clear the input
+                        } else {
+                            document.getElementById(previewId).src = img.src;
+                            document.getElementById(previewId).style.display = 'block';
+                            document.getElementById(errorId).style.display = 'none';
+                        }
+                    };
+                }
+            }
+        </script>
+
+
         <script>
             document.getElementById('thumbnailInput').addEventListener('change', function(event) {
                 const file = event.target.files[0];

@@ -134,23 +134,23 @@
                                 </a>
                             </li>
 
+                            @php
+                                $services = app\Models\Service::where('status', 'active')->latest()->get();
+                            @endphp
+
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     Services <i class="bx bx-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="services.html" class="nav-link">Crew Management</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="services.html" class="nav-link">PEME Medical Support</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="service-details.html" class="nav-link">Flag Document Arrangement</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="service-details.html" class="nav-link">Travel & Visa Processing</a>
-                                    </li>
+
+                                    @foreach ($services as $service)
+                                        <li class="nav-item">
+                                            <a href="{{ route('service.details', [$service->slug, $service->id]) }}"
+                                                class="nav-link">{{ $service->name }}</a>
+                                        </li>
+                                    @endforeach
+
                                 </ul>
                             </li>
 

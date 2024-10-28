@@ -70,6 +70,16 @@
                             </div>
                         </div>
 
+                        <div class="col-12 mb-3">
+                            <div class="form-group">
+                                <label for="" class="mb-2">Long Description</label>
+                                <textarea name="description" class="form-control editor" id="" cols="4" rows="4">{!! $service->description !!}</textarea>
+                                @error('description')
+                                    <div class="text-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="col-4 mb-3">
                             <div class="">
                                 <div class="row">
@@ -96,6 +106,56 @@
                             <div id="errorMessage" class="text-danger mt-2" style="display:none;"></div>
                         </div>
 
+                        <div class="col-8 mb-3">
+                            <div>
+                                <label for="banner_top_image" class="mb-2">Banner Top Image</label>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <input type="file" id="banner_top_image" name="banner_top_image"
+                                            accept="image/*" class="form-control form-control-sm"
+                                            onchange="previewImage(event, 'topImagePreview', 'topImageError')" />
+                                        @error('banner_top_image')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-4">
+                                        <img class=""
+                                            src="{{ !empty($service->banner_top_image) ? url('storage/' . $service->banner_top_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}"
+                                            height="60" width="100" alt="">
+
+                                    </div>
+                                </div>
+                                <img id="topImagePreview" style="display: none; max-width: 30%; height: auto;" />
+
+                                <p id="topImageError" style="color: red; display: none;"></p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <div>
+                                <label for="banner_center_image" class="mb-2">Banner Center Image</label>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="file" id="banner_center_image" name="banner_center_image"
+                                            accept="image/*" class="form-control form-control-sm"
+                                            onchange="previewImage(event, 'centerImagePreview', 'centerImageError')" />
+                                        @error('banner_center_image')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-6">
+                                        <img class=""
+                                            src="{{ !empty($service->banner_center_image) ? url('storage/' . $service->banner_center_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}"
+                                            height="60" width="100" alt="">
+                                    </div>
+                                </div>
+
+                                <img id="centerImagePreview" style="display: none; max-width: 30%; height: auto;" />
+                                <p id="centerImageError" style="color: red; display: none;"></p>
+                            </div>
+                        </div>
+
                         <div class="col-12 mb-3 mt-4">
                             <button type="submit"
                                 class="btn btn-primary rounded-0 px-5 btn-sm float-end">Update</button>
@@ -111,6 +171,32 @@
     </div>
 
     @push('scripts')
+        <script>
+            function previewImage(event, previewId, errorId) {
+                const file = event.target.files[0];
+                const maxWidth = 760;
+                const maxHeight = 430;
+
+                if (file) {
+                    const img = new Image();
+                    img.src = URL.createObjectURL(file);
+
+                    img.onload = function() {
+                        if (img.width !== maxWidth || img.height !== maxHeight) {
+                            document.getElementById(previewId).style.display = 'none';
+                            document.getElementById(errorId).innerText = 'Image size must be 760x430 pixels.';
+                            document.getElementById(errorId).style.display = 'block';
+                            event.target.value = ''; // Clear the input
+                        } else {
+                            document.getElementById(previewId).src = img.src;
+                            document.getElementById(previewId).style.display = 'block';
+                            document.getElementById(errorId).style.display = 'none';
+                        }
+                    };
+                }
+            }
+        </script>
+
         <script>
             document.getElementById('thumbnailInput').addEventListener('change', function(event) {
                 const file = event.target.files[0];

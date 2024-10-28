@@ -19,6 +19,10 @@ return new class extends Migration
             $table->text('short_descp')->nullable();
             $table->longText('description')->nullable();
             $table->string('thumbnail_image')->nullable();
+
+            $table->string('banner_top_image')->nullable();
+            $table->string('banner_center_image')->nullable();
+
             $table->string('status')->nullable();
 
             $table->timestamps();

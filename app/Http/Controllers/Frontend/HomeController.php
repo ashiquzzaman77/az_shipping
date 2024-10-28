@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Job;
-use App\Models\Team;
-use App\Models\Legal;
-use App\Models\Banner;
-use App\Models\Vision;
-use App\Models\Contact;
-use App\Models\ApplyPost;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\ApplyPost;
+use App\Models\Banner;
 use App\Models\CeoMessage;
 use App\Models\Choose;
 use App\Models\Client;
+use App\Models\Contact;
+use App\Models\Job;
+use App\Models\Legal;
 use App\Models\Mision;
 use App\Models\Policy;
 use App\Models\Service;
+use App\Models\Team;
+use App\Models\Vision;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 // use Illuminate\Support\Facades\Hash;
@@ -37,8 +37,8 @@ class HomeController extends Controller
         $services = Service::where('status', 'active')->latest()->get();
         $about = About::latest('id')->first();
         $clients = Client::where('status', 'active')->latest()->get();
-        
-        return view('frontend.pages.home', compact('banners','about','services','clients'));
+
+        return view('frontend.pages.home', compact('banners', 'about', 'services', 'clients'));
     }
 
     //allTeam
@@ -51,49 +51,51 @@ class HomeController extends Controller
     //legal Papers
     public function legalPapers()
     {
-        $legals = Legal::where('status','active')->latest()->get();
-        return view('frontend.pages.legal_papers',compact('legals'));
+        $legals = Legal::where('status', 'active')->latest()->get();
+        return view('frontend.pages.legal_papers', compact('legals'));
     }
 
     //vision
     public function vision()
     {
-        $missions = Mision::where('status','active')->latest()->limit(8)->get();
-        $visions = Vision::where('status','active')->latest()->limit(8)->get();
+        $missions = Mision::where('status', 'active')->latest()->limit(8)->get();
+        $visions = Vision::where('status', 'active')->latest()->limit(8)->get();
         $about = About::latest('id')->first();
-        
-        return view('frontend.pages.vision',compact('visions','missions','about'));
+
+        return view('frontend.pages.vision', compact('visions', 'missions', 'about'));
     }
 
     //ceoMessage
     public function ceoMessage()
     {
         $message = CeoMessage::latest('id')->first();
-        return view('frontend.pages.ceo_message',compact('message'));
+        return view('frontend.pages.ceo_message', compact('message'));
     }
 
     //why Choose Us
     public function whyChooseUs()
     {
-        $choose = Choose::where('status','active')->latest('id')->first();
-        return view('frontend.pages.choose',compact('choose'));
+        $choose = Choose::where('status', 'active')->latest('id')->first();
+        return view('frontend.pages.choose', compact('choose'));
     }
 
-    //client
-    // public function client()
-    // {
-    //     $clients = Client::where('status', 'active')->latest()->get();
-    //     return view('frontend.pages.client', compact('clients'));
-    // }
+    //serviceDetails
+    public function serviceDetails($slug)
+    {
+        $serviceItem = Service::where('slug', $slug)->firstOrFail();
+        $services = Service::where('status','active')->latest()->get();
+
+        return view('frontend.pages.service_details', compact('serviceItem','services'));
+    }
 
     //about
     public function about()
     {
-        $missions = Mision::where('status','active')->latest()->limit(8)->get();
-        $visions = Vision::where('status','active')->latest()->limit(8)->get();
+        $missions = Mision::where('status', 'active')->latest()->limit(8)->get();
+        $visions = Vision::where('status', 'active')->latest()->limit(8)->get();
         $about = About::latest('id')->first();
 
-        return view('frontend.pages.about',compact('visions','missions','about'));
+        return view('frontend.pages.about', compact('visions', 'missions', 'about'));
     }
 
     //allJob
@@ -112,9 +114,9 @@ class HomeController extends Controller
     public function jobApply($id)
     {
         $job = Job::findOrfail($id);
-        $policy = Policy::where('status','active')->latest('id')->first();
+        $policy = Policy::where('status', 'active')->latest('id')->first();
 
-        return view('frontend.pages.job_apply', compact('job','policy'));
+        return view('frontend.pages.job_apply', compact('job', 'policy'));
     }
 
     public function dropCv()
