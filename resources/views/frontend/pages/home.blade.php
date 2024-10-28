@@ -82,72 +82,28 @@
     <!-- Service Section Start -->
     <div class="freight-area freight-area-two pt-100 pb-70">
         <div class="container">
+
             <div class="section-title">
                 <span>Our Services</span>
                 <h2>Safe, Faster And Reliable Logistic Services</h2>
             </div>
+
             <div class="services-slider-two owl-carousel owl-theme">
+
+                @forelse ($services as $service)
                 <div class="service-card-two">
-                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight1.jpg') }}" alt="image">
+                    <img class="freight-image" src="{{ !empty($service->thumbnail_image) ? url('storage/' . $service->thumbnail_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}" alt="image">
                     <div class="service-caption">
-                        <h3>Road Freight</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut
-                            labore et dolore magna.</p>
-                        <a href="#" class="default-btn-two">Read More</a>
+                        <h3>{{ $service->name }}</h3>
+                        <p>{!! $service->short_descp !!}</p>
+                        {{-- <a href="#" class="default-btn-two">Read More</a> --}}
                     </div>
                 </div>
-                <div class="service-card-two">
-                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight2.jpg') }}" alt="image">
-                    <div class="service-caption">
-                        <h3>Ocean Freight</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut
-                            labore et dolore magna.</p>
-                        <a href="#" class="default-btn-two">Read More</a>
-                    </div>
-                </div>
-                <div class="service-card-two">
-                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight3.jpg') }}" alt="image">
-                    <div class="service-caption">
-                        <h3>Air Freight</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut
-                            labore et dolore magna.</p>
-                        <a href="#" class="default-btn-two">Read More</a>
-                    </div>
-                </div>
-                <div class="service-card-two">
-                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight1.jpg') }}" alt="image">
-                    <div class="service-caption">
-                        <h3>Road Freight</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut
-                            labore et dolore magna.</p>
-                        <a href="#" class="default-btn-two">Read More</a>
-                    </div>
-                </div>
-                <div class="service-card-two">
-                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight2.jpg') }}" alt="image">
-                    <div class="service-caption">
-                        <h3>Ocean Freight</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut
-                            labore et dolore magna.</p>
-                        <a href="#" class="default-btn-two">Read More</a>
-                    </div>
-                </div>
-                <div class="service-card-two">
-                    <img class="freight-image" src="{{ asset('frontend/assets/img/freight/freight3.jpg') }}"
-                        alt="image">
-                    <div class="service-caption">
-                        <h3>Air Freight</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut
-                            labore et dolore magna.</p>
-                        <a href="#" class="default-btn-two">Read More</a>
-                    </div>
-                </div>
+                
+                @empty
+                    <p>No Service Avaiable</p>
+                @endforelse
+                
             </div>
         </div>
     </div>

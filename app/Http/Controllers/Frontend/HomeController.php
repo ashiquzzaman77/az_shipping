@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Mision;
+use App\Models\Service;
 use Illuminate\Support\Facades\Validator;
 
 // use Illuminate\Support\Facades\Hash;
@@ -29,8 +30,10 @@ class HomeController extends Controller
     public function index()
     {
         $banners = Banner::where('status', 'active')->latest()->get();
+        $services = Service::where('status', 'active')->latest()->get();
         $about = About::latest('id')->first();
-        return view('frontend.pages.home', compact('banners','about'));
+        
+        return view('frontend.pages.home', compact('banners','about','services'));
     }
 
     //allTeam
