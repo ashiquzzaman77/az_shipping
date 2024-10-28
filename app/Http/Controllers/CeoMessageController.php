@@ -92,7 +92,7 @@ class CeoMessageController extends Controller
             'position' => 'required|string|max:255',
             'ceo_short_msg' => 'nullable|string|max:50',
             'message' => 'required|string',
-            'ceo_image' => 'required|image|max:2048', // Max size 2MB
+            'ceo_image' => 'nullable|image|max:2048', // Max size 2MB
             'image' => 'nullable|image|max:5048', // Banner image
         ]);
 
