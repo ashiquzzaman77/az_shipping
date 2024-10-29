@@ -6,11 +6,13 @@
             padding: 10px 15px;
             border-radius: 5px;
             background-color: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(5px); /* Optional blur effect */
+            backdrop-filter: blur(5px);
+            /* Optional blur effect */
         }
-    
+
         .x-sign {
-            --interval: 0.5s; /* Fast flicker */
+            --interval: 0.5s;
+            /* Fast flicker */
             display: block;
             font-size: 15px;
             background: linear-gradient(45deg, rgb(202, 145, 2), orangered, mediumblue, purple);
@@ -19,12 +21,15 @@
             filter: saturate(60%);
             animation: flicker steps(300) var(--interval) infinite;
         }
-    
+
         @keyframes flicker {
             50% {
                 filter: saturate(200%) hue-rotate(20deg);
             }
         }
+
+        /* ============================ */
+
     </style>
 
 
@@ -201,6 +206,7 @@
 
                         </ul>
 
+                        
 
                     </div>
                 </nav>

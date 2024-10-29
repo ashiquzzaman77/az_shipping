@@ -145,7 +145,7 @@
                     <div class="about-contant-others">
                         <div class="section-title">
                             {{-- <span>About Us</span> --}}
-                            <h2>{{ optional($about)->title }}</h2>
+                            <h2 style="text-align: start;">{{ optional($about)->title }}</h2>
                         </div>
                         <div class="about-two-text">
                             <p class="" style="text-align: justify;">{!! optional($about)->short_descp !!}</p>

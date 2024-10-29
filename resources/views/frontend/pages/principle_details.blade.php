@@ -29,7 +29,7 @@
                             <img src="{{ !empty($principleItem->banner_top_image) ? url('storage/' . $principleItem->banner_top_image) : 'https://ui-avatars.com/api/?name=' . urlencode('PN') }}"
                                 alt="image">
                         </div>
-                        
+
 
                         <p>{{ $principleItem->short_descp }}</p>
 
