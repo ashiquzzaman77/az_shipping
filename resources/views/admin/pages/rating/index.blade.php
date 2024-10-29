@@ -247,13 +247,18 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <th class="fs-5">NWR</th>
+                                                                    <th class="fs-5">NWR/EWR</th>
                                                                     <td>{{ $item->nwr }}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <th class="fs-5">RASD</th>
                                                                     <td>{{ $item->rasd }}</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th class="fs-5">Readiness</th>
+                                                                    <td>{{ $item->readiness }}</td>
                                                                 </tr>
 
                                                                 <tr>
@@ -266,7 +271,7 @@
                                                                     <td>{{ $item->covid }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th class="fs-5">Discharge Date</th>
+                                                                    <th class="fs-5">Joining Date/Discharge Date</th>
                                                                     <td>{{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
                                                                     </td>
                                                                 </tr>
