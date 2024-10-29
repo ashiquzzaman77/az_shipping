@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Client;
 use Exception;
 use App\Models\Service;
 use App\Models\Setting;
@@ -34,6 +35,10 @@ class AppServiceProvider extends ServiceProvider
 
         try {
 
+
+            if (Schema::hasTable('clients')) {
+                View::share('clients', Client::where('status', 'active')->latest('id')->get());
+            }
 
             if (Schema::hasTable('settings')) {
                 View::share('setting', Setting::first());

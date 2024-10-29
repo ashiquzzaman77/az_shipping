@@ -1,5 +1,13 @@
 <x-admin-app-layout>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <style>
+        .bxs-star {
+            color: #f7941d;
+        }
+    </style>
+
     <div class="row gy-5 g-xl-8">
 
         {{-- Total Job  --}}
@@ -7,7 +15,7 @@
             <div class="card h-xl-100">
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold text-gray-900">Total Job Offer</span>
+                        <span style="font-size: 20px" class="card-label fw-bold text-gray-900">Total Job Offer</span>
                     </h3>
                 </div>
 
@@ -65,10 +73,11 @@
         {{-- Middle Section  --}}
 
         @php
-            $hour = \Carbon\Carbon::now()->format('H');
+            // Set the timezone to Bangladesh
+            $hour = \Carbon\Carbon::now('Asia/Dhaka')->format('H');
             $greeting = '';
 
-            if ($hour > 12) {
+            if ($hour < 12) {
                 $greeting = 'Good Morning';
             } elseif ($hour < 18) {
                 $greeting = 'Good Afternoon';
@@ -76,6 +85,7 @@
                 $greeting = 'Good Evening';
             }
         @endphp
+
         <div class="col-xl-4">
             <div class="card card-flush h-xl-100">
                 <div class="card-header rounded bgi-no-repeat bgi-size-cover bgi-position-y-top bgi-position-x-center align-items-start h-200px"
@@ -166,42 +176,71 @@
 
 
         <div class="col-xl-4">
-            <div class="card card-flush h-md-100 mb-5 mb-xl-10">
-                <div class="card-header pt-5">
-                    <div class="card-title d-flex flex-column">
-                        <div class="d-flex align-items-center">
-                            <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">Ashik
-                                Tk</span>
-
-                            {{-- <span class="badge badge-light-success fs-base">
-                                <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1"><span
-                                        class="path1"></span><span class="path2"></span></i>
-                                2.2%
-                            </span> --}}
-                        </div>
-                        <span class="text-gray-500 pt-1 fw-semibold fs-6">Total Earnings</span>
-                    </div>
+            <div class="card h-xl-100">
+                <div class="card-header border-0 pt-5">
+                    <h3 class="card-title align-items-start flex-column">
+                        <span style="font-size: 20px" class="card-label fw-bold text-gray-900">Total Client
+                            Review</span>
+                    </h3>
                 </div>
-                <div class="card-body pt-2 pb-4 d-flex align-items-center flex-column">
+
+                <div class="card-body pt-6">
+
+                    @forelse ($clients as $client)
+                        <div class="d-flex flex-stack">
+
+                            <div class="symbol me-5">
+                                <div class="text-inverse-danger">
+                                    <img src="https://ui-avatars.com/api/?name=R&size=40" alt="Avatar">
+                                </div>
+                            </div>
 
 
-                    <div class="d-flex flex-center me-5 pt-20">
-                        <div id="kt_card_widget_1_chart" style="min-width: 150px; min-height: 100px" data-kt-size="150"
-                            data-kt-line="11">
-                        </div>
-                    </div>
+                            <div class="d-flex align-items-center flex-row-fluid flex-wrap">
 
-                    <div class="d-flex flex-column content-justify-center w-100 pt-20">
+                                <div class="flex-grow-1 me-2">
+                                    <a href="javascript:;"
+                                        class="text-gray-800 text-hover-primary fs-6 fw-bold">{{ $client->name }}</a>
 
+                                    <span class="text-muted fw-semibold d-block fs-7">
+                                        Position: {{ $client->position }}
+                                    </span>
 
-                        <div class="d-flex fs-6 fw-semibold align-items-center my-3">
-                            <div class="bullet w-8px h-6px rounded-2 bg-primary me-3"></div>
-                            <div class="text-gray-500 flex-grow-1 me-4">Today Paid Amount</div>
-                            <div class="fw-bolder text-gray-700 text-xxl-end">Ashik
+                                </div>
+
+                                <a title="Needed Person" href="javascript:;" class="">
+
+                                    @if ($client->star == 5)
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                    @elseif ($client->star == 4)
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                    @elseif ($client->star == 3)
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                    @elseif ($client->star == 2)
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                    @elseif ($client->star == 1)
+                                        <i class="bx bxs-star"></i>
+                                    @endif
+                                </a>
+
                             </div>
                         </div>
 
-                    </div>
+                        <div class="separator separator-dashed my-4"></div>
+                    @empty
+                        <p>No Client Review Avaiable</p>
+                    @endforelse
+
                 </div>
             </div>
         </div>
