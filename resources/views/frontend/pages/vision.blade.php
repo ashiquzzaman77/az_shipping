@@ -25,8 +25,8 @@
                     <div class="about-safe-text">
                         <span style="color: #f21860 !important;">About Us</span>
 
-                        <h2>{!! $about->title !!}</h2>
-                        <p>{!! $about->long_descp !!}</p>
+                        <h2>{{ optional($about)->title }}</h2>
+                        <p>{!! optional($about)->long_descp !!}</p>
                     </div>
 
                     {{-- <div class="shipping-card">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="safe-image">
-                        <img src="{{ !empty($about->image) ? url('storage/' . $about->image) : 'https://ui-avatars.com/api/?name=' . urlencode($about->title) }}" alt="image">
+                        <img src="{{ !empty($about->image) ? url('storage/' . $about->image) : 'https://ui-avatars.com/api/?name=' . urlencode(optional($about)->title) }}" alt="image">
                     </div>
                 </div>
             </div>

@@ -32,7 +32,7 @@
                             <h2>Message From CEO</h2>
                         </div>
 
-                        <p style="text-align: justify;">{!! $message->message !!}</p>
+                        <p style="text-align: justify;">{!! optional($message)->message !!}</p>
 
 
                         <div class="shipping-card">
@@ -46,9 +46,9 @@
                                 </div>
                                 
 
-                                <h3>{{ $message->name }}</h3>
-                                <span>{{ $message->position }}</span>
-                                    <p>{{ $message->ceo_short_msg }}</p>
+                                <h3>{{ optional($message)->name }}</h3>
+                                <span>{{ optional($message)->position }}</span>
+                                    <p>{{ optional($message)->ceo_short_msg }}</p>
                             </div>
                         </div>
                     </div>

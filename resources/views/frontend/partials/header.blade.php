@@ -90,63 +90,46 @@
 
                     </a>
                     <div class="collapse navbar-collapse mean-menu">
+
                         <ul class="navbar-nav ms-auto">
 
-                            <li class="nav-item active">
-                                <a href="{{ route('homepage') }}" class="nav-link">
-                                    Home
-                                </a>
+                            <li class="nav-item {{ request()->routeIs('homepage') ? 'active' : '' }}">
+                                <a href="{{ route('homepage') }}" class="nav-link">Home</a>
                             </li>
 
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Good To Know <i class="bx bx-chevron-down"></i>
-                                </a>
+                            <li
+                                class="nav-item {{ request()->routeIs('about') || request()->routeIs('legal.papers') || request()->routeIs('vision') || request()->routeIs('why.choose.us') || request()->routeIs('ceo.message') ? 'active' : '' }}">
+                                <a href="#" class="nav-link">Good To Know <i class="bx bx-chevron-down"></i></a>
                                 <ul class="dropdown-menu">
-
-                                    <li class="nav-item">
+                                    <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
                                         <a href="{{ route('about') }}" class="nav-link">About Us</a>
                                     </li>
-
-                                    <li class="nav-item">
+                                    <li class="nav-item {{ request()->routeIs('legal.papers') ? 'active' : '' }}">
                                         <a href="{{ route('legal.papers') }}" class="nav-link">Legal Papers</a>
                                     </li>
-
-                                    <li class="nav-item">
+                                    <li class="nav-item {{ request()->routeIs('vision') ? 'active' : '' }}">
                                         <a href="{{ route('vision') }}" class="nav-link">Our Mission & Vision</a>
                                     </li>
-
-                                    <li class="nav-item">
+                                    <li class="nav-item {{ request()->routeIs('why.choose.us') ? 'active' : '' }}">
                                         <a href="{{ route('why.choose.us') }}" class="nav-link">Why Choose Us</a>
                                     </li>
-
-                                    <li class="nav-item">
-                                        <a href="{{ route('ceo.messge') }}" class="nav-link">Message From CEO</a>
+                                    <li class="nav-item {{ request()->routeIs('ceo.message') ? 'active' : '' }}">
+                                        <a href="{{ route('ceo.message') }}" class="nav-link">Message From CEO</a>
                                     </li>
-
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="{{ route('all.team') }}" class="nav-link">
-                                    Our Team
-                                </a>
+                            <li class="nav-item {{ request()->routeIs('all.team') ? 'active' : '' }}">
+                                <a href="{{ route('all.team') }}" class="nav-link">Our Team</a>
                             </li>
 
-                            {{-- @php
-                                $services = app\Models\Service::where('status', 'active')->latest()->limit(6)->get();
-                            @endphp --}}
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Services <i class="bx bx-chevron-down"></i>
-                                </a>
+                            <li class="nav-item {{ request()->routeIs('service.details.*') ? 'active' : '' }}">
+                                <a href="#" class="nav-link">Services <i class="bx bx-chevron-down"></i></a>
                                 <ul class="dropdown-menu">
-
                                     @if ($services->isNotEmpty())
                                         @foreach ($services as $service)
-                                            <li class="nav-item">
+                                            <li
+                                                class="nav-item {{ request()->routeIs('service.details', [$service->slug, $service->id]) ? 'active' : '' }}">
                                                 <a href="{{ route('service.details', [$service->slug, $service->id]) }}"
                                                     class="nav-link">{{ $service->name }}</a>
                                             </li>
@@ -154,35 +137,30 @@
                                     @else
                                         <li class="nav-item ms-3">No Service found.</li>
                                     @endif
-
-
-
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Job <i class="bx bx-chevron-down"></i>
-                                </a>
+                            <li
+                                class="nav-item {{ request()->routeIs('all.job') || request()->routeIs('drop.cv') ? 'active' : '' }}">
+                                <a href="#" class="nav-link">Job <i class="bx bx-chevron-down"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item">
+                                    <li class="nav-item {{ request()->routeIs('all.job') ? 'active' : '' }}">
                                         <a href="{{ route('all.job') }}" class="nav-link">Current Requirements</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item {{ request()->routeIs('drop.cv') ? 'active' : '' }}">
                                         <a href="{{ route('drop.cv') }}" class="nav-link">Drop Your CV</a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Our Principle <i class="bx bx-chevron-down"></i>
-                                </a>
+                            <li class="nav-item {{ request()->routeIs('principle.details.*') ? 'active' : '' }}">
+                                <a href="#" class="nav-link">Our Principle <i
+                                        class="bx bx-chevron-down"></i></a>
                                 <ul class="dropdown-menu">
-
                                     @if ($principles->isNotEmpty())
                                         @foreach ($principles as $principle)
-                                            <li class="nav-item">
+                                            <li
+                                                class="nav-item {{ request()->routeIs('principle.details', [$principle->slug, $principle->id]) ? 'active' : '' }}">
                                                 <a href="{{ route('principle.details', [$principle->slug, $principle->id]) }}"
                                                     class="nav-link">{{ $principle->name }}</a>
                                             </li>
@@ -190,11 +168,12 @@
                                     @else
                                         <li class="nav-item ms-3">No principles found.</li>
                                     @endif
-
                                 </ul>
                             </li>
 
                         </ul>
+
+
                     </div>
                 </nav>
             </div>
