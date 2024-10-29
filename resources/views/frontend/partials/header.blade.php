@@ -174,12 +174,16 @@
                                 </a>
                                 <ul class="dropdown-menu">
 
-                                    @foreach ($principles as $principle)
-                                        <li class="nav-item">
-                                            <a href="{{ route('principle.details', [$principle->slug, $principle->id]) }}"
-                                                class="nav-link">{{ $principle->name }}</a>
-                                        </li>
-                                    @endforeach
+                                    @if ($principles->isNotEmpty())
+                                        @foreach ($principles as $principle)
+                                            <li class="nav-item">
+                                                <a href="{{ route('principle.details', [$principle->slug, $principle->id]) }}"
+                                                    class="nav-link">{{ $principle->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    @else
+                                        <li class="nav-item">No principles found.</li>
+                                    @endif
 
                                 </ul>
                             </li>
