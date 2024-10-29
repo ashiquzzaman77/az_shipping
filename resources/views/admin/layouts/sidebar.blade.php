@@ -234,7 +234,7 @@
                      </span>
 
                      <div
-                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index', 'admin.about.index', 'admin.legal.index', 'admin.service.index','admin.ceo_message.index','admin.choose.index','admin.client.index') ? 'here show' : '' }}">
+                         class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.job.index', 'admin.banner.index', 'admin.about.index', 'admin.legal.index', 'admin.service.index', 'admin.ceo_message.index', 'admin.choose.index', 'admin.client.index','admin.principle.index') ? 'here show' : '' }}">
 
                          {{-- @if (Auth::guard('admin')->user()->can('job.menu')) --}}
                          <div class="menu-item">
@@ -280,6 +280,21 @@
                          </div>
                          {{-- @endif --}}
 
+                         {{-- Principle Section  --}}
+                         {{-- @if (Auth::guard('admin')->user()->can('service.menu')) --}}
+                         <div class="menu-item">
+                             {{-- @if (Auth::guard('admin')->user()->can('all.service')) --}}
+                             <a class="menu-link {{ Request::routeIs('admin.principle.index') ? 'active' : '' }}"
+                                 href="{{ route('admin.principle.index') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">Principle</span>
+                             </a>
+                             {{-- @endif --}}
+                         </div>
+                         {{-- @endif --}}
+
                          {{-- About Section  --}}
                          {{-- @if (Auth::guard('admin')->user()->can('about.menu')) --}}
                          <div class="menu-item">
@@ -298,17 +313,17 @@
                          {{-- Legal Section  --}}
                          {{-- @if (Auth::guard('admin')->user()->can('about.menu')) --}}
                          <div class="menu-item">
-                            {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
-                            <a class="menu-link {{ Request::routeIs('admin.ceo_message.index') ? 'active' : '' }}"
-                                href="{{ route('admin.ceo_message.index') }}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">CEO Message</span>
-                            </a>
-                            {{-- @endif --}}
-                        </div>
-                        {{-- @endif --}}
+                             {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
+                             <a class="menu-link {{ Request::routeIs('admin.ceo_message.index') ? 'active' : '' }}"
+                                 href="{{ route('admin.ceo_message.index') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">CEO Message</span>
+                             </a>
+                             {{-- @endif --}}
+                         </div>
+                         {{-- @endif --}}
 
                          {{-- Legal Section  --}}
                          {{-- @if (Auth::guard('admin')->user()->can('about.menu')) --}}
@@ -328,32 +343,32 @@
                          {{-- Choose Section  --}}
                          {{-- @if (Auth::guard('admin')->user()->can('about.menu')) --}}
                          <div class="menu-item">
-                            {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
-                            <a class="menu-link {{ Request::routeIs('admin.choose.index') ? 'active' : '' }}"
-                                href="{{ route('admin.choose.index') }}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Why Choose Us</span>
-                            </a>
-                            {{-- @endif --}}
-                        </div>
-                        {{-- @endif --}}
-                        
-                        {{-- Client Section  --}}
+                             {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
+                             <a class="menu-link {{ Request::routeIs('admin.choose.index') ? 'active' : '' }}"
+                                 href="{{ route('admin.choose.index') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">Why Choose Us</span>
+                             </a>
+                             {{-- @endif --}}
+                         </div>
+                         {{-- @endif --}}
+
+                         {{-- Client Section  --}}
                          {{-- @if (Auth::guard('admin')->user()->can('about.menu')) --}}
                          <div class="menu-item">
-                            {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
-                            <a class="menu-link {{ Request::routeIs('admin.client.index') ? 'active' : '' }}"
-                                href="{{ route('admin.client.index') }}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Clent</span>
-                            </a>
-                            {{-- @endif --}}
-                        </div>
-                        {{-- @endif --}}
+                             {{-- @if (Auth::guard('admin')->user()->can('all.about')) --}}
+                             <a class="menu-link {{ Request::routeIs('admin.client.index') ? 'active' : '' }}"
+                                 href="{{ route('admin.client.index') }}">
+                                 <span class="menu-bullet">
+                                     <span class="bullet bullet-dot"></span>
+                                 </span>
+                                 <span class="menu-title">Clent</span>
+                             </a>
+                             {{-- @endif --}}
+                         </div>
+                         {{-- @endif --}}
 
 
                      </div>

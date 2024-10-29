@@ -23,6 +23,7 @@ use App\Http\Controllers\LegalController;
 use App\Http\Controllers\MisionController;
 use App\Http\Controllers\OfficersController;
 use App\Http\Controllers\PolicyController;
+use App\Http\Controllers\PrincipleController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
@@ -97,6 +98,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
             'choose' => ChooseController::class,
             'client' => ClientController::class,
+            'principle' => PrincipleController::class,
 
         ],
 
@@ -119,6 +121,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::put('ceo/status/{id}', [CeoMessageController::class, 'updateStatusCEO'])->name('ceo.status.update');
     Route::put('choose/status/{id}', [ChooseController::class, 'updateStatusChoose'])->name('choose.status.update');
     Route::put('client/status/{id}', [ClientController::class, 'updateStatusClient'])->name('client.status.update');
+    Route::put('principle/status/{id}', [PrincipleController::class, 'updateStatusPrinciple'])->name('principle.status.update');
 
     //Apply Post
     Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');

@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
+use App\Models\Principle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ServiceController extends Controller
+class PrincipleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $items = Service::latest()->get();
-        return view('admin.pages.service.index', compact('items'));
+        $items = Principle::latest()->get();
+        return view('admin.pages.principle.index', compact('items'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.service.create');
+        return view('admin.pages.principle.create');
     }
 
     /**
@@ -41,30 +41,30 @@ class ServiceController extends Controller
         ]);
 
         // Create a new About instance
-        $service = new Service();
-        $service->name = $request->name;
-        $service->short_descp = $request->short_descp;
-        $service->description = $request->description;
-        $service->status = $request->status;
+        $principle = new Principle();
+        $principle->name = $request->name;
+        $principle->short_descp = $request->short_descp;
+        $principle->description = $request->description;
+        $principle->status = $request->status;
 
         // Handle file uploads
         if ($request->hasFile('thumbnail_image')) {
-            $service->thumbnail_image = $request->file('thumbnail_image')->store('service', 'public');
+            $principle->thumbnail_image = $request->file('thumbnail_image')->store('principle', 'public');
         }
 
         if ($request->hasFile('banner_top_image')) {
-            $service->banner_top_image = $request->file('banner_top_image')->store('service', 'public');
+            $principle->banner_top_image = $request->file('banner_top_image')->store('principle', 'public');
         }
 
         if ($request->hasFile('banner_center_image')) {
-            $service->banner_center_image = $request->file('banner_center_image')->store('service', 'public');
+            $principle->banner_center_image = $request->file('banner_center_image')->store('principle', 'public');
         }
 
         // Save the About instance to the database
-        $service->save();
+        $principle->save();
 
         // Redirect or return a response
-        return redirect()->route('admin.service.index')->with('success', 'Service Created successfully.');
+        return redirect()->route('admin.principle.index')->with('success', 'Principle Created successfully.');
     }
 
     /**
@@ -80,9 +80,9 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
-        $service = Service::find($id);
+        $principle = Principle::find($id);
 
-        return view('admin.pages.service.edit', compact('service'));
+        return view('admin.pages.principle.edit', compact('principle'));
     }
 
     /**
@@ -90,7 +90,7 @@ class ServiceController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $service = Service::findOrFail($id);
+        $principle = Principle::findOrFail($id);
 
         // Validate the incoming request data
         $request->validate([
@@ -103,41 +103,41 @@ class ServiceController extends Controller
         ]);
 
         // Update the fields
-        $service->name = $request->name;
-        $service->short_descp = $request->short_descp;
-        $service->description = $request->description;
-        $service->status = $request->status;
+        $principle->name = $request->name;
+        $principle->short_descp = $request->short_descp;
+        $principle->description = $request->description;
+        $principle->status = $request->status;
 
         // Handle file uploads
         if ($request->hasFile('thumbnail_image')) {
             // Delete the old thumbnail_image if it exists
-            if ($service->thumbnail_image) {
-                Storage::disk('public')->delete($service->thumbnail_image);
+            if ($principle->thumbnail_image) {
+                Storage::disk('public')->delete($principle->thumbnail_image);
             }
             // Store the new image
-            $service->thumbnail_image = $request->file('thumbnail_image')->store('service', 'public');
+            $principle->thumbnail_image = $request->file('thumbnail_image')->store('principle', 'public');
         }
 
         if ($request->hasFile('banner_top_image')) {
             // Delete the old banner_top_image if it exists
-            if ($service->banner_top_image) {
-                Storage::disk('public')->delete($service->banner_top_image);
+            if ($principle->banner_top_image) {
+                Storage::disk('public')->delete($principle->banner_top_image);
             }
             // Store the new image
-            $service->banner_top_image = $request->file('banner_top_image')->store('service', 'public');
+            $principle->banner_top_image = $request->file('banner_top_image')->store('principle', 'public');
         }
 
         if ($request->hasFile('banner_center_image')) {
             // Delete the old banner_center_image if it exists
-            if ($service->banner_center_image) {
-                Storage::disk('public')->delete($service->banner_center_image);
+            if ($principle->banner_center_image) {
+                Storage::disk('public')->delete($principle->banner_center_image);
             }
             // Store the new image
-            $service->banner_center_image = $request->file('banner_center_image')->store('service', 'public');
+            $principle->banner_center_image = $request->file('banner_center_image')->store('principle', 'public');
         }
 
-        $service->save();
-        return redirect()->route('admin.service.index')->with('success', 'Service Section updated successfully.');
+        $principle->save();
+        return redirect()->route('admin.principle.index')->with('success', 'Principle Section updated successfully.');
     }
 
     /**
@@ -146,25 +146,25 @@ class ServiceController extends Controller
     public function destroy(string $id)
     {
         // Find the existing record
-        $service = Service::findOrFail($id);
+        $principle = Principle::findOrFail($id);
 
         // Delete associated images if they exist
-        if ($service->thumbnail_image) {
-            Storage::disk('public')->delete($service->thumbnail_image);
+        if ($principle->thumbnail_image) {
+            Storage::disk('public')->delete($principle->thumbnail_image);
         }
-        if ($service->banner_top_image) {
-            Storage::disk('public')->delete($service->banner_top_image);
+        if ($principle->banner_top_image) {
+            Storage::disk('public')->delete($principle->banner_top_image);
         }
-        if ($service->banner_center_image) {
-            Storage::disk('public')->delete($service->banner_center_image);
+        if ($principle->banner_center_image) {
+            Storage::disk('public')->delete($principle->banner_center_image);
         }
 
-        $service->delete();
+        $principle->delete();
     }
 
-    public function updateStatusService(Request $request, $id)
+    public function updateStatusPrinciple(Request $request, $id)
     {
-        $offer = Service::findOrFail($id);
+        $offer = Principle::findOrFail($id);
         $offer->status = $request->input('status');
         $offer->save();
 

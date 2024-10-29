@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class, // 1st
             RolePermissionSeeder::class, // 2nd
-            ActivityLogSeeder::class, // 4th
             EmailSettingSeeder::class, // 5th
         ]);
     }

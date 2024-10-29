@@ -44,6 +44,9 @@ Route::get('/why-choose-us', [HomeController::class, 'whyChooseUs'])->name('why.
 //Service Details
 Route::get('/service-details/{slug}/{id}', [HomeController::class, 'serviceDetails'])->name('service.details');
 
+//Principle Details
+Route::get('/principle-details/{slug}/{id}', [HomeController::class, 'principleDetails'])->name('principle.details');
+
 //Client
 // Route::get('/client', [HomeController::class, 'client'])->name('client');
 

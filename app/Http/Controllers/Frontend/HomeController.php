@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Job;
+use App\Models\Team;
 use App\Models\About;
-use App\Models\ApplyPost;
+use App\Models\Legal;
 use App\Models\Banner;
-use App\Models\CeoMessage;
 use App\Models\Choose;
 use App\Models\Client;
-use App\Models\Contact;
-use App\Models\Job;
-use App\Models\Legal;
 use App\Models\Mision;
 use App\Models\Policy;
-use App\Models\Service;
-use App\Models\Team;
 use App\Models\Vision;
+use App\Models\Contact;
+use App\Models\Service;
+use App\Models\ApplyPost;
+use App\Models\Principle;
+use App\Models\CeoMessage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 // use Illuminate\Support\Facades\Hash;
@@ -83,9 +84,18 @@ class HomeController extends Controller
     public function serviceDetails($slug)
     {
         $serviceItem = Service::where('slug', $slug)->firstOrFail();
-        $services = Service::where('status','active')->latest()->get();
+        $services = Service::where('status', 'active')->latest()->get();
 
-        return view('frontend.pages.service_details', compact('serviceItem','services'));
+        return view('frontend.pages.service_details', compact('serviceItem', 'services'));
+    }
+
+    //principleDetails
+    public function principleDetails($slug)
+    {
+        $principleItem = Principle::where('slug', $slug)->firstOrFail();
+        $services = Service::where('status', 'active')->latest()->get();
+
+        return view('frontend.pages.principle_details', compact('principleItem', 'services'));
     }
 
     //about
@@ -105,12 +115,14 @@ class HomeController extends Controller
         return view('frontend.pages.job', compact('jobs'));
     }
 
+    //jobDetails
     public function jobDetails($id)
     {
         $job = Job::findOrfail($id);
         return view('frontend.pages.job_details', compact('job'));
     }
 
+    //jobApply
     public function jobApply($id)
     {
         $job = Job::findOrfail($id);
@@ -119,12 +131,14 @@ class HomeController extends Controller
         return view('frontend.pages.job_apply', compact('job', 'policy'));
     }
 
+    //dropCv
     public function dropCv()
     {
         $jobs = Job::latest()->get();
         return view('frontend.pages.drop_cv', compact('jobs'));
     }
 
+    //jobApplyEmployee
     public function jobApplyEmployee(Request $request)
     {
         // Validation rules
@@ -214,5 +228,4 @@ class HomeController extends Controller
         // success('Thank You. We have received your message. We will contact with you very soon.');
         return redirect()->back()->with('success', 'Thank You. We have received your message. We will contact with you very soon');
     }
-
 }

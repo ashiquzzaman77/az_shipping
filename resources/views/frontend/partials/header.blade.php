@@ -134,9 +134,9 @@
                                 </a>
                             </li>
 
-                            @php
-                                $services = app\Models\Service::where('status', 'active')->latest()->get();
-                            @endphp
+                            {{-- @php
+                                $services = app\Models\Service::where('status', 'active')->latest()->limit(6)->get();
+                            @endphp --}}
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
@@ -173,20 +173,16 @@
                                     Our Principle <i class="bx bx-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="" class="nav-link">Akij Shipping Line Ltd</a>
-                                    </li>
-                                    <!-- <li class="nav-item">
-                                        <a href="" class="nav-link">Drop CV</a>
-                                    </li> -->
+
+                                    @foreach ($principles as $principle)
+                                        <li class="nav-item">
+                                            <a href="{{ route('principle.details', [$principle->slug, $principle->id]) }}"
+                                                class="nav-link">{{ $principle->name }}</a>
+                                        </li>
+                                    @endforeach
+
                                 </ul>
                             </li>
-
-                            <!-- <li class="nav-item">
-                                <a href="javascript:void(0)" class="nav-link search-box">
-                                    <i class="bx bx-search"></i>
-                                </a>
-                            </li> -->
 
                         </ul>
                     </div>
