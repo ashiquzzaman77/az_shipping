@@ -204,12 +204,10 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="https://erp.gso.gov.bd/cdc-search/" target="blank" class="x-sign">Mariner's Login</a>
+                                <a href="http://azshipping.net/" target="blank" class="x-sign">Mariner's Login</a>
                             </li>
 
                         </ul>
-
-
 
                     </div>
                 </nav>
