@@ -222,10 +222,7 @@
                                 @endif
                             </div>
 
-                            <p>{!! substr($client->message, 0, 75) !!}</p>
-
-
-
+                            <p>{!! substr($client->message, 0, 110) !!}</p>
 
                         </div>
                     </div>
