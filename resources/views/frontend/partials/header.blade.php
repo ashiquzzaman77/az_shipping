@@ -144,12 +144,18 @@
                                 </a>
                                 <ul class="dropdown-menu">
 
-                                    @foreach ($services as $service)
-                                        <li class="nav-item">
-                                            <a href="{{ route('service.details', [$service->slug, $service->id]) }}"
-                                                class="nav-link">{{ $service->name }}</a>
-                                        </li>
-                                    @endforeach
+                                    @if ($services->isNotEmpty())
+                                        @foreach ($services as $service)
+                                            <li class="nav-item">
+                                                <a href="{{ route('service.details', [$service->slug, $service->id]) }}"
+                                                    class="nav-link">{{ $service->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    @else
+                                        <li class="nav-item">No Service found.</li>
+                                    @endif
+
+
 
                                 </ul>
                             </li>
