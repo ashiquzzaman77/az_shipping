@@ -125,7 +125,7 @@
     <div class="safe-area ptb-100">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="about-img-three">
@@ -141,11 +141,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <div class="about-contant-others">
                         <div class="section-title">
                             {{-- <span>About Us</span> --}}
-                            <h4>{{ optional($about)->title }}</h4>
+                            <h2>{{ optional($about)->title }}</h2>
                         </div>
                         <div class="about-two-text">
                             <p class="" style="text-align: justify;">{!! optional($about)->short_descp !!}</p>
