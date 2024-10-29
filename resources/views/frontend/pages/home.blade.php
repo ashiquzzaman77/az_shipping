@@ -97,7 +97,7 @@
             <div class="services-slider-two owl-carousel owl-theme">
 
                 @forelse ($services as $service)
-                    <div class="service-card-two">
+                    <div class="">
                         <img class="freight-image"
                             src="{{ !empty($service->thumbnail_image) ? url('storage/' . $service->thumbnail_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}"
                             alt="image">
