@@ -222,7 +222,8 @@
                                 @endif
                             </div>
 
-                            <p>{!! Str::limit($client->message, 10) !!}</p>
+                            <p>{!! substr($client->message, 0, 75) !!}</p>
+
 
 
 
