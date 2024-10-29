@@ -61,6 +61,7 @@ return new class extends Migration
             $table->string('current_status')->nullable();
             $table->date('discharge_date')->nullable();
             $table->date('end_of_contract')->nullable();
+            $table->date('readiness')->nullable();
 
             $table->date('other_one')->nullable();
             $table->date('other_two')->nullable();

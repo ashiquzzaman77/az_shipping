@@ -252,6 +252,10 @@
                                                                     <td>{{ $item->pscrb }}</td>
                                                                 </tr>
                                                                 <tr>
+                                                                    <th class="fs-5">Passport</th>
+                                                                    <td>{{ $item->passport }}</td>
+                                                                </tr>
+                                                                <tr>
                                                                     <th class="fs-5">Rader Navigation</th>
                                                                     <td>{{ $item->radar_navigation }}</td>
                                                                 </tr>
@@ -276,7 +280,7 @@
                                                                     <td>{{ $item->sso }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th class="fs-5">BRM</th>
+                                                                    <th class="fs-5">BRM/ERM</th>
                                                                     <td>{{ $item->brm }}</td>
                                                                 </tr>
                                                                 <tr>
@@ -299,16 +303,13 @@
                                                                     <th class="fs-5">COR</th>
                                                                     <td>{{ $item->cor }}</td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <th class="fs-5">Passport</th>
-                                                                    <td>{{ $item->passport }}</td>
-                                                                </tr>
+
                                                                 <tr>
                                                                     <th class="fs-5">Covid Vaccination</th>
                                                                     <td>{{ $item->covid }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th class="fs-5">Discharge Date</th>
+                                                                    <th class="fs-5">Joining Date/Discharge Date</th>
 
                                                                     <td>{{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
                                                                     </td>
@@ -337,15 +338,15 @@
                                 </div>
 
                                 {{-- @if (Auth::guard('admin')->user()->can('edit.officer')) --}}
-                                    <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
-                                        <i class="fa-solid fa-pencil text-primary fs-5"></i>
-                                    </a>
+                                <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
+                                    <i class="fa-solid fa-pencil text-primary fs-5"></i>
+                                </a>
                                 {{-- @endif
 
                                 @if (Auth::guard('admin')->user()->can('delete.officer')) --}}
-                                    <a href="{{ route('admin.officer.destroy', $item->id) }}" class="delete">
-                                        <i class="fa-solid fa-trash text-danger fs-5"></i>
-                                    </a>
+                                <a href="{{ route('admin.officer.destroy', $item->id) }}" class="delete">
+                                    <i class="fa-solid fa-trash text-danger fs-5"></i>
+                                </a>
                                 {{-- @endif --}}
 
 
