@@ -1,19 +1,24 @@
 <footer class="footer-area pt-100 pb-70">
     <div class="container">
         <div class="row">
+
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget">
 
                     <div class="logo">
 
-                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" class="main-logo" style="width: 90px" alt="logo">
+                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+                            class="main-logo" style="width: 90px" alt="logo">
 
                         <img src="assets/img/logo-2.png" class="white-logo" alt="logo">
 
                     </div>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
-                    
+                    <span style="font-size: 14px; text-align: justify;">Thank you for visiting our website. Our vision
+                        is in developing this website is to set a platform from which we can continuously keep our
+                        customers & curious visitors abreast with relevant information on A.Z. SHIPPING SERVICES & its
+                        activities.</span>
+
                     <ul class="footer-socials">
 
                         <li>
@@ -35,6 +40,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget pl-80">
                     <h3>Important Links</h3>
@@ -54,6 +60,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget pl-50">
 
@@ -63,7 +70,7 @@
                         <li>
                             <a href="{{ route('about') }}">About Us</a>
                         </li>
-                        
+
                         <li>
                             <a href="{{ route('contact') }}">Contact</a>
                         </li>
@@ -80,6 +87,7 @@
 
                 </div>
             </div>
+
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget">
                     <h3>Contact Info</h3>
@@ -103,6 +111,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </div>
 </footer>
