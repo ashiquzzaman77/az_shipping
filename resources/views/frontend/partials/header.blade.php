@@ -188,7 +188,7 @@
                                             </li>
                                         @endforeach
                                     @else
-                                        <li class="nav-item">No principles found.</li>
+                                        <li class="nav-item ms-3">No principles found.</li>
                                     @endif
 
                                 </ul>
