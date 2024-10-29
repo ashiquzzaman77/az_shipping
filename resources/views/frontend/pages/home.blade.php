@@ -181,30 +181,49 @@
 
             <div class="clients-slider owl-carousel owl-theme">
                 @foreach ($clients as $client)
-                    <div class="clients-slider">
-                        <div class="clients-slider-item">
-                            <div class="quote-icon">
-                                <i class="bx bxs-quote-right"></i>
+                    <div class="clients-slider-item">
+                        <div class="quote-icon">
+                            <i class="bx bxs-quote-right"></i>
+                        </div>
+                        <div class="item-content">
+
+                            <div class="clients-image">
+                                <img src="{{ asset('storage/' . $client->image) }}" alt="image"
+                                    style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
                             </div>
-                            <div class="item-content">
 
-                                <div class="clients-image">
-                                    <img src="{{ asset('storage/' . $client->image) }}" alt="image"
-                                        style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
-                                </div>
 
-                                <h3>{{ $client->name }}</h3>
-                                <span>{{ $client->position }}</span>
 
-                                <div class="rating">
-                                    @for ($i = 0; $i < 5; $i++)
-                                        <i class="bx bxs-star{{ $i < $client->star ? '' : '-empty' }}"></i>
-                                    @endfor
-                                </div>
+                            <h3>{{ $client->name }}</h3>
 
-                                <p>{!! substr($client->message, 0, 130) !!}</p>
+                            <span>{{ $client->position }}</span>
 
+                            <div class="rating">
+                                @if ($client->star == 5)
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                @elseif ($client->star == 4)
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                @elseif ($client->star == 3)
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                @elseif ($client->star == 2)
+                                    <i class="bx bxs-star"></i>
+                                    <i class="bx bxs-star"></i>
+                                @elseif ($client->star == 1)
+                                    <i class="bx bxs-star"></i>
+                                @endif
                             </div>
+
+                            <p>{!! substr($client->message, 0, 100) !!}</p>
+
                         </div>
                     </div>
                 @endforeach
