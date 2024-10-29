@@ -189,53 +189,70 @@
                                                                     <td>{{ $item->passport_number }}</td>
                                                                 </tr>
                                                                 <tr>
+                                                                    <th class="fs-5">Passport</th>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->passport)->format('F j, Y') }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
                                                                     <th class="fs-5">Batch</th>
                                                                     <td>{{ $item->batch }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">CDC</th>
-                                                                    <td>{{ $item->cdc }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->cdc)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">COC</th>
-                                                                    <td>{{ $item->coc }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->coc)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">GOC</th>
-                                                                    <td>{{ $item->goc }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->goc)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">SID</th>
-                                                                    <td>{{ $item->sid }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->sid)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">PH</th>
-                                                                    <td>{{ $item->ph }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->ph)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">PST</th>
-                                                                    <td>{{ $item->pst }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->pst)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">FPFF</th>
-                                                                    <td>{{ $item->fpff }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->fpff)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">ETA</th>
-                                                                    <td>{{ $item->efa }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->efa)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">PSSR</th>
-                                                                    <td>{{ $item->pssr }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->pssr)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">SAT</th>
-                                                                    <td>{{ $item->sat }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->sat)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">DSD</th>
-                                                                    <td>{{ $item->dsd }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->dsd)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
+
                                                             </tbody>
                                                         </table>
 
@@ -246,81 +263,99 @@
                                                         <table
                                                             class="table table-striped table-hover table-row-bordered custom-table">
                                                             <tbody>
-
                                                                 <tr>
                                                                     <th class="fs-5">PSCRB</th>
-                                                                    <td>{{ $item->pscrb }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->pscrb)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <th class="fs-5">Passport</th>
-                                                                    <td>{{ $item->passport }}</td>
-                                                                </tr>
+                                                                
                                                                 <tr>
                                                                     <th class="fs-5">Rader Navigation</th>
-                                                                    <td>{{ $item->radar_navigation }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->radar_navigation)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">AFF</th>
-                                                                    <td>{{ $item->aff }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->aff)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">MFA</th>
-                                                                    <td>{{ $item->mfa }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->mfa)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">Medical Care</th>
-                                                                    <td>{{ $item->madical_care }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->madical_care)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">ENS</th>
-                                                                    <td>{{ $item->ens }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->ens)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">SSO</th>
-                                                                    <td>{{ $item->sso }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->sso)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">BRM/ERM</th>
-                                                                    <td>{{ $item->brm }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->brm)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">HVS</th>
-                                                                    <td>{{ $item->hvs }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->hvs)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">Ship Simulation</th>
-                                                                    <td>{{ $item->ship_simulation }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->ship_simulation)->format('F j, Y') }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Readiness</th>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->readiness)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">Ecdis</th>
-                                                                    <td>{{ $item->ecdis }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->ecdis)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">Atoto</th>
-                                                                    <td>{{ $item->atoto }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->atoto)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">COR</th>
-                                                                    <td>{{ $item->cor }}</td>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->cor)->format('F j, Y') }}
+                                                                    </td>
                                                                 </tr>
-
                                                                 <tr>
                                                                     <th class="fs-5">Covid Vaccination</th>
                                                                     <td>{{ $item->covid }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th class="fs-5">Joining Date/Discharge Date</th>
-
+                                                                    <th class="fs-5">Joining Date</th>
+                                                                    <td>{{ \Carbon\Carbon::parse($item->joining_date)->format('F j, Y') }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Discharge Date</th>
                                                                     <td>{{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th class="fs-5">End Of Contact</th>
+                                                                    <th class="fs-5">End Of Contract</th>
                                                                     <td>{{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
+
 
                                                     </div>
 

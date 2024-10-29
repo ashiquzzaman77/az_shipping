@@ -131,7 +131,7 @@
                          class="menu-sub menu-sub-accordion menu-active-bg {{ Request::routeIs('admin.officer.index', 'admin.rating.index') ? 'here show' : '' }}">
 
 
-                         {{-- Officres  --}}
+                         {{-- Officre  --}}
 
                          {{-- @if (Auth::guard('admin')->user()->can('officer.menu')) --}}
                          <div class="menu-item">
