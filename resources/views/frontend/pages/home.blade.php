@@ -225,7 +225,7 @@
                             @php
                                 $message = $client->message;
                                 $words = explode(' ', $message);
-                                $limitedMessage = implode(' ', array_slice($words, 0, 80));
+                                $limitedMessage = implode(' ', array_slice($words, 0, 20));
                             @endphp
 
                             <p>{!! $limitedMessage !!}</p>
