@@ -25,16 +25,21 @@
 
                         <h3>{{ $principleItem->name }}</h3>
 
-                        <div class="service-image">
+                        {{-- <div class="service-image">
                             <img src="{{ !empty($principleItem->banner_top_image) ? url('storage/' . $principleItem->banner_top_image) : 'https://ui-avatars.com/api/?name=' . urlencode('PN') }}"
                                 alt="image">
-                        </div>
+                        </div> --}}
 
 
                         <p>{{ $principleItem->short_descp }}</p>
 
-                        <div class="image">
+                        {{-- <div class="image">
                             <img src="{{ !empty($principleItem->banner_center_image) ? url('storage/' . $principleItem->banner_center_image) : 'https://ui-avatars.com/api/?name=' . urlencode('PN') }}"
+                                alt="image">
+                        </div> --}}
+
+                        <div class="service-image">
+                            <img src="{{ !empty($principleItem->banner_top_image) ? url('storage/' . $principleItem->banner_top_image) : 'https://ui-avatars.com/api/?name=' . urlencode('PN') }}"
                                 alt="image">
                         </div>
 
