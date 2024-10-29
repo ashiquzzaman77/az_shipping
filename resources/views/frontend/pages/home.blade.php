@@ -181,50 +181,29 @@
 
             <div class="clients-slider owl-carousel owl-theme">
                 @foreach ($clients as $client)
-                    <div class="clients-slider-item">
-                        <div class="quote-icon">
-                            <i class="bx bxs-quote-right"></i>
-                        </div>
-                        <div class="item-content">
-
-                            <div class="clients-image">
-                                <img src="{{ asset('storage/' . $client->image) }}" alt="image"
-                                    style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
+                    <div class="clients-slider" style="display: flex; flex-wrap: wrap;">
+                        <div class="clients-slider-item"
+                            style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; height: 300px; padding: 20px; box-sizing: border-box;">
+                            <div class="quote-icon">
+                                <i class="bx bxs-quote-right"></i>
                             </div>
-
-
-
-                            <h3>{{ $client->name }}</h3>
-
-                            <span>{{ $client->position }}</span>
-
-                            <div class="rating">
-                                @if ($client->star == 5)
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                @elseif ($client->star == 4)
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                @elseif ($client->star == 3)
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                @elseif ($client->star == 2)
-                                    <i class="bx bxs-star"></i>
-                                    <i class="bx bxs-star"></i>
-                                @elseif ($client->star == 1)
-                                    <i class="bx bxs-star"></i>
-                                @endif
+                            <div class="item-content" style="flex-grow: 1;">
+                                <div class="clients-image">
+                                    <img src="{{ asset('storage/' . $client->image) }}" alt="image"
+                                        style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
+                                </div>
+                                <h3>{{ $client->name }}</h3>
+                                <span>{{ $client->position }}</span>
+                                <div class="rating">
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <i class="bx bxs-star"
+                                            style="display: {{ $client->star >= $i ? 'inline' : 'none' }};"></i>
+                                    @endfor
+                                </div>
+                                <p>{!! substr($client->message, 0, 120) !!}</p>
                             </div>
-
-                            <p>{!! substr($client->message, 0, 100) !!}</p>
-
                         </div>
+                        <!-- Repeat for more clients -->
                     </div>
                 @endforeach
             </div>
