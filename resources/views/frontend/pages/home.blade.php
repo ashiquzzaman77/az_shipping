@@ -106,7 +106,7 @@
 
                             <p style="text-align: justify;">{!! $service->short_descp !!}</p>
 
-                            <a href="{{ route('service.details', [$service->slug, $service->id]) }}" class="">See More</a>
+                            <a href="{{ route('service.details', [$service->slug, $service->id]) }}" class="default-btn-two">See More</a>
 
                         </div>
                     </div>
