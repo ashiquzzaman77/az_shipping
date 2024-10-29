@@ -152,7 +152,7 @@
                                             </li>
                                         @endforeach
                                     @else
-                                        <li class="nav-item">No Service found.</li>
+                                        <li class="nav-item ms-3">No Service found.</li>
                                     @endif
 
 
