@@ -121,7 +121,7 @@
                              <!--end::Svg Icon-->
                          </span>
 
-                         <span class="menu-title">SeaFarer Database</span>
+                         <span class="menu-title">Seafarer Database</span>
 
                          <span class="menu-arrow"></span>
 
@@ -141,7 +141,7 @@
                                  <span class="menu-bullet">
                                      <span class="bullet bullet-dot"></span>
                                  </span>
-                                 <span class="menu-title">Officers</span>
+                                 <span class="menu-title">Officer</span>
                              </a>
                              {{-- @endif --}}
                          </div>
