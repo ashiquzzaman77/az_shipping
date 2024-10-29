@@ -49,5 +49,3 @@ Route::get('/principle-details/{slug}/{id}', [HomeController::class, 'principleD
 
 //Client
 // Route::get('/client', [HomeController::class, 'client'])->name('client');
-
-

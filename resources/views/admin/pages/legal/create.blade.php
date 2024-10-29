@@ -119,8 +119,8 @@
                                 <!-- Dropzone area -->
                                 <div id="dropzone" class="dropzone"
                                     aria-label="Drag & drop image here or click to select">
-                                    <input type="file" name="image" id="course_banner_image"
-                                        accept="image/*" class="form-control form-control-sm" style="display:none;">
+                                    <input type="file" name="image" id="course_banner_image" accept="image/*"
+                                        class="form-control form-control-sm" style="display:none;">
                                     <p>Drag & Drop your image here or click to select (Size 800 x 800).For Less Than
                                         5Mb </p>
                                 </div>
