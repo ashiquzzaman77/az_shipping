@@ -222,13 +222,9 @@
                                 @endif
                             </div>
 
-                            @php
-                                $message = $client->message;
-                                $words = explode(' ', $message);
-                                $limitedMessage = implode(' ', array_slice($words, 0, 20));
-                            @endphp
+                            <p>{!! Str::limit($client->message, 10) !!}</p>
 
-                            <p>{!! $limitedMessage !!}</p>
+
 
                         </div>
                     </div>
