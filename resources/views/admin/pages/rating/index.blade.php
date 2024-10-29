@@ -186,29 +186,35 @@
                                                                     <td>{{ $item->passport_number }}</td>
                                                                 </tr>
                                                                 <tr>
+                                                                    <th class="fs-5">Passport</th>
+                                                                    <td>{{ $item->passport ? \Carbon\Carbon::parse($item->passport)->format('F j, Y') : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
                                                                     <th class="fs-5">CDC</th>
-                                                                    <td>{{ $item->cdc }}</td>
+                                                                    <td>{{ $item->cdc ? \Carbon\Carbon::parse($item->cdc)->format('F j, Y') : 'N/A' }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">SID</th>
-                                                                    <td>{{ $item->sid }}</td>
+                                                                    <td>{{ $item->sid ? \Carbon\Carbon::parse($item->sid)->format('F j, Y') : 'N/A' }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">PH</th>
-                                                                    <td>{{ $item->ph }}</td>
+                                                                    <td>{{ $item->ph ? \Carbon\Carbon::parse($item->ph)->format('F j, Y') : 'N/A' }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">PST</th>
-                                                                    <td>{{ $item->pst }}</td>
+                                                                    <td>{{ $item->pst ? \Carbon\Carbon::parse($item->pst)->format('F j, Y') : 'N/A' }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">FPFF</th>
-                                                                    <td>{{ $item->fpff }}</td>
+                                                                    <td>{{ $item->fpff ? \Carbon\Carbon::parse($item->fpff)->format('F j, Y') : 'N/A' }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="fs-5">EFA</th>
-                                                                    <td>{{ $item->efa }}</td>
+                                                                    <td>{{ $item->efa ? \Carbon\Carbon::parse($item->efa)->format('F j, Y') : 'N/A' }}</td>
                                                                 </tr>
+                                                                
 
                                                             </tbody>
                                                         </table>
@@ -220,68 +226,71 @@
                                                         <table
                                                             class="table table-striped table-hover table-row-bordered custom-table">
                                                             <tbody>
-
                                                                 <tr>
                                                                     <th class="fs-5">PSCRB</th>
-                                                                    <td>{{ $item->pscrb }}</td>
+                                                                    <td>{{ $item->pscrb ? \Carbon\Carbon::parse($item->pscrb)->format('F j, Y') : 'N/A' }}
+                                                                    </td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <th class="fs-5">Passport</th>
-                                                                    <td>{{ $item->passport }}</td>
-                                                                </tr>
+                                                                
                                                                 <tr>
                                                                     <th class="fs-5">AFF</th>
-                                                                    <td>{{ $item->aff }}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="fs-5">PSSR</th>
-                                                                    <td>{{ $item->pssr }}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="fs-5">SAT</th>
-                                                                    <td>{{ $item->sat }}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="fs-5">DSD</th>
-                                                                    <td>{{ $item->dsd }}</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th class="fs-5">NWR/EWR</th>
-                                                                    <td>{{ $item->nwr }}</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th class="fs-5">RASD</th>
-                                                                    <td>{{ $item->rasd }}</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th class="fs-5">Readiness</th>
-                                                                    <td>{{ $item->readiness }}</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th class="fs-5">Atoto</th>
-                                                                    <td>{{ $item->atoto }}</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th class="fs-5">Covid Vaccination</th>
-                                                                    <td>{{ $item->covid }}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="fs-5">Joining Date/Discharge Date</th>
-                                                                    <td>{{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
+                                                                    <td>{{ $item->aff ? \Carbon\Carbon::parse($item->aff)->format('F j, Y') : 'N/A' }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th class="fs-5">End Of Contact</th>
-                                                                    <td>{{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
+                                                                    <th class="fs-5">PSSR</th>
+                                                                    <td>{{ $item->pssr ? \Carbon\Carbon::parse($item->pssr)->format('F j, Y') : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">SAT</th>
+                                                                    <td>{{ $item->sat ? \Carbon\Carbon::parse($item->sat)->format('F j, Y') : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">DSD</th>
+                                                                    <td>{{ $item->dsd ? \Carbon\Carbon::parse($item->dsd)->format('F j, Y') : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">NWR/EWR</th>
+                                                                    <td>{{ $item->nwr ? \Carbon\Carbon::parse($item->nwr)->format('F j, Y') : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">RASD</th>
+                                                                    <td>{{ $item->rasd ? \Carbon\Carbon::parse($item->rasd)->format('F j, Y') : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Readiness</th>
+                                                                    <td>{{ $item->readiness ? \Carbon\Carbon::parse($item->readiness)->format('F j, Y') : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Atoto</th>
+                                                                    <td>{{ $item->atoto ? \Carbon\Carbon::parse($item->atoto)->format('F j, Y') : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Covid Vaccination</th>
+                                                                    <td>{{ $item->covid }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Joining Date/Discharge Date</th>
+                                                                    <td>
+                                                                        {{ $item->discharge_date ? \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">End Of Contract</th>
+                                                                    <td>{{ $item->end_of_contract ? \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') : 'N/A' }}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
+
 
                                                     </div>
 
@@ -299,15 +308,15 @@
                                 </div>
 
                                 {{-- @if (Auth::guard('admin')->user()->can('edit.rating')) --}}
-                                    <a href="{{ route('admin.rating.edit', $item->id) }}" class="text-primary">
-                                        <i class="fa-solid fa-pencil text-primary fs-5"></i>
-                                    </a>
+                                <a href="{{ route('admin.rating.edit', $item->id) }}" class="text-primary">
+                                    <i class="fa-solid fa-pencil text-primary fs-5"></i>
+                                </a>
                                 {{-- @endif
 
                                 @if (Auth::guard('admin')->user()->can('delete.rating')) --}}
-                                    <a href="{{ route('admin.rating.destroy', $item->id) }}" class="delete">
-                                        <i class="fa-solid fa-trash text-danger fs-5"></i>
-                                    </a>
+                                <a href="{{ route('admin.rating.destroy', $item->id) }}" class="delete">
+                                    <i class="fa-solid fa-trash text-danger fs-5"></i>
+                                </a>
                                 {{-- @endif --}}
 
 

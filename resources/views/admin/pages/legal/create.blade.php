@@ -172,8 +172,8 @@
                 const imageSizeDisplay = document.getElementById('image-size');
                 const removeButton = document.getElementById('remove-image');
                 const maxFileSize = 5 * 1024 * 1024; // 5MB max file size
-                const requiredWidth = 800;
-                const requiredHeight = 800;
+                // const requiredWidth = 800;
+                // const requiredHeight = 800;
 
                 // Show the file input when clicking the dropzone
                 dropzone.addEventListener('click', () => {
