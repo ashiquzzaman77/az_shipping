@@ -1,11 +1,10 @@
 @extends('frontend.master')
 @section('content')
-
-<style>
-    .bxs-star {
-        color: #f7941d;
-    }
-</style>
+    <style>
+        .bxs-star {
+            color: #f7941d;
+        }
+    </style>
 
     <!-- Banner Section Start  -->
     <div class="hero-slider-three owl-carousel owl-theme">
@@ -107,7 +106,8 @@
 
                             <p style="text-align: justify;">{!! $service->short_descp !!}</p>
 
-                            <a href="{{ route('service.details', [$service->slug, $service->id]) }}" class="default-btn-two">See More</a>
+                            <a href="{{ route('service.details', [$service->slug, $service->id]) }}"
+                                class="default-btn-two">See More</a>
 
                         </div>
                     </div>
@@ -195,8 +195,8 @@
 
 
                             <h3>{{ $client->name }}</h3>
+
                             <span>{{ $client->position }}</span>
-                            <p>{!! $client->message !!}</p>
 
                             <div class="rating">
                                 @if ($client->star == 5)
@@ -222,7 +222,14 @@
                                 @endif
                             </div>
 
-                            <p>{{ $client->testimonial }}</p>
+                            @php
+                                $message = $client->message;
+                                $words = explode(' ', $message);
+                                $limitedMessage = implode(' ', array_slice($words, 0, 80));
+                            @endphp
+
+                            <p>{!! $limitedMessage !!}</p>
+
                         </div>
                     </div>
                 @endforeach
@@ -232,5 +239,4 @@
         </div>
     </div>
     <!-- Client Section End -->
-
 @endsection
