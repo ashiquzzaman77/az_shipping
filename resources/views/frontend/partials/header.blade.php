@@ -1,5 +1,35 @@
 <header class="header-area">
 
+    <style>
+        .badge {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px); /* Optional blur effect */
+        }
+    
+        .x-sign {
+            --interval: 0.5s; /* Fast flicker */
+            display: block;
+            font-size: 15px;
+            background: linear-gradient(45deg, rgb(202, 145, 2), orangered, mediumblue, purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: saturate(60%);
+            animation: flicker steps(300) var(--interval) infinite;
+        }
+    
+        @keyframes flicker {
+            50% {
+                filter: saturate(200%) hue-rotate(20deg);
+            }
+        }
+    </style>
+
+
+
+
     <div class="top-header">
         <div class="container">
             <div class="row align-items-center">
@@ -9,13 +39,13 @@
                             <a href="javascript:;">
                                 <i class="bx bxs-envelope"></i>
                                 <span class="__cf_email__"
-                                    data-cfemail="99f1fcf5f5f6d9fffcebebe0b7faf6f4">operation.azss@gmail.com</span>
+                                    data-cfemail="99f1fcf5f5f6d9fffcebebe0b7faf6f4">{{ optional($setting)->primary_email }}</span>
                             </a>
                         </li>
                         <li>
                             <a href="tel:+823-456-879">
                                 <i class="bx bxs-phone-call"></i>
-                                +880 233 3325127
+                                {{ optional($setting)->primary_phone }}
                             </a>
                         </li>
                     </ul>
@@ -23,34 +53,32 @@
                 <div class="col-lg-6 col-sm-6">
                     <ul class="right-info">
                         <li class="mr-20">
-                            <a href="#contact">Contact</a>
+                            <a href="{{ route('contact') }}">Contact</a>
                         </li>
-                        <li class="mr-20">
-                            <a href="">Career</a>
+
+                        <li class="mr-20 badge">
+                            <a href="https://erp.gso.gov.bd/cdc-search/" target="blank" class="x-sign">CDC Search</a>
                         </li>
+
                         <!-- <li class="mr-20">
                             <a href="javascript:;">News & Media</a>
                         </li> -->
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ optional($setting)->social_facebook }}" target="_blank" aria-label="Facebook">
                                 <i class="bx bxl-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class="bx bxl-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ optional($setting)->social_linkedin }}" target="_blank" aria-label="LinkedIn">
                                 <i class="bx bxl-linkedin"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class="bx bxl-instagram"></i>
+                            <a href="{{ optional($setting)->whatsapp }}" target="_blank" aria-label="WhatsApp">
+                                <i class="bx bxl-whatsapp"></i>
                             </a>
                         </li>
+
                     </ul>
                 </div>
             </div>

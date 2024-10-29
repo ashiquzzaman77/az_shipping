@@ -15,26 +15,23 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
                     
                     <ul class="footer-socials">
+
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ optional($setting)->social_facebook }}" target="_blank" aria-label="Facebook">
                                 <i class="bx bxl-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class="bx bxl-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ optional($setting)->social_linkedin }}" target="_blank" aria-label="LinkedIn">
                                 <i class="bx bxl-linkedin"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class="bx bxl-instagram"></i>
+                            <a href="{{ optional($setting)->whatsapp }}" target="_blank" aria-label="WhatsApp">
+                                <i class="bx bxl-whatsapp"></i>
                             </a>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -43,40 +40,44 @@
                     <h3>Important Links</h3>
                     <ul class="footer-text">
                         <li>
-                            <a href="javascript:;">DG Shipping</a>
+                            <a href="https://dos.gov.bd/" target="blank">DG Shipping</a>
                         </li>
                         <li>
-                            <a href="javascript:;">Govt. Shipping Office</a>
+                            <a href="https://gso.gov.bd/" target="blank">Govt. Shipping Office</a>
                         </li>
                         <li>
-                            <a href="javascript:;">Bangladesh Marine Academy</a>
+                            <a href="https://macademy.gov.bd/" target="blank">Bangladesh Marine Academy</a>
                         </li>
                         <li>
-                            <a href="javascript:;">National Maritime Institute</a>
+                            <a href="https://nmi.gov.bd/" target="blank">National Maritime Institute</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget pl-50">
+
                     <h3>Quick Navigation</h3>
+
                     <ul class="footer-text">
                         <li>
-                            <a href="javascript:;">About Us</a>
+                            <a href="{{ route('about') }}">About Us</a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{ route('contact') }}">Contact</a>
                         </li>
                         <li>
-                            <a href="javascript:;">Why Choose Us</a>
+                            <a href="{{ route('why.choose.us') }}">Why Choose Us</a>
                         </li>
                         <li>
-                            <a href="javascript:;">Job At Sea</a>
+                            <a href="{{ route('all.job') }}">Job At Sea</a>
                         </li>
                         <li>
-                            <a href="javascript:;">Services</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">Legal Docs</a>
+                            <a href="{{ route('legal.papers') }}">Legal Docs</a>
                         </li>
                     </ul>
+
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">

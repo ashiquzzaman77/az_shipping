@@ -6,6 +6,7 @@
         color: #f7941d;
     }
 </style>
+
     <!-- Banner Section Start  -->
     <div class="hero-slider-three owl-carousel owl-theme">
 
@@ -90,7 +91,7 @@
         <div class="container">
 
             <div class="section-title">
-                <span>Our Services</span>
+                {{-- <span>Our Services</span> --}}
                 <h2>The Great Services, You Will Get From Us</h2>
             </div>
 
@@ -143,7 +144,7 @@
                 <div class="col-lg-6">
                     <div class="about-contant-others">
                         <div class="section-title">
-                            <span>About Us</span>
+                            {{-- <span>About Us</span> --}}
                             <h4>{{ optional($about)->title }}</h4>
                         </div>
                         <div class="about-two-text">
@@ -174,7 +175,7 @@
         <div class="container">
 
             <div class="section-title">
-                <span>Clients Review</span>
+                {{-- <span>Clients Review</span> --}}
                 <h2>Clients Around The World Makes Us Special</h2>
             </div>
 
