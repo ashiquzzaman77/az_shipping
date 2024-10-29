@@ -236,8 +236,8 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="nwr" class="mb-2">NWR</label>
-                                <input type="date" name="nwr" placeholder="Enter NWR"
+                                <label for="nwr" class="mb-2">NWR/EWR</label>
+                                <input type="date" name="nwr" placeholder="Enter NWR/EWR"
                                     class="form-control form-control-sm" value="{{ old('nwr', $rating->nwr) }}">
                             </div>
                         </div>
@@ -268,7 +268,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="discharge_date" class="mb-2">Discharge Date</label>
+                                <label for="discharge_date" class="mb-2">Joining Date/Discharge Date</label>
                                 <input type="date" name="discharge_date" class="form-control form-control-sm"
                                     value="{{ old('discharge_date', $rating->discharge_date) }}">
                             </div>
@@ -284,11 +284,20 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="other_one" class="mb-2">Readiness</label>
+                                <label for="readiness" class="mb-2">Readiness</label>
+                                <input type="date" name="readiness" class="form-control form-control-sm"
+                                    value="{{ old('readiness',$rating->readiness) }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="other_one" class="mb-2">Other One</label>
                                 <input type="date" name="other_one" class="form-control form-control-sm"
                                     value="{{ old('other_one', $rating->other_one) }}">
                             </div>
                         </div>
+
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="other_two" class="mb-2">Other Two</label>

@@ -41,6 +41,7 @@ class OfficersController extends Controller
             'passport_number' => 'required|string|max:255',
             'status' => 'required|string',
             'ship_name' => 'nullable|string|max:255',
+
             'cdc' => 'nullable|date',
             'coc' => 'nullable|date',
             'goc' => 'nullable|date',
@@ -63,6 +64,7 @@ class OfficersController extends Controller
             'sso' => 'nullable|date',
             'brm' => 'nullable|date',
             'hvs' => 'nullable|date',
+            'readiness' => 'nullable|date',
             'ship_simulation' => 'nullable|date',
             'ecdis' => 'nullable|date',
             'atoto' => 'nullable|date',
@@ -100,6 +102,7 @@ class OfficersController extends Controller
             'fpff' => $request->fpff,
             'efa' => $request->efa,
             'pssr' => $request->pssr,
+            'readiness' => $request->readiness,
             'sat' => $request->sat,
             'dsd' => $request->dsd,
             'pscrb' => $request->pscrb,
@@ -166,7 +169,9 @@ class OfficersController extends Controller
             'passport_number' => 'required|string|max:255',
             'status' => 'required|string',
             'ship_name' => 'nullable|string|max:255',
+
             'cdc' => 'nullable|date',
+            'readiness' => 'nullable|date',
             'coc' => 'nullable|date',
             'goc' => 'nullable|date',
             'sid' => 'nullable|date',

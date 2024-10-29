@@ -1,84 +1,93 @@
 <footer class="footer-area pt-100 pb-70">
     <div class="container">
         <div class="row">
+
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget">
 
                     <div class="logo">
 
-                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" class="main-logo" style="width: 90px" alt="logo">
+                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+                            class="main-logo" style="width: 90px" alt="logo">
 
                         <img src="assets/img/logo-2.png" class="white-logo" alt="logo">
 
                     </div>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
-                    
+                    <span style="font-size: 14px; text-align: justify;">Thank you for visiting our website. Our vision
+                        is in developing this website is to set a platform from which we can continuously keep our
+                        customers & curious visitors abreast with relevant information on A.Z. SHIPPING SERVICES & its
+                        activities.</span>
+
                     <ul class="footer-socials">
+
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ optional($setting)->social_facebook }}" target="_blank" aria-label="Facebook">
                                 <i class="bx bxl-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class="bx bxl-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ optional($setting)->social_linkedin }}" target="_blank" aria-label="LinkedIn">
                                 <i class="bx bxl-linkedin"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class="bx bxl-instagram"></i>
+                            <a href="{{ optional($setting)->whatsapp }}" target="_blank" aria-label="WhatsApp">
+                                <i class="bx bxl-whatsapp"></i>
                             </a>
                         </li>
+
                     </ul>
                 </div>
             </div>
+
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget pl-80">
                     <h3>Important Links</h3>
                     <ul class="footer-text">
                         <li>
-                            <a href="javascript:;">DG Shipping</a>
+                            <a href="https://dos.gov.bd/" target="blank">DG Shipping</a>
                         </li>
                         <li>
-                            <a href="javascript:;">Govt. Shipping Office</a>
+                            <a href="https://gso.gov.bd/" target="blank">Govt. Shipping Office</a>
                         </li>
                         <li>
-                            <a href="javascript:;">Bangladesh Marine Academy</a>
+                            <a href="https://macademy.gov.bd/" target="blank">Bangladesh Marine Academy</a>
                         </li>
                         <li>
-                            <a href="javascript:;">National Maritime Institute</a>
+                            <a href="https://nmi.gov.bd/" target="blank">National Maritime Institute</a>
                         </li>
                     </ul>
                 </div>
             </div>
+
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget pl-50">
+
                     <h3>Quick Navigation</h3>
+
                     <ul class="footer-text">
                         <li>
-                            <a href="javascript:;">About Us</a>
+                            <a href="{{ route('about') }}">About Us</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ route('contact') }}">Contact</a>
                         </li>
                         <li>
-                            <a href="javascript:;">Why Choose Us</a>
+                            <a href="{{ route('why.choose.us') }}">Why Choose Us</a>
                         </li>
                         <li>
-                            <a href="javascript:;">Job At Sea</a>
+                            <a href="{{ route('all.job') }}">Job At Sea</a>
                         </li>
                         <li>
-                            <a href="javascript:;">Services</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">Legal Docs</a>
+                            <a href="{{ route('legal.papers') }}">Legal Docs</a>
                         </li>
                     </ul>
+
                 </div>
             </div>
+
             <div class="col-lg-3 col-sm-6">
                 <div class="footer-widget">
                     <h3>Contact Info</h3>
@@ -102,6 +111,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </div>
 </footer>

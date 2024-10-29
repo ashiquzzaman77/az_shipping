@@ -1,11 +1,11 @@
 @extends('frontend.master')
 @section('content')
+    <style>
+        .bxs-star {
+            color: #f7941d;
+        }
+    </style>
 
-<style>
-    .bxs-star {
-        color: #f7941d;
-    }
-</style>
     <!-- Banner Section Start  -->
     <div class="hero-slider-three owl-carousel owl-theme">
 
@@ -90,7 +90,7 @@
         <div class="container">
 
             <div class="section-title">
-                <span>Our Services</span>
+                {{-- <span>Our Services</span> --}}
                 <h2>The Great Services, You Will Get From Us</h2>
             </div>
 
@@ -106,7 +106,8 @@
 
                             <p style="text-align: justify;">{!! $service->short_descp !!}</p>
 
-                            <a href="{{ route('service.details', [$service->slug, $service->id]) }}" class="default-btn-two">See More</a>
+                            <a href="{{ route('service.details', [$service->slug, $service->id]) }}"
+                                class="default-btn-two">See More</a>
 
                         </div>
                     </div>
@@ -124,7 +125,7 @@
     <div class="safe-area ptb-100">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="about-img-three">
@@ -140,11 +141,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <div class="about-contant-others">
                         <div class="section-title">
-                            <span>About Us</span>
-                            <h4>{{ optional($about)->title }}</h4>
+                            {{-- <span>About Us</span> --}}
+                            <h2 style="text-align: start;">{{ optional($about)->title }}</h2>
                         </div>
                         <div class="about-two-text">
                             <p class="" style="text-align: justify;">{!! optional($about)->short_descp !!}</p>
@@ -174,7 +175,7 @@
         <div class="container">
 
             <div class="section-title">
-                <span>Clients Review</span>
+                {{-- <span>Clients Review</span> --}}
                 <h2>Clients Around The World Makes Us Special</h2>
             </div>
 
@@ -194,8 +195,8 @@
 
 
                             <h3>{{ $client->name }}</h3>
+
                             <span>{{ $client->position }}</span>
-                            <p>{!! $client->message !!}</p>
 
                             <div class="rating">
                                 @if ($client->star == 5)
@@ -221,7 +222,8 @@
                                 @endif
                             </div>
 
-                            <p>{{ $client->testimonial }}</p>
+                            <p>{!! substr($client->message, 0, 110) !!}</p>
+
                         </div>
                     </div>
                 @endforeach
@@ -231,5 +233,4 @@
         </div>
     </div>
     <!-- Client Section End -->
-
 @endsection

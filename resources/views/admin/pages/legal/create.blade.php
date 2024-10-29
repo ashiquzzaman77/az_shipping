@@ -119,8 +119,8 @@
                                 <!-- Dropzone area -->
                                 <div id="dropzone" class="dropzone"
                                     aria-label="Drag & drop image here or click to select">
-                                    <input type="file" name="image" id="course_banner_image"
-                                        accept="image/*" class="form-control form-control-sm" style="display:none;">
+                                    <input type="file" name="image" id="course_banner_image" accept="image/*"
+                                        class="form-control form-control-sm" style="display:none;">
                                     <p>Drag & Drop your image here or click to select (Size 800 x 800).For Less Than
                                         5Mb </p>
                                 </div>
@@ -172,8 +172,8 @@
                 const imageSizeDisplay = document.getElementById('image-size');
                 const removeButton = document.getElementById('remove-image');
                 const maxFileSize = 5 * 1024 * 1024; // 5MB max file size
-                const requiredWidth = 800;
-                const requiredHeight = 800;
+                // const requiredWidth = 800;
+                // const requiredHeight = 800;
 
                 // Show the file input when clicking the dropzone
                 dropzone.addEventListener('click', () => {

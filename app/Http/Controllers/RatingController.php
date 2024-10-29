@@ -32,6 +32,7 @@ class RatingController extends Controller
     {
         // Validate the incoming request data
         $validator = Validator::make($request->all(), [
+
             'name' => 'required|string|max:255',
             'rank' => 'nullable|string|max:255',
             'cdc_no' => 'nullable|string|max:255',
@@ -39,28 +40,29 @@ class RatingController extends Controller
             'academy' => 'nullable|string|max:255',
             'status' => 'nullable|string',
             'ship_name' => 'nullable|string',
-            'ship_cook' => 'nullable|date',
             'passport_number' => 'nullable|string',
-
             'batch' => 'nullable|string|max:255',
-            'cdc' => 'nullable|string|max:255',
             'passport' => 'nullable|string|max:255',
-            'sid' => 'nullable|string|max:255',
-            'ph' => 'nullable|string|max:255',
-            'pst' => 'nullable|string|max:255',
-            'aff' => 'nullable|string|max:255',
-            'atoto' => 'nullable|string|max:255',
-            'fpff' => 'nullable|string|max:255',
-            'efa' => 'nullable|string|max:255',
-            'pssr' => 'nullable|string|max:255',
-            'sat' => 'nullable|string|max:255',
-            'dsd' => 'nullable|string|max:255',
-            'pscrb' => 'nullable|string|max:255',
-            'nwr' => 'nullable|string|max:255',
-            'rasd' => 'nullable|string|max:255',
-            'covid' => 'nullable|string|max:255',
+            
+            'ship_cook' => 'nullable|date',
+            'cdc' => 'nullable|date',
+            'sid' => 'nullable|date',
+            'ph' => 'nullable|date',
+            'pst' => 'nullable|date',
+            'aff' => 'nullable|date',
+            'atoto' => 'nullable|date',
+            'fpff' => 'nullable|date',
+            'efa' => 'nullable|date',
+            'pssr' => 'nullable|date',
+            'sat' => 'nullable|date',
+            'dsd' => 'nullable|date',
+            'pscrb' => 'nullable|date',
+            'nwr' => 'nullable|date',
+            'rasd' => 'nullable|date',
+            'covid' => 'nullable|string',
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
+            'readiness' => 'nullable|date',
 
             'other_one' => 'nullable|date',
             'other_two' => 'nullable|date',
@@ -104,6 +106,7 @@ class RatingController extends Controller
         $rating->nwr = $request->nwr;
         $rating->rasd = $request->rasd;
         $rating->covid = $request->covid;
+        $rating->readiness = $request->readiness;
         $rating->discharge_date = $request->discharge_date;
         $rating->end_of_contract = $request->end_of_contract;
 
@@ -144,37 +147,36 @@ class RatingController extends Controller
     {
         // Validate the incoming request data
         $validatedData = $request->validate([
-            'name' => 'nullable|string|max:255',
+           'name' => 'required|string|max:255',
             'rank' => 'nullable|string|max:255',
             'cdc_no' => 'nullable|string|max:255',
             'contact' => 'nullable|string|max:255',
             'academy' => 'nullable|string|max:255',
             'status' => 'nullable|string',
+            'ship_name' => 'nullable|string',
+            'passport_number' => 'nullable|string',
+            'batch' => 'nullable|string|max:255',
+            'passport' => 'nullable|string|max:255',
             
             'ship_cook' => 'nullable|date',
-            'remarks' => 'nullable|string',
-            'passport_number' => 'nullable|string',
-
-            'ship_name' => 'nullable|string',
-            'batch' => 'nullable|string|max:255',
-            'cdc' => 'nullable|string|max:255',
-            'passport' => 'nullable|string|max:255',
-            'sid' => 'nullable|string|max:255',
-            'ph' => 'nullable|string|max:255',
-            'pst' => 'nullable|string|max:255',
-            'aff' => 'nullable|string|max:255',
-            'fpff' => 'nullable|string|max:255',
-            'atoto' => 'nullable|string|max:255',
-            'efa' => 'nullable|string|max:255',
-            'pssr' => 'nullable|string|max:255',
-            'sat' => 'nullable|string|max:255',
-            'dsd' => 'nullable|string|max:255',
-            'pscrb' => 'nullable|string|max:255',
-            'nwr' => 'nullable|string|max:255',
-            'rasd' => 'nullable|string|max:255',
-            'covid' => 'nullable|string|max:255',
+            'cdc' => 'nullable|date',
+            'sid' => 'nullable|date',
+            'ph' => 'nullable|date',
+            'pst' => 'nullable|date',
+            'aff' => 'nullable|date',
+            'atoto' => 'nullable|date',
+            'fpff' => 'nullable|date',
+            'efa' => 'nullable|date',
+            'pssr' => 'nullable|date',
+            'sat' => 'nullable|date',
+            'dsd' => 'nullable|date',
+            'pscrb' => 'nullable|date',
+            'nwr' => 'nullable|date',
+            'rasd' => 'nullable|date',
+            'covid' => 'nullable|string',
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
+            'readiness' => 'nullable|date',
 
             'other_one' => 'nullable|date',
             'other_two' => 'nullable|date',

@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Client;
 use Exception;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\CommonBanner;
+use App\Models\Principle;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
@@ -28,21 +30,28 @@ class AppServiceProvider extends ServiceProvider
     {
 
         View::share('setting', null);
-        View::share('common_banner', null);
         View::share('services', null);
+        View::share('principles', null);
 
         try {
-            // Check for table existence and set actual values
+
+
+            if (Schema::hasTable('clients')) {
+                View::share('clients', Client::where('status', 'active')->latest('id')->get());
+            }
+
             if (Schema::hasTable('settings')) {
                 View::share('setting', Setting::first());
             }
 
-            if (Schema::hasTable('common_banners')) {
-                View::share('common_banner', CommonBanner::first());
-            }
             if (Schema::hasTable('services')) {
-                View::share('services', Service::latest('id')->get());
+                View::share('services', Service::where('status', 'active')->latest('id')->get());
             }
+
+            if (Schema::hasTable('principles')) {
+                View::share('principles', Principle::where('status', 'active')->latest('id')->get());
+            }
+            
         } catch (Exception $e) {
             // Log the exception if needed
         }

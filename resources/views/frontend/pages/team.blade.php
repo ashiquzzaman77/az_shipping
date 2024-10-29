@@ -20,7 +20,7 @@
     <div class="team-area" style="margin-top: 40px">
         <div class="container">
             <div class="section-title">
-                <span>Our Team</span>
+                {{-- <span>Our Team</span> --}}
                 <h2>Intelligence Heros Make The Comapny Proud</h2>
             </div>
             <div class="row">
@@ -86,26 +86,4 @@
     </div>
 
 
-    <div class="newsletter-area">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="row align-items-center">
-                    <div class="col-lg-5">
-                        <div class="newsletter-title">
-                            <h3>Subscribe to our newsletter:</h3>
-                            <p>Focused on the transport and logistic industry</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <form class="newsletter-form" data-bs-toggle="validator">
-                            <input type="email" class="form-control" placeholder="Enter your email" name="EMAIL"
-                                required autocomplete="off">
-                            <button type="submit" class="btn btn-primary">Subscribe</button>
-                            <div id="validator-newsletter" class="form-result"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection

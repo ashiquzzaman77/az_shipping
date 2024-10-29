@@ -170,6 +170,14 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="passport" class="mb-2">Passport</label>
+                                <input type="date" name="passport" placeholder=""
+                                    class="form-control form-control-sm" value="{{ old('passport',$officer->passport) }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="coc" class="mb-2">COC</label>
                                 <input type="date" name="coc" placeholder="Enter COC"
                                     class="form-control form-control-sm"
@@ -276,13 +284,6 @@
                             </div>
                         </div>
 
-                        <div class="col-3 mb-3">
-                            <div class="form-group">
-                                <label for="passport" class="mb-2">Passport</label>
-                                <input type="date" name="passport" placeholder=""
-                                    class="form-control form-control-sm" value="{{ old('passport',$officer->passport) }}">
-                            </div>
-                        </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -340,7 +341,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="brm" class="mb-2">BRM</label>
+                                <label for="brm" class="mb-2">BRM/ERM</label>
                                 <input type="date" name="brm" placeholder="Enter BRM"
                                     class="form-control form-control-sm"
                                     value="{{ old('brm', $officer->brm ?? 'BRM23456') }}">
@@ -412,7 +413,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="discharge_date" class="mb-2">Discharge Date</label>
+                                <label for="discharge_date" class="mb-2">Joining Date/Discharge Date</label>
                                 <input type="date" name="discharge_date" class="form-control form-control-sm"
                                     value="{{ old('discharge_date', $officer->discharge_date ?? '2024-10-01') }}"
                                     aria-label="Discharge Date">
@@ -430,11 +431,21 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="other_one" class="mb-2">Readiness</label>
+                                <label for="readiness" class="mb-2">Readiness</label>
+                                <input type="date" name="readiness" class="form-control form-control-sm"
+                                    value="{{ old('readiness',$officer->readiness) }}">
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="other_one" class="mb-2">Other One</label>
                                 <input type="date" name="other_one" class="form-control form-control-sm"
                                     value="{{ old('other_one', $officer->other_one) }}">
                             </div>
                         </div>
+
+
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="other_two" class="mb-2">Other Two</label>

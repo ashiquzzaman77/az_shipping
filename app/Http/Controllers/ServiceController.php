@@ -14,7 +14,7 @@ class ServiceController extends Controller
     public function index()
     {
         $items = Service::latest()->get();
-        return view('admin.pages.service.index', compact('items')); //
+        return view('admin.pages.service.index', compact('items'));
     }
 
     /**

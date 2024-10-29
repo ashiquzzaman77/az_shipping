@@ -36,7 +36,7 @@ Route::get('/mission-vision', [HomeController::class, 'vision'])->name('vision')
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 //CEO Message
-Route::get('/ceo-message', [HomeController::class, 'ceoMessage'])->name('ceo.messge');
+Route::get('/ceo-message', [HomeController::class, 'ceoMessage'])->name('ceo.message');
 
 //Why Choose Us
 Route::get('/why-choose-us', [HomeController::class, 'whyChooseUs'])->name('why.choose.us');
@@ -44,7 +44,8 @@ Route::get('/why-choose-us', [HomeController::class, 'whyChooseUs'])->name('why.
 //Service Details
 Route::get('/service-details/{slug}/{id}', [HomeController::class, 'serviceDetails'])->name('service.details');
 
+//Principle Details
+Route::get('/principle-details/{slug}/{id}', [HomeController::class, 'principleDetails'])->name('principle.details');
+
 //Client
 // Route::get('/client', [HomeController::class, 'client'])->name('client');
-
-
