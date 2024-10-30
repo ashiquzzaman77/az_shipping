@@ -147,7 +147,7 @@
                                                 <div class="row">
 
                                                     <div class="col-12 mb-3">
-                                                        <h2>Name : <span class="text-danger">{{ $item->name }}</span>
+                                                        <h2>Name : <span class="">{{ $item->name }}</span>
                                                             </h3>
                                                     </div>
 
