@@ -23,15 +23,17 @@
         </div>
         <div class="card-body pt-0">
             <table id="kt_datatable_example_5" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
-                <thead>
+                <thead class="bg-dark text-white">
                     <tr>
                         <th width="5%">No</th>
+                        <th width="10%">Code</th>
                         <th width="10%">Name</th>
                         <th width="10%">Email</th>
                         <th width="10%">Phone</th>
+                        <th width="10%">Ip Address</th>
                         <th width="15%">Subject</th>
-                        <th width="40%">Message</th>
-                        <th width="100%">Actions</th>
+                        <th width="15%">Message</th>
+                        <th width="10%">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="fw-bold text-gray-600">
@@ -40,9 +42,11 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
 
+                            <td class="text-start">{{ $item->code }}</td>
                             <td class="text-start">{{ $item->name }}</td>
                             <td class="text-start">{{ $item->email }}</td>
                             <td class="text-start">{{ $item->phone }}</td>
+                            <td class="text-start">{{ $item->ip_address }}</td>
                             <td class="text-start">{{ $item->subject }}</td>
                             <td class="text-start">{{ $item->message }}</td>
                             <td>
@@ -50,11 +54,11 @@
                                     <i class="bi bi-pencil text-primary"></i>
                                 </a> --}}
 
-                                @if (Auth::guard('admin')->user()->can('delete.contact-message'))
-                                    <a href="{{ route('admin.contacts.destroy', $item->id) }}" class="delete">
-                                        <i class="bi bi-trash3-fill text-danger"></i>
-                                    </a>
-                                @endif
+                                {{-- @if (Auth::guard('admin')->user()->can('delete.contact-message')) --}}
+                                <a href="{{ route('admin.admin-contact.destroy', $item->id) }}" class="delete">
+                                    <i class="bi bi-trash3-fill text-danger"></i>
+                                </a>
+                                {{-- @endif --}}
 
                             </td>
                         </tr>

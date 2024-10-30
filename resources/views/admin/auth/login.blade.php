@@ -88,7 +88,7 @@
                                             {{-- <img alt="Logo"
                                                 src="{{ asset('backend/login/assets/logo/Logo_White.png') }}"
                                                 class="" style="width: 90px; height: 100%;" /> --}}
-                                            <h1>AZ Shipping Service</h1>
+                                            <h1>AZ Shipping Services</h1>
 
                                         </a>
 

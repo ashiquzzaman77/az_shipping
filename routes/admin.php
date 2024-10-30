@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\CeoMessageController;
 use App\Http\Controllers\ChooseController;
 use App\Http\Controllers\ClientController;
@@ -99,6 +100,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'choose' => ChooseController::class,
             'client' => ClientController::class,
             'principle' => PrincipleController::class,
+            'admin-contact' => AdminContactController::class,
 
         ],
 
