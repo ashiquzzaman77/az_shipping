@@ -66,7 +66,7 @@
         <tbody>
             <tr>
                 <td align="center" valign="center" style="text-align:center; padding: 40px">
-                    <a href="https://training.ngengroup.org/" rel="noopener" target="_blank">
+                    <a href="http://azshipping.net/" rel="noopener" target="_blank">
 
                         <img alt="Logo"
                             src=""
