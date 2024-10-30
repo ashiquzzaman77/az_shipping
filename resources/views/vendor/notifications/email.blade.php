@@ -67,9 +67,11 @@
             <tr>
                 <td align="center" valign="center" style="text-align:center; padding: 40px">
                     <a href="https://training.ngengroup.org/" rel="noopener" target="_blank">
+
                         <img alt="Logo"
-                            src="https://training.ngengroup.org/storage/images/settings/26znqdblzfWUKbfm30YplsyXy3U7J32MCaFnMs7g.png"
+                            src=""
                             style="width: 100px;" />
+
                     </a>
                 </td>
             </tr>
@@ -100,7 +102,7 @@
                                 style="text-decoration:none;color: #009EF7">{{ $actionUrl }}</a>
                         </div>
                         <!--end:Email content-->
-                        <div style="padding-bottom: 10px">Best Regards<br>The NgenIt Training Team.</div>
+                        <div style="padding-bottom: 10px">Best Regards<br>AZ Shipping Services Team.</div>
                         
             </tr>
             <tr>
@@ -108,7 +110,7 @@
                     style="font-size: 13px; text-align:center;padding: 20px; color: #6d6e7c;">
                     {{-- <p>Floor 5, 450 Avenue of the Red Field, SF, 10050, USA.</p> --}}
                     <p>Copyright ©
-                        <a href="https://training.ngengroup.org/" rel="noopener" target="_blank">NgenIt Training</a>.
+                        <a href="http://azshipping.net/" rel="noopener" target="_blank">AZ Shipping Services</a>.
                     </p>
                 </td>
             </tr></br>
