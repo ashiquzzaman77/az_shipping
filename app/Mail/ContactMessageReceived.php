@@ -12,17 +12,28 @@ use Illuminate\Queue\SerializesModels;
 class ContactMessageReceived extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $contact;
 
+    /**
+     * Create a new message instance.
+     *
+     * @param Course $brand
+     * @return void
+     */
     public function __construct($contact)
     {
         $this->contact = $contact;
     }
 
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
     public function build()
     {
-        return $this
-            ->subject('New Contact Message')
-            ->view('emails.contact_message'); // Create this view
+        return $this->subject('New Contact Message For AZ Shipping')
+            ->view('emails.contact_message');
     }
 }
