@@ -136,7 +136,9 @@ class HomeController extends Controller
     public function dropCv()
     {
         $jobs = Job::latest()->get();
-        return view('frontend.pages.drop_cv', compact('jobs'));
+        $policy = Policy::where('status', 'active')->latest('id')->first();
+
+        return view('frontend.pages.drop_cv', compact('jobs','policy'));
     }
 
     //jobApplyEmployee
@@ -144,7 +146,7 @@ class HomeController extends Controller
     {
         // Validation rules
         $validator = Validator::make($request->all(), [
-            'job_id' => 'required|exists:jobs,id', // Ensure job exists
+            'job_id' => 'nullable|exists:jobs,id', // Ensure job exists
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|numeric',

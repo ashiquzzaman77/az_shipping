@@ -277,8 +277,16 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
 
+                                    
+
                                     <td>
-                                        <h6>{{ $item->jobName->rank }}</h6>
+                                        <h6>
+                                            @if ($item->job_id == Null)
+                                                <span class="text-danger">No Rank</span>
+                                            @else
+                                            {{ optional($item->jobName)->rank }}
+                                            @endif
+                                        </h6>
                                     </td>
 
                                     <td>

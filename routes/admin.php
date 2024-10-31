@@ -78,7 +78,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     Route::resources(
         [
-
             // Shipping All Admin Controller
 
             'banner' => BannerController::class,

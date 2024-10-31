@@ -32,7 +32,7 @@
                 <thead class="bg-dark text-white">
                     <tr>
                         <th width="3%"><input type="checkbox" id="selectAll"></th>
-                        <th width="10%">No</th>
+                        <th width="3%">No</th>
                         <th width="10%">Code</th>
                         <th width="10%">Name</th>
                         <th width="10%">Email</th>
