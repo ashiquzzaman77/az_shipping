@@ -139,7 +139,7 @@
                             <td>{{ $key + 1 }}</td>
 
                             <td>
-                                <h6>{{ $item->vision }}</h6>
+                                <h6>{!! $item->vision !!}</h6>
                             </td>
 
                             <td class="text-start">

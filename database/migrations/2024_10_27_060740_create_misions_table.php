@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('misions', function (Blueprint $table) {
             $table->id();
 
-            $table->string('mision')->nullable();
+            $table->longText('mision')->nullable();
             $table->string('status')->nullable();
             $table->integer('added_by')->nullable();
             $table->integer('updated_by')->nullable();

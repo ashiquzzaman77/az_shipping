@@ -139,7 +139,7 @@
                             <td>{{ $key + 1 }}</td>
 
                             <td>
-                                <h6>{{ $item->mision }}</h6>
+                                <h6>{!! $item->mision !!}</h6>
                             </td>
 
                             <td class="text-start">
@@ -153,15 +153,15 @@
 
                             <td>
                                 {{-- @if (Auth::guard('admin')->user()->can('edit.banner')) --}}
-                                    <a href="{{ route('admin.mision.edit', $item->id) }}" class="text-primary">
-                                        <i class="fa-solid fa-pencil text-primary"></i>
-                                    </a>
+                                <a href="{{ route('admin.mision.edit', $item->id) }}" class="text-primary">
+                                    <i class="fa-solid fa-pencil text-primary"></i>
+                                </a>
                                 {{-- @endif
 
                                 @if (Auth::guard('admin')->user()->can('delete.banner')) --}}
-                                    <a href="{{ route('admin.mision.destroy', $item->id) }}" class="delete">
-                                        <i class="fa-solid fa-trash text-danger"></i>
-                                    </a>
+                                <a href="{{ route('admin.mision.destroy', $item->id) }}" class="delete">
+                                    <i class="fa-solid fa-trash text-danger"></i>
+                                </a>
                                 {{-- @endif --}}
 
                             </td>

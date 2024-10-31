@@ -30,42 +30,40 @@
                 <div class="card bg-light">
 
                     <div class="row p-4">
-
-
-
                         <div class="col-4 mb-3">
-
                             <div class="form-group">
-                                <label for="" class="mb-2">Status</label>
-                                <select name="status" data-placeholder="Select Row One.."
-                                    class="form-select form-select-sm" data-control="select2"
-                                    data-placeholder="Select an option">
-
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
-
+                                <label for="status" class="mb-2">Status</label>
+                                <select name="status" id="status" class="form-select form-select-sm"
+                                    data-control="select2">
+                                    <option value="">Select an option</option>
+                                    <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active
+                                    </option>
+                                    <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>
+                                        Inactive</option>
                                 </select>
+                                @error('status')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
-
                         </div>
 
-
-                        <div class="col-4 mb-3">
+                        <div class="col-12 mb-3">
                             <div class="form-group">
-                                <label for="" class="mb-2">Vision</label>
-                                <input type="text" name="vision" required placeholder="Write Vision"
-                                    class="form-control form-control-sm" value="{{ old('vision') }}">
+                                <label for="vision" class="mb-2">Vision</label>
+                                <textarea name="vision" id="vision" class="editor" cols="30" rows="10">{{ old('vision') }}</textarea>
+                                @error('vision')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
-
-
 
                         <div class="col-12 mb-3 mt-4">
                             <button type="submit"
                                 class="btn btn-primary rounded-0 px-5 btn-sm float-end">Submit</button>
                         </div>
-
                     </div>
+
+
                 </div>
 
             </form>

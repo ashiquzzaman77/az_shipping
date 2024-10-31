@@ -49,16 +49,22 @@
                                         Inactive</option>
 
                                 </select>
+
+                                @error('status')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
 
                         </div>
 
 
-                        <div class="col-4 mb-3">
+                        <div class="col-12 mb-3">
                             <div class="form-group">
                                 <label for="" class="mb-2">Mission</label>
-                                <input type="text" name="mision" required placeholder="Write Mission"
-                                    class="form-control form-control-sm" value="{{ old('mision', $mision->mision) }}">
+                                <textarea name="mision" class="editor" id="" cols="30" rows="10">{!! $mision->mision !!}</textarea>
+                                @error('mision')
+                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 

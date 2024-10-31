@@ -62,11 +62,10 @@ class HomeController extends Controller
     //vision
     public function vision()
     {
-        $missions = Mision::where('status', 'active')->latest()->limit(8)->get();
-        $visions = Vision::where('status', 'active')->latest()->limit(8)->get();
-        $about = About::latest('id')->first();
+        $mission = Mision::where('status', 'active')->latest('id')->first();
+        $vission = Vision::where('status', 'active')->latest('id')->first();
 
-        return view('frontend.pages.vision', compact('visions', 'missions', 'about'));
+        return view('frontend.pages.vision', compact('mission','vission'));
     }
 
     //ceoMessage
@@ -104,11 +103,10 @@ class HomeController extends Controller
     //about
     public function about()
     {
-        $missions = Mision::where('status', 'active')->latest()->limit(8)->get();
-        $visions = Vision::where('status', 'active')->latest()->limit(8)->get();
+        
         $about = About::latest('id')->first();
 
-        return view('frontend.pages.about', compact('visions', 'missions', 'about'));
+        return view('frontend.pages.about', compact('about'));
     }
 
     //allJob

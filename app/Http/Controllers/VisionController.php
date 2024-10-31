@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vision;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class VisionController extends Controller
 {
@@ -30,16 +31,28 @@ class VisionController extends Controller
      */
     public function store(Request $request)
     {
-        Vision::insert([
+        // Validate the request
+        $validator = Validator::make($request->all(), [
+            'vision' => 'required|string', // Adjust max length as needed
+            'status' => 'required|in:active,inactive', // Assuming status can only be 'active' or 'inactive'
+        ]);
 
+        // Check if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        // Insert the vision
+        Vision::insert([
             'vision' => $request->vision,
             'status' => $request->status,
             'added_by' => Auth::guard('admin')->user()->id,
-
             'created_at' => now(),
-
         ]);
 
+        // Redirect or return a response
         return redirect()->route('admin.vision.index')->with('success', 'Vision Inserted Successfully!!');
     }
 
@@ -66,6 +79,19 @@ class VisionController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Validate the request
+        $validator = Validator::make($request->all(), [
+            'vision' => 'required|string', // Adjust max length as needed
+            'status' => 'required|in:active,inactive', // Assuming status can only be 'active' or 'inactive'
+        ]);
+
+        // Check if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $vision = Vision::findOrFail($id); // Find the vision by ID
 
         $vision->update([
@@ -94,5 +120,4 @@ class VisionController extends Controller
 
         return response()->json(['success' => true]);
     }
-    
 }

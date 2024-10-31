@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mision;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class MisionController extends Controller
 {
@@ -30,14 +31,26 @@ class MisionController extends Controller
      */
     public function store(Request $request)
     {
-        Mision::insert([
 
+        // Validate the request
+        $validator = Validator::make($request->all(), [
+            'mision' => 'required|string', // Adjust max length as needed
+            'status' => 'required', // Assuming status is a boolean
+        ]);
+
+        // Check if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        // Insert the mission
+        Mision::insert([
             'mision' => $request->mision,
             'status' => $request->status,
             'added_by' => Auth::guard('admin')->user()->id,
-
             'created_at' => now(),
-
         ]);
 
         // Redirect or return a response
@@ -67,6 +80,20 @@ class MisionController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        // Validate the request
+        $validator = Validator::make($request->all(), [
+            'mision' => 'required|string', // Adjust max length as needed
+            'status' => 'required', // Assuming status is a boolean
+        ]);
+
+        // Check if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $mision = Mision::findOrFail($id); // Find the vision by ID
 
         $mision->update([
