@@ -59,7 +59,7 @@
         </div>
 
         <div class="card-body pt-0">
-            <table id="kt_datatable_example_5" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
+            <table id="kt_datatable_example_5" class="table table-row-bordered gy-5 gs-7 border rounded">
                 <thead class="bg-dark text-light">
                     <tr>
                         <th width="5%">No</th>
