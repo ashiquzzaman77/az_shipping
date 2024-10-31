@@ -1,14 +1,23 @@
 @extends('frontend.master')
 @section('content')
-    <div class="page-banner bg-1">
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container">
+    <style>
+        .image-container {
+            height: 500px;
+        }
 
-                </div>
-            </div>
-        </div>
+        img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            /* or use 'contain' based on your needs */
+        }
+    </style>
+
+    <div class="image-container">
+        <img src="{{ asset('frontend/img/page-banner/banner1.jpg') }}" alt="">
     </div>
+
+
 
 
     <div class="pt-100 pb-70">
@@ -47,7 +56,7 @@
         <div class="container">
 
             <div class="section-title">
-                <span>Contact Us</span>
+                {{-- <span>Contact Us</span> --}}
                 <h2>Get in Touch</h2>
             </div>
 
