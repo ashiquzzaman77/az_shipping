@@ -225,4 +225,5 @@ class OfficersController extends Controller
 
         $item->delete();
     }
+
 }

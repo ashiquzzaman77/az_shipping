@@ -189,7 +189,7 @@
                                                 <label for="password" class="form-label">Password</label>
                                                 <input type="password" autocomplete="off" name="password"
                                                     class="form-control @error('password') is-invalid @enderror"
-                                                    id="password" autocomplete="off" placeholder="********">
+                                                    id="password" autocomplete="off" placeholder="">
 
                                                 @error('password')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -202,8 +202,7 @@
                                                     Password</label>
                                                 <input type="password" autocomplete="off" name="password_confirmation"
                                                     class="form-control @error('password_confirmation') is-invalid @enderror"
-                                                    id="password_confirmation" autocomplete="off"
-                                                    placeholder="********">
+                                                    id="password_confirmation" autocomplete="off" placeholder="">
 
                                                 @error('password_confirmation')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -250,5 +249,3 @@
 </body>
 
 </html>
-
-

@@ -50,7 +50,7 @@
                         </div>
                         <!--end:Email content-->
                         <div style="padding-bottom: 10px">Best regards
-                            <br>NgenIt Training Team.
+                            <br>AZ Shipping Services.
                         </div>
             </tr>
             <tr>
@@ -58,7 +58,7 @@
                     style="font-size: 13px; text-align:center;padding: 20px; color: #6d6e7c;">
                     {{-- <p>Floor 5, 450 Avenue of the Red Field, SF, 10050, USA.</p> --}}
                     <p>Copyright ©
-                        <a href="https://training.ngengroup.org/" rel="noopener" target="_blank">NgenIt Training</a>.
+                        <a href="http://azshipping.net/" rel="noopener" target="_blank">AZ Shipping Services</a>.
                     </p>
                 </td>
             </tr></br>

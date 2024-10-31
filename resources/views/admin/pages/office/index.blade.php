@@ -223,9 +223,7 @@
                                     <i class="fa-solid fa-eye text-success fs-5"></i>
                                 </a>
 
-                                {{-- <a href="" class="text-primary">
-                                    <i class="fa-solid fa-eye text-success fs-5">Download Pdf</i>
-                                </a> --}}
+                                
                                 <!-- showModal -->
                                 {{-- @if (Auth::guard('admin')->user()->can('edit.officer')) --}}
                                 <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">

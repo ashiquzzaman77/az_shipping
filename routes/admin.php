@@ -168,3 +168,4 @@ Route::delete('/apply/post/delete/{id}', [AdminController::class, 'applyPostDele
 
 Route::post('admin/admin-contact/bulk-delete', [AdminContactController::class, 'bulkDelete'])
     ->name('admin.admin-contact.bulk-delete');
+
