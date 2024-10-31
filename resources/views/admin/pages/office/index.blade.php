@@ -77,40 +77,84 @@
                 <tbody class="fw-bold text-gray-600">
 
                     @foreach ($items as $key => $item)
-                        <tr>
+                        @php
+                            $fieldsToCheck = [
+                                $item->cdc,
+                                $item->coc,
+                                $item->goc,
+                                $item->sid,
+                                $item->ph,
+                                $item->pst,
+                                $item->fpff,
+                                $item->efa,
+                                $item->pssr,
+                                $item->sat,
+                                $item->passport,
+                                $item->dsd,
+                                $item->pscrb,
+                                $item->edh,
+                                $item->radar_navigation,
+                                $item->aff,
+                                $item->mfa,
+                                $item->madical_care,
+                                $item->ens,
+                                $item->sso,
+                                $item->brm,
+                                $item->hvs,
+                                $item->ship_simulation,
+                                $item->ecdis,
+                                $item->atoto,
+                                $item->cor,
+                                $item->discharge_date,
+                                $item->end_of_contract,
+                                $item->readiness,
+                                $item->other_one,
+                                $item->other_two,
+                                $item->other_three,
+                                $item->other_four,
+                            ];
+
+                            $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
+                                return $date &&
+                                    \Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                        \Carbon\Carbon::parse($date)->subMonths(3),
+                                    );
+                            });
+                        @endphp
+                        <tr style="{{ $shouldBeRed ? 'background-color: #810000; color: white;' : '' }}">
+
                             <td>{{ $key + 1 }}</td>
 
                             <td>
-                                <h6>{{ $item->name }}</h6>
-                            </td>
-
-                            <td>
-                                <h6>{{ $item->rank }}</h6>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->name }}</h6>
                             </td>
                             <td>
-                                <h6>{{ $item->cdc_no }}</h6>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->rank }}</h6>
                             </td>
                             <td>
-                                <h6>{{ $item->academy }}</h6>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->cdc_no }}</h6>
                             </td>
                             <td>
-                                <h6>{{ $item->batch }}</h6>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->academy }}</h6>
                             </td>
                             <td>
-                                <h6>{{ $item->contact }}</h6>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->batch }}</h6>
+                            </td>
+                            <td>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->contact }}</h6>
                             </td>
                             <td>
                                 @if ($item->status == 'board')
-                                    <h6>On Board ({{ $item->ship_name }})</h6>
+                                    <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">On Board ({{ $item->ship_name }})</h6>
                                 @elseif($item->status == 'leave')
-                                    <h6>On Leave</h6>
+                                    <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">On Leave</h6>
                                 @elseif($item->status == 'fleet')
-                                    <h6>Not in Fleet Yet</h6>
+                                    <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">Not in Fleet Yet</h6>
                                 @endif
                             </td>
 
                             <td>
-                                <h6>{{ $item->remarks }}</h6>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->remarks }}</h6>
                             </td>
 
                             <td>
