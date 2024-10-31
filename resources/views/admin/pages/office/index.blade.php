@@ -121,7 +121,7 @@
                                     );
                             });
                         @endphp
-                        <tr style="{{ $shouldBeRed ? 'background-color: #810000; color: white;' : '' }}">
+                        <tr style="{{ $shouldBeRed ? 'background-color: #D92027; color: white;' : '' }}">
 
                             <td>{{ $key + 1 }}</td>
 
