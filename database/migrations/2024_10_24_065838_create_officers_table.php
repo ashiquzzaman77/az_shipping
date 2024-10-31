@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('name')->nullable();
+            $table->string('officer_name')->nullable();
             $table->string('rank')->nullable();
             $table->string('cdc_no')->nullable();
             $table->string('contact')->nullable();

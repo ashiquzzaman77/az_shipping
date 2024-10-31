@@ -32,6 +32,7 @@ class OfficersController extends Controller
     {
         // Validate the request data
         $validator = Validator::make($request->all(), [
+            'officer_type' => 'required|string',
             'name' => 'required|string|max:255',
             'rank' => 'required|string|max:255',
             'cdc_no' => 'required|string|max:255',
@@ -84,6 +85,7 @@ class OfficersController extends Controller
 
         // Create the officer record
         Officer::create([
+            'officer_type' => $request->officer_type,
             'name' => $request->name,
             'rank' => $request->rank,
             'cdc_no' => $request->cdc_no,
@@ -161,6 +163,7 @@ class OfficersController extends Controller
         // Validate the incoming request data
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
+            'officer_type' => 'required|string',
             'rank' => 'required|string|max:255',
             'cdc_no' => 'required|string|max:255',
             'contact' => 'required|string|max:255',

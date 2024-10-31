@@ -52,6 +52,26 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="officer_type" class="mb-2">Officer Type</label>
+                                <select name="officer_type"
+                                    class="form-select form-select-sm @error('officer_type') is-invalid @enderror"
+                                    id="officer_type">
+                                    <option selected disabled>Choose...</option>
+                                    <option value="deak" {{ $officer->officer_type == 'deak' ? 'selected' : '' }}>Deak
+                                        Officer</option>
+                                    <option value="engine" {{ $officer->officer_type == 'engine' ? 'selected' : '' }}>
+                                        Engine Officer</option>
+                                </select>
+                                @error('officer_type')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="name" class="mb-2">Name <span class="text-danger"></span></label>
                                 <input type="text" name="name" placeholder="Enter Name"
                                     class="form-control form-control-sm"
@@ -118,7 +138,8 @@
                                 <label for="contact" class="mb-2">Current Status</label>
                                 <select name="status" class="form-select form-select-sm" id="statusSelect">
                                     <option disabled {{ $officer->status ? '' : 'selected' }}>Choose...</option>
-                                    <option value="board" {{ $officer->status == 'board' ? 'selected' : '' }}>On Board
+                                    <option value="board" {{ $officer->status == 'board' ? 'selected' : '' }}>On
+                                        Board
                                     </option>
                                     <option value="leave" {{ $officer->status == 'leave' ? 'selected' : '' }}>On
                                         Leave</option>
@@ -172,7 +193,8 @@
                             <div class="form-group">
                                 <label for="passport" class="mb-2">Passport</label>
                                 <input type="date" name="passport" placeholder=""
-                                    class="form-control form-control-sm" value="{{ old('passport',$officer->passport) }}">
+                                    class="form-control form-control-sm"
+                                    value="{{ old('passport', $officer->passport) }}">
                             </div>
                         </div>
 
@@ -433,7 +455,7 @@
                             <div class="form-group">
                                 <label for="readiness" class="mb-2">Readiness</label>
                                 <input type="date" name="readiness" class="form-control form-control-sm"
-                                    value="{{ old('readiness',$officer->readiness) }}">
+                                    value="{{ old('readiness', $officer->readiness) }}">
                             </div>
                         </div>
 

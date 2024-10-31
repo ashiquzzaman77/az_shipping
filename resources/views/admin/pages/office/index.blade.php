@@ -8,6 +8,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <style>
+        /* =============================== */
+
+        /* ====================================== */
         .custom-table th {
             background: #9DBDFF;
             color: #fff;
@@ -59,9 +62,25 @@
                 </label>
             </div>
 
+            <div class="form-check form-switch mb-3">
+
+                <div class="d-flex align-items-center">
+                    <input type="checkbox" id="deak" class="form-check-input" onchange="filterOfficers()">
+                    <label for="deak" class="form-check-label me-3 ms-2">Deak Office</label>
+
+                    <input type="checkbox" id="engine" class="form-check-input ms-3" onchange="filterOfficers()">
+                    <label for="engine" class="form-check-label ms-2">Engine Office</label>
+                </div>
+                
+            </div>
+
 
             <div class="card-toolbar">
-                <a href="{{ route('admin.officer.create') }}" class="btn btn-light-primary">
+
+
+
+
+                <a href="{{ route('admin.officer.create') }}" class="btn btn-light-primary me-3">
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none">
@@ -75,7 +94,12 @@
                     </span>
                     Create
                 </a>
+
             </div>
+
+
+
+
 
         </div>
 
@@ -84,15 +108,16 @@
                 <thead class="bg-dark text-light">
                     <tr>
                         <th width="5%">No</th>
+                        <th width="10%">Officer Type</th>
                         <th width="10%">Name</th>
                         <th width="10%">Rank</th>
-                        <th width="10%">CDC NO</th>
+                        <th width="7%">CDC NO</th>
                         <th width="10%">Academy</th>
                         <th width="10%">Batch</th>
                         <th width="10%">Contact</th>
                         <th width="10%">Current Status</th>
                         <th width="10%">Remarks</th>
-                        <th width="5%">Actions</th>
+                        <th width="10%">Actions</th>
                     </tr>
                 </thead>
 
@@ -143,11 +168,21 @@
                                     );
                             });
                         @endphp
-                        <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }}"
+                        <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #D92027; color: white;' : '' }}">
 
                             <td>{{ $key + 1 }}</td>
 
+                            <td>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
+                                    @if ($item->officer_type == 'deak')
+                                        <span>Deak Officer</span>
+                                    @elseif ($item->officer_type == 'engine')
+                                        <span>Engine Officer</span>
+                                    @else
+                                    @endif
+                                </h6>
+                            </td>
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->name }}</h6>
                             </td>
@@ -188,9 +223,9 @@
                                     <i class="fa-solid fa-eye text-success fs-5"></i>
                                 </a>
 
-                                <a href="" class="text-primary">
+                                {{-- <a href="" class="text-primary">
                                     <i class="fa-solid fa-eye text-success fs-5">Download Pdf</i>
-                                </a>
+                                </a> --}}
                                 <!-- showModal -->
                                 {{-- @if (Auth::guard('admin')->user()->can('edit.officer')) --}}
                                 <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
@@ -710,6 +745,23 @@
                     }
                 });
             });
+
+            function filterOfficers() {
+                const deakChecked = document.getElementById('deak').checked;
+                const engineChecked = document.getElementById('engine').checked;
+                const rows = document.querySelectorAll('.officer-row');
+
+                rows.forEach(row => {
+                    const isDeak = row.classList.contains('deak');
+                    const isEngine = row.classList.contains('engine');
+
+                    if ((deakChecked && isDeak) || (engineChecked && isEngine)) {
+                        row.style.display = ''; // Show the row
+                    } else {
+                        row.style.display = 'none'; // Hide the row
+                    }
+                });
+            }
         </script>
 
         <script>

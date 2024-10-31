@@ -52,57 +52,113 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="officer_type" class="mb-2">Officer Type</label>
+                                <select name="officer_type"
+                                    class="form-select form-select-sm @error('officer_type') is-invalid @enderror"
+                                    id="officer_type">
+                                    <option selected disabled>Choose...</option>
+                                    <option value="deak" {{ old('officer_type') == 'deak' ? 'selected' : '' }}>Deak
+                                        Officer</option>
+                                    <option value="engine" {{ old('officer_type') == 'engine' ? 'selected' : '' }}>
+                                        Engine Officer</option>
+                                </select>
+                                @error('officer_type')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="name" class="mb-2">Name</label>
-                                <input type="text" name="name" required placeholder="Enter Name"
+                                <input type="text" name="name" placeholder="Enter Name"
                                     class="form-control form-control-sm" value="{{ old('name') }}">
+                                @error('name')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="rank" class="mb-2">Rank</label>
-                                <input type="text" name="rank" required placeholder="Enter Rank"
+                                <input type="text" name="rank" placeholder="Enter Rank"
                                     class="form-control form-control-sm" value="{{ old('rank') }}">
+                                @error('rank')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="cdc_no" class="mb-2">CDC No</label>
-                                <input type="text" name="cdc_no" required placeholder="Enter CDC No"
+                                <input type="text" name="cdc_no"  placeholder="Enter CDC No"
                                     class="form-control form-control-sm" value="{{ old('cdc_no') }}">
+                                @error('cdc_no')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="contact" class="mb-2">Contact</label>
-                                <input type="text" name="contact" required placeholder="Enter Contact"
+                                <input type="text" name="contact"  placeholder="Enter Contact"
                                     class="form-control form-control-sm" value="{{ old('contact') }}">
+                                @error('contact')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="academy" class="mb-2">Academy</label>
-                                <input type="text" name="academy" required placeholder="Enter Academy"
+                                <input type="text" name="academy"  placeholder="Enter Academy"
                                     class="form-control form-control-sm" value="{{ old('academy') }}">
+                                @error('academy')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="batch" class="mb-2">Batch</label>
-                                <input type="text" name="batch" required placeholder="Enter Batch"
+                                <input type="text" name="batch" placeholder="Enter Batch"
                                     class="form-control form-control-sm" value="{{ old('batch') }}">
+                                @error('batch')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="batch" class="mb-2">Passport Number</label>
-                                <input type="text" name="passport_number" required placeholder="Enter Passport Number"
-                                    class="form-control form-control-sm" value="{{ old('batch') }}">
+                                <input type="text" name="passport_number" 
+                                    placeholder="Enter Passport Number" class="form-control form-control-sm"
+                                    value="{{ old('passport_number') }}">
+                                @error('passport_number')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
