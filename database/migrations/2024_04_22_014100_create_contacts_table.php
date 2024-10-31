@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('subject')->nullable();
-            $table->text('message')->nullable();
+            $table->longText('message')->nullable();
             $table->string('ip_address', 100)->nullable();
             $table->enum('status', ['pending', 'replied', 'on_going', 'closed'])->default('pending');
             $table->timestamps();

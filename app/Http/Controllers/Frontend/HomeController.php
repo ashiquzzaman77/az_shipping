@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Job;
 use App\Models\Team;
 use App\Models\About;
+use App\Models\Admin;
 use App\Models\Legal;
 use App\Models\Banner;
 use App\Models\Choose;
@@ -19,6 +20,8 @@ use App\Models\Principle;
 use App\Models\CeoMessage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\ContactMessageReceived;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 // use Illuminate\Support\Facades\Hash;
@@ -200,8 +203,8 @@ class HomeController extends Controller
             'name' => 'required|string|max:150',
             'email' => 'required|email|max:150',
             'phone' => 'nullable|string|max:20',
-            'subject' => 'nullable|string',
-            'message' => 'nullable|string',
+            'subject' => 'required|string',
+            'message' => 'required|string|max:1200',
             'ip_address' => 'nullable|ip|max:100',
             // 'g-recaptcha-response' => ['required', new Recaptcha],
         ]);
@@ -215,7 +218,7 @@ class HomeController extends Controller
         $newNumber = $lastCode ? (int) explode('-', $lastCode->code)[2] + 1 : 1;
         $code = $typePrefix . '-' . $today . '-' . $newNumber;
 
-        Contact::create([
+        $contact = Contact::create([
             'code' => $code,
             'name' => $request->name,
             'email' => $request->email,
@@ -225,7 +228,12 @@ class HomeController extends Controller
             'ip_address' => request()->ip(),
         ]);
 
-        // success('Thank You. We have received your message. We will contact with you very soon.');
+        $admins = Admin::where('mail_status', 'mail')->get();
+
+        foreach ($admins as $admin) {
+            Mail::to($admin->email)->send(new ContactMessageReceived($contact));
+        }
+
         return redirect()->back()->with('success', 'Thank You. We have received your message. We will contact with you very soon');
     }
 }

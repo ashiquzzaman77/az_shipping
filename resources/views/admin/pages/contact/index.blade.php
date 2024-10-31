@@ -31,8 +31,6 @@
                         <th width="10%">Email</th>
                         <th width="10%">Phone</th>
                         <th width="10%">Ip Address</th>
-                        <th width="15%">Subject</th>
-                        <th width="15%">Message</th>
                         <th width="10%">Actions</th>
                     </tr>
                 </thead>
@@ -47,12 +45,38 @@
                             <td class="text-start">{{ $item->email }}</td>
                             <td class="text-start">{{ $item->phone }}</td>
                             <td class="text-start">{{ $item->ip_address }}</td>
-                            <td class="text-start">{{ $item->subject }}</td>
-                            <td class="text-start">{{ $item->message }}</td>
                             <td>
-                                {{-- <a href="{{ route('admin.contacts.edit', $item->id) }}" class="text-primary">
-                                    <i class="bi bi-pencil text-primary"></i>
-                                </a> --}}
+                                <a href="" data-bs-toggle="modal" title="show message"
+                                    data-bs-target="#messageModal" class="text-primary">
+                                    <i class="bi bi-eye text-primary"></i>
+                                </a>
+
+                                {{-- Message SHow  --}}
+                                <!-- Modal -->
+                                <div class="modal fade" id="messageModal" tabindex="-1"
+                                    aria-labelledby="messageModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-2" id="exampleModalLabel">Message Details</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <p class="fw-bold fs-3">Subject: <span>{{ $item->subject }}</span></p>
+                                                <h5 style="text-align: justify;" class="fw-light">
+                                                    {!! $item->message !!}</h5>
+
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 {{-- @if (Auth::guard('admin')->user()->can('delete.contact-message')) --}}
                                 <a href="{{ route('admin.admin-contact.destroy', $item->id) }}" class="delete">
