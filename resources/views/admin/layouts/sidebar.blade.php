@@ -488,7 +488,7 @@
                                  <span class="menu-bullet">
                                      <span class="bullet bullet-dot"></span>
                                  </span>
-                                 <span class="menu-title">Client</span>
+                                 <span class="menu-title">Client Review</span>
                              </a>
                              {{-- @endif --}}
                          </div>
