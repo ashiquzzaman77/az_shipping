@@ -22,10 +22,17 @@
             </div> --}}
         </div>
         <div class="card-body pt-0">
+
+            <form id="bulkDeleteForm" method="POST" action="{{ route('admin.admin-contact.bulk-delete') }}">
+                @csrf
+                <button type="submit" class="btn btn-danger">Delete Selected</button>
+            </form>
+
             <table id="kt_datatable_example_5" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
                 <thead class="bg-dark text-white">
                     <tr>
-                        <th width="5%">No</th>
+                        <th width="3%"><input type="checkbox" id="selectAll"></th>
+                        <th width="10%">No</th>
                         <th width="10%">Code</th>
                         <th width="10%">Name</th>
                         <th width="10%">Email</th>
@@ -35,11 +42,10 @@
                     </tr>
                 </thead>
                 <tbody class="fw-bold text-gray-600">
-
                     @foreach ($items as $key => $item)
                         <tr>
+                            <td><input type="checkbox" class="item-checkbox" value="{{ $item->id }}"></td>
                             <td>{{ $key + 1 }}</td>
-
                             <td class="text-start">{{ $item->code }}</td>
                             <td class="text-start">{{ $item->name }}</td>
                             <td class="text-start">{{ $item->email }}</td>
@@ -51,8 +57,7 @@
                                     <i class="bi bi-eye text-primary"></i>
                                 </a>
 
-                                {{-- Message SHow  --}}
-                                <!-- Modal -->
+                                {{-- Message Show Modal --}}
                                 <div class="modal fade" id="messageModal" tabindex="-1"
                                     aria-labelledby="messageModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
@@ -62,14 +67,11 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-
                                             <div class="modal-body">
                                                 <p class="fw-bold fs-3">Subject: <span>{{ $item->subject }}</span></p>
                                                 <h5 style="text-align: justify;" class="fw-light">
                                                     {!! $item->message !!}</h5>
-
                                             </div>
-
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
@@ -78,19 +80,15 @@
                                     </div>
                                 </div>
 
-                                {{-- @if (Auth::guard('admin')->user()->can('delete.contact-message')) --}}
                                 <a href="{{ route('admin.admin-contact.destroy', $item->id) }}" class="delete">
                                     <i class="bi bi-trash3-fill text-danger"></i>
                                 </a>
-                                {{-- @endif --}}
-
                             </td>
                         </tr>
                     @endforeach
-
-
                 </tbody>
             </table>
+
         </div>
     </div>
 
@@ -112,6 +110,35 @@
                     "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
                     ">"
             });
+        </script>
+
+        <script>
+            document.getElementById('selectAll').onclick = function() {
+                var checkboxes = document.querySelectorAll('.item-checkbox');
+                for (var checkbox of checkboxes) {
+                    checkbox.checked = this.checked;
+                }
+            };
+
+            document.getElementById('bulkDeleteForm').onsubmit = function(e) {
+                var selectedIds = [];
+                var checkboxes = document.querySelectorAll('.item-checkbox:checked');
+                checkboxes.forEach((checkbox) => {
+                    selectedIds.push(checkbox.value);
+                });
+
+                if (selectedIds.length === 0) {
+                    e.preventDefault(); // Prevent form submission
+                    alert('Please select at least one item to delete.');
+                } else {
+                    // Create a hidden input to hold the selected IDs
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'ids';
+                    input.value = JSON.stringify(selectedIds);
+                    this.appendChild(input);
+                }
+            };
         </script>
     @endpush
 

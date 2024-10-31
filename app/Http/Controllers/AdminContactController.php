@@ -65,4 +65,20 @@ class AdminContactController extends Controller
 
         $item->delete();
     }
+
+    public function bulkDelete(Request $request)
+    {
+        $ids = json_decode($request->input('ids'), true);
+
+        // Validate that IDs are provided
+        if (empty($ids)) {
+            return redirect()->back()->with('error', 'No items selected for deletion.');
+        }
+
+        // Perform the deletion
+        Contact::whereIn('id', $ids)->delete();
+
+        return redirect()->back()->with('success', 'Selected items deleted successfully.');
+    }
+
 }

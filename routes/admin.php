@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
@@ -14,7 +14,6 @@ use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\CeoMessageController;
 use App\Http\Controllers\ChooseController;
 use App\Http\Controllers\ClientController;
@@ -30,7 +29,6 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VisionController;
 use Illuminate\Support\Facades\Route;
-use PHPUnit\Architecture\Services\ServiceContainer;
 
 Route::middleware('guest:admin')->group(function () {
 
@@ -82,7 +80,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
         [
 
             // Shipping All Admin Controller
-            
+
             'banner' => BannerController::class,
             'officer' => OfficersController::class,
             'rating' => RatingController::class,
@@ -109,8 +107,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::put('/settings', [SettingController::class, 'updateOrcreateSetting'])->name('settings.updateOrCreate');
-
-
 
     //All Status
     Route::put('banner/status/{id}', [BannerController::class, 'updateStatusBanner'])->name('banner.status.update');
@@ -170,3 +166,6 @@ Route::middleware(['auth:admin'])->group(function () {
 
 Route::get('/download-attachment/{id}', [AdminController::class, 'downloadAttachment'])->name('download.attachment');
 Route::delete('/apply/post/delete/{id}', [AdminController::class, 'applyPostDelete'])->name('admin.apply.post.delete');
+
+Route::post('admin/admin-contact/bulk-delete', [AdminContactController::class, 'bulkDelete'])
+    ->name('admin.admin-contact.bulk-delete');
