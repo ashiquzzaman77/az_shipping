@@ -109,10 +109,13 @@ p:last-child {
 
 .default-btn-two {
   border: 1px solid #ffffff;
-  display: inline-block;
+  /* display: inline-block; */
+  display: block;
   color: #ffffff;
   padding: 15px 30px;
   border-radius: 2px;
+  width:100%;
+  /* /// */
 }
 
 .default-btn-two:hover {
