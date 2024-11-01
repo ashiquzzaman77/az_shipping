@@ -73,7 +73,7 @@
 
                                 <div class="col-md-4 pe-md-0">
                                     <div class="d-none d-md-block">
-                                        <img alt="Logo" src="{{ asset('backend/login/assets/logo/ship.png') }}"
+                                        <img alt="Logo" src="{{ asset('backend/login/assets/logo/ship2.jpg') }}"
                                             class="" style="width: 100%; height:500px;" />
                                     </div>
                                 </div>
