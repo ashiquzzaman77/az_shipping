@@ -82,7 +82,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="YOUR_LOGO_URL" alt="Company Logo">
+            <img src="http://azshipping.net/storage/images/settings/icA040G3xrUQ8qXzWusDxBIXuaNWPNTuf8PKcesl.png" style="width:170px;height:40px" alt="AZ Shipping Services">
             <h1>New Contact Message</h1>
         </div>
         <div class="content">
