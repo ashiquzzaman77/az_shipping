@@ -5584,6 +5584,49 @@ Sign In Area
   margin-top: 3px;
 }
 
+/* =========================================== */
+.sign-in-area .sign-in-form2 {
+  max-width: 650px;
+  padding: 40px 50px;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.sign-in-area .sign-in-form2 .form-group {
+  margin-bottom: 25px;
+  text-align: left !important;
+}
+
+.sign-in-area .sign-in-form2 .form-control {
+  height: 55px;
+  /* padding: 6px 20px; */
+  padding: 16px 20px;
+  font-size: 14px;
+  background: #fbfbfb;
+  border: 1px solid #efefef;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* .sign-in-area .sign-in-form2 .account-decs {
+  text-align: center;
+  margin-top: 20px;
+} */
+
+/* .sign-in-area .sign-in-form2 .account-decs a {
+  color: #4547e9;
+  margin-left: 5px;
+} */
+
+.sign-in-area .sign-in-form2 .account-decs a:hover {
+  color: #301d44;
+}
+
+.form-check-input {
+  margin-top: 3px;
+}
+
+
 /*================================================
 Sign Up Area
 =================================================*/

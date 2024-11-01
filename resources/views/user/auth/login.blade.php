@@ -1,206 +1,4 @@
-<x-guest-layout>
-
-    <style>
-        .form-outline {
-            position: relative;
-        }
-
-        .bi-eye,
-        .bi-eye-slash {
-            font-size: 1rem;
-            color: #6c757d;
-        }
-
-        .form-control.pe-5 {
-            padding-right: 2.5rem;
-        }
-
-        body {
-            color: #000;
-            overflow-x: hidden;
-            height: 100%;
-            background-image: linear-gradient(to right, #001430, rgb(10 29 91));
-            background-repeat: no-repeat;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center
-        }
-
-        input,
-        textarea {
-            background-color: #F3E5F5;
-            /* padding: 12px 15px 12px 15px !important; */
-            width: 100%;
-            box-sizing: border-box;
-            border: none !important;
-            border: 1px solid #F3E5F5 !important;
-            font-size: 16px !important;
-            color: #000 !important;
-            font-weight: 400;
-        }
-
-        input:focus,
-        textarea:focus {
-            -moz-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-            border: 1px solid #001430 !important;
-            outline-width: 0;
-            font-weight: 400;
-        }
-
-        button:focus {
-            -moz-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-            outline-width: 0;
-        }
-
-        .card {
-            border-radius: 0;
-            border: none;
-        }
-
-        .card1 {
-            width: 50%;
-            padding: 20px 50px 10px 50px;
-        }
-
-        .card2 {
-            width: 50%;
-            background-image: linear-gradient(to right, rgb(10 29 91), #001430);
-        }
-
-        #logo {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-        }
-
-        .heading {
-            margin-bottom: 20px !important;
-        }
-
-        ::placeholder {
-            color: #000 !important;
-            opacity: 1;
-        }
-
-        :-ms-input-placeholder {
-            color: #000 !important;
-        }
-
-        ::-ms-input-placeholder {
-            color: #000 !important;
-        }
-
-        .form-control-label {
-            font-size: 12px;
-            margin-left: 15px;
-        }
-
-        .msg-info {
-            padding-left: 15px;
-            margin-bottom: 30px;
-        }
-
-        .btn-color {
-            border-radius: 50px;
-            color: #fff;
-            background-image: linear-gradient(to right, rgb(10 29 91), #001430);
-            padding: 15px;
-            cursor: pointer;
-            border: none !important;
-            margin-top: 40px;
-        }
-
-        .btn-color:hover {
-            color: #fff;
-            background-image: linear-gradient(to right, #001430, rgb(10 29 91));
-        }
-
-        .btn-white {
-            border-radius: 50px;
-            color: #001430;
-            background-color: #fff;
-            cursor: pointer;
-            border: 2px solid #001430 !important;
-            text-align: center !important;
-            padding-left: 40px !important;
-            padding-right: 40px !important;
-        }
-
-        .btn-white:hover {
-            color: #fff;
-            background-image: linear-gradient(to right, rgb(10 29 91), #001430);
-        }
-
-        a {
-            color: #000;
-        }
-
-        a:hover {
-            color: #000;
-        }
-
-        .bottom {
-            width: 100%;
-            margin-top: 50px !important;
-        }
-
-        .sm-text {
-            font-size: 15px;
-        }
-
-        @media screen and (max-width: 992px) {
-            .card1 {
-                width: 100%;
-                padding: 40px 30px 10px 30px;
-            }
-
-            .card2 {
-                width: 100%;
-            }
-
-            .right {
-                margin-top: 100px !important;
-                margin-bottom: 100px !important;
-            }
-
-            body {
-                overflow: auto;
-            }
-        }
-
-        @media screen and (max-width: 1350px) {
-            body {
-                overflow: auto;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 10px !important;
-            }
-
-            .card2 {
-                padding: 50px;
-            }
-
-            .right {
-                margin-top: 50px !important;
-                margin-bottom: 50px !important;
-            }
-
-            body {
-                overflow: auto;
-            }
-        }
-    </style>
-
-    <div class="container px-4 py-5 mx-auto">
+{{-- <div class="container px-4 py-5 mx-auto">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="card card0">
@@ -279,23 +77,60 @@
                 </div>
             </div>
         </div>
+</div> --}}
+
+
+@extends('frontend.master')
+
+@section('content')
+    <div class="sign-in-area ptb-100" style="margin-top: 100px">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-12 col-lg-6 d-none d-lg-block">
+                    <img src="{{ asset('frontend/img/login.png') }}" alt="">
+                </div>
+
+
+                <div class="col-12 col-lg-6">
+                    <div class="sign-in-form2">
+
+
+                        <h5>Sign In</h5>
+                        <p>Welcome back! Please sign in to continue.</p>
+
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Username or Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+
+                            <div class="form-group text-center d-flex align-items-center justify-content-between">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                                </div>
+                                <a href="/forgot-password" class="text-decoration-none">Forgot Password?</a>
+                            </div>
+
+                            <button type="submit" style="background: linear-gradient(45deg, #6a11cb, #2575fc); color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background 0.3s ease;" onmouseover="this.style.background='linear-gradient(45deg, #2575fc, #6a11cb)'" onmouseout="this.style.background='linear-gradient(45deg, #6a11cb, #2575fc)'">Sign In</button>
+
+                            
+                            <p class="mt-2">
+                                Not a member? <a href="sign-up.html">Sign Up</a>
+                            </p>
+
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const passwordInput = document.getElementById('password');
-            const togglePassword = document.getElementById('togglePassword');
-
-            togglePassword.addEventListener('click', function() {
-                // Toggle the type attribute
-                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', type);
-
-                // Toggle the eye icon
-                this.classList.toggle('bi-eye');
-                this.classList.toggle('bi-eye-slash');
-            });
-        });
-    </script>
-
-</x-guest-layout>
+@endsection

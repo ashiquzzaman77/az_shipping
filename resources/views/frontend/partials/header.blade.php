@@ -96,9 +96,11 @@
                     <div class="logo">
                         <a href="index.html">
 
-                            <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/.jpg') }}" class="main-logo" alt="logo">
+                            <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/.jpg') }}"
+                                class="main-logo" alt="logo">
 
-                            <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/.jpg') }}" class="white-logo" alt="logo">
+                            <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/.jpg') }}"
+                                class="white-logo" alt="logo">
 
                             {{-- <img src="assets/img/loA.jpg" class="white-logo" alt="logo"> --}}
 
@@ -117,7 +119,9 @@
                             class="main-logo" alt="logo"> <span style="background: linear-gradient(to right, #825fff, #7bcefe); -webkit-background-clip: text; color: transparent; font-weight: bold;">AZ Shipping Services</span> --}}
 
                         <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/') }}"
-                            class="main-logo" alt="logo"> <span class="fs-5 my-auto" style="background: linear-gradient(to right, #825fff, #7bcefe); -webkit-background-clip: text; color: transparent; font-weight: bold;">AZ Shipping Services</span>
+                            class="main-logo" alt="logo"> <span class="fs-5 my-auto"
+                            style="background: linear-gradient(to right, #825fff, #7bcefe); -webkit-background-clip: text; color: transparent; font-weight: bold;">AZ
+                            Shipping Services</span>
 
 
                         {{-- <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
@@ -207,7 +211,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="http://azshipping.net/" target="blank" class="x-sign">Mariner's Login</a>
+                                <a href="{{ route('login') }}" target="blank" class="x-sign">Mariner's Login</a>
                             </li>
 
                         </ul>
