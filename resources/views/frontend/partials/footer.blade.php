@@ -8,7 +8,7 @@
                     <div class="logo">
 
                         <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
-                            class="main-logo" style="width: 90px" alt="logo">
+                            class="main-logo" style="width: 170px;height: 49px;" alt="logo">
 
                         <img src="assets/img/logo-2.png" class="white-logo" alt="logo">
 
