@@ -1,3 +1,6 @@
+{{-- {!! app('captcha')->script() !!} --}}
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 

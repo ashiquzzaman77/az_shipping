@@ -28,7 +28,7 @@
 
                     <div class="">
 
-                        <img src="{{ asset('frontend/img/about/about2.jpg') }}" style="width:600px;height:300px"
+                        <img src="{{ asset('frontend/img/Our-Mission-Banner_AZS.jpg') }}" style="width:600px;height:400px"
                             alt="">
 
                     </div>
@@ -39,7 +39,7 @@
 
                     <div class="">
 
-                        <h3 style="text-align: justify;">{!! $mission->mision !!}</h3>
+                        <h3 style="text-align: justify;">{!! optional($mission)->mision !!}</h3>
 
 
                     </div>
@@ -55,7 +55,7 @@
 
                     <div class="">
 
-                        <h3 style="text-align: justify;">{!! $vission->vision !!}</h3>
+                        <h3 style="text-align: justify;">{!! optional($vission)->vision !!}</h3>
 
 
                     </div>
@@ -66,7 +66,7 @@
 
                     <div class="">
 
-                        <img src="{{ asset('frontend/img/about/about2.jpg') }}" style="width:600px;height:300px"
+                        <img src="{{ asset('frontend/img/Our-Vision-Banner_AZS.jpg') }}" style="width:600px;height:400px"
                             alt="">
 
                     </div>
