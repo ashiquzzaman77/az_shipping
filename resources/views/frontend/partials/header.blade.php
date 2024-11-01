@@ -119,10 +119,10 @@
                         {{-- <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
                             class="main-logo" alt="logo"> <span style="background: linear-gradient(to right, #825fff, #7bcefe); -webkit-background-clip: text; color: transparent; font-weight: bold;">AZ Shipping Services</span> --}}
 
-                        {{-- <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/') }}"
-                            class="main-logo" style="width: 150x;height: 45px;" alt="logo">  --}}
+                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/') }}"
+                            class="main-logo" style="width: 150x;height: 45px;" alt="logo"> 
 
-                        <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/default-logo.png') }}"
+                        {{-- <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/default-logo.png') }}"
                             class="main-logo" alt="logo" style="width: 170px; height: 45px;">
 
                         <style>
@@ -137,7 +137,7 @@
                                     /* Adjusts height for small screens */
                                 }
                             }
-                        </style>
+                        </style> --}}
 
 
                         {{-- <span class="fs-5 my-auto"
