@@ -92,13 +92,13 @@ p:last-child {
 }
 
 .default-btn-one {
-  background-color: #4547e9;
+  background-color: #023154;
   /* background-color: #4547e9; */
   color: #ffffff;
   display: inline-block;
   padding: 15px 30px;
   border-radius: 2px;
-  border: 1px solid #4547e9;
+  border: 1px solid #023154;
 }
 
 .default-btn-one:hover {
