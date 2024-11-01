@@ -117,7 +117,7 @@
                             class="main-logo" alt="logo"> <span style="background: linear-gradient(to right, #825fff, #7bcefe); -webkit-background-clip: text; color: transparent; font-weight: bold;">AZ Shipping Services</span> --}}
 
                         <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/') }}"
-                            class="main-logo" alt="logo"> <span class="fs-4" style="background: linear-gradient(to right, #825fff, #7bcefe); -webkit-background-clip: text; color: transparent; font-weight: bold;">AZ Shipping Services</span>
+                            class="main-logo" alt="logo"> <span class="fs-4 my-auto" style="background: linear-gradient(to right, #825fff, #7bcefe); -webkit-background-clip: text; color: transparent; font-weight: bold;">AZ Shipping Services</span>
 
 
                         {{-- <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
