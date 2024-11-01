@@ -25,7 +25,7 @@ Default CSS
 body {
   font-family: "Nunito Sans", sans-serif;
   font-size: 15px;
-  color: #6c6377;
+  color: #2a2e36;
 }
 
 img {
@@ -58,7 +58,7 @@ button:focus {
 p {
   margin-bottom: 10px;
   line-height: 1.7;
-  color: #6c6377;
+  color: #2a2e36;
 }
 
 p:last-child {
@@ -4355,7 +4355,7 @@ Blog Details Area CSS
 
 .blog-details-desc .article-footer .article-tags a {
   display: inline-block;
-  color: #6c6377;
+  color: #2a2e36;
 }
 
 .blog-details-desc .article-footer .article-tags a:hover {
@@ -4605,7 +4605,7 @@ blockquote::after,
 }
 
 .comments-area .comment-metadata span {
-  color: #6c6377;
+  color: #2a2e36;
 }
 
 .comments-area .comment-respond {
@@ -5288,7 +5288,7 @@ Contact Area
 }
 
 .contact-info p a {
-  color: #6c6377;
+  color: #2a2e36;
 }
 
 .contact-info p a:hover {
