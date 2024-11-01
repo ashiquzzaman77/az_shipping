@@ -2679,8 +2679,8 @@ Freight Area
   position: absolute;
   right: 65px;
   top: -115px;
-  border: 1px solid #4547e9;
-  color: #4547e9;
+  border: 1px solid #023154;
+  color: #023154;
   width: 35px;
   height: 55px;
   font-size: 30px;
@@ -2690,7 +2690,7 @@ Freight Area
 
 .freight-area.freight-area-two .services-slider-two.owl-theme .owl-nav .owl-prev:hover,
 .freight-area.freight-area-two .services-slider-two.owl-theme .owl-nav .owl-next:hover {
-  background-color: #4547e9;
+  background-color: #023154;
   color: #ffffff;
 }
 
@@ -2746,9 +2746,9 @@ Freight Area
 }
 
 .service-card-two .service-caption .default-btn-two:hover {
-  background: #4547e9;
+  background: #023154;
   color: #ffffff;
-  border: 1px solid #4547e9;
+  border: 1px solid #023154;
 }
 
 /*================================================
