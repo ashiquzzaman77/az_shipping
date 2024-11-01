@@ -95,10 +95,10 @@
             <div class="container">
                 <div class="ferry-responsive-menu">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="{{ route('homepage') }}">
 
                             <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/.jpg') }}"
-                                class="main-logo" alt="logo">
+                                class="main-logo" style="width: 100px;height: 35px;" alt="logo">
 
                             {{-- <img src="assets/img/loA.jpg" class="white-logo" alt="logo"> --}}
 
@@ -117,7 +117,7 @@
                             class="main-logo" alt="logo"> <span style="background: linear-gradient(to right, #825fff, #7bcefe); -webkit-background-clip: text; color: transparent; font-weight: bold;">AZ Shipping Services</span> --}}
 
                         <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/') }}"
-                            class="main-logo" style="width: 150px;height: 45px;" alt="logo"> 
+                            class="main-logo" style="width: 170px;height: 49px;" alt="logo"> 
 
                         {{-- <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/default-logo.png') }}"
                             class="main-logo" alt="logo" style="width: 170px; height: 45px;">
