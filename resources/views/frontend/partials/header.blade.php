@@ -98,7 +98,7 @@
                         <a href="{{ route('homepage') }}">
 
                             <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/.jpg') }}"
-                                class="main-logo" style="width: 100px;height: 35px;" alt="logo">
+                                class="main-logo" style="width: 140px;height: 45px;" alt="logo">
 
                             {{-- <img src="assets/img/loA.jpg" class="white-logo" alt="logo"> --}}
 
