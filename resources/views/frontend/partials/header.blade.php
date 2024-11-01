@@ -123,11 +123,11 @@
                             class="main-logo" style="width: 150x;height: 45px;" alt="logo">  --}}
 
                         <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/default-logo.png') }}"
-                            class="main-logo" alt="logo" style="width: 150px; height: 45px;">
+                            class="main-logo" alt="logo" style="width: 170px; height: 45px;">
 
                         <style>
                             .main-logo {
-                                width: 150px;
+                                width: 170px;
                                 height: 45px;
                             }
 
