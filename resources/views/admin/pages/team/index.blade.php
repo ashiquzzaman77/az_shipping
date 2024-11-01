@@ -170,8 +170,10 @@
                             </td>
 
                             <td>
-                                <h6>{{ $item->order_team }}</h6>
+                                <input type="number" style="width:25%" value="{{ $item->order_team }}"
+                                    data-id="{{ $item->id }}" class="order-input">
                             </td>
+
 
                             <td class="text-start">
                                 <label class="switch">
@@ -183,17 +185,17 @@
 
 
                             <td>
-                                @if (Auth::guard('admin')->user()->can('edit.team'))
+                                {{-- @if (Auth::guard('admin')->user()->can('edit.team')) --}}
                                     <a href="{{ route('admin.team.edit', $item->id) }}" class="text-primary">
                                         <i class="fa-solid fa-pencil text-primary"></i>
                                     </a>
-                                @endif
+                                {{-- @endif
 
-                                @if (Auth::guard('admin')->user()->can('delete.team'))
+                                @if (Auth::guard('admin')->user()->can('delete.team')) --}}
                                     <a href="{{ route('admin.team.destroy', $item->id) }}" class="delete">
                                         <i class="fa-solid fa-trash text-danger"></i>
                                     </a>
-                                @endif
+                                {{-- @endif --}}
 
                             </td>
                         </tr>
@@ -206,7 +208,36 @@
 
     </div>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     @push('scripts')
+        <script>
+            $(document).ready(function() {
+                $('.order-input').on('change', function() {
+                    const orderValue = $(this).val();
+                    const teamId = $(this).data('id');
+
+                    $.ajax({
+                        url: '/admin/team/update-order', // Your route for updating the order
+                        method: 'POST',
+                        data: {
+                            id: teamId,
+                            order_team: orderValue,
+                            _token: '{{ csrf_token() }}' // Include CSRF token for security
+                        },
+                        success: function(response) {
+                            // Show success message
+                            toastr.success('Team Order updated successfully!');
+                        },
+                        error: function(xhr) {
+                            // Show error message
+                            toastr.error('Failed to update order. Please try again.');
+                        }
+                    });
+                });
+            });
+        </script>
         <script>
             $("#kt_datatable_example_5").DataTable({
                 "language": {

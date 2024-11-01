@@ -173,4 +173,17 @@ class TeamController extends Controller
 
         return response()->json(['success' => true]);
     }
+
+    public function updateOrder(Request $request)
+    {
+        $request->validate([
+            'order_team' => 'required|integer',
+        ]);
+
+        $item = Team::find($request->id);
+        $item->order_team = $request->order_team;
+        $item->save();
+
+        return response()->json(['success' => true]);
+    }
 }
