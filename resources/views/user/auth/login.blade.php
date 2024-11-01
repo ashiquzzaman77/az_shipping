@@ -113,7 +113,7 @@
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                     <label class="form-check-label" for="exampleCheck1">Remember me</label>
                                 </div>
-                                <a href="/forgot-password" class="text-decoration-none">Forgot Password?</a>
+                                <a href="" class="text-decoration-none">Forgot Password?</a>
                             </div>
 
                             <button type="submit" style="background: linear-gradient(45deg, #6a11cb, #2575fc); color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background 0.3s ease;" onmouseover="this.style.background='linear-gradient(45deg, #2575fc, #6a11cb)'" onmouseout="this.style.background='linear-gradient(45deg, #6a11cb, #2575fc)'">Sign In</button>

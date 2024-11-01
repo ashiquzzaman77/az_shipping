@@ -32,7 +32,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ optional($setting)->whatsapp }}" target="_blank" aria-label="WhatsApp">
+                            <a href="{{ 'https://wa.me/' . optional($setting)->whatsapp }}" target="_blank" aria-label="WhatsApp">
                                 <i class="bx bxl-whatsapp"></i>
                             </a>
                         </li>
