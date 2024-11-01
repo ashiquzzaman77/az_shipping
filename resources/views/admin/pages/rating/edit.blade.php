@@ -44,10 +44,10 @@
                                     <option selected disabled>Choose...</option>
 
                                     <option value="deak" {{ $rating->rating_type == 'deak' ? 'selected' : '' }}>Deak
-                                        Officer</option>
+                                        Rating</option>
 
                                     <option value="engine" {{ $rating->rating_type == 'engine' ? 'selected' : '' }}>
-                                        Engine Officer</option>
+                                        Engine Rating</option>
 
                                     <option value="salon" {{ $rating->rating_type == 'salon' ? 'selected' : '' }}>
                                         Salon</option>

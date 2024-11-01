@@ -61,10 +61,10 @@
 
                 <div class="d-flex align-items-center">
                     <input type="checkbox" id="deak" class="form-check-input" onchange="filterOfficers()">
-                    <label for="deak" class="form-check-label me-3 ms-2">Deak Officer</label>
+                    <label for="deak" class="form-check-label me-3 ms-2">Deak Rating</label>
 
                     <input type="checkbox" id="engine" class="form-check-input ms-3" onchange="filterOfficers()">
-                    <label for="engine" class="form-check-label ms-2">Engine Officer</label>
+                    <label for="engine" class="form-check-label ms-2">Engine Rating</label>
 
                     <input type="checkbox" id="salon" class="form-check-input ms-3" onchange="filterOfficers()">
                     <label for="salon" class="form-check-label ms-2">Salon</label>
@@ -163,9 +163,9 @@
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
                                     @if ($item->rating_type == 'deak')
-                                        <span>Deak Officer</span>
+                                        <span>Deak Rating</span>
                                     @elseif ($item->rating_type == 'engine')
-                                        <span>Engine Officer</span>
+                                        <span>Engine Rating</span>
                                     @elseif ($item->rating_type == 'salon')
                                         <span>Salon</span>
                                     @else

@@ -43,10 +43,10 @@
                                     <option selected disabled>Choose...</option>
 
                                     <option value="deak" {{ old('rating_type') == 'deak' ? 'selected' : '' }}>Deak
-                                        Officer</option>
+                                        Rating</option>
 
                                     <option value="engine" {{ old('rating_type') == 'engine' ? 'selected' : '' }}>
-                                        Engine Officer</option>
+                                        Engine Rating</option>
 
                                     <option value="salon" {{ old('rating_type') == 'salon' ? 'selected' : '' }}>
                                         Salon</option>
