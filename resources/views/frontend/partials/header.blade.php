@@ -113,10 +113,10 @@
                     <a class="navbar-brand" href="{{ route('homepage') }}">
 
                         <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
-                            class="main-logo" style="width: 160px; height: 70px;" alt="logo">
+                            class="main-logo" alt="logo">
 
                         <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
-                            style="width: 160px; height: 70px;" class="white-logo" alt="logo">
+                             class="white-logo" alt="logo">
 
                     </a>
                     <div class="collapse navbar-collapse mean-menu">
