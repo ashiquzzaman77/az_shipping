@@ -117,7 +117,7 @@
                             class="main-logo" alt="logo"> <span style="background: linear-gradient(to right, #825fff, #7bcefe); -webkit-background-clip: text; color: transparent; font-weight: bold;">AZ Shipping Services</span> --}}
 
                         <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/') }}"
-                            class="main-logo" style="width: 170px;height: 49px;" alt="logo"> 
+                            class="main-logo" style="width: 170px;height: 49px;" alt="logo">
 
                         {{-- <img src="{{ !empty(optional($setting)->site_logo) && file_exists(public_path('storage/' . optional($setting)->site_logo)) ? asset('storage/' . optional($setting)->site_logo) : asset('frontend/images/default-logo.png') }}"
                             class="main-logo" alt="logo" style="width: 170px; height: 45px;">
@@ -229,7 +229,8 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('login') }}" target="blank" class="x-sign">Mariner's Login</a>
+                                {{-- <a href="{{ route('login') }}" target="blank" class="">Mariner's Login</a> --}}
+                                <a href="{{ route('login') }}" target="_blank" style="padding: 15px" class="login-button22 text-white">Mariner's Login</a>
                             </li>
 
                         </ul>

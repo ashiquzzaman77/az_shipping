@@ -114,7 +114,7 @@ p:last-child {
   color: #ffffff;
   padding: 15px 30px;
   border-radius: 2px;
-  width:100%;
+  width: 100%;
   /* /// */
 }
 
@@ -123,6 +123,18 @@ p:last-child {
   border: 1px solid #023154;
   color: #ffffff;
 }
+
+
+.login-button22 {
+  display: inline-block;
+  background: linear-gradient(45deg, #5EF9F6, #023154);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
 
 .section-title {
   text-align: center;
@@ -1270,7 +1282,7 @@ Hero Slider Three Area
   width: 100%;
   height: 850px;
   position: relative;
-  
+
 }
 
 .hero-slider-three .hero-slider-three-item::before {
