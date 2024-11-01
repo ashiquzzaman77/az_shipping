@@ -131,7 +131,7 @@
                                     @endif
                                 </div>
                                 <div class="col-lg-12 col-md-12 mt-3">
-                                    <button type="submit" class="default-btn-one">Send Message</button>>
+                                    <button type="submit" class="default-btn-one">Send Message</button>
                                 </div>
                             </div>
                         </form>
