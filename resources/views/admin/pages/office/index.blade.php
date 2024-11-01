@@ -66,18 +66,16 @@
 
                 <div class="d-flex align-items-center">
                     <input type="checkbox" id="deak" class="form-check-input" onchange="filterOfficers()">
-                    <label for="deak" class="form-check-label me-3 ms-2">Deak Office</label>
+                    <label for="deak" class="form-check-label me-3 ms-2">Deak Officer</label>
 
                     <input type="checkbox" id="engine" class="form-check-input ms-3" onchange="filterOfficers()">
-                    <label for="engine" class="form-check-label ms-2">Engine Office</label>
+                    <label for="engine" class="form-check-label ms-2">Engine Officer</label>
                 </div>
-                
+
             </div>
 
 
             <div class="card-toolbar">
-
-
 
 
                 <a href="{{ route('admin.officer.create') }}" class="btn btn-light-primary me-3">
@@ -96,10 +94,6 @@
                 </a>
 
             </div>
-
-
-
-
 
         </div>
 
@@ -169,7 +163,7 @@
                             });
                         @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
-                            style="{{ $shouldBeRed ? 'background-color: #D92027; color: white;' : '' }}">
+                            style="{{ $shouldBeRed ? 'background-color: #EE4E4E; color: white;' : '' }}">
 
                             <td>{{ $key + 1 }}</td>
 
@@ -183,6 +177,7 @@
                                     @endif
                                 </h6>
                             </td>
+
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->name }}</h6>
                             </td>
@@ -201,6 +196,7 @@
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->contact }}</h6>
                             </td>
+
                             <td>
                                 @if ($item->status == 'board')
                                     <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">On Board
@@ -223,8 +219,9 @@
                                     <i class="fa-solid fa-eye text-success fs-5"></i>
                                 </a>
 
-                                
+
                                 <!-- showModal -->
+
                                 {{-- @if (Auth::guard('admin')->user()->can('edit.officer')) --}}
                                 <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
                                     <i class="fa-solid fa-pencil text-primary fs-5"></i>

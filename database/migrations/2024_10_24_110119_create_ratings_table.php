@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
 
+            $table->string('rating_type')->nullable();
             $table->string('name')->nullable();
             $table->string('rank')->nullable();
             $table->string('cdc_no')->nullable();
@@ -59,7 +60,6 @@ return new class extends Migration
             $table->date('other_two')->nullable();
             $table->date('other_three')->nullable();
             $table->date('other_four')->nullable();
-
 
             $table->timestamps();
         });

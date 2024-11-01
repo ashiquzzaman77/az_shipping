@@ -33,6 +33,7 @@ class RatingController extends Controller
         // Validate the incoming request data
         $validator = Validator::make($request->all(), [
 
+            'rating_type' => 'required|string',
             'name' => 'required|string|max:255',
             'rank' => 'nullable|string|max:255',
             'cdc_no' => 'nullable|string|max:255',
@@ -79,6 +80,7 @@ class RatingController extends Controller
 
         // Create a new Rating instance and fill it with request data
         $rating = new Rating();
+        $rating->rating_type = $request->rating_type;
         $rating->name = $request->name;
         $rating->rank = $request->rank;
         $rating->cdc_no = $request->cdc_no;
@@ -147,6 +149,7 @@ class RatingController extends Controller
     {
         // Validate the incoming request data
         $validatedData = $request->validate([
+           'rating_type' => 'required|string',
            'name' => 'required|string|max:255',
             'rank' => 'nullable|string|max:255',
             'cdc_no' => 'nullable|string|max:255',

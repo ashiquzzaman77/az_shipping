@@ -37,6 +37,32 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="officer_type" class="mb-2">Rating Type</label>
+                                <select name="rating_type"
+                                    class="form-select form-select-sm @error('rating_type') is-invalid @enderror"
+                                    id="rating_type">
+                                    <option selected disabled>Choose...</option>
+
+                                    <option value="deak" {{ $rating->rating_type == 'deak' ? 'selected' : '' }}>Deak
+                                        Officer</option>
+
+                                    <option value="engine" {{ $rating->rating_type == 'engine' ? 'selected' : '' }}>
+                                        Engine Officer</option>
+
+                                    <option value="salon" {{ $rating->rating_type == 'salon' ? 'selected' : '' }}>
+                                        Salon</option>
+
+                                </select>
+                                @error('rating_type')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="name" class="mb-2">Name</label>
                                 <input type="text" name="name" placeholder="Enter Name"
                                     class="form-control form-control-sm" value="{{ old('name', $rating->name) }}">
@@ -71,7 +97,8 @@
                             <div class="form-group">
                                 <label for="academy" class="mb-2">Academy</label>
                                 <input type="text" name="academy" placeholder="Enter Academy"
-                                    class="form-control form-control-sm" value="{{ old('academy', $rating->academy) }}">
+                                    class="form-control form-control-sm"
+                                    value="{{ old('academy', $rating->academy) }}">
                             </div>
                         </div>
 
@@ -87,7 +114,8 @@
                             <div class="form-group">
                                 <label for="batch" class="mb-2">Passport Number</label>
                                 <input type="text" name="passport_number" placeholder="Enter Passport Number"
-                                    class="form-control form-control-sm" value="{{ old('passport_number',$rating->passport_number) }}">
+                                    class="form-control form-control-sm"
+                                    value="{{ old('passport_number', $rating->passport_number) }}">
                             </div>
                         </div>
 
@@ -96,15 +124,20 @@
                                 <label for="contact" class="mb-2">Current Status</label>
                                 <select name="status" class="form-select form-select-sm" id="statusSelect">
                                     <option disabled {{ $rating->status ? '' : 'selected' }}>Choose...</option>
-                                    <option value="board" {{ $rating->status == 'board' ? 'selected' : '' }}>On Board</option>
-                                    <option value="leave" {{ $rating->status == 'leave' ? 'selected' : '' }}>On Leave</option>
-                                    <option value="fleet" {{ $rating->status == 'fleet' ? 'selected' : '' }}>Not in Fleet Yet</option>
+                                    <option value="board" {{ $rating->status == 'board' ? 'selected' : '' }}>On Board
+                                    </option>
+                                    <option value="leave" {{ $rating->status == 'leave' ? 'selected' : '' }}>On Leave
+                                    </option>
+                                    <option value="fleet" {{ $rating->status == 'fleet' ? 'selected' : '' }}>Not in
+                                        Fleet Yet</option>
                                 </select>
                             </div>
-                            
-                            <div id="additionalField" class="form-group mt-2" style="{{ $rating->status == 'board' ? '' : 'display: none;' }}">
+
+                            <div id="additionalField" class="form-group mt-2"
+                                style="{{ $rating->status == 'board' ? '' : 'display: none;' }}">
                                 <label for="details" class="mb-2">Ship Name</label>
-                                <input type="text" class="form-control form-control-sm" id="details" name="ship_name" placeholder="Enter ship name">
+                                <input type="text" class="form-control form-control-sm" id="details"
+                                    name="ship_name" placeholder="Enter ship name">
                             </div>
                         </div>
 
@@ -112,11 +145,12 @@
                             <div class="form-group">
                                 <label for="remarks" class="mb-2">Remarks</label>
                                 <input type="text" name="remarks" placeholder="Enter Remarks"
-                                    class="form-control form-control-sm" value="{{ old('remarks', $rating->remarks) }}">
+                                    class="form-control form-control-sm"
+                                    value="{{ old('remarks', $rating->remarks) }}">
                             </div>
                         </div>
 
-                        
+
 
                     </div>
                 </div>
@@ -127,7 +161,7 @@
 
                         <h2 class="mb-4">General Information</h2>
 
-                        
+
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -214,7 +248,7 @@
                             <div class="form-group">
                                 <label for="atoto" class="mb-2">ATOTO</label>
                                 <input type="date" name="atoto" placeholder="Enter ATOTO"
-                                    class="form-control form-control-sm" value="{{ old('atoto',$rating->atoto) }}">
+                                    class="form-control form-control-sm" value="{{ old('atoto', $rating->atoto) }}">
                             </div>
                         </div>
 
@@ -262,7 +296,8 @@
                             <div class="form-group">
                                 <label for="ship_cook" class="mb-2">Ship Cook</label>
                                 <input type="date" name="ship_cook" placeholder="Enter Ship Cook"
-                                    class="form-control form-control-sm" value="{{ old('ship_cook', $rating->ship_cook) }}">
+                                    class="form-control form-control-sm"
+                                    value="{{ old('ship_cook', $rating->ship_cook) }}">
                             </div>
                         </div>
 
@@ -286,7 +321,7 @@
                             <div class="form-group">
                                 <label for="readiness" class="mb-2">Readiness</label>
                                 <input type="date" name="readiness" class="form-control form-control-sm"
-                                    value="{{ old('readiness',$rating->readiness) }}">
+                                    value="{{ old('readiness', $rating->readiness) }}">
                             </div>
                         </div>
 
@@ -338,25 +373,25 @@
     </div>
 
     @push('scripts')
-    <script>
-        const statusSelect = document.getElementById('statusSelect');
-        const additionalField = document.getElementById('additionalField');
-    
-        // Function to toggle the additional field
-        function toggleAdditionalField() {
-            if (statusSelect.value === 'board') {
-                additionalField.style.display = 'block';
-            } else {
-                additionalField.style.display = 'none';
+        <script>
+            const statusSelect = document.getElementById('statusSelect');
+            const additionalField = document.getElementById('additionalField');
+
+            // Function to toggle the additional field
+            function toggleAdditionalField() {
+                if (statusSelect.value === 'board') {
+                    additionalField.style.display = 'block';
+                } else {
+                    additionalField.style.display = 'none';
+                }
             }
-        }
-    
-        // Event listener for the dropdown
-        statusSelect.addEventListener('change', toggleAdditionalField);
-    
-        // Initial check to set visibility based on the selected status
-        toggleAdditionalField();
-    </script>
+
+            // Event listener for the dropdown
+            statusSelect.addEventListener('change', toggleAdditionalField);
+
+            // Initial check to set visibility based on the selected status
+            toggleAdditionalField();
+        </script>
     @endpush
 
 </x-admin-app-layout>

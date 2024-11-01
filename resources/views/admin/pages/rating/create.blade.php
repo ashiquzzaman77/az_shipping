@@ -36,6 +36,32 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
+                                <label for="officer_type" class="mb-2">Rating Type</label>
+                                <select name="rating_type"
+                                    class="form-select form-select-sm @error('rating_type') is-invalid @enderror"
+                                    id="rating_type">
+                                    <option selected disabled>Choose...</option>
+
+                                    <option value="deak" {{ old('rating_type') == 'deak' ? 'selected' : '' }}>Deak
+                                        Officer</option>
+
+                                    <option value="engine" {{ old('rating_type') == 'engine' ? 'selected' : '' }}>
+                                        Engine Officer</option>
+
+                                    <option value="salon" {{ old('rating_type') == 'salon' ? 'selected' : '' }}>
+                                        Salon</option>
+
+                                </select>
+                                @error('rating_type')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
                                 <label for="name" class="mb-2">Name</label>
                                 <input type="text" name="name" placeholder="Enter Name"
                                     class="form-control form-control-sm" value="{{ old('name') }}">
