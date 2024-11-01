@@ -23,17 +23,17 @@
                 <div class="col-lg-8">
                     <div class="service-details-text">
 
-                        <div class="service-image">
+                        {{-- <div class="service-image">
                             <img src="{{ !empty($serviceItem->banner_top_image) ? url('storage/' . $serviceItem->banner_top_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}"
                                 alt="image">
-                        </div>
+                        </div> --}}
 
-                        <h3>{{ $serviceItem->name }}</h3>
+                        <h2>{{ $serviceItem->name }}</h2>
 
                         <p>{{ $serviceItem->short_descp }}</p>
 
                         <div class="image">
-                            <img src="{{ !empty($serviceItem->banner_center_image) ? url('storage/' . $serviceItem->banner_center_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}"
+                            <img src="{{ !empty($serviceItem->banner_top_image) ? url('storage/' . $serviceItem->banner_top_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}"
                                 alt="image">
                         </div>
 

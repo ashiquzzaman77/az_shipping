@@ -23,7 +23,7 @@
                 <div class="col-lg-8">
                     <div class="service-details-text">
 
-                        <h3>{{ $principleItem->name }}</h3>
+                        <h2>{{ $principleItem->name }}</h2>
 
                         {{-- <div class="service-image">
                             <img src="{{ !empty($principleItem->banner_top_image) ? url('storage/' . $principleItem->banner_top_image) : 'https://ui-avatars.com/api/?name=' . urlencode('PN') }}"
