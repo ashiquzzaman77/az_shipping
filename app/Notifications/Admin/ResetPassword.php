@@ -76,7 +76,7 @@ class ResetPassword extends Notification
     {
         return (new MailMessage)
         
-            ->from('support@ngenit.com', 'NgenIt-Training')
+            ->from('operation.azss@gmail.com', 'AZ Shipping Services')
 
             ->view('mail.reset-password', ['url' => $url,'count' => config('auth.passwords.admins.expire')])
 

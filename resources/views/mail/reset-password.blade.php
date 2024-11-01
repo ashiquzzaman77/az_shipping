@@ -13,11 +13,9 @@
         <tbody>
             <tr>
                 <td align="center" valign="center" style="text-align:center; padding: 40px">
-                    <a href="https://training.ngengroup.org/" rel="noopener" target="_blank">
+                    <a href="http://azshipping.net/" rel="noopener" target="_blank">
 
-                        <img alt="Logo"
-                            src=""
-                            style="width: 100px;" />
+                        <img src="http://azshipping.net/storage/images/settings/icA040G3xrUQ8qXzWusDxBIXuaNWPNTuf8PKcesl.png" class="main-logo" style="width: 170px;height: 49px;" alt="logo">
 
                     </a>
                 </td>
