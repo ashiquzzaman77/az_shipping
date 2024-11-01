@@ -16,7 +16,7 @@
                     <a href="https://training.ngengroup.org/" rel="noopener" target="_blank">
 
                         <img alt="Logo"
-                            src="https://training.ngengroup.org/storage/images/settings/26znqdblzfWUKbfm30YplsyXy3U7J32MCaFnMs7g.png"
+                            src=""
                             style="width: 100px;" />
 
                     </a>
