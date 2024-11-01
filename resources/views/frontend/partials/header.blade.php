@@ -230,7 +230,7 @@
 
                             <li class="nav-item">
                                 {{-- <a href="{{ route('login') }}" target="blank" class="">Mariner's Login</a> --}}
-                                <a href="{{ route('login') }}" target="_blank" style="padding: 15px" class="login-button22 text-white">Mariner's Login</a>
+                                <a href="{{ route('login') }}" target="_blank" style="padding: 13px" class="login-button22 text-white mt-2">Mariner's Login</a>
                             </li>
 
                         </ul>
