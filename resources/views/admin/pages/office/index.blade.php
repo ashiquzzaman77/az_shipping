@@ -169,17 +169,17 @@
                             // });
 
                             $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
-                                return !empty($date) &&
-                                    \Carbon\Carbon::canParse($date) &&
-                                    (\Carbon\Carbon::now()->greaterThanOrEqualTo(
-                                        \Carbon\Carbon::parse($date)->subMonths(2),
-                                    ) ||
-                                        \Carbon\Carbon::now()->greaterThanOrEqualTo(
-                                            \Carbon\Carbon::parse($date)->subMonths(3),
-                                        ) ||
-                                        \Carbon\Carbon::now()->greaterThanOrEqualTo(
-                                            \Carbon\Carbon::parse($date)->subMonths(6),
-                                        ));
+                                if (empty($date)) {
+                                    return false;
+                                } // Skip empty values
+                                try {
+                                    $parsedDate = \Carbon\Carbon::parse($date);
+                                    return \Carbon\Carbon::now()->greaterThanOrEqualTo($parsedDate->subMonths(2)) ||
+                                        \Carbon\Carbon::now()->greaterThanOrEqualTo($parsedDate->subMonths(3)) ||
+                                        \Carbon\Carbon::now()->greaterThanOrEqualTo($parsedDate->subMonths(6));
+                                } catch (\Exception $e) {
+                                    return false; // Return false for invalid date formats
+                                }
                             });
 
                             // $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
