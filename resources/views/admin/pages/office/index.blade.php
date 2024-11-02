@@ -189,7 +189,7 @@
                             $shouldBeRed = $shouldBe2 || $shouldBe3 || $shouldBe6;
 
                         @endphp
-                        
+
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #FF6363; color: white;' : '' }}">
 
@@ -362,7 +362,7 @@
                                             <tr>
                                                 <th class="fs-5">CDC</th>
                                                 <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->cdc)->subMonths(3)) ? 'color: red;' : '' }}">
+                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->cdc)->subMonths(6)) ? 'color: red;' : '' }}">
 
                                                     @if ($item->cdc)
                                                         {{ \Carbon\Carbon::parse($item->cdc)->format('F j, Y') }}
