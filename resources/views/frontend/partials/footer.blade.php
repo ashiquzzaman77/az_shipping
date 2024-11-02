@@ -92,10 +92,15 @@
                 <div class="footer-widget">
                     <h3>Contact Info</h3>
                     <ul class="info-list">
+
                         <li>
                             <i class="bx bxs-location-plus"></i>
-                            <p>{{ optional($setting)->address_line_one }}</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode(optional($setting)->address_line_one) }}" target="_blank">
+                                {{ optional($setting)->address_line_one }}
+                            </a>
                         </li>
+                        
+
                         <li>
                             <i class="bx bxs-envelope"></i>
                             <p>{{ optional($setting)->primary_email }}</p>
