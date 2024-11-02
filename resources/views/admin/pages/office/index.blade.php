@@ -350,7 +350,7 @@
                                                     @if ($item->cdc)
                                                         {{ \Carbon\Carbon::parse($item->cdc)->format('F j, Y') }}
                                                     @else
-                                                    N/A
+                                                    
                                                     @endif
 
                                                 </td>
@@ -364,7 +364,7 @@
                                                     @if ($item->coc)
                                                         {{ \Carbon\Carbon::parse($item->coc)->format('F j, Y') }}
                                                     @else
-                                                    N/A
+                                                    
                                                     @endif
 
                                                 </td>
@@ -378,7 +378,7 @@
                                                     @if ($item->goc)
                                                         {{ \Carbon\Carbon::parse($item->goc)->format('F j, Y') }}
                                                     @else
-                                                    N/A
+                                                    
                                                     @endif
 
                                                 </td>
@@ -392,7 +392,7 @@
                                                     @if ($item->sid)
                                                         {{ \Carbon\Carbon::parse($item->sid)->format('F j, Y') }}
                                                     @else
-                                                    N/A
+                                                   
                                                     @endif
 
                                                 </td>
