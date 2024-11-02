@@ -146,7 +146,6 @@
                                 $item->atoto,
                                 $item->cor,
                                 $item->end_of_contract,
-
                             ];
 
                             $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
@@ -162,6 +161,7 @@
                             //             \Carbon\Carbon::parse($date)->subMonths(3),
                             //         ) );
                             // });
+
                         @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #FF6363; color: white;' : '' }}">
@@ -924,17 +924,6 @@
                                                 </td>
                                             </tr>
 
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
-
-                                <div class="col-6">
-
-                                    <table class="table table-striped table-hover table-row-bordered custom-table">
-                                        <tbody>
-
                                             <tr>
                                                 <th class="fs-5">DSD</th>
                                                 <td
@@ -960,6 +949,19 @@
 
                                                 </td>
                                             </tr>
+
+
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                                <div class="col-6">
+
+                                    <table class="table table-striped table-hover table-row-bordered custom-table">
+                                        <tbody>
 
                                             <tr>
                                                 <th class="fs-5">Rader Navigation</th>
@@ -1117,6 +1119,12 @@
 
                                             <tr>
                                                 <th class="fs-5">Joining/Discharge</th>
+                                                <td>
+                                                    {{ $item->discharge_date }}
+                                                </td>
+                                            </tr>
+                                            {{-- <tr>
+                                                <th class="fs-5">Joining/Discharge</th>
                                                 <td
                                                     style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->discharge_date)->subMonths(3)) ? 'color: red;' : '' }}">
 
@@ -1125,7 +1133,7 @@
                                                     @else
                                                     @endif
                                                 </td>
-                                            </tr>
+                                            </tr> --}}
 
                                             <tr>
                                                 <th class="fs-5">End Of Contract</th>
@@ -1141,13 +1149,34 @@
 
                                             <tr>
                                                 <th class="fs-5">Readiness</th>
-                                                <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->readiness)->subMonths(3)) ? 'color: red;' : '' }}">
+                                                <td>
+                                                    {{ \Carbon\Carbon::parse($item->readiness)->format('F j, Y') }}
+                                                </td>
+                                            </tr>
 
-                                                    @if ($item->readiness)
-                                                        {{ \Carbon\Carbon::parse($item->readiness)->format('F j, Y') }}
-                                                    @else
-                                                    @endif
+                                            <tr>
+                                                <th class="fs-5">Other One</th>
+                                                <td>
+                                                    {{ \Carbon\Carbon::parse($item->other_one)->format('F j, Y') }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="fs-5">Other Two</th>
+                                                <td>
+                                                    {{ \Carbon\Carbon::parse($item->other_two)->format('F j, Y') }}
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th class="fs-5">Other Three</th>
+                                                <td>
+                                                    {{ \Carbon\Carbon::parse($item->other_three)->format('F j, Y') }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="fs-5">Other Four</th>
+                                                <td>
+                                                    {{ \Carbon\Carbon::parse($item->other_four)->format('F j, Y') }}
                                                 </td>
                                             </tr>
 
