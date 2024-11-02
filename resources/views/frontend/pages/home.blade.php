@@ -59,7 +59,7 @@
                         <div class="service-caption">
                             <h3 style="text-align: start;">{{ $service->name }}</h3>
 
-                            <p style="text-align: justify;">{!! substr($service->short_descp, 0, 175) !!}</p>
+                            <p style="text-align: justify;">{!! substr($service->short_descp, 0, 175) !!}...</p>
 
                             <a href="{{ route('service.details', [$service->slug, $service->id]) }}"
                                 class="default-btn-two">See More</a>
