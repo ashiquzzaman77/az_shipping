@@ -406,7 +406,7 @@
                                                     @if ($item->ph)
                                                         {{ \Carbon\Carbon::parse($item->ph)->format('F j, Y') }}
                                                     @else
-                                                    N/A
+                                                    
                                                     @endif
 
                                                 </td>
