@@ -155,14 +155,12 @@
                                 $item->edh,
                             ];
 
-
                             $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
                                 return $date &&
-                                    (\Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                    \Carbon\Carbon::now()->greaterThanOrEqualTo(
                                         \Carbon\Carbon::parse($date)->subMonths(3),
-                                    ) );
+                                    );
                             });
-
                         @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #FF6363; color: white;' : '' }}">
@@ -325,7 +323,7 @@
                                         <tr>
                                             <th class="fs-5">Passport</th>
                                             <td
-                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->passport)->subMonths(3)) ? 'color: red;' : '' }}">
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->passport)->subMonths(6)) ? 'color: red;' : '' }}">
 
                                                 @if ($item->passport)
                                                     {{ \Carbon\Carbon::parse($item->passport)->format('F j, Y') }}
