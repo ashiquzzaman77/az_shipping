@@ -50,7 +50,7 @@
                                         Engine Rating</option>
 
                                     <option value="salon" {{ $rating->rating_type == 'salon' ? 'selected' : '' }}>
-                                        Salon</option>
+                                        Salon Rating</option>
 
                                 </select>
                                 @error('rating_type')
@@ -137,7 +137,8 @@
                                 style="{{ $rating->status == 'board' ? '' : 'display: none;' }}">
                                 <label for="details" class="mb-2">Ship Name</label>
                                 <input type="text" class="form-control form-control-sm" id="details"
-                                    name="ship_name" value="{{ old('ship_name', $rating->ship_name) }}" placeholder="Enter ship name">
+                                    name="ship_name" value="{{ old('ship_name', $rating->ship_name) }}"
+                                    placeholder="Enter ship name">
                             </div>
                         </div>
 
@@ -160,8 +161,6 @@
                     <div class="row p-4">
 
                         <h2 class="mb-4">General Information</h2>
-
-
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -356,8 +355,8 @@
                         </div>
 
                         <div class="col-12 mb-3 mt-4">
-                            <button type="submit"
-                                class="btn btn-primary rounded-0 px-5 btn-sm float-end">Submit</button>
+                            <button type="submit" class="btn btn-primary rounded-0 px-5 btn-sm float-end">Update
+                                Rating</button>
                         </div>
 
                     </div>
