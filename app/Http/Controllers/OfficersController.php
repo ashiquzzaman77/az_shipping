@@ -72,8 +72,10 @@ class OfficersController extends Controller
             'atoto' => 'nullable|date',
             'cor' => 'nullable|date',
             'covid' => 'nullable|string|max:255',
+
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
+
             'other_one' => 'nullable|date',
             'other_two' => 'nullable|date',
             'other_three' => 'nullable|date',
@@ -124,8 +126,10 @@ class OfficersController extends Controller
             'atoto' => $request->atoto,
             'cor' => $request->cor,
             'covid' => $request->covid,
+
             'discharge_date' => $request->discharge_date,
             'end_of_contract' => $request->end_of_contract,
+
             'other_one' => $request->other_one,
             'other_two' => $request->other_two,
             'other_three' => $request->other_three,
@@ -173,6 +177,7 @@ class OfficersController extends Controller
             'passport_number' => 'required|string|max:255',
             'status' => 'required|string',
             'ship_name' => 'nullable|string|max:255',
+            'remarks' => 'nullable|string',
 
             'cdc' => 'nullable|date',
             'readiness' => 'nullable|date',
@@ -202,8 +207,10 @@ class OfficersController extends Controller
             'atoto' => 'nullable|date',
             'cor' => 'nullable|date',
             'covid' => 'nullable|string|max:255',
+
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
+            
             'other_one' => 'nullable|date',
             'other_two' => 'nullable|date',
             'other_three' => 'nullable|date',

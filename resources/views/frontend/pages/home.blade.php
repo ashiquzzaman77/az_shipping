@@ -1,5 +1,6 @@
 @extends('frontend.master')
 @section('content')
+
     <style>
         .bxs-star {
             color: #f7941d;
@@ -8,7 +9,6 @@
 
     <!-- Banner Section Start  -->
     <div class="hero-slider-three owl-carousel owl-theme">
-
         @forelse ($banners as $item)
             <div class="hero-slider-three-item"
                 style="background-image: url('{{ !empty($item->image) ? url('storage/banner/' . $item->image) : '' }}');">
@@ -36,52 +36,6 @@
         @empty
             <p>No Image Avaiable</p>
         @endforelse
-        {{-- <div class="hero-slider-three-item">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <div class="row align-items-center mt-50">
-                            <div class="col-lg-8 col-md-8">
-                                <div class="slider-three-text">
-                                    <span>Since 1992</span>
-                                    <h1>Digital Solution for Transportation and Logistic </h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor
-                                        incididunt ut labore et dolore.</p>
-                                    <a href="#" class="default-btn-one me-3">Contact Us</a>
-                                    <a href="#" class="default-btn-two">Get A Quote</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-slider-three-item">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <div class="row align-items-center mt-50">
-                            <div class="col-lg-8 col-md-8">
-                                <div class="slider-three-text">
-                                    <span>Since 1992</span>
-                                    <h1>Digital Solution for Transportation and Logistic </h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor
-                                        incididunt ut labore et dolore.</p>
-                                    <a href="#" class="default-btn-one me-3">Contact Us</a>
-                                    <a href="#" class="default-btn-two">Get A Quote</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-
     </div>
     <!-- Banner Section End  -->
 
@@ -97,6 +51,7 @@
             <div class="services-slider-two owl-carousel owl-theme">
 
                 @forelse ($services as $service)
+
                     <div class="service-card-two">
                         <img class="freight-image"
                             src="{{ !empty($service->thumbnail_image) ? url('storage/' . $service->thumbnail_image) : 'https://ui-avatars.com/api/?name=' . urlencode('SS') }}"
@@ -104,7 +59,7 @@
                         <div class="service-caption">
                             <h3 style="text-align: start;">{{ $service->name }}</h3>
 
-                            <p style="text-align: justify;">{!! $service->short_descp !!}</p>
+                            <p style="text-align: justify;">{!! substr($service->short_descp, 0, 175) !!}...</p>
 
                             <a href="{{ route('service.details', [$service->slug, $service->id]) }}"
                                 class="default-btn-two">See More</a>
@@ -117,6 +72,7 @@
                 @endforelse
 
             </div>
+            
         </div>
     </div>
     <!-- Service Section End -->

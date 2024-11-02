@@ -89,11 +89,10 @@
             <div class="row">
 
                 <div class="col-12 col-lg-6 d-none d-lg-block">
-                    <img src="{{ asset('frontend/img/login.png') }}" alt="">
+                    <img src="{{ asset('frontend/img/login.jpg') }}" alt="">
                 </div>
 
-
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6 my-auto">
                     <div class="sign-in-form2">
 
 
@@ -116,11 +115,15 @@
                                 <a href="" class="text-decoration-none">Forgot Password?</a>
                             </div>
 
-                            <button type="submit" style="background: linear-gradient(45deg, #6a11cb, #2575fc); color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background 0.3s ease;" onmouseover="this.style.background='linear-gradient(45deg, #2575fc, #6a11cb)'" onmouseout="this.style.background='linear-gradient(45deg, #6a11cb, #2575fc)'">Sign In</button>
+                            <button type="submit"
+                                style="background: linear-gradient(45deg, #6a11cb, #2575fc); color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background 0.3s ease;"
+                                onmouseover="this.style.background='linear-gradient(45deg, #2575fc, #6a11cb)'"
+                                onmouseout="this.style.background='linear-gradient(45deg, #6a11cb, #2575fc)'">Sign
+                                In</button>
 
-                            
+
                             <p class="mt-2">
-                                Not a member? <a href="sign-up.html">Sign Up</a>
+                                Not a member? <a href="{{ route('register') }}">Sign Up</a>
                             </p>
 
 

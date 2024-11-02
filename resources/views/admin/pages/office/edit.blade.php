@@ -203,7 +203,7 @@
                                 <label for="coc" class="mb-2">COC</label>
                                 <input type="date" name="coc" placeholder="Enter COC"
                                     class="form-control form-control-sm"
-                                    value="{{ old('coc', $officer->coc ?? 'COC11223') }}">
+                                    value="{{ old('coc', $officer->coc) }}">
                             </div>
                         </div>
 
@@ -212,7 +212,7 @@
                                 <label for="goc" class="mb-2">GOC</label>
                                 <input type="date" name="goc" placeholder="Enter GOC"
                                     class="form-control form-control-sm"
-                                    value="{{ old('goc', $officer->goc ?? 'GOC33445') }}">
+                                    value="{{ old('goc', $officer->goc) }}">
                             </div>
                         </div>
 
@@ -221,7 +221,7 @@
                                 <label for="sid" class="mb-2">SID</label>
                                 <input type="date" name="sid" placeholder="Enter SID"
                                     class="form-control form-control-sm"
-                                    value="{{ old('sid', $officer->sid ?? 'SID55667') }}">
+                                    value="{{ old('sid', $officer->sid) }}">
                             </div>
                         </div>
 
@@ -230,7 +230,7 @@
                                 <label for="ph" class="mb-2">PH</label>
                                 <input type="date" name="ph" placeholder="Enter PH"
                                     class="form-control form-control-sm"
-                                    value="{{ old('ph', $officer->ph ?? 'PH78901') }}">
+                                    value="{{ old('ph', $officer->ph) }}">
                             </div>
                         </div>
 
@@ -239,7 +239,7 @@
                                 <label for="pst" class="mb-2">PST</label>
                                 <input type="date" name="pst" placeholder="Enter PST"
                                     class="form-control form-control-sm"
-                                    value="{{ old('pst', $officer->pst ?? 'PST23456') }}">
+                                    value="{{ old('pst', $officer->pst) }}">
                             </div>
                         </div>
 
@@ -257,7 +257,7 @@
                                 <label for="efa" class="mb-2">EFA</label>
                                 <input type="date" name="efa" placeholder="Enter EFA"
                                     class="form-control form-control-sm"
-                                    value="{{ old('efa', $officer->efa ?? 'EFA12345') }}">
+                                    value="{{ old('efa', $officer->efa) }}">
                             </div>
                         </div>
 
@@ -266,7 +266,7 @@
                                 <label for="pssr" class="mb-2">PSSR</label>
                                 <input type="date" name="pssr" placeholder="Enter PSSR"
                                     class="form-control form-control-sm"
-                                    value="{{ old('pssr', $officer->pssr ?? 'PSSR67890') }}">
+                                    value="{{ old('pssr', $officer->pssr) }}">
                             </div>
                         </div>
 
@@ -275,7 +275,7 @@
                                 <label for="sat" class="mb-2">SAT</label>
                                 <input type="date" name="sat" placeholder="Enter SAT"
                                     class="form-control form-control-sm"
-                                    value="{{ old('sat', $officer->sat ?? 'SAT23456') }}">
+                                    value="{{ old('sat', $officer->sat) }}">
                             </div>
                         </div>
 
@@ -284,7 +284,7 @@
                                 <label for="dsd" class="mb-2">DSD</label>
                                 <input type="date" name="dsd" placeholder="Enter DSD"
                                     class="form-control form-control-sm"
-                                    value="{{ old('dsd', $officer->dsd ?? 'DSD78901') }}">
+                                    value="{{ old('dsd', $officer->dsd) }}">
                             </div>
                         </div>
 
@@ -293,7 +293,7 @@
                                 <label for="pscrb" class="mb-2">PSCRB</label>
                                 <input type="date" name="pscrb" placeholder="Enter PSCRB"
                                     class="form-control form-control-sm"
-                                    value="{{ old('pscrb', $officer->pscrb ?? 'PSCRB23456') }}">
+                                    value="{{ old('pscrb', $officer->pscrb) }}">
                             </div>
                         </div>
 
@@ -302,7 +302,7 @@
                                 <label for="edh" class="mb-2">EDH</label>
                                 <input type="date" name="edh" placeholder="Enter EDH"
                                     class="form-control form-control-sm"
-                                    value="{{ old('edh', $officer->edh ?? 'EDH89012') }}">
+                                    value="{{ old('edh', $officer->edh) }}">
                             </div>
                         </div>
 
@@ -312,7 +312,7 @@
                                 <label for="radar_navigation" class="mb-2">Radar Navigation</label>
                                 <input type="date" name="radar_navigation" placeholder="Enter Radar Navigation"
                                     class="form-control form-control-sm"
-                                    value="{{ old('radar_navigation', $officer->radar_navigation ?? 'RadarNav1') }}">
+                                    value="{{ old('radar_navigation', $officer->radar_navigation) }}">
                             </div>
                         </div>
 
@@ -321,7 +321,7 @@
                                 <label for="aff" class="mb-2">AFF</label>
                                 <input type="date" name="aff" placeholder="Enter AFF"
                                     class="form-control form-control-sm"
-                                    value="{{ old('aff', $officer->aff ?? 'AFF12345') }}">
+                                    value="{{ old('aff', $officer->aff) }}">
                             </div>
                         </div>
 
@@ -330,7 +330,7 @@
                                 <label for="mfa" class="mb-2">MFA</label>
                                 <input type="date" name="mfa" placeholder="Enter MFA"
                                     class="form-control form-control-sm"
-                                    value="{{ old('mfa', $officer->mfa ?? 'MFA67890') }}">
+                                    value="{{ old('mfa', $officer->mfa) }}">
                             </div>
                         </div>
 
@@ -339,7 +339,7 @@
                                 <label for="madical_care" class="mb-2">Medical Care</label>
                                 <input type="date" name="madical_care" placeholder="Enter Medical Care"
                                     class="form-control form-control-sm"
-                                    value="{{ old('madical_care', $officer->madical_care ?? 'MedCare1') }}">
+                                    value="{{ old('madical_care', $officer->madical_care) }}">
                             </div>
                         </div>
 
@@ -348,7 +348,7 @@
                                 <label for="ens" class="mb-2">ENS</label>
                                 <input type="date" name="ens" placeholder="Enter ENS"
                                     class="form-control form-control-sm"
-                                    value="{{ old('ens', $officer->ens ?? 'ENS23456') }}">
+                                    value="{{ old('ens', $officer->ens) }}">
                             </div>
                         </div>
 
@@ -357,7 +357,7 @@
                                 <label for="sso" class="mb-2">SSO</label>
                                 <input type="date" name="sso" placeholder="Enter SSO"
                                     class="form-control form-control-sm"
-                                    value="{{ old('sso', $officer->sso ?? 'SSO78901') }}">
+                                    value="{{ old('sso', $officer->sso) }}">
                             </div>
                         </div>
 
@@ -366,7 +366,7 @@
                                 <label for="brm" class="mb-2">BRM/ERM</label>
                                 <input type="date" name="brm" placeholder="Enter BRM"
                                     class="form-control form-control-sm"
-                                    value="{{ old('brm', $officer->brm ?? 'BRM23456') }}">
+                                    value="{{ old('brm', $officer->brm) }}">
                             </div>
                         </div>
 
@@ -375,7 +375,7 @@
                                 <label for="hvs" class="mb-2">HVS</label>
                                 <input type="date" name="hvs" placeholder="Enter HVS"
                                     class="form-control form-control-sm"
-                                    value="{{ old('hvs', $officer->hvs ?? 'HVS67890') }}">
+                                    value="{{ old('hvs', $officer->hvs) }}">
                             </div>
                         </div>
 
@@ -384,7 +384,7 @@
                                 <label for="ship_simulation" class="mb-2">Ship Simulation</label>
                                 <input type="date" name="ship_simulation" placeholder="Enter Ship Simulation"
                                     class="form-control form-control-sm"
-                                    value="{{ old('ship_simulation', $officer->ship_simulation ?? 'ShipSim1') }}">
+                                    value="{{ old('ship_simulation', $officer->ship_simulation) }}">
                             </div>
                         </div>
 
@@ -393,7 +393,7 @@
                                 <label for="ecdis" class="mb-2">ECDIS</label>
                                 <input type="date" name="ecdis" placeholder="Enter ECDIS"
                                     class="form-control form-control-sm"
-                                    value="{{ old('ecdis', $officer->ecdis ?? 'ECDIS12345') }}">
+                                    value="{{ old('ecdis', $officer->ecdis) }}">
                             </div>
                         </div>
 
@@ -402,7 +402,7 @@
                                 <label for="atoto" class="mb-2">ATOTO</label>
                                 <input type="date" name="atoto" placeholder="Enter ATOTO"
                                     class="form-control form-control-sm"
-                                    value="{{ old('atoto', $officer->atoto ?? 'ATOTO67890') }}">
+                                    value="{{ old('atoto', $officer->atoto) }}">
                             </div>
                         </div>
 
@@ -411,7 +411,7 @@
                                 <label for="cor" class="mb-2">COR</label>
                                 <input type="date" name="cor" placeholder="Enter COR"
                                     class="form-control form-control-sm"
-                                    value="{{ old('cor', $officer->cor ?? 'COR23456') }}">
+                                    value="{{ old('cor', $officer->cor) }}">
                             </div>
                         </div>
 
@@ -420,7 +420,7 @@
                                 <label for="covid" class="mb-2">COVID Vaccination</label>
                                 <input type="text" name="covid" placeholder="Enter COVID Vaccination"
                                     class="form-control form-control-sm"
-                                    value="{{ old('covid', $officer->covid ?? 'COVID12345') }}">
+                                    value="{{ old('covid', $officer->covid) }}">
                             </div>
                         </div>
 
@@ -437,7 +437,7 @@
                             <div class="form-group">
                                 <label for="discharge_date" class="mb-2">Joining Date/Discharge Date</label>
                                 <input type="date" name="discharge_date" class="form-control form-control-sm"
-                                    value="{{ old('discharge_date', $officer->discharge_date ?? '2024-10-01') }}"
+                                    value="{{ old('discharge_date', $officer->discharge_date) }}"
                                     aria-label="Discharge Date">
                             </div>
                         </div>
@@ -446,7 +446,7 @@
                             <div class="form-group">
                                 <label for="end_of_contract" class="mb-2">End of Contract</label>
                                 <input type="date" name="end_of_contract" class="form-control form-control-sm"
-                                    value="{{ old('end_of_contract', $officer->end_of_contract ?? '2025-10-01') }}"
+                                    value="{{ old('end_of_contract', $officer->end_of_contract) }}"
                                     aria-label="End of Contract">
                             </div>
                         </div>

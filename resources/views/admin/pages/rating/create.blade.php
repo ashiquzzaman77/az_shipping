@@ -49,7 +49,7 @@
                                         Engine Rating</option>
 
                                     <option value="salon" {{ old('rating_type') == 'salon' ? 'selected' : '' }}>
-                                        Salon</option>
+                                        Saloon Rating</option>
 
                                 </select>
                                 @error('rating_type')

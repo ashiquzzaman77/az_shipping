@@ -99,7 +99,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="cdc_no" class="mb-2">CDC No</label>
-                                <input type="text" name="cdc_no"  placeholder="Enter CDC No"
+                                <input type="text" name="cdc_no" placeholder="Enter CDC No"
                                     class="form-control form-control-sm" value="{{ old('cdc_no') }}">
                                 @error('cdc_no')
                                     <div class="invalid-feedback">
@@ -112,7 +112,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="contact" class="mb-2">Contact</label>
-                                <input type="text" name="contact"  placeholder="Enter Contact"
+                                <input type="text" name="contact" placeholder="Enter Contact"
                                     class="form-control form-control-sm" value="{{ old('contact') }}">
                                 @error('contact')
                                     <div class="invalid-feedback">
@@ -125,7 +125,7 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="academy" class="mb-2">Academy</label>
-                                <input type="text" name="academy"  placeholder="Enter Academy"
+                                <input type="text" name="academy" placeholder="Enter Academy"
                                     class="form-control form-control-sm" value="{{ old('academy') }}">
                                 @error('academy')
                                     <div class="invalid-feedback">
@@ -151,9 +151,8 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="batch" class="mb-2">Passport Number</label>
-                                <input type="text" name="passport_number" 
-                                    placeholder="Enter Passport Number" class="form-control form-control-sm"
-                                    value="{{ old('passport_number') }}">
+                                <input type="text" name="passport_number" placeholder="Enter Passport Number"
+                                    class="form-control form-control-sm" value="{{ old('passport_number') }}">
                                 @error('passport_number')
                                     <div class="invalid-feedback">
                                         {{ $message }}
