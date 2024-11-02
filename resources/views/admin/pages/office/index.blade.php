@@ -148,7 +148,7 @@
                                 $item->cor,
                                 $item->discharge_date,
                                 $item->end_of_contract,
-                                
+
                                 $item->readiness,
                                 $item->other_one,
                                 $item->other_two,
@@ -325,6 +325,7 @@
                                                     @if ($item->passport)
                                                         {{ \Carbon\Carbon::parse($item->passport)->format('F j, Y') }}
                                                     @else
+                                                    N/A
                                                     @endif
 
                                                 </td>
@@ -349,6 +350,7 @@
                                                     @if ($item->cdc)
                                                         {{ \Carbon\Carbon::parse($item->cdc)->format('F j, Y') }}
                                                     @else
+                                                    N/A
                                                     @endif
 
                                                 </td>
@@ -362,6 +364,7 @@
                                                     @if ($item->coc)
                                                         {{ \Carbon\Carbon::parse($item->coc)->format('F j, Y') }}
                                                     @else
+                                                    N/A
                                                     @endif
 
                                                 </td>
@@ -375,6 +378,7 @@
                                                     @if ($item->goc)
                                                         {{ \Carbon\Carbon::parse($item->goc)->format('F j, Y') }}
                                                     @else
+                                                    N/A
                                                     @endif
 
                                                 </td>
@@ -388,6 +392,7 @@
                                                     @if ($item->sid)
                                                         {{ \Carbon\Carbon::parse($item->sid)->format('F j, Y') }}
                                                     @else
+                                                    N/A
                                                     @endif
 
                                                 </td>
@@ -401,6 +406,7 @@
                                                     @if ($item->ph)
                                                         {{ \Carbon\Carbon::parse($item->ph)->format('F j, Y') }}
                                                     @else
+                                                    N/A
                                                     @endif
 
                                                 </td>
