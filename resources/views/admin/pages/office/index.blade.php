@@ -311,6 +311,10 @@
                                                 <td>{{ $item->academy }}</td>
                                             </tr>
                                             <tr>
+                                                <th class="fs-5">Batch</th>
+                                                <td>{{ $item->batch }}</td>
+                                            </tr>
+                                            <tr>
                                                 <th class="fs-5">Passport Number</th>
                                                 <td>{{ $item->passport_number }}</td>
                                             </tr>
@@ -326,11 +330,6 @@
                                                     @endif
 
                                                 </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th class="fs-5">Batch</th>
-                                                <td>{{ $item->batch }}</td>
                                             </tr>
 
                                             {{-- <tr>
@@ -468,8 +467,6 @@
 
                                                 </td>
                                             </tr>
-
-
 
 
                                         </tbody>
@@ -620,19 +617,7 @@
                                             </tr>
 
                                             <tr>
-                                                <th class="fs-5">Readiness</th>
-                                                <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->readiness)->subMonths(3)) ? 'color: red;' : '' }}">
-
-                                                    @if ($item->readiness)
-                                                        {{ \Carbon\Carbon::parse($item->readiness)->format('F j, Y') }}
-                                                    @else
-                                                    @endif
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th class="fs-5">Ecdis</th>
+                                                <th class="fs-5">ECDIS</th>
                                                 <td
                                                     style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->ecdis)->subMonths(3)) ? 'color: red;' : '' }}">
 
@@ -644,7 +629,7 @@
                                             </tr>
 
                                             <tr>
-                                                <th class="fs-5">Atoto</th>
+                                                <th class="fs-5">ATOTO</th>
                                                 <td
                                                     style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->atoto)->subMonths(3)) ? 'color: red;' : '' }}">
 
@@ -698,6 +683,17 @@
                                                 </td>
                                             </tr>
 
+                                            <tr>
+                                                <th class="fs-5">Readiness</th>
+                                                <td
+                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->readiness)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                    @if ($item->readiness)
+                                                        {{ \Carbon\Carbon::parse($item->readiness)->format('F j, Y') }}
+                                                    @else
+                                                    @endif
+                                                </td>
+                                            </tr>
 
                                         </tbody>
                                     </table>
