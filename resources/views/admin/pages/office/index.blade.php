@@ -161,6 +161,22 @@
                                         \Carbon\Carbon::parse($date)->subMonths(3),
                                     );
                             });
+
+                            $shouldBe3= collect($fieldsToCheck)->contains(function ($date) {
+                                return $date &&
+                                    \Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                        \Carbon\Carbon::parse($date)->subMonths(3),
+                                    );
+                            });
+
+                            $shouldBe6 =
+                                $item->passport &&
+                                \Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                    \Carbon\Carbon::parse($item->passport)->subMonths(6),
+                                );
+
+                                $shouldBeRed = $shouldBe3 || $shouldBe6
+
                         @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #FF6363; color: white;' : '' }}">
@@ -240,7 +256,6 @@
                         </tr>
                     @endforeach
 
-
                 </tbody>
 
             </table>
@@ -250,7 +265,7 @@
             <div class="modal fade" id="showModal{{ $item->id }}" data-bs-backdrop="static"
                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
 
-                <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-dialog modal-xl modal-fullscreen-xxl-down modal-dialog-scrollable">
                     <div class="modal-content">
 
                         <div class="modal-header bg-secondary">
@@ -322,7 +337,7 @@
                                             <tr>
                                                 <th class="fs-5">Passport</th>
                                                 <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->passport)->subMonths(3)) ? 'color: red;' : '' }}">
+                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->passport)->subMonths(6)) ? 'color: red;' : '' }}">
 
                                                     @if ($item->passport)
                                                         {{ \Carbon\Carbon::parse($item->passport)->format('F j, Y') }}
