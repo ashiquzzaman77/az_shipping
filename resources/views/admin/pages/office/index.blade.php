@@ -342,7 +342,7 @@
                                             <tr>
                                                 <th class="fs-5">CDC</th>
                                                 <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->cdc)->subMonths(3)) ? 'color: red;' : '' }}">
+                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->cdc)->subMonths(6)) ? 'color: red;' : '' }}">
 
                                                     @if ($item->cdc)
                                                         {{ \Carbon\Carbon::parse($item->cdc)->format('F j, Y') }}
@@ -689,7 +689,7 @@
                                             <tr>
                                                 <th class="fs-5">End Of Contract</th>
                                                 <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->end_of_contract)->subMonths(3)) ? 'color: red;' : '' }}">
+                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->end_of_contract)->subMonths(2)) ? 'color: red;' : '' }}">
 
                                                     @if ($item->end_of_contract)
                                                         {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
