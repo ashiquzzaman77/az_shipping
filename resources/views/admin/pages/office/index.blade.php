@@ -119,6 +119,7 @@
                     @foreach ($items as $key => $item)
                         @php
                             $fieldsToCheck = [
+
                                 $item->cdc,
                                 $item->coc,
                                 $item->goc,
@@ -155,19 +156,19 @@
                                 $item->other_four,
                             ];
 
-                            // $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
-                            //     return $date &&
-                            //         \Carbon\Carbon::now()->greaterThanOrEqualTo(
-                            //             \Carbon\Carbon::parse($date)->subMonths(3),
-                            //         );
-                            // });
-
                             $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
                                 return $date &&
-                                    (\Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                    \Carbon\Carbon::now()->greaterThanOrEqualTo(
                                         \Carbon\Carbon::parse($date)->subMonths(3),
-                                    ) );
+                                    );
                             });
+
+                            // $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
+                            //     return $date &&
+                            //         (\Carbon\Carbon::now()->greaterThanOrEqualTo(
+                            //             \Carbon\Carbon::parse($date)->subMonths(3),
+                            //         ) );
+                            // });
                         @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #FF6363; color: white;' : '' }}">
