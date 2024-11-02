@@ -148,6 +148,7 @@
                                 $item->cor,
                                 $item->discharge_date,
                                 $item->end_of_contract,
+                                
                                 $item->readiness,
                                 $item->other_one,
                                 $item->other_two,
@@ -174,6 +175,7 @@
                                             \Carbon\Carbon::parse($date)->subMonths(6),
                                         ));
                             });
+                            
 
                         @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
@@ -318,7 +320,7 @@
                                             <tr>
                                                 <th class="fs-5">Passport</th>
                                                 <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->passport)->subMonths(6)) ? 'color: red;' : '' }}">
+                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->passport)->subMonths(3)) ? 'color: red;' : '' }}">
 
                                                     @if ($item->passport)
                                                         {{ \Carbon\Carbon::parse($item->passport)->format('F j, Y') }}
@@ -342,7 +344,7 @@
                                             <tr>
                                                 <th class="fs-5">CDC</th>
                                                 <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->cdc)->subMonths(2)) ? 'color: red;' : '' }}">
+                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->cdc)->subMonths(3)) ? 'color: red;' : '' }}">
 
                                                     @if ($item->cdc)
                                                         {{ \Carbon\Carbon::parse($item->cdc)->format('F j, Y') }}
