@@ -26,7 +26,7 @@ return new class extends Migration
 
             $table->string('academy')->nullable();
             $table->string('batch')->nullable();
-            
+
             $table->date('cdc')->nullable();
             $table->date('coc')->nullable();
             $table->date('goc')->nullable();

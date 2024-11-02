@@ -159,10 +159,10 @@
                                 return $date &&
                                     (\Carbon\Carbon::now()->greaterThanOrEqualTo(
                                         \Carbon\Carbon::parse($date)->subMonths(2),
-                                    ) ||
+                                    ) &&
                                         \Carbon\Carbon::now()->greaterThanOrEqualTo(
                                             \Carbon\Carbon::parse($date)->subMonths(3),
-                                        ) ||
+                                        ) &&
                                         \Carbon\Carbon::now()->greaterThanOrEqualTo(
                                             \Carbon\Carbon::parse($date)->subMonths(6),
                                         ));
