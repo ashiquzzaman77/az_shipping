@@ -162,6 +162,14 @@
                             //         );
                             // });
 
+
+                            $shouldBe2 = collect($fieldsToCheck)->contains(function ($date) {
+                                return $date &&
+                                    \Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                        \Carbon\Carbon::parse($date)->subMonths(2),
+                                    );
+                            });
+
                             $shouldBe3 = collect($fieldsToCheck)->contains(function ($date) {
                                 return $date &&
                                     \Carbon\Carbon::now()->greaterThanOrEqualTo(
@@ -169,15 +177,19 @@
                                     );
                             });
 
+
                             $shouldBe6 =
                                 $item->passport &&
                                 \Carbon\Carbon::now()->greaterThanOrEqualTo(
                                     \Carbon\Carbon::parse($item->passport)->subMonths(6),
                                 );
 
-                            $shouldBeRed = $shouldBe3 || $shouldBe6;
+
+
+                            $shouldBeRed = $shouldBe2 || $shouldBe3 || $shouldBe6;
 
                         @endphp
+                        
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #FF6363; color: white;' : '' }}">
 
@@ -709,7 +721,7 @@
                                             <tr>
                                                 <th class="fs-5">End Of Contract</th>
                                                 <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->end_of_contract)->subMonths(3)) ? 'color: red;' : '' }}">
+                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->end_of_contract)->subMonths(2)) ? 'color: red;' : '' }}">
 
                                                     @if ($item->end_of_contract)
                                                         {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
