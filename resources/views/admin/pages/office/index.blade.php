@@ -146,10 +146,10 @@
                                 $item->ecdis,
                                 $item->atoto,
                                 $item->cor,
-                                $item->discharge_date,
+                                // $item->discharge_date,
                                 $item->end_of_contract,
 
-                                $item->readiness,
+                                // $item->readiness,
                                 $item->other_one,
                                 $item->other_two,
                                 $item->other_three,
