@@ -156,7 +156,7 @@
                             ];
 
                             $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
-                                return $date &&
+                                return $date ||
                                     (\Carbon\Carbon::now()->greaterThanOrEqualTo(
                                         \Carbon\Carbon::parse($date)->subMonths(2),
                                     ) ||
