@@ -175,8 +175,6 @@
                                             \Carbon\Carbon::parse($date)->subMonths(6),
                                         ));
                             });
-                            
-
                         @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #EE4E4E; color: white;' : '' }}">
@@ -325,7 +323,6 @@
                                                     @if ($item->passport)
                                                         {{ \Carbon\Carbon::parse($item->passport)->format('F j, Y') }}
                                                     @else
-                                                    
                                                     @endif
 
                                                 </td>
@@ -350,7 +347,6 @@
                                                     @if ($item->cdc)
                                                         {{ \Carbon\Carbon::parse($item->cdc)->format('F j, Y') }}
                                                     @else
-                                                    
                                                     @endif
 
                                                 </td>
@@ -364,7 +360,6 @@
                                                     @if ($item->coc)
                                                         {{ \Carbon\Carbon::parse($item->coc)->format('F j, Y') }}
                                                     @else
-                                                    
                                                     @endif
 
                                                 </td>
@@ -378,7 +373,6 @@
                                                     @if ($item->goc)
                                                         {{ \Carbon\Carbon::parse($item->goc)->format('F j, Y') }}
                                                     @else
-                                                    
                                                     @endif
 
                                                 </td>
@@ -392,7 +386,6 @@
                                                     @if ($item->sid)
                                                         {{ \Carbon\Carbon::parse($item->sid)->format('F j, Y') }}
                                                     @else
-                                                   
                                                     @endif
 
                                                 </td>
@@ -406,7 +399,6 @@
                                                     @if ($item->ph)
                                                         {{ \Carbon\Carbon::parse($item->ph)->format('F j, Y') }}
                                                     @else
-                                                    
                                                     @endif
 
                                                 </td>
