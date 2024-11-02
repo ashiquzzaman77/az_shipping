@@ -137,7 +137,7 @@
                                 style="{{ $rating->status == 'board' ? '' : 'display: none;' }}">
                                 <label for="details" class="mb-2">Ship Name</label>
                                 <input type="text" class="form-control form-control-sm" id="details"
-                                    name="ship_name" placeholder="Enter ship name">
+                                    name="ship_name" value="{{ old('ship_name', $rating->ship_name) }}" placeholder="Enter ship name">
                             </div>
                         </div>
 

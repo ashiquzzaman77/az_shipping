@@ -137,6 +137,9 @@
 
                 </form>
 
+                <p class="mt-3 fs-6 fw-bold">Download AZ Shipping CV format Fill and Upload it, It will help us.</p>
+                <a href="{{ asset('frontend/file/CV OF AZSS.docx') }}" download
+                    style="color: inherit; text-decoration: underline;">Download Here</a>
 
             </div>
         </div>

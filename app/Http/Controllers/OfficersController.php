@@ -172,6 +172,7 @@ class OfficersController extends Controller
             'passport_number' => 'required|string|max:255',
             'status' => 'required|string',
             'ship_name' => 'nullable|string|max:255',
+            'remarks' => 'nullable|string',
 
             'cdc' => 'nullable|date',
             'readiness' => 'nullable|date',

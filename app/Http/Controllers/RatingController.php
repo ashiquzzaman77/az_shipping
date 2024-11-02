@@ -160,6 +160,7 @@ class RatingController extends Controller
             'passport_number' => 'nullable|string',
             'batch' => 'nullable|string|max:255',
             'passport' => 'nullable|string|max:255',
+            'remarks' => 'nullable|string',
             
             'ship_cook' => 'nullable|date',
             'cdc' => 'nullable|date',
