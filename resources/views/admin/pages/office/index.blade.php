@@ -169,7 +169,7 @@
                                     );
                             });
 
-                            $shouldBeRed = $shouldBeRed3Months || $shouldBeRed6Months;
+                            $shouldBeRed = $shouldBeRed3Months && $shouldBeRed6Months;
 
                         @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
