@@ -318,7 +318,7 @@
                                             <tr>
                                                 <th class="fs-5">Passport</th>
                                                 <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->passport)->subMonths(3)) ? 'color: red;' : '' }}">
+                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->passport)->subMonths(6)) ? 'color: red;' : '' }}">
 
                                                     @if ($item->passport)
                                                         {{ \Carbon\Carbon::parse($item->passport)->format('F j, Y') }}
@@ -342,7 +342,7 @@
                                             <tr>
                                                 <th class="fs-5">CDC</th>
                                                 <td
-                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->cdc)->subMonths(3)) ? 'color: red;' : '' }}">
+                                                    style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->cdc)->subMonths(2)) ? 'color: red;' : '' }}">
 
                                                     @if ($item->cdc)
                                                         {{ \Carbon\Carbon::parse($item->cdc)->format('F j, Y') }}
