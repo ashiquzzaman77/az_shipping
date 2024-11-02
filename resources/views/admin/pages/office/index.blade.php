@@ -119,7 +119,6 @@
                     @foreach ($items as $key => $item)
                         @php
                             $fieldsToCheck = [
-
                                 $item->cdc,
                                 $item->coc,
                                 $item->goc,
@@ -149,11 +148,11 @@
                                 // $item->discharge_date,
                                 $item->end_of_contract,
 
-                                // $item->readiness,
-                                $item->other_one,
-                                $item->other_two,
-                                $item->other_three,
-                                $item->other_four,
+                                // // $item->readiness,
+                                // $item->other_one,
+                                // $item->other_two,
+                                // $item->other_three,
+                                // $item->other_four,
                             ];
 
                             $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
@@ -229,7 +228,7 @@
 
 
                                 <!-- showModal -->
-                                @foreach ($items as $key => $item)
+                                {{-- @foreach ($items as $key => $item)
                                     <div class="modal fade" id="showModal{{ $item->id }}" data-bs-backdrop="static"
                                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="showModalLabel"
                                         aria-hidden="true">
@@ -650,17 +649,7 @@
                                                                         </td>
                                                                     </tr>
 
-                                                                    {{-- <tr>
-                                                                        <th class="fs-5">Joining/Discharge</th>
-                                                                        <td
-                                                                            style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->discharge_date)->subMonths(3)) ? 'color: red;' : '' }}">
-
-                                                                            @if ($item->discharge_date)
-                                                                                {{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
-                                                                            @else
-                                                                            @endif
-                                                                        </td>
-                                                                    </tr> --}}
+                                                                    
 
                                                                     <tr>
                                                                         <th class="fs-5">End Of Contract</th>
@@ -681,18 +670,7 @@
                                                                         </td>
                                                                     </tr>
 
-                                                                    {{-- <tr>
-                                                                        <th class="fs-5">Readiness</th>
-                                                                        <td
-                                                                            style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->readiness)->subMonths(3)) ? 'color: red;' : '' }}">
-
-                                                                            @if ($item->readiness)
-                                                                                {{ \Carbon\Carbon::parse($item->readiness)->format('F j, Y') }}
-                                                                            @else
-                                                                            @endif
-                                                                        </td>
-                                                                    </tr> --}}
-
+                                                                    
                                                                 </tbody>
                                                             </table>
 
@@ -711,7 +689,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                @endforeach --}}
                                 {{-- Show Modal  --}}
 
                                 {{-- @if (Auth::guard('admin')->user()->can('edit.officer')) --}}
@@ -736,7 +714,7 @@
             </table>
         </div>
 
-        {{-- @foreach ($items as $key => $item)
+        @foreach ($items as $key => $item)
             <div class="modal fade" id="showModal{{ $item->id }}" data-bs-backdrop="static"
                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
 
@@ -1196,7 +1174,7 @@
                     </div>
                 </div>
             </div>
-        @endforeach --}}
+        @endforeach
 
     </div>
 
