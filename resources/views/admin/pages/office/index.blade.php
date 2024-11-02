@@ -501,16 +501,6 @@
                                                 </td>
                                             </tr>
 
-                                        </tbody>
-                                    </table>
-
-                                </div>
-
-                                <div class="col-6">
-
-                                    <table class="table table-striped table-hover table-row-bordered custom-table">
-                                        <tbody>
-
                                             <tr>
                                                 <th class="fs-5">Rader Navigation</th>
                                                 <td
@@ -523,6 +513,16 @@
 
                                                 </td>
                                             </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                                <div class="col-6">
+
+                                    <table class="table table-striped table-hover table-row-bordered custom-table">
+                                        <tbody>
 
                                             <tr>
                                                 <th class="fs-5">AFF</th>
@@ -792,23 +792,6 @@
                     }
                 });
             });
-
-            // function filterOfficers() {
-            //     const deakChecked = document.getElementById('deak').checked;
-            //     const engineChecked = document.getElementById('engine').checked;
-            //     const rows = document.querySelectorAll('.officer-row');
-
-            //     rows.forEach(row => {
-            //         const isDeak = row.classList.contains('deak');
-            //         const isEngine = row.classList.contains('engine');
-
-            //         if ((deakChecked && isDeak) || (engineChecked && isEngine)) {
-            //             row.style.display = ''; // Show the row
-            //         } else {
-            //             row.style.display = 'none'; // Hide the row
-            //         }
-            //     });
-            // }
 
             function filterOfficers() {
                 const deakChecked = document.getElementById('deak').checked;
