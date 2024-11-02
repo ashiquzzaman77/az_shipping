@@ -108,16 +108,12 @@
 
             <div class="row">
 
-                <div class="col-12 col-lg-6 d-none d-lg-block">
-                    <img src="{{ asset('frontend/img/login.png') }}" alt="">
-                </div>
-
                 <div class="col-12 col-lg-6 my-auto">
                     <div class="sign-in-form2">
 
 
-                        <h5>Sign In</h5>
-                        <p>Welcome back! Please sign in to continue.</p>
+                        <h5>Create New Account</h5>
+                        <p>Complete your sign up process and then back to login account.</p>
 
                         <form>
                             <div class="form-group">
@@ -139,17 +135,21 @@
                                 style="background: linear-gradient(45deg, #6a11cb, #2575fc); color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background 0.3s ease;"
                                 onmouseover="this.style.background='linear-gradient(45deg, #2575fc, #6a11cb)'"
                                 onmouseout="this.style.background='linear-gradient(45deg, #6a11cb, #2575fc)'">Sign
-                                In</button>
+                                Up</button>
 
 
                             <p class="mt-2">
-                                Not a member? <a href="">Sign Up</a>
+                                Already Have a account? <a href="{{ route('login') }}">Sign In</a>
                             </p>
 
 
                         </form>
 
                     </div>
+                </div>
+
+                <div class="col-12 col-lg-6 d-none d-lg-block">
+                    <img src="{{ asset('frontend/img/register.jpg') }}" alt="">
                 </div>
 
             </div>

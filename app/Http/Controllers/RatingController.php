@@ -44,7 +44,7 @@ class RatingController extends Controller
             'passport_number' => 'nullable|string',
             'batch' => 'nullable|string|max:255',
             'passport' => 'nullable|string|max:255',
-            
+
             'ship_cook' => 'nullable|date',
             'cdc' => 'nullable|date',
             'sid' => 'nullable|date',
@@ -149,8 +149,8 @@ class RatingController extends Controller
     {
         // Validate the incoming request data
         $validatedData = $request->validate([
-           'rating_type' => 'required|string',
-           'name' => 'required|string|max:255',
+            'rating_type' => 'required|string',
+            'name' => 'required|string|max:255',
             'rank' => 'nullable|string|max:255',
             'cdc_no' => 'nullable|string|max:255',
             'contact' => 'nullable|string|max:255',
@@ -161,7 +161,7 @@ class RatingController extends Controller
             'batch' => 'nullable|string|max:255',
             'passport' => 'nullable|string|max:255',
             'remarks' => 'nullable|string',
-            
+
             'ship_cook' => 'nullable|date',
             'cdc' => 'nullable|date',
             'sid' => 'nullable|date',

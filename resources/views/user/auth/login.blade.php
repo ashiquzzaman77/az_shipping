@@ -89,7 +89,7 @@
             <div class="row">
 
                 <div class="col-12 col-lg-6 d-none d-lg-block">
-                    <img src="{{ asset('frontend/img/login.png') }}" alt="">
+                    <img src="{{ asset('frontend/img/login.jpg') }}" alt="">
                 </div>
 
                 <div class="col-12 col-lg-6 my-auto">
