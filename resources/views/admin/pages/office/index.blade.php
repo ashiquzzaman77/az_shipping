@@ -174,6 +174,7 @@
                                             \Carbon\Carbon::parse($date)->subMonths(6),
                                         ));
                             });
+
                         @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #FF7777; color: white;' : '' }}">
