@@ -155,12 +155,22 @@
                                 $item->edh,
                             ];
 
-                            $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
+                            $shouldBeRed3Months = collect($fieldsToCheck)->contains(function ($date) {
                                 return $date &&
                                     \Carbon\Carbon::now()->greaterThanOrEqualTo(
                                         \Carbon\Carbon::parse($date)->subMonths(3),
                                     );
                             });
+
+                            $shouldBeRed6Months = collect($fieldsToCheck)->contains(function ($date) {
+                                return $date &&
+                                    \Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                        \Carbon\Carbon::parse($date)->subMonths(6),
+                                    );
+                            });
+
+                            $shouldBeRed = $shouldBeRed3Months || $shouldBeRed6Months;
+
                         @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #FF6363; color: white;' : '' }}">
