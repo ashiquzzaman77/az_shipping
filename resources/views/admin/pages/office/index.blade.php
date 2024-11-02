@@ -115,6 +115,7 @@
                 </thead>
 
                 <tbody class="fw-bold text-gray-600">
+
                     @foreach ($items as $key => $item)
                         @php
                             $fieldsToCheck = [
@@ -122,34 +123,40 @@
                                 $item->cdc,
                                 $item->coc,
                                 $item->goc,
+
                                 $item->sid,
                                 $item->ph,
                                 $item->pst,
                                 $item->fpff,
+
                                 $item->efa,
                                 $item->pssr,
                                 $item->sat,
                                 $item->dsd,
+
                                 $item->pscrb,
                                 $item->radar_navigation,
                                 $item->aff,
                                 $item->mfa,
+
                                 $item->madical_care,
                                 $item->ens,
                                 $item->sso,
                                 $item->brm,
+
                                 $item->hvs,
                                 $item->ship_simulation,
                                 $item->ecdis,
                                 $item->atoto,
+
                                 $item->cor,
                                 $item->end_of_contract,
+
                                 $item->edh,
                             ];
 
                             $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
-                                return !empty($date) &&
-                                    \Carbon\Carbon::canParse($date) &&
+                                return $date &&
                                     (\Carbon\Carbon::now()->greaterThanOrEqualTo(
                                         \Carbon\Carbon::parse($date)->subMonths(2),
                                     ) ||
@@ -160,20 +167,31 @@
                                             \Carbon\Carbon::parse($date)->subMonths(6),
                                         ));
                             });
-                        @endphp
 
+                            // $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
+                            //     return $date &&
+                            //         (\Carbon\Carbon::now()->greaterThanOrEqualTo(
+                            //             \Carbon\Carbon::parse($date)->subMonths(3),
+                            //         ) );
+                            // });
+
+                        @endphp
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #FF6363; color: white;' : '' }}">
+
                             <td>{{ $key + 1 }}</td>
+
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
                                     @if ($item->officer_type == 'deak')
                                         <span>Deck Officer</span>
                                     @elseif ($item->officer_type == 'engine')
                                         <span>Engine Officer</span>
+                                    @else
                                     @endif
                                 </h6>
                             </td>
+
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->name }}</h6>
                             </td>
@@ -192,35 +210,52 @@
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->contact }}</h6>
                             </td>
+
                             <td>
                                 @if ($item->status == 'board')
                                     <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">On Board
-                                        ({{ $item->ship_name }})</h6>
+                                        ({{ $item->ship_name }})
+                                    </h6>
                                 @elseif($item->status == 'leave')
                                     <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">On Leave</h6>
                                 @elseif($item->status == 'fleet')
                                     <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">Not in Fleet Yet</h6>
                                 @endif
                             </td>
+
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->remarks }}</h6>
                             </td>
+
                             <td>
                                 <a href="" data-bs-toggle="modal" data-bs-target="#showModal{{ $item->id }}"
                                     class="text-primary">
                                     <i class="fa-solid fa-eye text-success fs-5"></i>
                                 </a>
+
+
+                                <!-- showModal -->
+
+                                {{-- Show Modal  --}}
+
+                                {{-- @if (Auth::guard('admin')->user()->can('edit.officer')) --}}
                                 <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
                                     <i class="fa-solid fa-pencil text-primary fs-5"></i>
                                 </a>
+                                {{-- @endif --}}
+
+                                {{-- @if (Auth::guard('admin')->user()->can('delete.officer')) --}}
                                 <a href="{{ route('admin.officer.destroy', $item->id) }}" class="delete">
                                     <i class="fa-solid fa-trash text-danger fs-5"></i>
                                 </a>
+                                {{-- @endif --}}
+
                             </td>
                         </tr>
                     @endforeach
-                </tbody>
 
+
+                </tbody>
 
             </table>
         </div>
@@ -255,7 +290,236 @@
                             </div>
 
 
-                            {{-- ================ --}}
+                            <div class="col-6">
+
+                                <table class="table table-striped table-hover table-row-bordered custom-table">
+                                    <tbody>
+
+                                        <tr>
+                                            <th class="fs-5">Office Type</th>
+                                            <td>
+                                                @if ($item->officer_type == 'deak')
+                                                    <span>Deck Officer</span>
+                                                @elseif ($item->officer_type == 'engine')
+                                                    <span>Engine Officer</span>
+                                                @else
+                                                @endif
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">Rank</th>
+                                            <td>{{ $item->rank }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">CDC NO</th>
+                                            <td>{{ $item->cdc_no }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="fs-5">Contact</th>
+                                            <td>{{ $item->contact }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">Academy</th>
+                                            <td>{{ $item->academy }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="fs-5">Batch</th>
+                                            <td>{{ $item->batch }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="fs-5">Passport Number</th>
+                                            <td>{{ $item->passport_number }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">Passport</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->passport)->subMonths(6)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->passport)
+                                                    {{ \Carbon\Carbon::parse($item->passport)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">CDC</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->cdc)->subMonths(6)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->cdc)
+                                                    {{ \Carbon\Carbon::parse($item->cdc)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">COC</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->coc)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->coc)
+                                                    {{ \Carbon\Carbon::parse($item->coc)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">GOC</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->goc)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->goc)
+                                                    {{ \Carbon\Carbon::parse($item->goc)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">SID</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->sid)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->sid)
+                                                    {{ \Carbon\Carbon::parse($item->sid)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">PH</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->ph)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->ph)
+                                                    {{ \Carbon\Carbon::parse($item->ph)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">EDH</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->edh)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->edh)
+                                                    {{ \Carbon\Carbon::parse($item->edh)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">PST</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->pst)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->pst)
+                                                    {{ \Carbon\Carbon::parse($item->pst)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">FPFF</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->fpff)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->fpff)
+                                                    {{ \Carbon\Carbon::parse($item->fpff)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">EFA</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->efa)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->efa)
+                                                    {{ \Carbon\Carbon::parse($item->efa)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">PSSR</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->pssr)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->pssr)
+                                                    {{ \Carbon\Carbon::parse($item->pssr)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">SAT</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->sat)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->sat)
+                                                    {{ \Carbon\Carbon::parse($item->sat)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">DSD</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->dsd)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->dsd)
+                                                    {{ \Carbon\Carbon::parse($item->dsd)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="fs-5">PSCRB</th>
+                                            <td
+                                                style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->pscrb)->subMonths(3)) ? 'color: red;' : '' }}">
+
+                                                @if ($item->pscrb)
+                                                    {{ \Carbon\Carbon::parse($item->pscrb)->format('F j, Y') }}
+                                                @else
+                                                @endif
+
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
 
                             <div class="col-6">
 
