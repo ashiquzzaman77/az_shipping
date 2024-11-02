@@ -51,7 +51,6 @@
     </style>
 
 
-
     <div class="card card-flash">
         <div class="card-header align-items-center mt-6">
 
@@ -66,7 +65,7 @@
 
                 <div class="d-flex align-items-center">
                     <input type="checkbox" id="deak" class="form-check-input" onchange="filterOfficers()">
-                    <label for="deak" class="form-check-label me-3 ms-2">Deak Officer</label>
+                    <label for="deak" class="form-check-label me-3 ms-2">Deck Officer</label>
 
                     <input type="checkbox" id="engine" class="form-check-input ms-3" onchange="filterOfficers()">
                     <label for="engine" class="form-check-label ms-2">Engine Officer</label>
@@ -184,7 +183,7 @@
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
                                     @if ($item->officer_type == 'deak')
-                                        <span>Deak Officer</span>
+                                        <span>Deck Officer</span>
                                     @elseif ($item->officer_type == 'engine')
                                         <span>Engine Officer</span>
                                     @else
