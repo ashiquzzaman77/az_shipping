@@ -243,6 +243,5 @@ class HomeController extends Controller
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Thank You. We have received your message. We will contact you very soon');
-
     }
 }
