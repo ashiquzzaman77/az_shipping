@@ -1359,7 +1359,7 @@ Hero Slider Three Area
 
 .hero-slider-three.owl-theme .owl-nav .owl-prev:hover,
 .hero-slider-three.owl-theme .owl-nav .owl-next:hover {
-  background: #8732de;
+  background: #023154;
   color: #ffffff;
 }
 
@@ -1419,7 +1419,7 @@ Hero Contact Area
 }
 
 .contact-area .contact-content {
-  background: #8732de;
+  background: #023154;
   border-radius: 5px;
   padding: 50px 30px 20px;
 }
@@ -1624,11 +1624,11 @@ Services Area
 
 .services-area.services-two .services-slider .service-card i {
   background: #f2e5ff;
-  color: #8732de;
+  color: #023154;
 }
 
 .services-area.services-two .services-slider .service-card:hover i {
-  background: #8732de;
+  background: #023154;
   color: #ffffff;
 }
 
@@ -1681,7 +1681,7 @@ Services Area
 
 .service-card i {
   color: #ffffff;
-  background: #8732de;
+  background: #023154;
   width: 100px;
   height: 100px;
   line-height: 100px;
@@ -1745,7 +1745,7 @@ Choose Area
 }
 
 .choose-area .choose-contant .choose-card i {
-  background: #8732de;
+  background: #023154;
   color: #ffffff;
   width: 80px;
   height: 80px;
@@ -2003,7 +2003,7 @@ Testimonials Area
 Transportation Area
 =================================================*/
 .transportation-area {
-  background: #8732de;
+  background: #023154;
   position: relative;
   overflow: hidden;
 }
@@ -3298,7 +3298,7 @@ Newsletter Area
 }
 
 .newsletter-content {
-  background: #8732de;
+  background: #023154;
   padding: 50px 100px;
   border-radius: 5px;
   position: relative;
@@ -3532,7 +3532,7 @@ Clients Area
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 5px solid #8732de;
+  border: 5px solid #023154;
 }
 
 .clients-area .clients-slider .clients-slider-item .item-contant h3 {
@@ -4207,7 +4207,7 @@ Team Area
 }
 
 .team-area .team-card .team-image .caption ul li a i:hover {
-  background-color: #8732de;
+  background-color: #023154;
   color: #ffffff;
 }
 
@@ -4246,7 +4246,7 @@ Team Area
 }
 
 .team-area .team-card:hover .team-text h3 a {
-  color: #8732de;
+  color: #023154;
 }
 
 .team-area .team-card:hover .caption {
@@ -4819,8 +4819,8 @@ blockquote::after,
 .comments-area .comment-respond .form-submit input:hover,
 .comments-area .comment-respond .form-submit input:focus {
   color: #fff;
-  background: #8732de;
-  border: 1px solid #8732de;
+  background: #023154;
+  border: 1px solid #023154;
 }
 
 /*================================================
