@@ -114,9 +114,11 @@
 
                     @foreach ($items as $key => $item)
                         @php
-                            $fieldsToCheck = [
+
+                            $fieldsToCheck2 = [$item->end_of_contract];
+
+                            $fieldsToCheck3 = [
                                 $item->ship_cook,
-                                $item->cdc,
                                 $item->sid,
                                 $item->ph,
                                 $item->pst,
@@ -124,28 +126,39 @@
                                 $item->efa,
                                 $item->pssr,
                                 $item->sat,
-
                                 $item->dsd,
                                 $item->pscrb,
                                 $item->aff,
-
-                                $item->passport,
                                 $item->nwr,
                                 $item->rasd,
-
                                 $item->ecdis,
                                 $item->atoto,
-
-                                $item->discharge_date,
-                                $item->end_of_contract,
-
-                                $item->readiness,
-
-                                $item->other_one,
-                                $item->other_two,
-                                $item->other_three,
-                                $item->other_four,
                             ];
+
+                            $fieldsToCheck6 = [$item->cdc, $item->passport];
+
+                            $shouldBe2 = collect($fieldsToCheck2)->contains(function ($date) {
+                                return $date &&
+                                    \Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                        \Carbon\Carbon::parse($date)->subMonths(2),
+                                    );
+                            });
+
+                            $shouldBe3 = collect($fieldsToCheck3)->contains(function ($date) {
+                                return $date &&
+                                    \Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                        \Carbon\Carbon::parse($date)->subMonths(3),
+                                    );
+                            });
+
+                            $shouldBe6 = collect($fieldsToCheck6)->contains(function ($date) {
+                                return $date &&
+                                    \Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                        \Carbon\Carbon::parse($date)->subMonths(6),
+                                    );
+                            });
+
+                            $shouldBeRed = $shouldBe2 || $shouldBe3 || $shouldBe6;
 
                             // $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
                             //     return $date &&
@@ -154,22 +167,10 @@
                             //         );
                             // });
 
-                            $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
-                                return $date &&
-                                    (\Carbon\Carbon::now()->greaterThanOrEqualTo(
-                                        \Carbon\Carbon::parse($date)->subMonths(2),
-                                    ) ||
-                                        \Carbon\Carbon::now()->greaterThanOrEqualTo(
-                                            \Carbon\Carbon::parse($date)->subMonths(3),
-                                        ) ||
-                                        \Carbon\Carbon::now()->greaterThanOrEqualTo(
-                                            \Carbon\Carbon::parse($date)->subMonths(6),
-                                        ));
-                            });
                         @endphp
 
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->rating_type }}"
-                            style="{{ $shouldBeRed ? 'background-color: #FF6363; color: white;' : '' }}">
+                            style="{{ $shouldBeRed ? 'background-color: #FF7777; color: white;' : '' }}">
 
                             <td>{{ $key + 1 }}</td>
 
@@ -318,6 +319,7 @@
 
                                                                     </td>
                                                                 </tr>
+
                                                                 <tr>
                                                                     <th class="fs-5">SID</th>
 
@@ -404,20 +406,6 @@
 
                                                                 </tr>
 
-
-                                                            </tbody>
-                                                        </table>
-
-                                                    </div>
-
-                                                    <div class="col-6">
-
-                                                        <table
-                                                            class="table table-striped table-hover table-row-bordered custom-table">
-                                                            <tbody>
-
-
-
                                                                 <tr>
                                                                     <th class="fs-5">PSCRB</th>
 
@@ -441,11 +429,24 @@
                                                                         @if ($item->aff)
                                                                             {{ \Carbon\Carbon::parse($item->aff)->format('F j, Y') }}
                                                                         @else
-                                                                            N/A
                                                                         @endif
                                                                     </td>
 
                                                                 </tr>
+
+
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+
+                                                    <div class="col-6">
+
+                                                        <table
+                                                            class="table table-striped table-hover table-row-bordered custom-table">
+                                                            <tbody>
+
+
                                                                 <tr>
                                                                     <th class="fs-5">PSSR</th>
                                                                     <td
@@ -453,7 +454,6 @@
                                                                         @if ($item->pssr)
                                                                             {{ \Carbon\Carbon::parse($item->pssr)->format('F j, Y') }}
                                                                         @else
-                                                                            N/A
                                                                         @endif
                                                                     </td>
                                                                 </tr>
@@ -465,7 +465,6 @@
                                                                         @if ($item->sat)
                                                                             {{ \Carbon\Carbon::parse($item->sat)->format('F j, Y') }}
                                                                         @else
-                                                                            N/A
                                                                         @endif
                                                                     </td>
                                                                 </tr>
@@ -476,7 +475,6 @@
                                                                         @if ($item->dsd)
                                                                             {{ \Carbon\Carbon::parse($item->dsd)->format('F j, Y') }}
                                                                         @else
-                                                                            N/A
                                                                         @endif
                                                                     </td>
                                                                 </tr>
@@ -487,7 +485,6 @@
                                                                         @if ($item->nwr)
                                                                             {{ \Carbon\Carbon::parse($item->nwr)->format('F j, Y') }}
                                                                         @else
-                                                                            N/A
                                                                         @endif
                                                                     </td>
                                                                 </tr>
@@ -498,7 +495,6 @@
                                                                         @if ($item->rasd)
                                                                             {{ \Carbon\Carbon::parse($item->rasd)->format('F j, Y') }}
                                                                         @else
-                                                                            N/A
                                                                         @endif
                                                                     </td>
                                                                 </tr>
@@ -510,7 +506,6 @@
                                                                         @if ($item->atoto)
                                                                             {{ \Carbon\Carbon::parse($item->atoto)->format('F j, Y') }}
                                                                         @else
-                                                                            N/A
                                                                         @endif
                                                                     </td>
                                                                 </tr>
@@ -535,21 +530,14 @@
                                                                     </td>
                                                                 </tr>
 
-                                                                {{-- <tr>
-                                                                    <th class="fs-5">Joining/Discharge</th>
-                                                                    <td
-                                                                        style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->discharge_date)->subMonths(3)) ? 'color: red;' : '' }}">
 
+                                                                <tr>
+                                                                    <th class="fs-5">Joining/Discharge</th>
+                                                                    <td>
                                                                         @if ($item->discharge_date)
                                                                             {{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
                                                                         @else
                                                                         @endif
-                                                                    </td>
-                                                                </tr> --}}
-                                                                <tr>
-                                                                    <th class="fs-5">Joining/Discharge</th>
-                                                                    <td>
-                                                                        {{ $item->discharge_date }}
                                                                     </td>
                                                                 </tr>
 
@@ -565,21 +553,50 @@
                                                                     </td>
                                                                 </tr>
 
-                                                                {{-- <tr>
-                                                                    <th class="fs-5">Readiness</th>
-                                                                    <td
-                                                                        style="{{ $item->readiness && \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->readiness)->subMonths(3)) ? 'color: red;' : '' }}">
-                                                                        @if ($item->readiness)
-                                                                            {{ \Carbon\Carbon::parse($item->readiness)->format('F j, Y') }}
-                                                                        @else
-                                                                            N/A
-                                                                        @endif
-                                                                    </td>
-                                                                </tr> --}}
                                                                 <tr>
                                                                     <th class="fs-5">Readiness</th>
                                                                     <td>
-                                                                        {{ $item->readiness }}
+                                                                        @if ($item->readiness)
+                                                                            {{ \Carbon\Carbon::parse($item->readiness)->format('F j, Y') }}
+                                                                        @else
+                                                                        @endif
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th class="fs-5">Other One</th>
+                                                                    <td>
+                                                                        @if ($item->other_one)
+                                                                            {{ \Carbon\Carbon::parse($item->other_one)->format('F j, Y') }}
+                                                                        @else
+                                                                        @endif
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Other Two</th>
+                                                                    <td>
+                                                                        @if ($item->other_two)
+                                                                            {{ \Carbon\Carbon::parse($item->other_two)->format('F j, Y') }}
+                                                                        @else
+                                                                        @endif
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Other Three</th>
+                                                                    <td>
+                                                                        @if ($item->other_three)
+                                                                            {{ \Carbon\Carbon::parse($item->other_three)->format('F j, Y') }}
+                                                                        @else
+                                                                        @endif
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th class="fs-5">Other Four</th>
+                                                                    <td>
+                                                                        @if ($item->other_four)
+                                                                            {{ \Carbon\Carbon::parse($item->other_four)->format('F j, Y') }}
+                                                                        @else
+                                                                        @endif
                                                                     </td>
                                                                 </tr>
 

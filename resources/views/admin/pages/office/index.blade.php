@@ -121,6 +121,7 @@
                         @php
 
                             $fieldsToCheck2 = [$item->end_of_contract];
+
                             $fieldsToCheck3 = [
                                 $item->coc,
                                 $item->goc,
@@ -147,6 +148,7 @@
                                 $item->cor,
                                 $item->edh,
                             ];
+                            
                             $fieldsToCheck6 = [$item->passport, $item->cdc];
 
                             // $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
