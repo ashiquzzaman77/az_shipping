@@ -32,7 +32,7 @@ class OfficersController extends Controller
     {
         // Validate the request data
         $validator = Validator::make($request->all(), [
-            
+
             'officer_type' => 'required|string',
             'name' => 'required|string|max:255',
             'rank' => 'required|string|max:255',
@@ -210,7 +210,7 @@ class OfficersController extends Controller
 
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
-            
+
             'other_one' => 'nullable|date',
             'other_two' => 'nullable|date',
             'other_three' => 'nullable|date',
@@ -233,5 +233,4 @@ class OfficersController extends Controller
 
         $item->delete();
     }
-
 }

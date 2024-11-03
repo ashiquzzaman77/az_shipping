@@ -15,7 +15,7 @@
         .custom-table th {
             background: #9DBDFF;
             color: #fff;
-            padding: 10px;
+            padding-left: 15px;
         }
 
         .custom-table td {
@@ -119,42 +119,35 @@
 
                     @foreach ($items as $key => $item)
                         @php
-                            $fieldsToCheck = [
-                                $item->passport,
-                                $item->cdc,
+
+                            $fieldsToCheck2 = [$item->end_of_contract];
+                            $fieldsToCheck3 = [
                                 $item->coc,
                                 $item->goc,
-
                                 $item->sid,
                                 $item->ph,
                                 $item->pst,
                                 $item->fpff,
-
                                 $item->efa,
                                 $item->pssr,
                                 $item->sat,
                                 $item->dsd,
-
                                 $item->pscrb,
                                 $item->radar_navigation,
                                 $item->aff,
                                 $item->mfa,
-
                                 $item->madical_care,
                                 $item->ens,
                                 $item->sso,
                                 $item->brm,
-
                                 $item->hvs,
                                 $item->ship_simulation,
                                 $item->ecdis,
                                 $item->atoto,
-
                                 $item->cor,
-                                $item->end_of_contract,
-
                                 $item->edh,
                             ];
+                            $fieldsToCheck6 = [$item->passport, $item->cdc];
 
                             // $shouldBeRed = collect($fieldsToCheck)->contains(function ($date) {
                             //     return $date &&
@@ -163,25 +156,26 @@
                             //         );
                             // });
 
-                            $shouldBe2 = collect($fieldsToCheck)->contains(function ($date) {
+                            $shouldBe2 = collect($fieldsToCheck2)->contains(function ($date) {
                                 return $date &&
                                     \Carbon\Carbon::now()->greaterThanOrEqualTo(
                                         \Carbon\Carbon::parse($date)->subMonths(2),
                                     );
                             });
 
-                            $shouldBe3 = collect($fieldsToCheck)->contains(function ($date) {
+                            $shouldBe3 = collect($fieldsToCheck3)->contains(function ($date) {
                                 return $date &&
                                     \Carbon\Carbon::now()->greaterThanOrEqualTo(
                                         \Carbon\Carbon::parse($date)->subMonths(3),
                                     );
                             });
 
-                            $shouldBe6 =
-                                $item->passport &&
-                                \Carbon\Carbon::now()->greaterThanOrEqualTo(
-                                    \Carbon\Carbon::parse($item->passport)->subMonths(6),
-                                );
+                            $shouldBe6 = collect($fieldsToCheck6)->contains(function ($date) {
+                                return $date &&
+                                    \Carbon\Carbon::now()->greaterThanOrEqualTo(
+                                        \Carbon\Carbon::parse($date)->subMonths(6),
+                                    );
+                            });
 
                             $shouldBeRed = $shouldBe2 || $shouldBe3 || $shouldBe6;
 
@@ -189,6 +183,7 @@
 
                         <tr class="staff-row {{ $shouldBeRed ? 'expired' : '' }} officer-row {{ $item->officer_type }}"
                             style="{{ $shouldBeRed ? 'background-color: #FF7777; color: white;' : '' }}">
+
 
                             <td>{{ $key + 1 }}</td>
 
@@ -697,24 +692,28 @@
                                                                             @if ($item->discharge_date)
                                                                                 {{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
                                                                             @else
-                                                                                
                                                                             @endif
                                                                         </td>
                                                                     </tr>
-                                                                    
-
 
                                                                     <tr>
                                                                         <th class="fs-5">End Of Contract</th>
                                                                         <td
-                                                                            style="{{ isset($item->end_of_contract) && \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->end_of_contract)->subMonths(2)) ? 'color: red;' : '' }}">
+                                                                            style="{{ $item->end_of_contract && \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->end_of_contract)->subMonths(2)) ? 'color: red;' : '' }}">
                                                                             @if ($item->end_of_contract)
                                                                                 {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
+                                                                                <br>
+                                                                                Current Date:
+                                                                                {{ \Carbon\Carbon::now()->format('F j, Y') }}
+                                                                                <br>
+                                                                                Contract Ends In:
+                                                                                {{ \Carbon\Carbon::parse($item->end_of_contract)->diffInDays(\Carbon\Carbon::now()) }}
+                                                                                days
                                                                             @else
+                                                                                N/A
                                                                             @endif
                                                                         </td>
                                                                     </tr>
-
 
                                                                     <tr>
                                                                         <th class="fs-5">Readiness</th>
@@ -722,7 +721,6 @@
                                                                             @if ($item->readiness)
                                                                                 {{ \Carbon\Carbon::parse($item->readiness)->format('F j, Y') }}
                                                                             @else
-                                                                                
                                                                             @endif
                                                                         </td>
                                                                     </tr>
@@ -733,7 +731,6 @@
                                                                             @if ($item->other_one)
                                                                                 {{ \Carbon\Carbon::parse($item->other_one)->format('F j, Y') }}
                                                                             @else
-                                                                                
                                                                             @endif
                                                                         </td>
                                                                     </tr>
@@ -743,7 +740,6 @@
                                                                             @if ($item->other_two)
                                                                                 {{ \Carbon\Carbon::parse($item->other_two)->format('F j, Y') }}
                                                                             @else
-                                                                               
                                                                             @endif
                                                                         </td>
                                                                     </tr>
@@ -753,7 +749,6 @@
                                                                             @if ($item->other_three)
                                                                                 {{ \Carbon\Carbon::parse($item->other_three)->format('F j, Y') }}
                                                                             @else
-                                                                               
                                                                             @endif
                                                                         </td>
                                                                     </tr>
@@ -763,11 +758,9 @@
                                                                             @if ($item->other_four)
                                                                                 {{ \Carbon\Carbon::parse($item->other_four)->format('F j, Y') }}
                                                                             @else
-                                                                               
                                                                             @endif
                                                                         </td>
                                                                     </tr>
-                                                                    
 
                                                                 </tbody>
                                                             </table>
@@ -813,6 +806,8 @@
     </div>
 
     {{-- Modal Show  --}}
+
+
 
 
     @push('scripts')
