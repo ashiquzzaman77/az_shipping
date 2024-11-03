@@ -32,6 +32,7 @@ class OfficersController extends Controller
     {
         // Validate the request data
         $validator = Validator::make($request->all(), [
+            
             'officer_type' => 'required|string',
             'name' => 'required|string|max:255',
             'rank' => 'required|string|max:255',
