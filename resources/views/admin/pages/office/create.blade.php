@@ -417,16 +417,14 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="end_of_contract" class="mb-2">End of Contract</label>
-                                <input type="date" name="end_of_contract" class="form-control form-control-sm"
-                                    value="{{ old('end_of_contract') }}">
+                                <input type="date" name="end_of_contract" class="form-control form-control-sm">
                             </div>
                         </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="readiness" class="mb-2">Readiness</label>
-                                <input type="date" name="readiness" class="form-control form-control-sm"
-                                    value="{{ old('readiness') }}">
+                                <input type="date" name="readiness" class="form-control form-control-sm">
                             </div>
                         </div>
 
