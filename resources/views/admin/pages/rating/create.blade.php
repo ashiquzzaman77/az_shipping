@@ -359,7 +359,7 @@
             const additionalField = document.getElementById('additionalField');
 
             statusSelect.addEventListener('change', function() {
-                if (this.value === 'board') {
+                if (this.value === 'board' || this.value === 'leave') {
                     additionalField.style.display = 'block';
                 } else {
                     additionalField.style.display = 'none';

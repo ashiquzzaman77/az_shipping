@@ -137,10 +137,9 @@
                             <div class="form-group">
                                 <label for="contact" class="mb-2">Current Status</label>
                                 <select name="status" class="form-select form-select-sm" id="statusSelect">
-                                    <option disabled {{ $officer->status ? '' : 'selected' }}>Choose...</option>
+                                    <option disabled selected>Choose...</option>
                                     <option value="board" {{ $officer->status == 'board' ? 'selected' : '' }}>On
-                                        Board
-                                    </option>
+                                        Board</option>
                                     <option value="leave" {{ $officer->status == 'leave' ? 'selected' : '' }}>On
                                         Leave</option>
                                     <option value="fleet" {{ $officer->status == 'fleet' ? 'selected' : '' }}>Not in
@@ -149,7 +148,7 @@
                             </div>
 
                             <div id="additionalField" class="form-group mt-2"
-                                style="{{ $officer->status == 'board' ? '' : 'display: none;' }}">
+                                style="{{ $officer->status == 'board' || $officer->status == 'leave' ? '' : 'display: none;' }}">
                                 <label for="details" class="mb-2">Ship Name</label>
                                 <input type="text" class="form-control form-control-sm" id="details"
                                     value="{{ $officer->ship_name }}" name="ship_name"
@@ -202,8 +201,7 @@
                             <div class="form-group">
                                 <label for="coc" class="mb-2">COC</label>
                                 <input type="date" name="coc" placeholder="Enter COC"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('coc', $officer->coc) }}">
+                                    class="form-control form-control-sm" value="{{ old('coc', $officer->coc) }}">
                             </div>
                         </div>
 
@@ -211,8 +209,7 @@
                             <div class="form-group">
                                 <label for="goc" class="mb-2">GOC</label>
                                 <input type="date" name="goc" placeholder="Enter GOC"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('goc', $officer->goc) }}">
+                                    class="form-control form-control-sm" value="{{ old('goc', $officer->goc) }}">
                             </div>
                         </div>
 
@@ -220,8 +217,7 @@
                             <div class="form-group">
                                 <label for="sid" class="mb-2">SID</label>
                                 <input type="date" name="sid" placeholder="Enter SID"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('sid', $officer->sid) }}">
+                                    class="form-control form-control-sm" value="{{ old('sid', $officer->sid) }}">
                             </div>
                         </div>
 
@@ -229,8 +225,7 @@
                             <div class="form-group">
                                 <label for="ph" class="mb-2">PH</label>
                                 <input type="date" name="ph" placeholder="Enter PH"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('ph', $officer->ph) }}">
+                                    class="form-control form-control-sm" value="{{ old('ph', $officer->ph) }}">
                             </div>
                         </div>
 
@@ -238,8 +233,7 @@
                             <div class="form-group">
                                 <label for="pst" class="mb-2">PST</label>
                                 <input type="date" name="pst" placeholder="Enter PST"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('pst', $officer->pst) }}">
+                                    class="form-control form-control-sm" value="{{ old('pst', $officer->pst) }}">
                             </div>
                         </div>
 
@@ -256,8 +250,7 @@
                             <div class="form-group">
                                 <label for="efa" class="mb-2">EFA</label>
                                 <input type="date" name="efa" placeholder="Enter EFA"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('efa', $officer->efa) }}">
+                                    class="form-control form-control-sm" value="{{ old('efa', $officer->efa) }}">
                             </div>
                         </div>
 
@@ -265,8 +258,7 @@
                             <div class="form-group">
                                 <label for="pssr" class="mb-2">PSSR</label>
                                 <input type="date" name="pssr" placeholder="Enter PSSR"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('pssr', $officer->pssr) }}">
+                                    class="form-control form-control-sm" value="{{ old('pssr', $officer->pssr) }}">
                             </div>
                         </div>
 
@@ -274,8 +266,7 @@
                             <div class="form-group">
                                 <label for="sat" class="mb-2">SAT</label>
                                 <input type="date" name="sat" placeholder="Enter SAT"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('sat', $officer->sat) }}">
+                                    class="form-control form-control-sm" value="{{ old('sat', $officer->sat) }}">
                             </div>
                         </div>
 
@@ -283,8 +274,7 @@
                             <div class="form-group">
                                 <label for="dsd" class="mb-2">DSD</label>
                                 <input type="date" name="dsd" placeholder="Enter DSD"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('dsd', $officer->dsd) }}">
+                                    class="form-control form-control-sm" value="{{ old('dsd', $officer->dsd) }}">
                             </div>
                         </div>
 
@@ -292,8 +282,7 @@
                             <div class="form-group">
                                 <label for="pscrb" class="mb-2">PSCRB</label>
                                 <input type="date" name="pscrb" placeholder="Enter PSCRB"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('pscrb', $officer->pscrb) }}">
+                                    class="form-control form-control-sm" value="{{ old('pscrb', $officer->pscrb) }}">
                             </div>
                         </div>
 
@@ -301,8 +290,7 @@
                             <div class="form-group">
                                 <label for="edh" class="mb-2">EDH</label>
                                 <input type="date" name="edh" placeholder="Enter EDH"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('edh', $officer->edh) }}">
+                                    class="form-control form-control-sm" value="{{ old('edh', $officer->edh) }}">
                             </div>
                         </div>
 
@@ -320,8 +308,7 @@
                             <div class="form-group">
                                 <label for="aff" class="mb-2">AFF</label>
                                 <input type="date" name="aff" placeholder="Enter AFF"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('aff', $officer->aff) }}">
+                                    class="form-control form-control-sm" value="{{ old('aff', $officer->aff) }}">
                             </div>
                         </div>
 
@@ -329,8 +316,7 @@
                             <div class="form-group">
                                 <label for="mfa" class="mb-2">MFA</label>
                                 <input type="date" name="mfa" placeholder="Enter MFA"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('mfa', $officer->mfa) }}">
+                                    class="form-control form-control-sm" value="{{ old('mfa', $officer->mfa) }}">
                             </div>
                         </div>
 
@@ -347,8 +333,7 @@
                             <div class="form-group">
                                 <label for="ens" class="mb-2">ENS</label>
                                 <input type="date" name="ens" placeholder="Enter ENS"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('ens', $officer->ens) }}">
+                                    class="form-control form-control-sm" value="{{ old('ens', $officer->ens) }}">
                             </div>
                         </div>
 
@@ -356,8 +341,7 @@
                             <div class="form-group">
                                 <label for="sso" class="mb-2">SSO</label>
                                 <input type="date" name="sso" placeholder="Enter SSO"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('sso', $officer->sso) }}">
+                                    class="form-control form-control-sm" value="{{ old('sso', $officer->sso) }}">
                             </div>
                         </div>
 
@@ -365,8 +349,7 @@
                             <div class="form-group">
                                 <label for="brm" class="mb-2">BRM/ERM</label>
                                 <input type="date" name="brm" placeholder="Enter BRM"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('brm', $officer->brm) }}">
+                                    class="form-control form-control-sm" value="{{ old('brm', $officer->brm) }}">
                             </div>
                         </div>
 
@@ -374,8 +357,7 @@
                             <div class="form-group">
                                 <label for="hvs" class="mb-2">HVS</label>
                                 <input type="date" name="hvs" placeholder="Enter HVS"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('hvs', $officer->hvs) }}">
+                                    class="form-control form-control-sm" value="{{ old('hvs', $officer->hvs) }}">
                             </div>
                         </div>
 
@@ -392,8 +374,7 @@
                             <div class="form-group">
                                 <label for="ecdis" class="mb-2">ECDIS</label>
                                 <input type="date" name="ecdis" placeholder="Enter ECDIS"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('ecdis', $officer->ecdis) }}">
+                                    class="form-control form-control-sm" value="{{ old('ecdis', $officer->ecdis) }}">
                             </div>
                         </div>
 
@@ -401,8 +382,7 @@
                             <div class="form-group">
                                 <label for="atoto" class="mb-2">ATOTO</label>
                                 <input type="date" name="atoto" placeholder="Enter ATOTO"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('atoto', $officer->atoto) }}">
+                                    class="form-control form-control-sm" value="{{ old('atoto', $officer->atoto) }}">
                             </div>
                         </div>
 
@@ -410,8 +390,7 @@
                             <div class="form-group">
                                 <label for="cor" class="mb-2">COR</label>
                                 <input type="date" name="cor" placeholder="Enter COR"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('cor', $officer->cor) }}">
+                                    class="form-control form-control-sm" value="{{ old('cor', $officer->cor) }}">
                             </div>
                         </div>
 
@@ -419,8 +398,7 @@
                             <div class="form-group">
                                 <label for="covid" class="mb-2">COVID Vaccination</label>
                                 <input type="text" name="covid" placeholder="Enter COVID Vaccination"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('covid', $officer->covid) }}">
+                                    class="form-control form-control-sm" value="{{ old('covid', $officer->covid) }}">
                             </div>
                         </div>
 
@@ -511,20 +489,16 @@
             const statusSelect = document.getElementById('statusSelect');
             const additionalField = document.getElementById('additionalField');
 
-            // Function to toggle the additional field
-            function toggleAdditionalField() {
-                if (statusSelect.value === 'board') {
+            statusSelect.addEventListener('change', function() {
+                if (this.value === 'board' || this.value === 'leave') {
                     additionalField.style.display = 'block';
                 } else {
                     additionalField.style.display = 'none';
                 }
-            }
+            });
 
-            // Event listener for the dropdown
-            statusSelect.addEventListener('change', toggleAdditionalField);
-
-            // Initial check to set visibility based on the selected status
-            toggleAdditionalField();
+            // Trigger change event on page load to set the correct visibility
+            statusSelect.dispatchEvent(new Event('change'));
         </script>
     @endpush
 

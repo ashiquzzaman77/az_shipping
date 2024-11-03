@@ -212,7 +212,7 @@
                                         ({{ $item->ship_name }})
                                     </h6>
                                 @elseif($item->status == 'leave')
-                                    <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">On Leave</h6>
+                                    <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">On Leave ({{ $item->ship_name }})</h6>
                                 @elseif($item->status == 'fleet')
                                     <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">Not in Fleet Yet</h6>
                                 @endif
@@ -523,7 +523,7 @@
                                                                         @if ($item->status == 'board')
                                                                             <h6>On Board ({{ $item->ship_name }})</h6>
                                                                         @elseif($item->status == 'leave')
-                                                                            <h6>On Leave</h6>
+                                                                            <h6>On Leave ({{ $item->ship_name }})</h6>
                                                                         @elseif($item->status == 'fleet')
                                                                             <h6>Not in Fleet Yet</h6>
                                                                         @endif

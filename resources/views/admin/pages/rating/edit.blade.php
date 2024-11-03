@@ -124,20 +124,20 @@
                                 <label for="contact" class="mb-2">Current Status</label>
                                 <select name="status" class="form-select form-select-sm" id="statusSelect">
                                     <option disabled {{ $rating->status ? '' : 'selected' }}>Choose...</option>
-                                    <option value="board" {{ $rating->status == 'board' ? 'selected' : '' }}>On Board
-                                    </option>
-                                    <option value="leave" {{ $rating->status == 'leave' ? 'selected' : '' }}>On Leave
-                                    </option>
+                                    <option value="board" {{ $rating->status == 'board' ? 'selected' : '' }}>On
+                                        Board</option>
+                                    <option value="leave" {{ $rating->status == 'leave' ? 'selected' : '' }}>On
+                                        Leave</option>
                                     <option value="fleet" {{ $rating->status == 'fleet' ? 'selected' : '' }}>Not in
                                         Fleet Yet</option>
                                 </select>
                             </div>
 
                             <div id="additionalField" class="form-group mt-2"
-                                style="{{ $rating->status == 'board' ? '' : 'display: none;' }}">
+                                style="{{ $rating->status == 'board' || $rating->status == 'leave' ? '' : 'display: none;' }}">
                                 <label for="details" class="mb-2">Ship Name</label>
                                 <input type="text" class="form-control form-control-sm" id="details"
-                                    name="ship_name" value="{{ old('ship_name', $rating->ship_name) }}"
+                                    value="{{ $rating->ship_name }}" name="ship_name"
                                     placeholder="Enter ship name">
                             </div>
                         </div>
@@ -376,20 +376,16 @@
             const statusSelect = document.getElementById('statusSelect');
             const additionalField = document.getElementById('additionalField');
 
-            // Function to toggle the additional field
-            function toggleAdditionalField() {
-                if (statusSelect.value === 'board') {
+            statusSelect.addEventListener('change', function() {
+                if (this.value === 'board' || this.value === 'leave') {
                     additionalField.style.display = 'block';
                 } else {
                     additionalField.style.display = 'none';
                 }
-            }
+            });
 
-            // Event listener for the dropdown
-            statusSelect.addEventListener('change', toggleAdditionalField);
-
-            // Initial check to set visibility based on the selected status
-            toggleAdditionalField();
+            // Trigger change event on page load to set the correct visibility
+            statusSelect.dispatchEvent(new Event('change'));
         </script>
     @endpush
 
