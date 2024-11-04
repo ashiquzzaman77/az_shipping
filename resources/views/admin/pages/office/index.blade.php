@@ -730,7 +730,7 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <th class="fs-5">Other One</th>
+                                                                    <th class="fs-5">Value Add Course</th>
                                                                     <td>
                                                                        {{ $item->other_one }}
                                                                     </td>
