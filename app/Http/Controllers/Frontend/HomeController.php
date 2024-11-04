@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use App\Mail\ContactMessageReceived;
+use App\Models\Job;
+use App\Models\Team;
 use App\Models\About;
 use App\Models\Admin;
-use App\Models\ApplyPost;
+use App\Models\Legal;
 use App\Models\Banner;
-use App\Models\CeoMessage;
 use App\Models\Choose;
 use App\Models\Client;
-use App\Models\Contact;
-use App\Models\Job;
-use App\Models\Legal;
 use App\Models\Mision;
 use App\Models\Policy;
-use App\Models\Principle;
-use App\Models\Service;
-use App\Models\Team;
 use App\Models\Vision;
+use App\Models\Contact;
+use App\Models\Service;
+use App\Models\Setting;
+use App\Models\ApplyPost;
+use App\Models\Principle;
+use App\Models\CeoMessage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Mail\ContactMessageReceived;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -37,12 +38,26 @@ class HomeController extends Controller
     //Homepage
     public function index()
     {
-        $banners = Banner::where('status', 'active')->latest()->get();
-        $services = Service::where('status', 'active')->latest()->get();
-        $about = About::latest('id')->first();
-        $clients = Client::where('status', 'active')->latest()->get();
+        // $banners = Banner::where('status', 'active')->latest()->get();
+        // $services = Service::where('status', 'active')->latest()->get();
+        // $about = About::latest('id')->first();
+        // $clients = Client::where('status', 'active')->latest()->get();
 
-        return view('frontend.pages.home', compact('banners', 'about', 'services', 'clients'));
+        // return view('frontend.pages.home', compact('banners', 'about', 'services', 'clients'));
+
+        $adminStatus = Setting::where('maintenance_mode', 'active')->exists();
+
+        if (!$adminStatus) {
+            $banners = Banner::where('status', 'active')->latest()->get();
+            $services = Service::where('status', 'active')->latest()->get();
+            $about = About::latest('id')->first();
+            $clients = Client::where('status', 'active')->latest()->get();
+
+            return view('frontend.pages.home', compact('banners', 'about', 'services', 'clients'));
+        } else {
+            // Handle the case when the admin panel is active (site in maintenance mode)
+            return response()->view('errors.site_problem',);
+        }
     }
 
     //allTeam

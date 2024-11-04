@@ -47,4 +47,4 @@
 
 <link rel="icon" type="image/png" href="{{ !empty(optional($setting)->site_favicon) && file_exists(public_path('storage/' . optional($setting)->site_favicon)) ? asset('storage/' . optional($setting)->site_favicon) : asset('frontend/images/no-logo(217-55).jpg') }}">
 
-<title>{{ optional($setting)->site_name ?? 'AZ Shipping' }}</title>
+<title>{{ optional($setting)->site_name ?? 'AZ Shipping ' }}</title>
