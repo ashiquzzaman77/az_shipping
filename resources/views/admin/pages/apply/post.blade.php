@@ -175,7 +175,7 @@
                                 @endif
                             </td>
 
-                            {{-- @if (Auth::guard('admin')->user()->can('delete.apply_post')) --}}
+                            @if (Auth::guard('admin')->user()->can('delete.job_apply'))
                                 <td>
 
                                     <form action="{{ route('admin.apply.post.delete', $item->id) }}" method="POST"
@@ -189,7 +189,7 @@
                                     </form>
 
                                 </td>
-                            {{-- @endif --}}
+                            @endif
 
 
 

@@ -161,17 +161,17 @@
 
 
                             <td>
-                                {{-- @if (Auth::guard('admin')->user()->can('edit.service')) --}}
-                                <a href="{{ route('admin.principle.edit', $item->id) }}" class="text-primary">
-                                    <i class="fa-solid fa-pencil text-primary"></i>
-                                </a>
-                                {{-- @endif
+                                @if (Auth::guard('admin')->user()->can('edit.principle'))
+                                    <a href="{{ route('admin.principle.edit', $item->id) }}" class="text-primary">
+                                        <i class="fa-solid fa-pencil text-primary"></i>
+                                    </a>
+                                @endif
 
-                                @if (Auth::guard('admin')->user()->can('delete.principle')) --}}
-                                <a href="{{ route('admin.principle.destroy', $item->id) }}" class="delete">
-                                    <i class="fa-solid fa-trash text-danger"></i>
-                                </a>
-                                {{-- @endif --}}
+                                @if (Auth::guard('admin')->user()->can('delete.principle'))
+                                    <a href="{{ route('admin.principle.destroy', $item->id) }}" class="delete">
+                                        <i class="fa-solid fa-trash text-danger"></i>
+                                    </a>
+                                @endif
 
                             </td>
                         </tr>

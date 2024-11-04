@@ -23,10 +23,12 @@
         </div>
         <div class="card-body pt-0">
 
+            @if (Auth::guard('admin')->user()->can('delete.message'))
             <form id="bulkDeleteForm" method="POST" action="{{ route('admin.admin-contact.bulk-delete') }}">
                 @csrf
                 <button type="submit" class="btn btn-danger">Delete Selected</button>
             </form>
+            @endif
 
             <table id="kt_datatable_example_5" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
                 <thead class="bg-dark text-white">
@@ -80,9 +82,13 @@
                                     </div>
                                 </div>
 
-                                <a href="{{ route('admin.admin-contact.destroy', $item->id) }}" class="delete">
-                                    <i class="bi bi-trash3-fill text-danger"></i>
-                                </a>
+                                @if (Auth::guard('admin')->user()->can('delete.message'))
+                                    <a href="{{ route('admin.admin-contact.destroy', $item->id) }}" class="delete">
+                                        <i class="bi bi-trash3-fill text-danger"></i>
+                                    </a>
+                                @endif
+
+
                             </td>
                         </tr>
                     @endforeach

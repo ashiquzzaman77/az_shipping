@@ -171,17 +171,18 @@
 
 
                             <td>
-                                {{-- @if (Auth::guard('admin')->user()->can('edit.banner')) --}}
+                                
+                                @if (Auth::guard('admin')->user()->can('edit.client'))
                                     <a href="{{ route('admin.client.edit', $item->id) }}" class="text-primary">
                                         <i class="fa-solid fa-pencil text-primary"></i>
                                     </a>
-                                {{-- @endif
+                                @endif
 
-                                @if (Auth::guard('admin')->user()->can('delete.client')) --}}
+                                @if (Auth::guard('admin')->user()->can('delete.client'))
                                     <a href="{{ route('admin.client.destroy', $item->id) }}" class="delete">
                                         <i class="fa-solid fa-trash text-danger"></i>
                                     </a>
-                                {{-- @endif --}}
+                                @endif
 
                             </td>
                         </tr>

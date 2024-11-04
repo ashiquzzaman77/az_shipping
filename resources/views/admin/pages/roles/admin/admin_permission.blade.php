@@ -105,15 +105,15 @@
                                             @endif
                                         @endif --}}
 
-                                        {{-- @if (Auth::guard('admin')->user()->can('edit.admin')) --}}
-                                        <a href="{{ route('edit.admin.permission', $user->id) }}" class="ms-1"
-                                            title="Edit"><i class="bi bi-pencil-square fs-3 text-success"></i></a>
-                                        {{-- @endif --}}
+                                        @if (Auth::guard('admin')->user()->can('edit.admin'))
+                                            <a href="{{ route('edit.admin.permission', $user->id) }}" class="ms-1"
+                                                title="Edit"><i class="bi bi-pencil-square fs-3 text-success"></i></a>
+                                        @endif
 
-                                        {{-- @if (Auth::guard('admin')->user()->can('delete.admin')) --}}
-                                        <a href="{{ route('delete.admin', $user->id) }}" class="ms-1"
-                                            title="Delete"><i class="bi bi-trash fs-3 text-danger"></i></a>
-                                        {{-- @endif --}}
+                                        @if (Auth::guard('admin')->user()->can('delete.admin'))
+                                            <a href="{{ route('delete.admin', $user->id) }}" class="ms-1"
+                                                title="Delete"><i class="bi bi-trash fs-3 text-danger"></i></a>
+                                        @endif
 
                                     </td>
 

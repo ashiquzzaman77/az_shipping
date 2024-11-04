@@ -164,13 +164,13 @@
 
 
                             <td>
-                                {{-- @if (Auth::guard('admin')->user()->can('edit.policy')) --}}
-                                <a href="{{ route('admin.policy.edit', $item->id) }}" class="text-primary">
-                                    <i class="fa-solid fa-pencil text-primary"></i>
-                                </a>
-                                {{-- @endif
+                                @if (Auth::guard('admin')->user()->can('edit.policy'))
+                                    <a href="{{ route('admin.policy.edit', $item->id) }}" class="text-primary">
+                                        <i class="fa-solid fa-pencil text-primary"></i>
+                                    </a>
+                                @endif
 
-                                @if (Auth::guard('admin')->user()->can('delete.policy')) --}}
+                                {{-- @if (Auth::guard('admin')->user()->can('delete.policy')) --}}
                                 {{-- <a href="{{ route('admin.policy.destroy', $item->id) }}" class="delete">
                                     <i class="fa-solid fa-trash text-danger"></i>
                                 </a> --}}
