@@ -76,7 +76,7 @@ class OfficersController extends Controller
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
 
-            'other_one' => 'nullable|date',
+            'other_one' => 'nullable|string',
             'other_two' => 'nullable|date',
             'other_three' => 'nullable|date',
             'other_four' => 'nullable|date',
@@ -211,7 +211,7 @@ class OfficersController extends Controller
             'discharge_date' => 'nullable|date',
             'end_of_contract' => 'nullable|date',
 
-            'other_one' => 'nullable|date',
+            'other_one' => 'nullable|string',
             'other_two' => 'nullable|date',
             'other_three' => 'nullable|date',
             'other_four' => 'nullable|date',

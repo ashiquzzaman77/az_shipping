@@ -65,7 +65,7 @@ class RatingController extends Controller
             'end_of_contract' => 'nullable|date',
             'readiness' => 'nullable|date',
 
-            'other_one' => 'nullable|date',
+            'other_one' => 'nullable|string',
             'other_two' => 'nullable|date',
             'other_three' => 'nullable|date',
             'other_four' => 'nullable|date',
@@ -182,7 +182,7 @@ class RatingController extends Controller
             'end_of_contract' => 'nullable|date',
             'readiness' => 'nullable|date',
 
-            'other_one' => 'nullable|date',
+            'other_one' => 'nullable|string',
             'other_two' => 'nullable|date',
             'other_three' => 'nullable|date',
             'other_four' => 'nullable|date',

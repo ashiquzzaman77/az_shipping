@@ -42,7 +42,7 @@
                                     id="rating_type">
                                     <option selected disabled>Choose...</option>
 
-                                    <option value="deak" {{ old('rating_type') == 'deak' ? 'selected' : '' }}>Deak
+                                    <option value="deak" {{ old('rating_type') == 'deak' ? 'selected' : '' }}>Deck
                                         Rating</option>
 
                                     <option value="engine" {{ old('rating_type') == 'engine' ? 'selected' : '' }}>
@@ -299,7 +299,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="other_one" class="mb-2">Readiness</label>
+                                <label for="readiness" class="mb-2">Readiness</label>
                                 <input type="date" name="readiness" class="form-control form-control-sm"
                                     value="{{ old('readiness') }}">
                             </div>
@@ -307,8 +307,8 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="other_one" class="mb-2">Other One</label>
-                                <input type="date" name="other_one" class="form-control form-control-sm"
+                                <label for="other_one" class="mb-2">Value Add Course</label>
+                                <input type="text" name="other_one" class="form-control form-control-sm"
                                     value="{{ old('other_one') }}">
                             </div>
                         </div>

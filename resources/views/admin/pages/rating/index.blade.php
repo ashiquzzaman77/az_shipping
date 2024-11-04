@@ -61,13 +61,13 @@
 
                 <div class="d-flex align-items-center">
                     <input type="checkbox" id="deak" class="form-check-input" onchange="filterOfficers()">
-                    <label for="deak" class="form-check-label me-3 ms-2">Deak Rating</label>
+                    <label for="deak" class="form-check-label me-3 ms-2">Deck Rating</label>
 
                     <input type="checkbox" id="engine" class="form-check-input ms-3" onchange="filterOfficers()">
                     <label for="engine" class="form-check-label ms-2">Engine Rating</label>
 
                     <input type="checkbox" id="salon" class="form-check-input ms-3" onchange="filterOfficers()">
-                    <label for="salon" class="form-check-label ms-2">Salon Rating</label>
+                    <label for="salon" class="form-check-label ms-2">Saloon Rating</label>
                 </div>
 
             </div>
@@ -177,7 +177,7 @@
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
                                     @if ($item->rating_type == 'deak')
-                                        <span>Deak Rating</span>
+                                        <span>Deck Rating</span>
                                     @elseif ($item->rating_type == 'engine')
                                         <span>Engine Rating</span>
                                     @elseif ($item->rating_type == 'salon')
@@ -564,12 +564,9 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <th class="fs-5">Other One</th>
+                                                                    <th class="fs-5">Value Add Course</th>
                                                                     <td>
-                                                                        @if ($item->other_one)
-                                                                            {{ \Carbon\Carbon::parse($item->other_one)->format('F j, Y') }}
-                                                                        @else
-                                                                        @endif
+                                                                        {{ $item->other_one }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>

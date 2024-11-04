@@ -732,10 +732,7 @@
                                                                 <tr>
                                                                     <th class="fs-5">Other One</th>
                                                                     <td>
-                                                                        @if ($item->other_one)
-                                                                            {{ \Carbon\Carbon::parse($item->other_one)->format('F j, Y') }}
-                                                                        @else
-                                                                        @endif
+                                                                       {{ $item->other_one }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
