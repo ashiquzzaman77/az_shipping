@@ -69,7 +69,7 @@
 
     <script>
         function updateTimer() {
-            const future = Date.parse("Nov 15, 2024 20:00:00");
+            const future = Date.parse("Nov 6, 2024 20:00:00");
             const now = new Date();
             const diff = future - now;
 
