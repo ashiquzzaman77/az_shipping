@@ -50,7 +50,8 @@
             margin-bottom: 20px;
         }
 
-        #target-date, #current-date {
+        #target-date,
+        #current-date {
             font-size: 1.5em;
             color: #ccc;
             margin-top: 20px;
@@ -84,16 +85,21 @@
             const secs = Math.floor((diff % (1000 * 60)) / 1000);
 
             document.getElementById("timer").innerHTML =
-                '<div>' + days + '<span>days</span></div>' +
-                '<div>' + hours + '<span>hours</span></div>' +
-                '<div>' + mins + '<span>minutes</span></div>' +
-                '<div>' + secs + '<span>seconds</span></div>';
+                '<div>' + days + '<span>Days</span></div>' +
+                '<div>' + hours + '<span>Hours</span></div>' +
+                '<div>' + mins + '<span>Minutes</span></div>' +
+                '<div>' + secs + '<span>Seconds</span></div>';
         }
 
         function updateCurrentDate() {
             const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-            document.getElementById("current-date").innerText = now.toLocaleDateString('en-US', options) + 
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long'
+            };
+            document.getElementById("current-date").innerText = now.toLocaleDateString('en-US', options) +
                 ', ' + now.toLocaleTimeString('en-US');
         }
 
