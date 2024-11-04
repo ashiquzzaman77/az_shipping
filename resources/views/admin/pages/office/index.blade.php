@@ -787,17 +787,17 @@
 
                                 {{-- Show Modal  --}}
 
-                                {{-- @if (Auth::guard('admin')->user()->can('edit.officer')) --}}
-                                <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
-                                    <i class="fa-solid fa-pencil text-primary fs-5"></i>
-                                </a>
-                                {{-- @endif --}}
+                                @if (Auth::guard('admin')->user()->can('edit.officer'))
+                                    <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
+                                        <i class="fa-solid fa-pencil text-primary fs-5"></i>
+                                    </a>
+                                @endif
 
-                                {{-- @if (Auth::guard('admin')->user()->can('delete.officer')) --}}
-                                <a href="{{ route('admin.officer.destroy', $item->id) }}" class="delete">
-                                    <i class="fa-solid fa-trash text-danger fs-5"></i>
-                                </a>
-                                {{-- @endif --}}
+                                @if (Auth::guard('admin')->user()->can('delete.officer'))
+                                    <a href="{{ route('admin.officer.destroy', $item->id) }}" class="delete">
+                                        <i class="fa-solid fa-trash text-danger fs-5"></i>
+                                    </a>
+                                @endif
 
                             </td>
                         </tr>
