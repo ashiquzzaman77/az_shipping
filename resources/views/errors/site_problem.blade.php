@@ -60,6 +60,7 @@
 
 <body>
     <div class="container">
+        <span>Come Back</span>
         <p>Site Maintenance Mode</p>
         <div id="timer"></div>
         <div id="current-date"></div>
