@@ -122,6 +122,5 @@
     <div class="container">
         <p class="mb-0">Copyright @2024. All Rights Reserved <a href="javascript:;" target="_blank"><span class="text-white">AZ Shipping</span></a>
         </p>
-        <span class="mt-0">Development By <a href="https://www.ashikuzzaman.net/">Ashiquzzaman</a></span>
     </div>
 </div>
