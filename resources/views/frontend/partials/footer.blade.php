@@ -32,8 +32,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ 'https://wa.me/' . optional($setting)->whatsapp }}" target="_blank"
-                                aria-label="WhatsApp">
+                            <a href="{{ 'https://wa.me/' . optional($setting)->whatsapp }}" target="_blank" aria-label="WhatsApp">
                                 <i class="bx bxl-whatsapp"></i>
                             </a>
                         </li>
@@ -98,7 +97,7 @@
                             <i class="bx bxs-location-plus"></i>
                             <p>{{ optional($setting)->address_line_one }}</p>
                         </li>
-
+                        
                         <li>
                             <i class="bx bxs-envelope"></i>
                             <p>{{ optional($setting)->primary_email }}</p>
@@ -121,11 +120,7 @@
 
 <div class="footer-bottom text-center" id="contact">
     <div class="container">
-        <p>Copyright @2024. All Rights Reserved <a href="javascript:;" target="_blank">
-                <h1
-                    style="font-size: 48px; font-weight: bold; background: linear-gradient(to right, #5ffaff, #7beffe); -webkit-background-clip: text; background-clip: text; color: transparent;">
-                    AZ Shipping</h1>
-            </a>
+        <p>Copyright @2024. All Rights Reserved <a href="javascript:;" target="_blank"><span class="text-white">AZ Shipping</span></a>
         </p>
         <p>Development By <a href="https://www.ashikuzzaman.net/">Ashiquzzaman</a></p>
     </div>
