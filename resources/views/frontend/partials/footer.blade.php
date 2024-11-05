@@ -118,9 +118,9 @@
     </div>
 </footer>
 
-<div class="footer-bottom" id="contact">
+<div class="footer-bottom text-center" id="contact">
     <div class="container">
-        <p>Copyright @2024. All Rights Reserved <a href="javascript:;" target="_blank">AZ Shipping</a>
+        <p>Copyright @2024. All Rights Reserved <a href="javascript:;" target="_blank"><span class="text-white">AZ Shipping</span></a>
         </p>
     </div>
 </div>
