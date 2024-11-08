@@ -150,7 +150,7 @@ p:last-child {
   font-weight: 600;
   display: block;
   margin-bottom: 15px;
-  color: #f21860;
+  color: #023154;
   line-height: 1;
 }
 
@@ -2097,7 +2097,7 @@ Transportation Area
 }
 
 .transportation-area .transportation-form h3 span {
-  color: #f21860;
+  color: #023154;
 }
 
 .popup-video {
@@ -2654,7 +2654,7 @@ Preloader Area
 }
 
 .go-top i {
-  background: #f21860;
+  background: #023154;
   color: #ffffff;
   width: 35px;
   height: 35px;
@@ -2813,20 +2813,20 @@ About Two Area
 }
 
 .about-contant-others .about-two-text .watch-video .video-btn a {
-  color: #f21860;
+  color: #023154;
   display: inline-block;
   padding-bottom: 8px;
 }
 
 .about-contant-others .about-two-text .watch-video .video-btn a i {
   background: transparent;
-  color: #f21860;
+  color: #023154;
   width: 55px;
   height: 55px;
   font-size: 30px;
   line-height: 55px;
   text-align: center;
-  border: 1px solid #f21860;
+  border: 1px solid #023154;
   border-radius: 50%;
   position: relative;
   margin-right: 10px;
@@ -3042,7 +3042,7 @@ Personal Data Area
 }
 
 .personal-data-area .personal-data-form p a {
-  color: #f21860;
+  color: #023154;
   font-size: 18px;
   font-weight: 600;
 }
@@ -3356,7 +3356,7 @@ Newsletter Area
 .newsletter-content .newsletter-form .btn {
   padding: 15px 35px;
   transition: all 0.7s;
-  background: #f21860;
+  background: #023154;
   /* background: #023154; */
   box-shadow: none;
   border: 0;
@@ -3694,7 +3694,7 @@ Frequently Area
 }
 
 .frequently-area .frequently-accrodion p a {
-  color: #f21860;
+  color: #023154;
 }
 
 .frequently-area .frequently-accrodion p a:hover {
@@ -5549,7 +5549,7 @@ Faq Area
 }
 
 .faq-area .faq-form .faq-form-btn:hover {
-  background: #f21860;
+  background: #023154;
   color: #ffffff;
 }
 
