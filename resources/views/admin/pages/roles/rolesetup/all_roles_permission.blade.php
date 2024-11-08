@@ -72,8 +72,8 @@
 
                                         </td>
                                         <td style="width: 100px;">
-                                            <a href="{{ route('admin.edit.roles', $item->id) }}" class=""
-                                                title="Edit"><i class="bi bi-pencil-square fs-3 text-primary"></i></a>
+                                            {{-- <a href="{{ route('admin.edit.roles', $item->id) }}" class=""
+                                                title="Edit"><i class="bi bi-pencil-square fs-3 text-primary"></i></a> --}}
 
                                             {{-- <a href="{{ route('admin.delete.roles', $item->id) }}" class=""
                                                 id="delete" title="Delete"><i
