@@ -706,13 +706,13 @@
                                                                         style="{{ $item->end_of_contract && \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->end_of_contract)->subMonths(2)) ? 'color: red;' : '' }}">
                                                                         @if ($item->end_of_contract)
                                                                             {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
-                                                                            <br>
+                                                                            {{-- <br>
                                                                             Current Date:
                                                                             {{ \Carbon\Carbon::now()->format('F j, Y') }}
-                                                                            <br>
-                                                                            Contract Ends In:
+                                                                            <br> --}}
+                                                                            {{-- Contract Ends In:
                                                                             {{ \Carbon\Carbon::parse($item->end_of_contract)->diffInDays(\Carbon\Carbon::now()) }}
-                                                                            days
+                                                                            days --}}
                                                                         @else
                                                                             N/A
                                                                         @endif
