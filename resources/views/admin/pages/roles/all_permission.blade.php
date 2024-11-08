@@ -20,11 +20,12 @@
                     <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
 
                         <!--begin::Add product-->
-                        
-                        <a href="" class="btn btn-light-primary btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#addModal">Add Permission</a>
 
-                        <a href="{{ route('all.roles.permission') }}" class="btn btn-light-info btn-sm">Role In Permission</a>
+                        {{-- <a href="" class="btn btn-light-primary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#addModal">Add Permission</a> --}}
+
+                        <a href="{{ route('all.roles.permission') }}" class="btn btn-light-info btn-sm">Role In
+                            Permission</a>
                         <!--end::Add product-->
 
                     </div>
@@ -103,7 +104,8 @@
 
                                                             <div class="form-group">
                                                                 <label for="">Group Name</label>
-                                                                <input type="text" value="{{ $permission->group_name }}"
+                                                                <input type="text"
+                                                                    value="{{ $permission->group_name }}"
                                                                     name="group_name" required autocomplete="off"
                                                                     placeholder="Permission Name" class="form-control">
                                                             </div>
@@ -166,8 +168,8 @@
 
                         <div class="form-group">
                             <label for="">Permission Name</label>
-                            <input type="text" name="name" required autocomplete="off" placeholder="Permission Name"
-                                class="form-control">
+                            <input type="text" name="name" required autocomplete="off"
+                                placeholder="Permission Name" class="form-control">
                         </div>
 
                         {{-- <div class="form-group">
@@ -193,8 +195,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-sm"
-                            data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary btn-sm">Save changes</button>
                     </div>
 
