@@ -89,8 +89,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'about' => AboutController::class,
             'legal' => LegalController::class,
             'vision' => VisionController::class,
-
             'mision' => MisionController::class,
+
             'policy' => PolicyController::class,
             'service' => ServiceController::class,
             'ceo_message' => CeoMessageController::class,
@@ -103,6 +103,31 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
         ],
 
     );
+
+    // ============================================
+
+    // Apply permission middleware for each resource route
+    // Route::resource('banner', BannerController::class)->middleware('permission:all.banner');
+    // Route::resource('officer', OfficersController::class)->middleware('permission:all.officer');
+    // Route::resource('rating', RatingController::class)->middleware('permission:all.rating');
+    // Route::resource('team', TeamController::class)->middleware('permission:all.team');
+
+    // Route::resource('job', EmployeeJobController::class)->middleware('permission:all.job');
+    // Route::resource('about', AboutController::class)->middleware('permission:all.about');
+    // Route::resource('legal', LegalController::class)->middleware('permission:all.legal');
+    // Route::resource('vision', VisionController::class)->middleware('permission:all.vision');
+    // Route::resource('mision', MisionController::class)->middleware('permission:all.mision');
+
+    // Route::resource('policy', PolicyController::class)->middleware('permission:all.policy');
+    // Route::resource('service', ServiceController::class)->middleware('permission:all.service');
+    // Route::resource('ceo_message', CeoMessageController::class)->middleware('permission:all.message');
+
+    // Route::resource('choose', ChooseController::class)->middleware('permission:all.choose');
+    // Route::resource('client', ClientController::class)->middleware('permission:all.client');
+    // Route::resource('principle', PrincipleController::class)->middleware('permission:all.principle');
+    // Route::resource('admin-contact', AdminContactController::class)->middleware('permission:all.admin-contact');
+
+    // ========================================================
 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::put('/settings', [SettingController::class, 'updateOrcreateSetting'])->name('settings.updateOrCreate');
