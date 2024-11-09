@@ -170,7 +170,7 @@
                             </td>
 
                             <td>
-                                <input type="number" style="width:25%" value="{{ $item->order_team }}"
+                                <input type="number" style="width:40%" value="{{ $item->order_team }}"
                                     data-id="{{ $item->id }}" class="order-input">
                             </td>
 

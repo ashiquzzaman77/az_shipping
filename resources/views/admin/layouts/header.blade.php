@@ -10,7 +10,7 @@
         /* Gradient with specified colors */
         padding: 10px 20px;
         /* Padding */
-        border-radius: 5px;
+        border-radius: 4px;
         /* Rounded corners */
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         /* Shadow for depth */
@@ -20,36 +20,62 @@
         /* Center items */
         align-items: center;
         /* Center items */
-        width: 250px;
-        /* Set width */
+        width: auto;
+        /* Let the width adjust automatically */
+        min-width: 250px;
+        /* Minimum width to ensure the clock is not too small */
         text-align: center;
         /* Center text */
         transition: all 0.3s ease;
         /* Smooth transitions */
+        flex-wrap: wrap;
+        /* Wrap elements when necessary */
     }
 
     .time-segment {
         margin: 0 5px;
         /* Space between segments */
+        font-weight: bold;
+        /* Make the digits bold */
+        font-size: 30px;
+        /* Increase font size for time digits */
     }
 
     .colon {
         margin: 0 5px;
         /* Space around colons */
+        font-weight: bold;
+        /* Bold colons */
+        font-size: 30px;
+        /* Increase colon size to match time digits */
     }
 
+    #day {
+        font-size: 18px;
+        /* Slightly smaller font for the day */
+        font-weight: normal;
+        /* Normal font weight for the day */
+        margin-right: 10px;
+        /* Space between the day and time */
+    }
+
+    /* Hide the clock on small screens (less than 576px) */
     @media (max-width: 576px) {
         #clock {
             display: none;
-            /* Hide clock on small screens */
+            /* Hide the clock on small screens */
         }
+    }
 
+    @media (max-width: 576px) {
         #frontend {
             display: none;
-            /* Hide clock on small screens */
+            /* Hide frontend on small screens */
         }
     }
 </style>
+
+
 <!--begin::Header-->
 <div id="kt_header" class="header align-items-stretch">
     <!--begin::Container-->
@@ -74,9 +100,9 @@
         </div>
         <!--end::Aside mobile toggle-->
         <!--begin::Mobile logo-->
-        <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+        <div class="d-flex align-items-center flex-grow-1 mt-3 flex-lg-grow-0">
             <a href="javascript:;" class="d-lg-none">
-                <img alt="Logo" src="{{ asset('admin/assets/media/logos/logo-2.svg') }}" class="h-30px" />
+                <p>AZ Shipping Services</p>
             </a>
         </div>
         <!--end::Mobile logo-->
@@ -97,6 +123,7 @@
             {{-- Clock --}}
             <div class="d-flex align-items-stretch" id="kt_header_nav">
                 <div class="my-auto" id="clock">
+                    <span class="time-segment" id="day">Monday</span>
                     <span class="time-segment" id="hours">00</span>
                     <span class="colon">:</span>
                     <span class="time-segment" id="minutes">00</span>
@@ -365,6 +392,12 @@
 <script>
     function updateClock() {
         const now = new Date();
+
+        // Get the current day of the week (e.g., Monday)
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const currentDay = daysOfWeek[now.getDay()]; // Returns a number (0-6) representing the day of the week
+
+        // Get current time components
         const options = {
             hour: '2-digit',
             minute: '2-digit',
@@ -373,6 +406,9 @@
         };
 
         const timeString = now.toLocaleTimeString([], options).split(':');
+
+        // Update the clock and day
+        document.getElementById('day').textContent = currentDay;
         document.getElementById('hours').textContent = timeString[0];
         document.getElementById('minutes').textContent = timeString[1];
         document.getElementById('seconds').textContent = timeString[2];
