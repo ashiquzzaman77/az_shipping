@@ -88,17 +88,15 @@
 
         <div class="col-xl-4">
             <div class="card card-flush h-xl-100">
-                <div class="card-header rounded bgi-no-repeat bgi-size-cover bgi-position-y-top bgi-position-x-center align-items-start h-200px"
-                    style="background-image:url('https://preview.keenthemes.com/metronic8/demo1/assets/media/svg/shapes/top-green.png"
-                    data-bs-theme="light">
 
+                <div class="card-header rounded bgi-no-repeat bgi-size-cover bgi-position-y-top bgi-position-x-center align-items-start h-200px"
+                    data-bs-theme="light" style="background-color: #023154">
                     <h2 style="font-size: 22px"
                         class="align-items-center justify-content-center flex-column text-white pt-15">
-                        <span class="fw-bold mb-3">{{ $greeting }} :
-                            {{ Auth::guard('admin')->user()->name }}</span>
+                        <span class="fw-bold mb-3">{{ $greeting }} : {{ Auth::guard('admin')->user()->name }}</span>
                     </h2>
-
                 </div>
+
 
                 <div class="card-body mt-n20">
                     <div class="mt-n20 position-relative">
@@ -268,7 +266,9 @@
                                 <th width="10%">CDC Number</th>
                                 <th width="10%">Nationality</th>
                                 <th width="10%">CV</th>
+
                                 <th width="5%">Actions</th>
+
                             </tr>
                         </thead>
                         <tbody class="fw-bold text-gray-600">
@@ -323,18 +323,19 @@
 
 
                                     <td>
-
-                                        <form action="{{ route('admin.apply.post.delete', $item->id) }}"
-                                            method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class=""
-                                                style="border: none; background: none; cursor: pointer;">
-                                                <i class="fa-solid fa-trash text-danger"></i>
-                                            </button>
-                                        </form>
-
+                                        @if (Auth::guard('admin')->user()->can('delete.job_apply'))
+                                            <form action="{{ route('admin.apply.post.delete', $item->id) }}"
+                                                method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class=""
+                                                    style="border: none; background: none; cursor: pointer;">
+                                                    <i class="fa-solid fa-trash text-danger"></i>
+                                                </button>
+                                            </form>
+                                        @endif
                                     </td>
+
                                 </tr>
                             @endforeach
 
