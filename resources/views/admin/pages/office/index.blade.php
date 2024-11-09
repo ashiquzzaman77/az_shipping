@@ -77,7 +77,6 @@
 
             <div class="card-toolbar">
 
-
                 <a href="{{ route('admin.officer.create') }}" class="btn btn-light-primary me-3">
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -244,7 +243,6 @@
 
 
                                 <!-- showModal -->
-
                                 <div class="modal fade" id="showModal{{ $item->id }}" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="showModalLabel"
                                     aria-hidden="true">
@@ -732,7 +730,7 @@
                                                                 <tr>
                                                                     <th class="fs-5">Value Add Course</th>
                                                                     <td>
-                                                                       {{ $item->other_one }}
+                                                                        {{ $item->other_one }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -781,7 +779,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 {{-- Show Modal  --}}
 
                                 @if (Auth::guard('admin')->user()->can('edit.officer'))
@@ -808,9 +805,6 @@
 
     {{-- Modal Show  --}}
 
-
-
-
     @push('scripts')
         <script>
             $("#kt_datatable_example_5").DataTable({
@@ -830,19 +824,21 @@
                     ">"
             });
 
+            
             document.getElementById('shouldBeRed').addEventListener('change', function() {
-                const rows = document.querySelectorAll('.staff-row');
-                rows.forEach(row => {
+                const rows = table.rows().nodes(); // Get all rows in the table
+                rows.each(function(row) {
+                    const rowElement = $(row);
                     if (this.checked) {
-                        // Show only expired staff
-                        if (!row.classList.contains('expired')) {
-                            row.style.display = 'none';
+                        // Show only expired rows
+                        if (!rowElement.hasClass('expired')) {
+                            rowElement.hide(); // Hide non-expired rows
                         } else {
-                            row.style.display = '';
+                            rowElement.show(); // Show expired rows
                         }
                     } else {
-                        // Show all staff
-                        row.style.display = '';
+                        // Show all rows
+                        rowElement.show(); // Ensure all rows are shown
                     }
                 });
             });
