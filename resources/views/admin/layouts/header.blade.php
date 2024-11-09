@@ -34,20 +34,14 @@
 
     .time-segment {
         margin: 0 5px;
-        /* Space between segments */
         font-weight: bold;
-        /* Make the digits bold */
         font-size: 30px;
-        /* Increase font size for time digits */
     }
 
     .colon {
         margin: 0 5px;
-        /* Space around colons */
         font-weight: bold;
-        /* Bold colons */
         font-size: 30px;
-        /* Increase colon size to match time digits */
     }
 
     #day {
