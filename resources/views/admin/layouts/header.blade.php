@@ -6,7 +6,7 @@
         /* Font size */
         color: #ffffff;
         /* Text color */
-        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        background: linear-gradient(135deg, #023154, #302b63, #023154);
         /* Gradient with specified colors */
         padding: 10px 20px;
         /* Padding */
@@ -51,13 +51,14 @@
     }
 
     #day {
-        font-size: 18px;
-        /* Slightly smaller font for the day */
-        font-weight: normal;
-        /* Normal font weight for the day */
+        font-size: 19px;
+        font-weight: bolder;
         margin-right: 10px;
-        /* Space between the day and time */
+        background: linear-gradient(90deg, #5f77ff, #7beafe);
+        -webkit-background-clip: text;
+        color: transparent;
     }
+
 
     /* Hide the clock on small screens (less than 576px) */
     @media (max-width: 576px) {
