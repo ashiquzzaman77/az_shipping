@@ -824,21 +824,19 @@
                     ">"
             });
 
-            
             document.getElementById('shouldBeRed').addEventListener('change', function() {
-                const rows = table.rows().nodes(); // Get all rows in the table
-                rows.each(function(row) {
-                    const rowElement = $(row);
+                const rows = document.querySelectorAll('.staff-row');
+                rows.forEach(row => {
                     if (this.checked) {
-                        // Show only expired rows
-                        if (!rowElement.hasClass('expired')) {
-                            rowElement.hide(); // Hide non-expired rows
+                        // Show only expired staff
+                        if (!row.classList.contains('expired')) {
+                            row.style.display = 'none';
                         } else {
-                            rowElement.show(); // Show expired rows
+                            row.style.display = '';
                         }
                     } else {
-                        // Show all rows
-                        rowElement.show(); // Ensure all rows are shown
+                        // Show all staff
+                        row.style.display = '';
                     }
                 });
             });
