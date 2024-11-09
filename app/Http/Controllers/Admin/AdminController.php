@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Job;
+use App\Models\Team;
 use App\Models\Admin;
 use App\Models\Visit;
 use App\Models\ApplyPost;
@@ -9,8 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
-use App\Models\Job;
-use App\Models\Team;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,7 +24,7 @@ class AdminController extends Controller
         $jobs = Job::latest('id')->limit(5)->get();
         $team = Team::latest()->get();
 
-        return view('admin/dashboard', compact('visitCount','items','jobs','team'));
+        return view('admin/dashboard', compact('visitCount', 'items', 'jobs', 'team'));
     }
 
     public function index()
@@ -166,5 +167,31 @@ class AdminController extends Controller
     {
         ApplyPost::findOrfail($id)->delete();
         return redirect()->back()->with('success', 'Delete successfully.');
+    }
+
+    // Function to show the notifications count and the notifications
+    public function getAdminNotifications()
+    {
+        // Get the currently authenticated admin
+        $admin = Auth::guard('admin')->user();
+
+        // Count unread notifications (notifications where read_at is null)
+        $ncount = $admin->unreadNotifications->count(); // Get the count of unread notifications
+
+        // Return the view with the unread count
+        return view('admin.notifications', compact('ncount'));
+    }
+
+    // Function to mark notifications as read
+    public function markNotificationsAsRead()
+    {
+        // Get the currently authenticated admin
+        $admin = Auth::guard('admin')->user();
+
+        // Mark all unread notifications as read
+        $admin->unreadNotifications->markAsRead();
+
+        // Redirect back after marking as read
+        return redirect()->back();
     }
 }

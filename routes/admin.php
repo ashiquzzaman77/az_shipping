@@ -195,3 +195,8 @@ Route::post('admin/admin-contact/bulk-delete', [AdminContactController::class, '
     ->name('admin.admin-contact.bulk-delete');
 
 Route::post('/admin/team/update-order', [TeamController::class, 'updateOrder'])->name('admin.team.updateOrder');
+
+// Route to get notifications count
+Route::get('/admin/notifications', [AdminController::class, 'getAdminNotifications'])->name('admin.notifications');
+// Route to mark notifications as read
+Route::post('/admin/mark-as-read', [AdminController::class, 'markNotificationsAsRead'])->name('admin.markNotificationsAsRead');

@@ -109,6 +109,9 @@
             <!--end::Navbar-->
 
             <!--begin::Toolbar wrapper-->
+            @php
+                $ncount = Auth::guard('admin')->user()->unreadNotifications()->count();
+            @endphp
             <div class="d-flex align-items-stretch flex-shrink-0">
                 <!--begin::Notifications-->
                 <div class="d-flex align-items-center ms-1 ms-lg-3">
@@ -116,18 +119,27 @@
 
                     <div class="btn btn-icon btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px"
                         data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                        <!--begin::Svg Icon | path: icons/duotune/general/gen022.svg-->
-                        <span class="svg-icon svg-icon-1">
 
-                            <i class="fa-solid fa-bell fs-4"></i>
+                        <span class="svg-icon svg-icon-1 position-relative">
+                            <!-- Bell Icon -->
+                            <i class="fa-solid fa-bell fs-2"></i>
 
+                            @if ($ncount > 0)
+                                <span
+                                    class="badge badge-light position-absolute top-0 start-100 translate-middle badge-danger"
+                                    style="font-size: 0.7rem; padding: 0.4rem 0.4rem; border-radius: 50%;">
+                                    {{ $ncount }}
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            @endif
                         </span>
+
+
+
                         <!--end::Svg Icon-->
                     </div>
 
-                    {{-- @php
-                        $ncount = Auth::guard('admin')->user()->unreadNotifications()->count();
-                    @endphp --}}
+
 
                     <!--begin::Menu-->
                     <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
@@ -136,17 +148,9 @@
                             style="background-image:url('{{ asset('admin/assets/media/misc/pattern-1.jpg') }}')">
                             <!--begin::Title-->
                             <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications
-                                {{-- <span class="fs-8 opacity-75 ps-3">{{ $ncount }} reports</span> --}}
+                                <span class="fs-8 opacity-75 ps-3"></span>
                             </h3>
                             <!--end::Title-->
-                            <!--begin::Tabs-->
-                            <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-bold px-9">
-                                <li class="nav-item">
-                                    <a class="nav-link text-white opacity-75 opacity-state-100 pb-4 active"
-                                        data-bs-toggle="tab" href="#kt_topbar_notifications_1">Alerts</a>
-                                </li>
-                            </ul>
-                            <!--end::Tabs-->
                         </div>
                         <!--end::Heading-->
 
@@ -159,78 +163,110 @@
                                 <!--begin::Items-->
                                 <div class="scroll-y mh-325px my-5 px-8">
 
-                                    {{-- @php
+                                    @php
                                         $admin = Auth::guard('admin')->user();
-                                    @endphp --}}
+                                    @endphp
 
                                     <!--begin::Item-->
-                                    {{-- @foreach ($admin->notifications as $notification) --}}
-                                    <div class="d-flex flex-stack py-4">
-                                        <!--begin::Section-->
-                                        <div class="d-flex align-items-center">
+                                    @foreach ($admin->notifications as $notification)
+                                        <div class="d-flex flex-stack py-4">
+                                            <!-- Begin::Section -->
+                                            <div class="d-flex align-items-center">
 
-                                            <!--begin::Symbol-->
-                                            <div class="symbol symbol-35px me-4">
-                                                <span class="symbol-label bg-light-primary">
-                                                    <!--begin::Svg Icon | path: icons/duotune/technology/teh008.svg-->
-
-                                                    <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                        <i class="fa-solid fa-message"></i>
+                                                <!-- Begin::Symbol (Icon) -->
+                                                <div class="symbol symbol-35px me-4">
+                                                    <span class="symbol-label bg-light-primary">
+                                                        <!-- Begin::Svg Icon -->
+                                                        <span class="svg-icon svg-icon-2 svg-icon-primary">
+                                                            <i class="fa-solid fa-message"></i>
+                                                        </span>
+                                                        <!-- End::Svg Icon -->
                                                     </span>
-                                                    <!--end::Svg Icon-->
-                                                </span>
-                                            </div>
-                                            <!--end::Symbol-->
-                                            <!--begin::Title-->
-                                            <div class="mb-0 me-2">
-                                                {{-- @if (!empty($notification->data['name'])) --}}
-                                                {{-- <a href="javascript:;"
-                                                            class="fs-6 text-gray-800 text-hover-primary fw-bolder">{{ $notification->data['name'] }}
-                                                        </a> --}}
-                                                {{-- @endif --}}
-                                                <div class="text-gray-400 fs-7">
-                                                    {{-- <a href="">{{ $notification->data['message'] }}</a> --}}
                                                 </div>
+                                                <!-- End::Symbol -->
+
+                                                <!-- Begin::Title -->
+                                                <div class="mb-0 me-2">
+                                                    <!-- Notification Name -->
+                                                    @if (!empty($notification->data['name']))
+                                                        <a href="javascript:;"
+                                                            class="fs-6 text-gray-800 text-hover-primary fw-bolder">
+                                                            {{ $notification->data['name'] }}
+                                                        </a>
+                                                    @endif
+
+                                                    <!-- Display the subject/message of the notification -->
+                                                    <div class="text-gray-400 fs-7">
+                                                        @if (!empty($notification->data['message']))
+                                                            <a href="">{{ $notification->data['message'] }}</a>
+                                                        @elseif (!empty($notification->data['subject']))
+                                                            <!-- Fallback for subject -->
+                                                            <a href="">{{ $notification->data['subject'] }}</a>
+                                                        @endif
+                                                    </div>
+
+                                                    <!-- Mark as Read Text Link (only for unread notifications) -->
+                                                    @if (!$notification->read_at)
+                                                        <!-- Check if notification is unread -->
+                                                        <form action="{{ route('admin.markNotificationsAsRead') }}"
+                                                            method="POST" style="display:inline;"
+                                                            id="mark-read-form-{{ $notification->id }}">
+                                                            @csrf
+                                                            <input type="hidden" name="notification_id"
+                                                                value="{{ $notification->id }}">
+                                                            <a href="javascript:void(0);" class="text-danger fs-7"
+                                                                style="text-decoration: underline;"
+                                                                onclick="event.preventDefault(); document.getElementById('mark-read-form-{{ $notification->id }}').submit();">
+                                                                Mark as Read
+                                                            </a>
+                                                        </form>
+                                                    @endif
+                                                </div>
+                                                <!-- End::Title -->
                                             </div>
-                                            <!--end::Title-->
+                                            <!-- End::Section -->
+
+                                            <!-- Begin::Label (Time ago) -->
+                                            <span class="badge badge-light fs-9">
+                                                @php
+                                                    $diffInMinutes = \Carbon\Carbon::parse(
+                                                        $notification->created_at,
+                                                    )->diffInMinutes();
+                                                    $diffInSeconds = \Carbon\Carbon::parse(
+                                                        $notification->created_at,
+                                                    )->diffInSeconds();
+                                                    $diffInHours = \Carbon\Carbon::parse(
+                                                        $notification->created_at,
+                                                    )->diffInHours();
+                                                @endphp
+
+                                                @if ($diffInMinutes < 1)
+                                                    {{ $diffInSeconds }} sec ago
+                                                @elseif ($diffInHours < 1)
+                                                    {{ $diffInMinutes }} min ago
+                                                @else
+                                                    {{ $diffInHours }} hour ago
+                                                @endif
+                                            </span>
+
+                                            <!-- End::Label -->
                                         </div>
-                                        <!--end::Section-->
-                                        <!--begin::Label-->
-                                        {{-- <span
-                                                class="badge badge-light fs-9">{{ Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
-                                            </span> --}}
-                                        <!--end::Label-->
-                                    </div>
-                                    {{-- @endforeach --}}
+                                    @endforeach
+
                                     <!--end::Item-->
 
 
                                 </div>
                                 <!--end::Items-->
 
-                                <!--begin::View more-->
-                                <div class="py-3 text-center border-top">
-                                    <a href="../../demo1/dist/pages/user-profile/activity.html"
-                                        class="btn btn-color-gray-600 btn-active-color-primary">View All
-                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
-                                        <span class="svg-icon svg-icon-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none">
-                                                <rect opacity="0.5" x="18" y="13" width="13" height="2"
-                                                    rx="1" transform="rotate(-180 18 13)" fill="currentColor" />
-                                                <path
-                                                    d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z"
-                                                    fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <!--end::Svg Icon--></a>
-                                </div>
-                                <!--end::View more-->
+
 
                             </div>
                             <!--end::Tab panel-->
                         </div>
                         <!--end::Tab content-->
+
+
 
                     </div>
                     <!--end::Menu-->
@@ -319,6 +355,7 @@
                 <!--end::User menu-->
             </div>
             <!--end::Toolbar wrapper-->
+
         </div>
         <!--end::Wrapper-->
     </div>
