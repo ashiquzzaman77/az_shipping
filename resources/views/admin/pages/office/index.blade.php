@@ -77,6 +77,7 @@
 
             <div class="card-toolbar">
 
+
                 <a href="{{ route('admin.officer.create') }}" class="btn btn-light-primary me-3">
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -243,6 +244,7 @@
 
 
                                 <!-- showModal -->
+
                                 <div class="modal fade" id="showModal{{ $item->id }}" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="showModalLabel"
                                     aria-hidden="true">
@@ -730,7 +732,7 @@
                                                                 <tr>
                                                                     <th class="fs-5">Value Add Course</th>
                                                                     <td>
-                                                                        {{ $item->other_one }}
+                                                                       {{ $item->other_one }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -779,6 +781,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 {{-- Show Modal  --}}
 
                                 @if (Auth::guard('admin')->user()->can('edit.officer'))
@@ -804,6 +807,9 @@
     </div>
 
     {{-- Modal Show  --}}
+
+
+
 
     @push('scripts')
         <script>
