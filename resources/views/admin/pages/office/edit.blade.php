@@ -439,7 +439,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="other_one" class="mb-2">Value Add Course</label>
+                                <label for="other_one" class="mb-2">Value Added Course</label>
                                 <input type="text" name="other_one" class="form-control form-control-sm"
                                     value="{{ old('other_one', $officer->other_one) }}">
                             </div>

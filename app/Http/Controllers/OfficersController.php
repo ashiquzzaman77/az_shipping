@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Officer;
 use Illuminate\Http\Request;
+use App\Exports\OfficersExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
 class OfficersController extends Controller
@@ -36,7 +38,9 @@ class OfficersController extends Controller
             'officer_type' => 'required|string',
             'name' => 'required|string|max:255',
             'rank' => 'required|string|max:255',
-            'cdc_no' => 'required|string|max:255',
+
+            'cdc_no' => 'required|string|max:255|unique:officers',
+
             'contact' => 'required|string|max:255',
             'academy' => 'required|string|max:255',
             'batch' => 'required|string|max:255',
@@ -232,5 +236,10 @@ class OfficersController extends Controller
         $item = Officer::findOrFail($id);
 
         $item->delete();
+    }
+
+    public function export()
+    {
+        return Excel::download(new OfficersExport, 'officers.xlsx');
     }
 }

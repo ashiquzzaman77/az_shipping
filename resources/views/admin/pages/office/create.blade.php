@@ -177,6 +177,15 @@
                             </div>
                         </div> 
 
+                        <div class="col-3 mb-3">
+                            <div class="form-group">
+                                <label for="remarks" class="mb-2">Remarks</label>
+                                <input type="text" name="remarks" placeholder="Enter Remarks"
+                                    class="form-control form-control-sm"
+                                    value="{{ old('remarks') }}">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -429,7 +438,7 @@
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
-                                <label for="other_one" class="mb-2">Value Add Course</label>
+                                <label for="other_one" class="mb-2">Value Added Course</label>
                                 <input type="text" name="other_one" class="form-control form-control-sm"
                                     value="{{ old('other_one') }}">
                             </div>

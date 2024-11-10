@@ -200,3 +200,5 @@ Route::post('/admin/team/update-order', [TeamController::class, 'updateOrder'])-
 Route::get('/admin/notifications', [AdminController::class, 'getAdminNotifications'])->name('admin.notifications');
 // Route to mark notifications as read
 Route::post('/admin/mark-as-read', [AdminController::class, 'markNotificationsAsRead'])->name('admin.markNotificationsAsRead');
+
+Route::get('/admin/officers/export', [OfficersController::class, 'export'])->name('admin.officer.export');
