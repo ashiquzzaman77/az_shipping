@@ -34,6 +34,22 @@
 
                         <h2 class="mb-4">Personal Information</h2>
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="officer_type" class="mb-2">Rating Type</label>
@@ -65,6 +81,11 @@
                                 <label for="name" class="mb-2">Name</label>
                                 <input type="text" name="name" placeholder="Enter Name"
                                     class="form-control form-control-sm" value="{{ old('name') }}">
+                                @error('name')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -73,6 +94,7 @@
                                 <label for="rank" class="mb-2">Rank</label>
                                 <input type="text" name="rank" placeholder="Enter Rank"
                                     class="form-control form-control-sm" value="{{ old('rank') }}">
+
                             </div>
                         </div>
 
@@ -81,6 +103,11 @@
                                 <label for="cdc_no" class="mb-2">CDC No</label>
                                 <input type="text" name="cdc_no" placeholder="Enter CDC No"
                                     class="form-control form-control-sm" value="{{ old('cdc_no') }}">
+                                @error('cdc_no')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -137,8 +164,7 @@
                             <div class="form-group">
                                 <label for="remarks" class="mb-2">Remarks</label>
                                 <input type="text" name="remarks" placeholder="Enter Remarks"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('remarks') }}">
+                                    class="form-control form-control-sm" value="{{ old('remarks') }}">
                             </div>
                         </div>
 
