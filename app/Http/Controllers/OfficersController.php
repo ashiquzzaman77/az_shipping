@@ -48,6 +48,8 @@ class OfficersController extends Controller
             'status' => 'required|string',
             'ship_name' => 'nullable|string|max:255',
 
+            'remarks' => 'nullable|string',
+
             'cdc' => 'nullable|date',
             'coc' => 'nullable|date',
             'goc' => 'nullable|date',
@@ -102,6 +104,8 @@ class OfficersController extends Controller
             'passport_number' => $request->passport_number,
             'status' => $request->status,
             'ship_name' => $request->ship_name,
+            'remarks' => $request->remarks,
+            
             'cdc' => $request->cdc,
             'coc' => $request->coc,
             'goc' => $request->goc,

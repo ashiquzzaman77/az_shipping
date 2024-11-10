@@ -564,7 +564,7 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <th class="fs-5">Value Add Course</th>
+                                                                    <th class="fs-5">Value Added Course</th>
                                                                     <td>
                                                                         {{ $item->other_one }}
                                                                     </td>

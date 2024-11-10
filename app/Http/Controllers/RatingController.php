@@ -36,7 +36,11 @@ class RatingController extends Controller
             'rating_type' => 'required|string',
             'name' => 'required|string|max:255',
             'rank' => 'nullable|string|max:255',
-            'cdc_no' => 'nullable|string|max:255',
+            // 'cdc_no' => 'nullable|string|max:255',
+            'cdc_no' => 'required|string|max:255|unique:ratings',
+
+            'remarks' => 'nullable|string',
+
             'contact' => 'nullable|string|max:255',
             'academy' => 'nullable|string|max:255',
             'status' => 'nullable|string',
@@ -90,6 +94,8 @@ class RatingController extends Controller
         $rating->ship_name = $request->ship_name;
         $rating->ship_cook = $request->ship_cook;
         $rating->passport_number = $request->passport_number;
+
+        $rating->remarks = $request->remarks;
 
         $rating->batch = $request->batch;
         $rating->cdc = $request->cdc;
