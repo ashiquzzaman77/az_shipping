@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Officer;
 use Illuminate\Http\Request;
-use App\Exports\OfficersExport;
-use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
 class OfficersController extends Controller
@@ -105,7 +103,7 @@ class OfficersController extends Controller
             'status' => $request->status,
             'ship_name' => $request->ship_name,
             'remarks' => $request->remarks,
-            
+
             'cdc' => $request->cdc,
             'coc' => $request->coc,
             'goc' => $request->goc,
@@ -242,8 +240,20 @@ class OfficersController extends Controller
         $item->delete();
     }
 
-    public function export()
+    // public function export()
+    // {
+    //     return Excel::download(new OfficersExport, 'officers.xlsx');
+    // }
+
+    public function checkCdcNo(Request $request)
     {
-        return Excel::download(new OfficersExport, 'officers.xlsx');
+        // Check if the cdc_no is unique in the officers table
+        $exists = Officer::where('cdc_no', $request->cdc_no)->exists();
+
+        if ($exists) {
+            return response()->json(['message' => 'The CDC No has already been taken.'], 422);
+        }
+
+        return response()->json(['message' => 'The CDC No is available.']);
     }
 }

@@ -8,6 +8,21 @@ use Illuminate\Support\Facades\Validator;
 
 class RatingController extends Controller
 {
+    public function validateCdcNo(Request $request)
+    {
+        $cdcNo = $request->input('cdc_no');
+
+        // Example validation: check if the CDC number exists in the database
+        $exists = Rating::where('cdc_no', $cdcNo)->exists();
+
+        if ($exists) {
+            return response()->json(['error' => 'This CDC No already exists.']);
+        }
+
+        // If validation passes, return a successful response
+        return response()->json(['error' => null]);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -211,4 +226,5 @@ class RatingController extends Controller
         $item = Rating::findOrFail($id);
         $item->delete();
     }
+
 }

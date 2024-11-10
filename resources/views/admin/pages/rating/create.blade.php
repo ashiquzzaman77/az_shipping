@@ -101,15 +101,13 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="cdc_no" class="mb-2">CDC No</label>
-                                <input type="text" name="cdc_no" placeholder="Enter CDC No"
+                                <input type="text" name="cdc_no" id="cdc_no" placeholder="Enter CDC No"
                                     class="form-control form-control-sm" value="{{ old('cdc_no') }}">
-                                @error('cdc_no')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <!-- Error message container -->
+                                <div id="cdc_no_error" class="text-danger mt-2" style="display: none;"></div>
                             </div>
                         </div>
+
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
@@ -399,6 +397,43 @@
                 } else {
                     additionalField.style.display = 'none';
                 }
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $('#cdc_no').on('input', function() {
+                    var cdcNo = $(this).val();
+                    var errorMessage = $('#cdc_no_error');
+
+                    // If the field is empty, hide the error message
+                    if (cdcNo === '') {
+                        errorMessage.hide();
+                        return;
+                    }
+
+                    // Make the AJAX request to validate the CDC number
+                    $.ajax({
+                        url: '/validate-cdc-no', // URL where you will handle the validation
+                        type: 'POST', // HTTP method (POST or GET)
+                        data: {
+                            cdc_no: cdcNo, // Send the input value to the server
+                            _token: '{{ csrf_token() }}' // CSRF token for security (Laravel)
+                        },
+                        success: function(response) {
+                            // If the server responds with an error message, show it
+                            if (response.error) {
+                                errorMessage.text(response.error).show();
+                            } else {
+                                errorMessage.hide(); // Hide the error message if the input is valid
+                            }
+                        },
+                        error: function() {
+                            // Handle any AJAX error
+                            errorMessage.text('An error occurred while validating.').show();
+                        }
+                    });
+                });
             });
         </script>
     @endpush

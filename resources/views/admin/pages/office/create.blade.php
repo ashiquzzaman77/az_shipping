@@ -99,13 +99,11 @@
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="cdc_no" class="mb-2">CDC No</label>
-                                <input type="text" name="cdc_no" placeholder="Enter CDC No"
-                                    class="form-control form-control-sm" value="{{ old('cdc_no') }}">
-                                @error('cdc_no')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <input type="text" name="cdc_no" id="cdc_no" placeholder="Enter CDC No"
+                                    class="form-control form-control-sm @error('cdc_no') is-invalid @enderror"
+                                    value="{{ old('cdc_no') }}">
+
+                                <div id="cdc_no_feedback" class="invalid-feedback" style="display: none;"></div>
                             </div>
                         </div>
 
@@ -173,16 +171,16 @@
                             </div>
                             <div id="additionalField" class="form-group mt-2" style="display: none;">
                                 <label for="details" class="mb-2">Ship Name</label>
-                                <input type="text" class="form-control form-control-sm" id="details" name="ship_name" placeholder="Enter Ship Name">
+                                <input type="text" class="form-control form-control-sm" id="details"
+                                    name="ship_name" placeholder="Enter Ship Name">
                             </div>
-                        </div> 
+                        </div>
 
                         <div class="col-3 mb-3">
                             <div class="form-group">
                                 <label for="remarks" class="mb-2">Remarks</label>
                                 <input type="text" name="remarks" placeholder="Enter Remarks"
-                                    class="form-control form-control-sm"
-                                    value="{{ old('remarks') }}">
+                                    class="form-control form-control-sm" value="{{ old('remarks') }}">
                             </div>
                         </div>
 
@@ -500,25 +498,43 @@
             });
         </script>
 
-        {{-- <script>
-            document.getElementById('team_member').addEventListener('input', function() {
-                const numMembers = parseInt(this.value);
-                const additionalFields = document.getElementById('additional_fields');
-                const member2Field = document.getElementById('member_2_field');
-                const member3Field = document.getElementById('member_3_field');
+        <script>
+            $(document).ready(function() {
+                // When the user types in the cdc_no field
+                $('#cdc_no').on('input', function() {
+                    var cdcNo = $(this).val(); // Get the value of the input
 
-                if (numMembers > 0) {
-                    additionalFields.style.display = 'block';
-                    member2Field.style.display = (numMembers >= 2) ? 'block' : 'none';
-                    member3Field.style.display = (numMembers === 3) ? 'block' : 'none';
-                } else {
-                    additionalFields.style.display = 'none';
-                }
+                    // If the input is empty, don't validate
+                    if (cdcNo === '') {
+                        $('#cdc_no_feedback').hide().text('');
+                        $(this).removeClass('is-invalid');
+                        return;
+                    }
+
+                    // Send AJAX request to check if cdc_no exists
+                    $.ajax({
+                        url: '{{ route('check.cdc.no') }}',
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}', // Include CSRF token for security
+                            cdc_no: cdcNo
+                        },
+                        success: function(response) {
+                            // If the CDC No is available, clear any error and show success
+                            $('#cdc_no_feedback').hide().text('');
+                            $('#cdc_no').removeClass('is-invalid').addClass('is-valid');
+                        },
+                        error: function(xhr) {
+                            // If the CDC No is taken, display the error message
+                            var errorMessage = xhr.responseJSON.message;
+                            $('#cdc_no_feedback').text(errorMessage).show();
+                            $('#cdc_no').removeClass('is-valid').addClass('is-invalid');
+                        }
+                    });
+                });
             });
-        </script> --}}
+        </script>
     @endpush
-
-
 
 
 </x-admin-app-layout>
