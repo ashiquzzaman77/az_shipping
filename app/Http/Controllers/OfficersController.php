@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\OfficersExport;
 use App\Models\Officer;
+use PDF;
 use Illuminate\Http\Request;
+use App\Exports\OfficersExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
@@ -258,4 +259,21 @@ class OfficersController extends Controller
 
         return response()->json(['message' => 'The CDC No is available.']);
     }
+
+    // public function generatePDF()
+    // {
+    //     // $users = User::get();
+    
+    //     $data = [
+    //         'title' => 'Welcome to ItSolutionStuff.com',
+    //         'date' => date('m/d/Y'),
+    //         // 'users' => $users
+    //     ]; 
+              
+    //     $pdf = PDF::loadView('myPDF', $data);
+       
+    //     return $pdf->download('itsolutionstuff.pdf');
+    // }
+
+    
 }

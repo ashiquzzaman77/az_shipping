@@ -108,6 +108,8 @@
                     Export Excel
                 </a> --}}
 
+                {{-- <a href="{{ route('pdf') }}">pdf</a> --}}
+
             </div>
 
         </div>

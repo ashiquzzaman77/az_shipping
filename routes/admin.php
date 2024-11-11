@@ -201,7 +201,9 @@ Route::get('/admin/notifications', [AdminController::class, 'getAdminNotificatio
 // Route to mark notifications as read
 Route::post('/admin/mark-as-read', [AdminController::class, 'markNotificationsAsRead'])->name('admin.markNotificationsAsRead');
 
+//Office Export Pdf
 Route::get('/admin/officers/export', [OfficersController::class, 'export'])->name('admin.officer.export');
+// Route::get('generate-pdf', [OfficersController::class, 'generatePDF'])->name('pdf');
 
 Route::post('/check-cdc-no', [OfficersController::class, 'checkCdcNo'])->name('check.cdc.no');
 Route::post('/validate-cdc-no', [RatingController::class, 'validateCdcNo']);
