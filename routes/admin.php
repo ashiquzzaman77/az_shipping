@@ -205,4 +205,3 @@ Route::get('/admin/officers/export', [OfficersController::class, 'export'])->nam
 
 Route::post('/check-cdc-no', [OfficersController::class, 'checkCdcNo'])->name('check.cdc.no');
 Route::post('/validate-cdc-no', [RatingController::class, 'validateCdcNo']);
-

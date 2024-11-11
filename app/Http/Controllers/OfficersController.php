@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OfficersExport;
 use App\Models\Officer;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
 class OfficersController extends Controller
@@ -240,10 +242,10 @@ class OfficersController extends Controller
         $item->delete();
     }
 
-    // public function export()
-    // {
-    //     return Excel::download(new OfficersExport, 'officers.xlsx');
-    // }
+    public function export()
+    {
+        return Excel::download(new OfficersExport, 'officers.xlsx');
+    }
 
     public function checkCdcNo(Request $request)
     {

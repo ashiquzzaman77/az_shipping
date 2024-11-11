@@ -93,7 +93,7 @@
                     Create
                 </a>
 
-                {{-- <a href="{{ route('admin.officer.export') }}" class="btn btn-light-primary me-3">
+                <a href="{{ route('admin.officer.export') }}" class="btn btn-light-success me-3">
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none">
@@ -106,7 +106,7 @@
                         </svg>
                     </span>
                     Export Excel
-                </a> --}}
+                </a>
 
             </div>
 
