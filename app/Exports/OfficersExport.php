@@ -19,7 +19,7 @@ class OfficersExport implements FromCollection, WithHeadings
 
     public function collection()
     {
-        return Officer::select("name","officer_ype","rank","cdc_no","contact","passport_number","status","ship_name","remarks","academy","batch","cdc","coc","goc","sid","ph","pst","fpff","efa","pssr","sat","dsd","pscrb","Edh","radar_navigation","aff","mfa","madical_care","ens","sso","brm","hvs","ship_simulation","ecdis","atoto","cor","passport","covid vacanition","readiness","discharge_date","end_of_contract","value added course","other_two","other_three","other_four")->get();
+        return Officer::select("name","officer_type","rank","cdc_no","contact","passport_number","status","ship_name","remarks","academy","batch","cdc","coc","goc","sid","ph","pst","fpff","efa","pssr","sat","dsd","pscrb","Edh","radar_navigation","aff","mfa","madical_care","ens","sso","brm","hvs","ship_simulation","ecdis","atoto","cor","passport","covid vacanition","readiness","discharge_date","end_of_contract","value added course","other_two","other_three","other_four")->get();
     }
 
 
