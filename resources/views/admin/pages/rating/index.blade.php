@@ -642,6 +642,10 @@
     @push('scripts')
         <script>
             $("#kt_datatable_example_5").DataTable({
+
+                "pageLength": 15, // Set default number of entries to show
+                "lengthMenu": [15,20, 30, 50, 100, 200, 500],
+
                 "language": {
                     "lengthMenu": "Show _MENU_",
                 },
