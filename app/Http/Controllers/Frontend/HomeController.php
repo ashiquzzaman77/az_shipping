@@ -271,6 +271,7 @@ class HomeController extends Controller
     //     return redirect()->route('all.job')->with('success', 'Application submitted successfully!');
     // }
 
+    //jobApplyEmployee
     public function jobApplyEmployee(Request $request)
     {
         try {
