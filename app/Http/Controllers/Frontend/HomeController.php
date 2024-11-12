@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Job;
-use App\Models\Team;
-use App\Models\About;
-use App\Models\Admin;
-use App\Models\Legal;
-use App\Models\Banner;
-use App\Models\Choose;
-use App\Models\Client;
-use App\Models\Mision;
-use App\Models\Policy;
-use App\Models\Vision;
-use App\Models\Contact;
-use App\Models\Service;
-use App\Models\Setting;
-use App\Models\ApplyPost;
-use App\Models\Principle;
-use App\Models\CeoMessage;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactMessageReceived;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
+use App\Models\About;
+use App\Models\Admin;
+use App\Models\ApplyPost;
+use App\Models\Banner;
+use App\Models\CeoMessage;
+use App\Models\Choose;
+use App\Models\Client;
+use App\Models\Contact;
+use App\Models\Job;
+use App\Models\Legal;
+use App\Models\Mision;
+use App\Models\Policy;
+use App\Models\Principle;
+use App\Models\Service;
+use App\Models\Setting;
+use App\Models\Team;
+use App\Models\Vision;
 use App\Notifications\JobApplyNotification;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Validator;
 
 // use Illuminate\Support\Facades\Hash;
 // use Illuminate\Support\Facades\Mail;
@@ -59,7 +59,7 @@ class HomeController extends Controller
             return view('frontend.pages.home', compact('banners', 'about', 'services', 'clients'));
         } else {
             // Handle the case when the admin panel is active (site in maintenance mode)
-            return response()->view('errors.site_problem',);
+            return response()->view('errors.site_problem', );
         }
     }
 
@@ -206,13 +206,66 @@ class HomeController extends Controller
     //     // Save the application
     //     $application->save();
 
-
     //     // Get all admins with 'mail_status' set to 'mail'
     //     $admins = Admin::where('mail_status', 'mail')->get();
     //     foreach ($admins as $admin) {
     //         Notification::send($admin, new JobApplyNotification($application));
     //     }
 
+    //     // Redirect with success message
+    //     return redirect()->route('all.job')->with('success', 'Application submitted successfully!');
+    // }
+
+    // public function jobApplyEmployee(Request $request)
+    // {
+    //     // Validation rules
+    //     $validator = Validator::make($request->all(), [
+    //         'job_id' => 'nullable|exists:jobs,id', // Ensure job exists
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|email|max:255',
+    //         'phone' => 'required|numeric',
+    //         'passport_number' => 'required|string|max:50', // Adjust as necessary
+    //         'cdc_number' => 'required|string|max:50', // Adjust as necessary
+    //         'nationality' => 'required|string|max:100',
+    //         'attachment' => 'nullable|file|mimes:pdf,doc,docx|max:2048', // File validation
+    //         'agree' => 'required|accepted', // Ensure terms are accepted
+    //     ]);
+
+    //     // Check validation
+    //     if ($validator->fails()) {
+    //         return redirect()->back()
+    //             ->withErrors($validator)
+    //             ->withInput();
+    //     }
+
+    //     // Create a new job application
+    //     $application = new ApplyPost();
+
+    //     $application->job_id = $request->job_id;
+    //     $application->name = $request->name;
+    //     $application->email = $request->email;
+    //     $application->phone = $request->phone;
+    //     $application->passport_number = $request->passport_number;
+    //     $application->cdc_number = $request->cdc_number;
+    //     $application->nationality = $request->nationality;
+    //     $application->agree = $request->agree;
+
+    //     // Handle file upload
+    //     if ($request->hasFile('attachment')) {
+    //         $file = $request->file('attachment');
+    //         $filename = time() . '_' . $file->getClientOriginalName();
+    //         $file->storeAs('attachments', $filename, 'public');
+    //         $application->attachment = $filename;
+    //     }
+
+    //     // Save the application
+    //     $application->save();
+
+    //     // Get all admins with 'mail_status' set to 'mail'
+    //     $admins = Admin::where('mail_status', 'mail')->get();
+    //     foreach ($admins as $admin) {
+    //         Notification::send($admin, new JobApplyNotification($application)); // Pass the entire application
+    //     }
 
     //     // Redirect with success message
     //     return redirect()->route('all.job')->with('success', 'Application submitted successfully!');
@@ -220,62 +273,65 @@ class HomeController extends Controller
 
     public function jobApplyEmployee(Request $request)
     {
-        // Validation rules
-        $validator = Validator::make($request->all(), [
-            'job_id' => 'nullable|exists:jobs,id', // Ensure job exists
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'required|numeric',
-            'passport_number' => 'required|string|max:50', // Adjust as necessary
-            'cdc_number' => 'required|string|max:50', // Adjust as necessary
-            'nationality' => 'required|string|max:100',
-            'attachment' => 'nullable|file|mimes:pdf,doc,docx|max:2048', // File validation
-            'agree' => 'required|accepted', // Ensure terms are accepted
-        ]);
+        try {
+            // Validation rules
+            $validator = Validator::make($request->all(), [
+                'job_id' => 'nullable|exists:jobs,id', // Ensure job exists
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|max:255',
+                'phone' => 'required|numeric',
+                'passport_number' => 'required|string|max:50', // Adjust as necessary
+                'cdc_number' => 'required|string|max:50', // Adjust as necessary
+                'nationality' => 'required|string|max:100',
+                'attachment' => 'nullable|file|mimes:pdf,doc,docx|max:2048', // File validation
+                'agree' => 'required|accepted', // Ensure terms are accepted
+            ]);
 
-        // Check validation
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
+            // Check validation
+            if ($validator->fails()) {
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+
+            // Create a new job application
+            $application = new ApplyPost();
+            $application->job_id = $request->job_id;
+            $application->name = $request->name;
+            $application->email = $request->email;
+            $application->phone = $request->phone;
+            $application->passport_number = $request->passport_number;
+            $application->cdc_number = $request->cdc_number;
+            $application->nationality = $request->nationality;
+            $application->agree = $request->agree;
+
+            // Handle file upload
+            if ($request->hasFile('attachment')) {
+                $file = $request->file('attachment');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->storeAs('attachments', $filename, 'public');
+                $application->attachment = $filename;
+            }
+
+            // Save the application
+            $application->save();
+
+            // Get all admins with 'mail_status' set to 'mail'
+            $admins = Admin::where('mail_status', 'mail')->get();
+            foreach ($admins as $admin) {
+                Notification::send($admin, new JobApplyNotification($application)); // Pass the entire application
+            }
+
+            // Redirect with success message
+            return redirect()->route('all.job')->with('success', 'Application submitted successfully!');
+        } catch (\Exception $e) {
+            // Log the exception
+            Log::error('Job application failed: ' . $e->getMessage());
+
+            // Optionally, send an error message to the user
+            return redirect()->back()->with('error', 'Something went wrong. Please try again later.');
         }
-
-        // Create a new job application
-        $application = new ApplyPost();
-
-        $application->job_id = $request->job_id;
-        $application->name = $request->name;
-        $application->email = $request->email;
-        $application->phone = $request->phone;
-        $application->passport_number = $request->passport_number;
-        $application->cdc_number = $request->cdc_number;
-        $application->nationality = $request->nationality;
-        $application->agree = $request->agree;
-
-        // Handle file upload
-        if ($request->hasFile('attachment')) {
-            $file = $request->file('attachment');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('attachments', $filename, 'public');
-            $application->attachment = $filename;
-        }
-
-        // Save the application
-        $application->save();
-
-        // Get all admins with 'mail_status' set to 'mail'
-        $admins = Admin::where('mail_status', 'mail')->get();
-        foreach ($admins as $admin) {
-            Notification::send($admin, new JobApplyNotification($application)); // Pass the entire application
-        }
-
-        // Redirect with success message
-        return redirect()->route('all.job')->with('success', 'Application submitted successfully!');
     }
-
-
-
-
 
     //Contact
     public function contact()
