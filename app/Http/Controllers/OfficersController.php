@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Officer;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Exports\OfficersExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -262,13 +262,9 @@ class OfficersController extends Controller
 
     public function generatePDF($id)
     {
-        // Fetch officer by ID
         $item = Officer::findOrFail($id);
-
-        // Load the Blade view with the officer data
         $pdf = PDF::loadView('myPDF', compact('item'));
 
-        // Return the PDF as a download
         return $pdf->download('officer-details.pdf');
     }
 }

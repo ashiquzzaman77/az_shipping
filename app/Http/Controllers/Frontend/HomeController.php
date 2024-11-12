@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Notifications\JobApplyNotification;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Log;
 
 // use Illuminate\Support\Facades\Hash;
 // use Illuminate\Support\Facades\Mail;
@@ -321,10 +322,18 @@ class HomeController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        // Send an email to all admins
-        $admins = Admin::where('mail_status', 'mail')->get();
-        foreach ($admins as $admin) {
-            Mail::to($admin->email)->send(new ContactMessageReceived($contact));
+        // Send an email to all admins with error handling using try-catch
+        try {
+            $admins = Admin::where('mail_status', 'mail')->get();
+            foreach ($admins as $admin) {
+                Mail::to($admin->email)->send(new ContactMessageReceived($contact));
+            }
+        } catch (\Exception $e) {
+            // Log the error to the log file for debugging
+            Log::error('Error sending email: ' . $e->getMessage());
+
+            // Optionally, you can redirect with an error message
+            return redirect()->back()->with('error', 'There was an issue sending the email. Please try again later.');
         }
 
         // Redirect back with a success message
