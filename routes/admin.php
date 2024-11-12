@@ -203,7 +203,7 @@ Route::post('/admin/mark-as-read', [AdminController::class, 'markNotificationsAs
 
 //Office Export Pdf
 Route::get('/admin/officers/export', [OfficersController::class, 'export'])->name('admin.officer.export');
-// Route::get('generate-pdf', [OfficersController::class, 'generatePDF'])->name('pdf');
+Route::get('/generate-pdf/{id}', [OfficersController::class, 'generatePDF'])->name('office.user.pdf');
 
 Route::post('/check-cdc-no', [OfficersController::class, 'checkCdcNo'])->name('check.cdc.no');
 Route::post('/validate-cdc-no', [RatingController::class, 'validateCdcNo']);

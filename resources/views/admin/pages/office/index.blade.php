@@ -800,6 +800,10 @@
                                 </div>
                                 {{-- Show Modal  --}}
 
+                                <a href="{{ route('office.user.pdf', $item->id) }}" title="Download" class="">
+                                    <i class="fa-solid fa-download text-dark"></i>
+                                </a>
+
                                 @if (Auth::guard('admin')->user()->can('edit.officer'))
                                     <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
                                         <i class="fa-solid fa-pencil text-primary fs-5"></i>
@@ -831,7 +835,7 @@
         <script>
             $("#kt_datatable_example_5").DataTable({
                 "pageLength": 15, // Set default number of entries to show
-                "lengthMenu": [15,20, 30, 50, 100, 200, 500],
+                "lengthMenu": [15, 20, 30, 50, 100, 200, 500],
                 "language": {
                     "lengthMenu": "Show _MENU_",
                 },
