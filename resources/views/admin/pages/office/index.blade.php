@@ -800,9 +800,9 @@
                                 </div>
                                 {{-- Show Modal  --}}
 
-                                <a href="{{ route('office.user.pdf', $item->id) }}" title="Download" class="">
+                                {{-- <a href="{{ route('office.user.pdf', $item->id) }}" title="Download" class="">
                                     <i class="fa-solid fa-download text-dark"></i>
-                                </a>
+                                </a> --}}
 
                                 @if (Auth::guard('admin')->user()->can('edit.officer'))
                                     <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
