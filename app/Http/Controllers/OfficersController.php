@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Officer;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Exports\OfficersExport;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
@@ -14,10 +16,21 @@ class OfficersController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
-        $items = Officer::latest()->get();
-        return view('admin.pages.office.index', compact('items'));
+        try {
+            $items = Officer::latest()->get();
+            return view('admin.pages.office.index', compact('items'));
+
+        } 
+        catch (Exception $e) {
+
+            Log::error("Error fetching officer data: " . $e->getMessage());
+            return redirect()->route('admin.dashboard')
+                ->with('error', 'An error occurred while fetching officer data.');
+                
+        }
     }
 
     /**

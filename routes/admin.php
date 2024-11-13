@@ -81,8 +81,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             // Shipping All Admin Controller
 
             'banner' => BannerController::class,
-            // 'officer' => OfficersController::class,
-            // 'rating' => RatingController::class,
+            'officer' => OfficersController::class,
+            'rating' => RatingController::class,
             'team' => TeamController::class,
 
             'job' => EmployeeJobController::class,
@@ -150,9 +150,10 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');
 });
 
-// Role In Permission
+
 Route::middleware(['auth:admin'])->group(function () {
 
+    // Role In Permission Start 
     Route::controller(RoleController::class)->group(function () {
 
         //Permission
@@ -186,25 +187,26 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/admin-inactive/{id}', 'InactiveAdmin')->name('admin.inactive');
         Route::get('/admin-active/{id}', 'ActiveAdmin')->name('admin.active');
     });
+    // Role In Permission End 
+
+    Route::get('/download-attachment/{id}', [AdminController::class, 'downloadAttachment'])->name('download.attachment');
+    Route::delete('/apply/post/delete/{id}', [AdminController::class, 'applyPostDelete'])->name('admin.apply.post.delete');
+
+    Route::post('admin/admin-contact/bulk-delete', [AdminContactController::class, 'bulkDelete'])
+        ->name('admin.admin-contact.bulk-delete');
+
+    Route::post('/admin/team/update-order', [TeamController::class, 'updateOrder'])->name('admin.team.updateOrder');
+
+    // Route to get notifications count
+    Route::get('/admin/notifications', [AdminController::class, 'getAdminNotifications'])->name('admin.notifications');
+    // Route to mark notifications as read
+    Route::post('/admin/mark-as-read', [AdminController::class, 'markNotificationsAsRead'])->name('admin.markNotificationsAsRead');
+
+    //Office Export Pdf
+    Route::get('/admin/officers/export', [OfficersController::class, 'export'])->name('admin.officer.export');
+    Route::get('/generate-pdf/{id}', [OfficersController::class, 'generatePDF'])->name('office.user.pdf');
+    Route::get('/rating/generate-pdf/{id}', [RatingController::class, 'generateRatingPDF'])->name('rating.user.pdf');
+
+    Route::post('/check-cdc-no', [OfficersController::class, 'checkCdcNo'])->name('check.cdc.no');
+    Route::post('/validate-cdc-no', [RatingController::class, 'validateCdcNo']);
 });
-
-Route::get('/download-attachment/{id}', [AdminController::class, 'downloadAttachment'])->name('download.attachment');
-Route::delete('/apply/post/delete/{id}', [AdminController::class, 'applyPostDelete'])->name('admin.apply.post.delete');
-
-Route::post('admin/admin-contact/bulk-delete', [AdminContactController::class, 'bulkDelete'])
-    ->name('admin.admin-contact.bulk-delete');
-
-Route::post('/admin/team/update-order', [TeamController::class, 'updateOrder'])->name('admin.team.updateOrder');
-
-// Route to get notifications count
-Route::get('/admin/notifications', [AdminController::class, 'getAdminNotifications'])->name('admin.notifications');
-// Route to mark notifications as read
-Route::post('/admin/mark-as-read', [AdminController::class, 'markNotificationsAsRead'])->name('admin.markNotificationsAsRead');
-
-//Office Export Pdf
-Route::get('/admin/officers/export', [OfficersController::class, 'export'])->name('admin.officer.export');
-Route::get('/generate-pdf/{id}', [OfficersController::class, 'generatePDF'])->name('office.user.pdf');
-Route::get('/rating/generate-pdf/{id}', [RatingController::class, 'generateRatingPDF'])->name('rating.user.pdf');
-
-Route::post('/check-cdc-no', [OfficersController::class, 'checkCdcNo'])->name('check.cdc.no');
-Route::post('/validate-cdc-no', [RatingController::class, 'validateCdcNo']);
