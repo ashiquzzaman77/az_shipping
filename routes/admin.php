@@ -107,6 +107,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     );
 
+    Route::get('/backup', [Controller::class, 'downloadBackup']);
+
     // ============================================
 
     // Apply permission middleware for each resource route
