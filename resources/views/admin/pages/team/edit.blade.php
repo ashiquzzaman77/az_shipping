@@ -59,6 +59,16 @@
                         </div>
                         <div class="col-4 mb-3">
                             <div class="form-group">
+                                <label for="" class="mb-2">Email</label>
+                                <input type="email" name="email" placeholder="Employee Email"
+                                    class="form-control form-control-sm" value="{{ old('email',$team->email) }}">
+                                @error('email')
+                                    <div class="text-danger small">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="form-group">
                                 <label for="" class="mb-2">Position</label>
                                 <input type="text" name="position" placeholder="Employee Position"
                                     class="form-control form-control-sm" value="{{ old('position', $team->position) }}">

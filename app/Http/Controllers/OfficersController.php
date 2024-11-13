@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
 use App\Models\Officer;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Exports\OfficersExport;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Facades\Excel;
-use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Validator;
 
 class OfficersController extends Controller
@@ -17,29 +14,11 @@ class OfficersController extends Controller
     /**
      * Display a listing of the resource.
      */
-
-     public function index()
-     {
-         try {
-             // Attempt to fetch all the officers ordered by latest
-             $items = Officer::latest()->get();
- 
-             // Return the view if everything is fine
-             return view('admin.pages.office.index', compact('items'));
- 
-         } catch (QueryException $e) {
-             // This will catch database query exceptions (e.g., connection issues)
-             Log::error("Database query error: " . $e->getMessage());
-             return redirect()->route('admin.dashboard')
-                              ->with('error', 'A database error occurred while fetching officer data.');
- 
-         } catch (Exception $e) {
-             // Catch any other general exceptions
-             Log::error("General error: " . $e->getMessage());
-             return redirect()->route('admin.dashboard')
-                              ->with('error', 'An unexpected error occurred while fetching officer data.');
-         }
-     }
+    public function index()
+    {
+        $items = Officer::latest()->get();
+        return view('admin.pages.office.index', compact('items'));
+    }
 
     /**
      * Show the form for creating a new resource.

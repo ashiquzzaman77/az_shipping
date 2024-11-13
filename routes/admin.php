@@ -25,6 +25,7 @@ use App\Http\Controllers\OfficersController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\PrincipleController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\SentMessageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VisionController;
@@ -100,6 +101,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'principle' => PrincipleController::class,
             'admin-contact' => AdminContactController::class,
 
+            'sent-message' => SentMessageController::class,
+
         ],
 
     );
@@ -145,6 +148,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::put('choose/status/{id}', [ChooseController::class, 'updateStatusChoose'])->name('choose.status.update');
     Route::put('client/status/{id}', [ClientController::class, 'updateStatusClient'])->name('client.status.update');
     Route::put('principle/status/{id}', [PrincipleController::class, 'updateStatusPrinciple'])->name('principle.status.update');
+
+    Route::put('sent-message/status/{id}', [SentMessageController::class, 'updateStatusSentMessage']);;
 
     //Apply Post
     Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');

@@ -332,6 +332,72 @@
                      </div>
                  @endif
 
+                 {{-- Sent Message --}}
+                 {{-- @if (Auth::guard('admin')->user()->can('message.menu')) --}}
+                 <div class="menu-item">
+
+                     <a class="menu-link {{ Route::is('admin.sent-message.index') ? 'active' : '' }}"
+                         href="{{ route('admin.sent-message.index') }}">
+                         <span class="menu-icon">
+
+                             <span class="svg-icon svg-icon-2">
+                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297"
+                                     xml:space="preserve" fill="#000000">
+                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                     </g>
+                                     <g id="SVGRepo_iconCarrier">
+                                         <g>
+                                             <g>
+                                                 <g>
+                                                     <g>
+                                                         <g>
+                                                             <g>
+                                                                 <circle style="fill:#345065;" cx="148.5"
+                                                                     cy="148.5" r="148.5"></circle>
+                                                             </g>
+                                                         </g>
+                                                     </g>
+                                                 </g>
+                                             </g>
+                                             <path style="fill:#243F4F;"
+                                                 d="M264,148.5L67.438,208.223l88.783,88.579c68.287-3.498,124.388-53.124,137.752-118.329L264,148.5z">
+                                             </path>
+                                             <g>
+                                                 <rect x="66" y="95.25" style="fill:#9ADAD9;" width="65.666"
+                                                     height="33"></rect>
+                                             </g>
+                                             <g>
+                                                 <rect x="66" y="119.75" style="fill:#FFFFFF;" width="115.5"
+                                                     height="33"></rect>
+                                             </g>
+                                             <g>
+                                                 <rect x="149.167" y="119.75" style="fill:#BDC3C7;" width="32.333"
+                                                     height="33"></rect>
+                                             </g>
+                                             <g>
+                                                 <path style="fill:#1ABC9C;"
+                                                     d="M82.429,214.5h106.855c5.581,0,10.933-2.217,14.879-6.163L264,148.5H49.5l12.515,50.062 C64.357,207.929,72.773,214.5,82.429,214.5z">
+                                                 </path>
+                                             </g>
+                                             <g>
+                                                 <path style="fill:#17AB93;"
+                                                     d="M149.167,148.5v66h40.117c5.581,0,10.933-2.217,14.879-6.163L264,148.5H149.167z">
+                                                 </path>
+                                             </g>
+                                         </g>
+                                     </g>
+                                 </svg>
+                             </span>
+
+                         </span>
+                         <span class="menu-title">Sent Message</span>
+                     </a>
+
+                 </div>
+                 {{-- @endif --}}
+
                  {{-- Frontend Section  --}}
                  @if (Auth::guard('admin')->user()->can('frontend.menu'))
                      <div data-kt-menu-trigger="click"

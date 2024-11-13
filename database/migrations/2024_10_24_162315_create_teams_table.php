@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('name')->nullable();
+            $table->string('email')->nullable();
             $table->string('position')->nullable();
             $table->text('short_descp')->nullable();
             $table->integer('order_team')->nullable();

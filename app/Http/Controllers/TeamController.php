@@ -33,6 +33,7 @@ class TeamController extends Controller
         // Validate the incoming request data
         $request->validate([
             'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
             'position' => 'required|string|max:255',
             'order_team' => 'required|integer',
             'short_descp' => 'nullable|string',
@@ -49,6 +50,7 @@ class TeamController extends Controller
         $data = [
 
             'name' => $request->name,
+            'email' => $request->email,
             'position' => $request->position,
             'order_team' => $request->order_team,
             'short_descp' => $request->short_descp,
@@ -127,6 +129,7 @@ class TeamController extends Controller
             $banner->update([
 
                 'name' => $request->name,
+                'email' => $request->email,
                 'position' => $request->position,
                 'order_team' => $request->order_team,
                 'short_descp' => $request->short_descp,
