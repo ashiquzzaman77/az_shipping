@@ -81,8 +81,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             // Shipping All Admin Controller
 
             'banner' => BannerController::class,
-            'officer' => OfficersController::class,
-            'rating' => RatingController::class,
+            // 'officer' => OfficersController::class,
+            // 'rating' => RatingController::class,
             'team' => TeamController::class,
 
             'job' => EmployeeJobController::class,
@@ -204,6 +204,7 @@ Route::post('/admin/mark-as-read', [AdminController::class, 'markNotificationsAs
 //Office Export Pdf
 Route::get('/admin/officers/export', [OfficersController::class, 'export'])->name('admin.officer.export');
 Route::get('/generate-pdf/{id}', [OfficersController::class, 'generatePDF'])->name('office.user.pdf');
+Route::get('/rating/generate-pdf/{id}', [RatingController::class, 'generateRatingPDF'])->name('rating.user.pdf');
 
 Route::post('/check-cdc-no', [OfficersController::class, 'checkCdcNo'])->name('check.cdc.no');
 Route::post('/validate-cdc-no', [RatingController::class, 'validateCdcNo']);
