@@ -82,7 +82,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
             'banner' => BannerController::class,
             // 'officer' => OfficersController::class,
-            // 'rating' => RatingController::class,
+            'rating' => RatingController::class,
             'team' => TeamController::class,
 
             'job' => EmployeeJobController::class,
