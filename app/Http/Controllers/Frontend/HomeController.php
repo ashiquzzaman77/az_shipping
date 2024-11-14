@@ -23,11 +23,12 @@ use App\Models\Team;
 use App\Models\Vision;
 use App\Notifications\JobApplyNotification;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -334,7 +335,6 @@ class HomeController extends Controller
     }
 
     //contactStore
-
     public function contactStore(Request $request)
     {
         // Validate the incoming request data
@@ -352,32 +352,22 @@ class HomeController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // Generate a unique message code
-        $typePrefix = 'MSG'; // Adjust this as needed
-        $today = date('dmy');
-        $lastCode = Contact::where('code', 'like', $typePrefix . '-' . $today . '%')
-            ->orderBy('id', 'desc')
-            ->first();
-
-        $newNumber = $lastCode ? (int) explode('-', $lastCode->code)[2] + 1 : 1;
-        $code = $typePrefix . '-' . $today . '-' . $newNumber;
-
         // Start a database transaction
         DB::beginTransaction();
 
         try {
-            // Send an email to all admins
-            $admins = Admin::where('mail_status', 'mail')->get();
-            foreach ($admins as $admin) {
-                Mail::to($admin->email)->send(new ContactMessageReceived($contact));
-                // Check if any email fails
-                if (Mail::failures()) {
-                    throw new \Exception('Email could not be sent to admin: ' . $admin->email);
-                }
-            }
+            // Generate a unique message code
+            $typePrefix = 'MSG'; // Adjust this as needed
+            $today = date('dmy');
+            $lastCode = Contact::where('code', 'like', $typePrefix . '-' . $today . '%')
+                ->orderBy('id', 'desc')
+                ->first();
 
-            // If email sending is successful, create the contact record in the database
-            $contact = Contact::create([
+            $newNumber = $lastCode ? (int) explode('-', $lastCode->code)[2] + 1 : 1;
+            $code = $typePrefix . '-' . $today . '-' . $newNumber;
+
+            // Create a new contact object (but do not save it yet)
+            $contact = new Contact([
                 'code' => $code,
                 'name' => $request->name,
                 'email' => $request->email,
@@ -387,22 +377,29 @@ class HomeController extends Controller
                 'ip_address' => $request->ip(),
             ]);
 
-            // If all is well, commit the transaction
+            // Send an email to all admins
+            $admins = Admin::where('mail_status', 'mail')->get();
+            foreach ($admins as $admin) {
+                Mail::to($admin->email)->send(new ContactMessageReceived($contact));
+            }
+
+            // If emails were successfully sent, store the contact record
+            $contact->save();
+
+            // Commit the transaction
             DB::commit();
 
             // Redirect back with a success message
             return redirect()->back()->with('success', 'Thank You. We have received your message. We will contact you very soon');
-
         } catch (\Exception $e) {
-            // If anything goes wrong, rollback the transaction and log the error
+            // Rollback the transaction in case of an error
             DB::rollBack();
 
             // Log the error to the log file for debugging
-            Log::error('Error in contactStore: ' . $e->getMessage());
+            Log::error('Error sending email or saving contact: ' . $e->getMessage());
 
             // Optionally, you can redirect with an error message
-            return redirect()->back()->with('error', 'There was an issue sending the email. Please try again later.');
+            return redirect()->back()->with('error', 'There was an issue sending the email or saving your message. Please try again later.');
         }
     }
-
 }
