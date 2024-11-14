@@ -211,9 +211,11 @@ Route::middleware(['auth:admin'])->group(function () {
 
     //Office Export Pdf
     Route::get('/admin/officers/export', [OfficersController::class, 'export'])->name('admin.officer.export');
+
     Route::get('/generate-pdf/{id}', [OfficersController::class, 'generatePDF'])->name('office.user.pdf');
     Route::get('/rating/generate-pdf/{id}', [RatingController::class, 'generateRatingPDF'])->name('rating.user.pdf');
 
+    //Validation For CDC No 
     Route::post('/check-cdc-no', [OfficersController::class, 'checkCdcNo'])->name('check.cdc.no');
     Route::post('/validate-cdc-no', [RatingController::class, 'validateCdcNo']);
 });
