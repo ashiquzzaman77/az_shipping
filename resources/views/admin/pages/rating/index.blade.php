@@ -103,11 +103,11 @@
                         <th width="10%">Rank</th>
                         <th width="10%">CDC NO</th>
                         <th width="10%">Academy</th>
-                        <th width="10%">Batch</th>
+                        <th width="5%">Batch</th>
                         <th width="10%">Contact</th>
                         <th width="10%">Status</th>
                         <th width="10%">Remarks</th>
-                        <th width="10%">Actions</th>
+                        <th width="15%">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="fw-bold text-gray-600">
@@ -616,9 +616,9 @@
                                     </div>
                                 </div>
 
-                                <a href="{{ route('rating.user.pdf', $item->id) }}" title="Download" class="">
+                                {{-- <a href="{{ route('rating.user.pdf', $item->id) }}" title="Download" class="">
                                     <i class="fa-solid fa-download text-dark"></i>
-                                </a>
+                                </a> --}}
 
                                 @if (Auth::guard('admin')->user()->can('edit.rating'))
                                 <a href="{{ route('admin.rating.edit', $item->id) }}" class="text-primary">
