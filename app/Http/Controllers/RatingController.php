@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rating;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -225,6 +226,14 @@ class RatingController extends Controller
     {
         $item = Rating::findOrFail($id);
         $item->delete();
+    }
+
+    public function generateRatingPDF($id)
+    {
+        $item = Rating::findOrFail($id);
+        $pdf = PDF::loadView('myRatingPDF', compact('item'));
+
+        return $pdf->download('rating-details.pdf');
     }
 
 }
