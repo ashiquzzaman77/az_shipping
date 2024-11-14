@@ -23,12 +23,11 @@ use App\Models\Team;
 use App\Models\Vision;
 use App\Notifications\JobApplyNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
-
 
 class HomeController extends Controller
 {
@@ -382,9 +381,13 @@ class HomeController extends Controller
             $admins = Admin::where('mail_status', 'mail')->get();
             foreach ($admins as $admin) {
                 Mail::to($admin->email)->send(new ContactMessageReceived($contact));
+                // Check if the mail was successfully sent
+                if (Mail::failures()) {
+                    throw new \Exception('Email could not be sent.');
+                }
             }
 
-            // If email sending is successful, commit the transaction
+            // If we reached here, it means email was sent successfully, so we commit the transaction
             DB::commit();
 
             // Redirect back with a success message
