@@ -27,14 +27,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
-// use Illuminate\Support\Facades\Hash;
-// use Illuminate\Support\Facades\Mail;
-// use Illuminate\Support\Facades\View;
-// use Illuminate\Support\Facades\Notification;
-// use App\Mail\AdminCourseRegistrationNotification;
-
-// use App\Notifications\UserRegistrationNotification;
 
 class HomeController extends Controller
 {
@@ -341,6 +335,7 @@ class HomeController extends Controller
     }
 
     //contactStore
+
     public function contactStore(Request $request)
     {
         // Validate the incoming request data
@@ -368,32 +363,43 @@ class HomeController extends Controller
         $newNumber = $lastCode ? (int) explode('-', $lastCode->code)[2] + 1 : 1;
         $code = $typePrefix . '-' . $today . '-' . $newNumber;
 
-        // Create a new contact record in the database
-        $contact = Contact::create([
-            'code' => $code,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'subject' => $request->subject,
-            'message' => $request->message,
-            'ip_address' => $request->ip(),
-        ]);
+        // Start a database transaction
+        DB::beginTransaction();
 
-        // Send an email to all admins with error handling using try-catch
         try {
+            // Create a new contact record in the database
+            $contact = Contact::create([
+                'code' => $code,
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'subject' => $request->subject,
+                'message' => $request->message,
+                'ip_address' => $request->ip(),
+            ]);
+
+            // Send an email to all admins
             $admins = Admin::where('mail_status', 'mail')->get();
             foreach ($admins as $admin) {
                 Mail::to($admin->email)->send(new ContactMessageReceived($contact));
             }
+
+            // If email sending is successful, commit the transaction
+            DB::commit();
+
+            // Redirect back with a success message
+            return redirect()->back()->with('success', 'Thank You. We have received your message. We will contact you very soon');
+
         } catch (\Exception $e) {
+            // If any exception occurs, rollback the transaction
+            DB::rollBack();
+
             // Log the error to the log file for debugging
-            Log::error('Error sending email: ' . $e->getMessage());
+            Log::error('Error in contactStore: ' . $e->getMessage());
 
             // Optionally, you can redirect with an error message
             return redirect()->back()->with('error', 'There was an issue sending the email. Please try again later.');
         }
-
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Thank You. We have received your message. We will contact you very soon');
     }
+
 }
