@@ -366,7 +366,17 @@ class HomeController extends Controller
         DB::beginTransaction();
 
         try {
-            // Create a new contact record in the database
+            // Send an email to all admins
+            $admins = Admin::where('mail_status', 'mail')->get();
+            foreach ($admins as $admin) {
+                Mail::to($admin->email)->send(new ContactMessageReceived($contact));
+                // Check if any email fails
+                if (Mail::failures()) {
+                    throw new \Exception('Email could not be sent to admin: ' . $admin->email);
+                }
+            }
+
+            // If email sending is successful, create the contact record in the database
             $contact = Contact::create([
                 'code' => $code,
                 'name' => $request->name,
@@ -377,24 +387,14 @@ class HomeController extends Controller
                 'ip_address' => $request->ip(),
             ]);
 
-            // Send an email to all admins
-            $admins = Admin::where('mail_status', 'mail')->get();
-            foreach ($admins as $admin) {
-                Mail::to($admin->email)->send(new ContactMessageReceived($contact));
-                // Check if the mail was successfully sent
-                if (Mail::failures()) {
-                    throw new \Exception('Email could not be sent.');
-                }
-            }
-
-            // If we reached here, it means email was sent successfully, so we commit the transaction
+            // If all is well, commit the transaction
             DB::commit();
 
             // Redirect back with a success message
             return redirect()->back()->with('success', 'Thank You. We have received your message. We will contact you very soon');
 
         } catch (\Exception $e) {
-            // If any exception occurs, rollback the transaction
+            // If anything goes wrong, rollback the transaction and log the error
             DB::rollBack();
 
             // Log the error to the log file for debugging
