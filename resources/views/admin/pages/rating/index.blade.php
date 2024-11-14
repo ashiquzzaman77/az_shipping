@@ -616,6 +616,10 @@
                                     </div>
                                 </div>
 
+                                <a href="{{ route('rating.user.pdf', $item->id) }}" title="Download" class="">
+                                    <i class="fa-solid fa-download text-dark"></i>
+                                </a>
+
                                 @if (Auth::guard('admin')->user()->can('edit.rating'))
                                 <a href="{{ route('admin.rating.edit', $item->id) }}" class="text-primary">
                                     <i class="fa-solid fa-pencil text-primary fs-5"></i>
