@@ -123,9 +123,8 @@
 
 <div class="footer-bottom text-center" id="contact">
     <div class="container">
-        <p class="mb-0">Copyright @2024. All Rights Reserved <a href="javascript:;" target="_blank"><span
-                    class="text-white">AZ Shipping</span></a>
-        </p>
+        <p class="mb-0">Copyright @2024. All Rights Reserved <span class="text-white">AZ Shipping</span></p>
+        <p class="mb-0">Design By Ashiquzzaman</p>
     </div>
 </div>
 

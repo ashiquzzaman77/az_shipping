@@ -5,8 +5,8 @@
             display: inline-block;
             padding: 10px 15px;
             border-radius: 5px;
-            /* background-color: rgba(255, 255, 255, 0.3); */
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.3);
+            /* background-color: #fff; */
             backdrop-filter: blur(5px);
             /* Optional blur effect */
         }
