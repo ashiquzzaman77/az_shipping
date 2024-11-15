@@ -1,3 +1,11 @@
+<style>
+    #address {
+        cursor: pointer;
+        color: #007bff;
+        text-decoration: underline;
+    }
+</style>
+
 <footer class="footer-area pt-100 pb-70">
     <div class="container">
         <div class="row">
@@ -96,7 +104,7 @@
 
                         <li>
                             <i class="bx bxs-location-plus"></i>
-                            <p>{{ optional($setting)->address_line_one }}</p>
+                            <p id="address" class="hover-trigger">{{ optional($setting)->address_line_one }}</p>
                         </li>
 
                         <li>
@@ -124,5 +132,22 @@
         <p class="mb-0">Copyright @2024. All Rights Reserved <a href="javascript:;" target="_blank"><span
                     class="text-white">AZ Shipping</span></a>
         </p>
+    </div>
+</div>
+
+<div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="addressModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addressModalLabel">Address Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Additional information about the address goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 </div>
