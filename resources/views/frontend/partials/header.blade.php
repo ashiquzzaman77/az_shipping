@@ -5,7 +5,8 @@
             display: inline-block;
             padding: 10px 15px;
             border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.3);
+            /* background-color: rgba(255, 255, 255, 0.3); */
+            background-color: #fff;
             backdrop-filter: blur(5px);
             /* Optional blur effect */
         }
@@ -38,10 +39,11 @@
                 <div class="col-lg-6 col-sm-6">
                     <ul class="left-info">
                         <li>
-                            <a href="javascript:;">
+                            <a href="mailto:{{ optional($setting)->primary_email }}">
                                 <i class="bx bxs-envelope"></i>
-                                <span class="__cf_email__"
-                                    data-cfemail="99f1fcf5f5f6d9fffcebebe0b7faf6f4">{{ optional($setting)->primary_email }}</span>
+
+                                <span class="__cf_email__">{{ optional($setting)->primary_email }}</span>
+
                             </a>
                         </li>
                         <li>

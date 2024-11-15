@@ -135,7 +135,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">AZ Shipping Services</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -143,7 +143,7 @@
 
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.675750540797!2d91.8035542!3d22.3280995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd9b3d4fcc923%3A0xb638f08bdb4b4469!2sA.Z.Shipping%20Services!5e0!3m2!1sen!2sbd!4v1730271303687!5m2!1sen!2sbd"
-                    width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy"
+                    width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
 
             </div>
