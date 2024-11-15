@@ -122,11 +122,12 @@
 </footer>
 
 <div class="footer-bottom text-center" id="contact">
-    <div class="container d-flex justify-between align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
         <p class="mb-0">Copyright @2024. All Rights Reserved <span class="text-white">AZ Shipping</span></p>
         <p class="mb-0">Design By Ashiquzzaman</p>
     </div>
 </div>
+
 
 
 
