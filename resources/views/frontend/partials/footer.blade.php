@@ -124,7 +124,7 @@
 <div class="footer-bottom text-center" id="contact">
     <div class="container d-flex justify-content-between align-items-center">
         <p class="mb-0">Copyright @2024. All Rights Reserved <span class="text-white">AZ Shipping</span></p>
-        <a href="https://ashikuzzaman.net/" class="mb-0" style="text-decoration: underline;">Design By Ashiquzzaman</a>
+        <a href="https://ashikuzzaman.net/" class="mb-0" style="text-decoration: underline;color:#fff">Design By Ashiquzzaman</a>
 
     </div>
 </div>
