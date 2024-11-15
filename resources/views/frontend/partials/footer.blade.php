@@ -96,7 +96,7 @@
 
                         <li>
                             <i class="bx bxs-location-plus"></i>
-                            <p data-bs-toggle="modal" data-bs-target="#exampleModal" >{{ optional($setting)->address_line_one }}</p>
+                            <a data-bs-toggle="modal" data-bs-target="#exampleModal" >{{ optional($setting)->address_line_one }}</a>
                         </li>
 
                         <li>
