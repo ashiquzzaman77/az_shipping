@@ -47,10 +47,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="tel:+823-456-879">
+                            <a href="https://wa.me/{{ optional($setting)->primary_phone }}" target="_blank">
                                 <i class="bx bxs-phone-call"></i>
                                 {{ optional($setting)->primary_phone }}
                             </a>
+
                         </li>
                     </ul>
                 </div>
@@ -230,7 +231,8 @@
 
                             <li class="nav-item">
                                 {{-- <a href="{{ route('login') }}" target="blank" class="">Mariner's Login</a> --}}
-                                <a href="{{ route('login') }}" target="_blank" style="padding: 10px" class="login-button22 text-white mt-2">Mariner's Login</a>
+                                <a href="{{ route('login') }}" target="_blank" style="padding: 10px"
+                                    class="login-button22 text-white mt-2">Mariner's Login</a>
                             </li>
 
                         </ul>
