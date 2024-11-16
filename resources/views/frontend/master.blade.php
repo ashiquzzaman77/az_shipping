@@ -179,7 +179,7 @@
                     document.getElementById('main-content').style.display = 'block';
                     document.getElementById('main-content').style.opacity = '1';
                 }, 1000); // This matches the fade-out duration of 1 second
-            }, 20000); // Preloader duration set to 50 seconds (50000 milliseconds)
+            }, 2000); // Preloader duration set to 50 seconds (50000 milliseconds)
         });
     </script>
 
