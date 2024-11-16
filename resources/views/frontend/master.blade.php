@@ -56,44 +56,44 @@
         }
 
         .wave-text span:nth-child(2) {
-            animation-delay: 0.1s;
-        }
-
-        .wave-text span:nth-child(3) {
-            animation-delay: 0.2s;
-        }
-
-        .wave-text span:nth-child(4) {
             animation-delay: 0.3s;
         }
 
-        .wave-text span:nth-child(5) {
-            animation-delay: 0.4s;
-        }
-
-        .wave-text span:nth-child(6) {
+        .wave-text span:nth-child(3) {
             animation-delay: 0.5s;
         }
 
-        .wave-text span:nth-child(7) {
-            animation-delay: 0.6s;
-        }
-
-        .wave-text span:nth-child(8) {
+        .wave-text span:nth-child(4) {
             animation-delay: 0.7s;
         }
 
-        .wave-text span:nth-child(9) {
-            animation-delay: 0.8s;
-        }
-
-        .wave-text span:nth-child(10) {
+        .wave-text span:nth-child(5) {
             animation-delay: 0.9s;
         }
 
-        .wave-text span:nth-child(11) {
-            animation-delay: 1s;
+        .wave-text span:nth-child(6) {
+            animation-delay: 0.11s;
         }
+
+        .wave-text span:nth-child(7) {
+            animation-delay: 0.13s;
+        }
+
+        .wave-text span:nth-child(8) {
+            animation-delay: 0.15s;
+        }
+
+        .wave-text span:nth-child(9) {
+            animation-delay: 0.17s;
+        }
+
+        .wave-text span:nth-child(10) {
+            animation-delay: 0.19s;
+        }
+
+        /* .wave-text span:nth-child(11) {
+            animation-delay: 1s;
+        } */
 
         /* Media query for small screens */
         @media (max-width: 600px) {
@@ -110,6 +110,7 @@
 <body>
 
     <!-- preloader -->
+
     {{-- <div class="preloader">
 
         <div class="anim-cont">
