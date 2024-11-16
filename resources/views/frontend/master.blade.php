@@ -163,7 +163,7 @@
         <i class="bx bx-chevrons-up"></i>
     </div>
 
-    @include('frontend.partials.script')
+    
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -182,6 +182,8 @@
             }, 2000); // Preloader duration set to 50 seconds (50000 milliseconds)
         });
     </script>
+
+@include('frontend.partials.script')
 
 </body>
 
