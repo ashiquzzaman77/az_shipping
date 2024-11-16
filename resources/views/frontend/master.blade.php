@@ -129,7 +129,7 @@
 
     <div id="preloader" class="flex-column">
         <div class="wave-text">
-            <img src="{{ asset('frontend/images/no-industy-img.png') }}" alt="loading..." class="preloader-img"
+            <img src="{{ asset('frontend/images/no-category-img.png') }}" alt="loading..." class="preloader-img"
                 id="preloaderImage" style="display: none;">
         </div>
     </div>
