@@ -138,18 +138,15 @@
             <span>Services</span>
         </div>
     </div>
-
     <!-- preloader -->
-
-    <!-- Header Section Start  -->
-    @include('frontend.partials.header')
-
-    <!-- Header Section Start  -->
 
     <!-- Main Section Start -->
 
     <div id="main-content" style="display: none;">
 
+        <!-- Header Section Start  -->
+        @include('frontend.partials.header')
+        <!-- Header Section Start  -->
 
         <main>
 
