@@ -129,7 +129,8 @@
 
     <div id="preloader" class="flex-column">
         <div class="wave-text">
-            <img src="{{ asset('frontend/images/no-category-img.png') }}" alt="loading..." class="preloader-img" id="preloaderImage" style="display: none;">
+            <img src="{{ asset('frontend/images/no-industy-img.png') }}" alt="loading..." class="preloader-img"
+                id="preloaderImage" style="display: none;">
         </div>
     </div>
 
@@ -163,19 +164,13 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Set a timeout for 50 seconds (50000 milliseconds)
+            // Set a timeout for 2 seconds
             setTimeout(function() {
-                // Fade out the preloader with smooth transition
-                document.getElementById('preloader').style.opacity = '0';
-
-                // After the fade-out transition is complete, hide the preloader and show the content
-                setTimeout(function() {
-                    document.getElementById('preloader').style.display = 'none';
-                    // Fade in the main content with smooth transition
-                    document.getElementById('main-content').style.display = 'block';
-                    document.getElementById('main-content').style.opacity = '1';
-                }, 1000); // This matches the fade-out duration of 1 second
-            }, 50000); // Preloader duration set to 50 seconds (50000 milliseconds)
+                // Hide the preloader
+                document.getElementById('preloader').style.display = 'none';
+                // Show the main content
+                document.getElementById('main-content').style.display = 'block';
+            }, 4000); // 2000 milliseconds = 2 seconds
         });
     </script>
 
