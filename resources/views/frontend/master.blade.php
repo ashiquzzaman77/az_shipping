@@ -37,6 +37,7 @@
         <div class="wave-text">
             <span>A</span>
             <span>Z</span>
+            <span></span>
             <span>S</span>
             <span>h</span>
             <span>i</span>
