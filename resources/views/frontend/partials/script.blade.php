@@ -19,13 +19,23 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Set a timeout for 4 seconds (4000 milliseconds)
+        // Initially show the main content, and after 4 seconds, show the preloader.
         setTimeout(function() {
-            // Hide the preloader
-            document.getElementById('preloader').style.display = 'none';
-            // Show the main content
-            document.getElementById('main-content').style.display = 'block';
-        }, 4000); // 4000 milliseconds = 4 seconds
+            // Hide the main content after the delay
+            document.getElementById('main-content').style.display = 'none';
+            
+            // Show the preloader (hero section)
+            document.getElementById('preloader').style.display = 'flex';
+
+            // After 2 seconds of preloader, reveal the main content again
+            setTimeout(function() {
+                // Hide the preloader
+                document.getElementById('preloader').style.display = 'none';
+
+                // Show the main content again
+                document.getElementById('main-content').style.display = 'block';
+            }, 4000); // 4000ms = 4 seconds
+        }, 1000); // 1000ms = 1 second delay before switching
     });
 </script>
 

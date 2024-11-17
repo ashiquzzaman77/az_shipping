@@ -19,7 +19,7 @@
 <title>{{ optional($setting)->site_name ?? 'AZ Shipping ' }}</title>
 
 <style>
-    /* Preloader Styles */
+    /* Preloader (Hero Section) Styles */
     #preloader {
         position: fixed;
         left: 0;
@@ -28,15 +28,16 @@
         height: 100%;
         z-index: 9999;
         background-color: #fff;
-        display: flex;
+        display: none; /* Hidden initially */
         justify-content: center;
         align-items: center;
         flex-direction: column; /* Stack the text and image vertically */
     }
 
-    /* Main content visibility after preloader */
+    /* Main Content Visibility */
     #main-content {
-        display: none; /* Hidden initially */
+        display: block; /* Visible initially */
+        text-align: center;
     }
 
     /* Wave Animation Styles */
@@ -51,7 +52,7 @@
         -webkit-background-clip: text;
     }
 
-    /* Keyframes for wave animation */
+    /* Keyframes for Wave Animation */
     @keyframes wave {
         0%, 100% {
             transform: translateY(0);
@@ -69,13 +70,13 @@
 
     /* Animated Image Preloader Styling */
     #preloader img {
-        width: 100px; /* Adjust as needed */
+        width: 100px; /* Adjust size as needed */
         height: auto;
         margin-top: 20px;
         animation: rotateImage 2s linear infinite; /* Rotate animation */
     }
 
-    /* Rotate image animation */
+    /* Rotate Image Animation */
     @keyframes rotateImage {
         0% {
             transform: rotate(0deg);
