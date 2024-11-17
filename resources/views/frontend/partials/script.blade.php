@@ -17,26 +17,4 @@
 <script src="{{ asset('frontend/js/wow.min.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Initially show the main content, and after 4 seconds, show the preloader.
-        setTimeout(function() {
-            // Hide the main content after the delay
-            document.getElementById('main-content').style.display = 'none';
-            
-            // Show the preloader (hero section)
-            document.getElementById('preloader').style.display = 'flex';
-
-            // After 2 seconds of preloader, reveal the main content again
-            setTimeout(function() {
-                // Hide the preloader
-                document.getElementById('preloader').style.display = 'none';
-
-                // Show the main content again
-                document.getElementById('main-content').style.display = 'block';
-            }, 4000); // 4000ms = 4 seconds
-        }, 1000); // 1000ms = 1 second delay before switching
-    });
-</script>
-
 @stack('scripts')
