@@ -1,10 +1,13 @@
 @extends('frontend.master')
 @section('content')
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
     <div class="page-banner bg-3">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
-                    
+
                 </div>
             </div>
         </div>
@@ -22,9 +25,10 @@
 
                 <!-- First Job  -->
                 @forelse ($jobs as $job)
+
                     <div class="col-md-6 col-lg-6">
                         <div class="feature-job-block rounded my-3 gray-light-bg shadow"
-                            style="border: 2px dotted rgb(48, 36, 71);"> <!-- Solid border -->
+                            style="border: 1px dotted rgb(48, 36, 71);"> <!-- Solid border -->
                             <div class="job-content px-5 pt-5">
                                 <h4>{{ $job->rank }}</h4>
                                 <p></p>
@@ -76,10 +80,8 @@
 
             </div>
 
-            
+
 
         </div>
     </div>
-
-
 @endsection
