@@ -164,7 +164,7 @@
                 // Hide the preloader
                 document.getElementById('preloader').style.display = 'none';
                 // Show the main content
-                document.getElementById('main-content').style.display = 'block';
+                // document.getElementById('main-content').style.display = 'block';
             }, 2000); // Adjust this time if you want it shorter or longer
         });
     </script>
