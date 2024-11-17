@@ -130,7 +130,7 @@
     <div id="preloader" class="flex-column">
         <div class="wave-text">
             <!-- Add the image you want to animate -->
-            <img src="{{ asset('frontend/images/AZ-Shipping-Logo.png') }}" alt="Animated Image">
+            <img src="{{ asset('frontend/images/AZ-Shipping--Logo-new-broad.png') }}" alt="Animated Image">
         </div>
     </div>
 
