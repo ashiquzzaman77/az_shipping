@@ -165,7 +165,7 @@
                 document.getElementById('preloader').style.display = 'none';
                 // Show the main content
                 document.getElementById('main-content').style.display = 'block';
-            }, 3000); // Adjust this time if you want it shorter or longer
+            }, 2000); // Adjust this time if you want it shorter or longer
         });
     </script>
 </body>
