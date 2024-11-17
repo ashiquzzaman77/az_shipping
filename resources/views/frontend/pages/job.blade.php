@@ -62,11 +62,11 @@
                             </div>
                             <div class="row no-gutters px-5 py-3 border-top">
                                 <div class="col-12 col-sm-6 col-md-6">
-                                    <span class="small-text d-block"><a
+                                    <span class="small-text d-block"><i class="fas fa-angle-right mr-1 color-accent"></i><a
                                             href="{{ route('view.job.details', $job->id) }}">View Details</a></span>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6">
-                                    <span class="small-text d-block"><a>
+                                    <span class="small-text d-block"><i class="fas fa-angle-right mr-1 color-accent"></i><a
                                             href="{{ route('apply.job', $job->id) }}">Apply Now</a></span>
                                 </div>
                             </div>
