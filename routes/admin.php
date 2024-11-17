@@ -157,10 +157,9 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::get('/apply/post', [AdminController::class, 'applyPost'])->name('apply.post');
 });
 
-
 Route::middleware(['auth:admin'])->group(function () {
 
-    // Role In Permission Start 
+    // Role In Permission Start
     Route::controller(RoleController::class)->group(function () {
 
         //Permission
@@ -194,7 +193,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/admin-inactive/{id}', 'InactiveAdmin')->name('admin.inactive');
         Route::get('/admin-active/{id}', 'ActiveAdmin')->name('admin.active');
     });
-    // Role In Permission End 
+    // Role In Permission End
 
     Route::get('/download-attachment/{id}', [AdminController::class, 'downloadAttachment'])->name('download.attachment');
     Route::delete('/apply/post/delete/{id}', [AdminController::class, 'applyPostDelete'])->name('admin.apply.post.delete');
@@ -206,7 +205,6 @@ Route::middleware(['auth:admin'])->group(function () {
 
     // Route to get notifications count
     Route::get('/admin/notifications', [AdminController::class, 'getAdminNotifications'])->name('admin.notifications');
-    // Route to mark notifications as read
     Route::post('/admin/mark-as-read', [AdminController::class, 'markNotificationsAsRead'])->name('admin.markNotificationsAsRead');
 
     //Office Export Pdf
@@ -215,7 +213,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/generate-pdf/{id}', [OfficersController::class, 'generatePDF'])->name('office.user.pdf');
     Route::get('/rating/generate-pdf/{id}', [RatingController::class, 'generateRatingPDF'])->name('rating.user.pdf');
 
-    //Validation For CDC No 
+    //Validation For CDC No
     Route::post('/check-cdc-no', [OfficersController::class, 'checkCdcNo'])->name('check.cdc.no');
     Route::post('/validate-cdc-no', [RatingController::class, 'validateCdcNo']);
 });

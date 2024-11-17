@@ -17,4 +17,16 @@
 <script src="{{ asset('frontend/js/wow.min.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Set a timeout for 4 seconds (4000 milliseconds)
+        setTimeout(function() {
+            // Hide the preloader
+            document.getElementById('preloader').style.display = 'none';
+            // Show the main content
+            document.getElementById('main-content').style.display = 'block';
+        }, 4000); // 4000 milliseconds = 4 seconds
+    });
+</script>
+
 @stack('scripts')
