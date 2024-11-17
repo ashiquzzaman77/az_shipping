@@ -2,25 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\Admin;
+use App\Models\ApplyPost;
 use App\Models\Job;
 use App\Models\Team;
-use App\Models\Admin;
 use App\Models\Visit;
-use App\Models\ApplyPost;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules;
-use Spatie\Permission\Models\Role;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules;
+use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
-        $visitCount = Visit::distinct('ip_address')->count();  // count unique IPs
-
+        $visitCount = Visit::select('ip_address')->distinct()->count();
         $items = ApplyPost::orderBy('job_id')->get();
         $jobs = Job::latest('id')->limit(5)->get();
         $team = Team::latest()->get();
