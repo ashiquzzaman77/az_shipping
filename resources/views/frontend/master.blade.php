@@ -35,10 +35,16 @@
 
     <div id="preloader" class="flex-column">
         <div class="wave-text">
-            <span>অ</span>
-            <span>র্ধা</span>
-            <span>ঙ্গি</span>
-            <span>নী</span>
+            <span>A</span>
+            <span>Z</span>
+            <span>S</span>
+            <span>h</span>
+            <span>i</span>
+            <span>p</span>
+            <span>p</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
         </div>
         
         <img src="{{ asset('frontend/images/no-logo(217-55).jpg') }}" alt="Loading..." />
