@@ -19,7 +19,8 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        $visitCount = Visit::distinct('ip_address')->count();  // count unique IPs
+        $visitCount = Visit::distinct('session_id')->count();
+
 
         $items = ApplyPost::orderBy('job_id')->get();
         $jobs = Job::latest('id')->limit(5)->get();
