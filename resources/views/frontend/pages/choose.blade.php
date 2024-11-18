@@ -26,7 +26,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="choose-contant">
                             <div class="choose-card">
-                                <i class='bx bx-world'></i>
+                                <i class="fa-solid fa-dollar-sign"></i>
                                 <h3>{{ optional($choose)->row_one_title }}</h3>
                                 <p>{{ optional($choose)->row_one_subtitle }}</p>
                             </div>
@@ -34,7 +34,7 @@
 
                         <div class="choose-contant">
                             <div class="choose-card">
-                                <i class='bx bxs-paper-plane'></i>
+                                <i class="fa-solid fa-check"></i>
                                 <h3>{{ optional($choose)->row_two_title }}</h3>
                                 <p>{{ optional($choose)->row_two_subtitle }}</p>
                             </div>
@@ -42,7 +42,7 @@
 
                         <div class="choose-contant">
                             <div class="choose-card">
-                                <i class='bx bxs-truck'></i>
+                                <i class="fa-solid fa-ship"></i>
                                 <h3>{{ optional($choose)->row_three_title }}</h3>
                                 <p>{{ optional($choose)->row_three_subtitle }}</p>
                             </div>
@@ -50,7 +50,7 @@
 
                         <div class="choose-contant">
                             <div class="choose-card">
-                                <i class='bx bx-support'></i>
+                                <i class="fa-solid fa-user-plus"></i>
                                 <h3>{{ optional($choose)->row_four_title }}</h3>
                                 <p>{{ optional($choose)->row_four_subtitle }}</p>
                             </div>
@@ -61,7 +61,7 @@
                         <div class="choose-text">
                             <div class="section-title">
 
-                                <span>Why Choose Us</span>
+                                {{-- <span>Why Choose Us</span> --}}
 
                                 <h2>{{ optional($choose)->main_title }}</h2>
 
