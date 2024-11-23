@@ -8,6 +8,37 @@ body {
 }
 
 /* =========================================== */
+/* Custom Scrollbar */
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+  outline: 0px solid slategrey;
+}
+
+/* Placeholder */
+::placeholder {
+  color: #747474; /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: 1; /* Firefox */
+}
+
+::-webkit-input-placeholder {
+  color: #747474 !important; /* Chrome/Opera/Safari */
+}
+
+::-moz-placeholder {
+  color: #747474 !important; /* Firefox 19+ */
+}
+
+:-ms-input-placeholder {
+  color: #747474; /* IE 10+ */
+}
 
 /* =========================================== */
 
