@@ -29,35 +29,44 @@ body {
 }
 
 /* =========================================== */
-/* For Webkit-based browsers like Chrome, Safari, and Edge */
-.sidebar::-webkit-scrollbar {
-  width: 8px;
-  /* Width of the scrollbar */
+/* Apply to the sidebar container */
+.sidebar {
+  width: 300px;
+  /* Example width */
+  height: 100vh;
+  /* Full height of the page */
+  overflow-y: scroll;
+  /* Enable vertical scrolling */
+  background-color: #5e0202;
+  /* Sidebar background color */
 }
 
-.sidebar::-webkit-scrollbar-track {
-  background-color: #e40404;
-  /* Color of the track */
-  border-radius: 10px;
+/* Styling the scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.sidebar::-webkit-scrollbar {
+  width: 12px;
+  /* Set the width of the scrollbar */
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #16a085;
-  /* Color of the thumb */
+  background-color: #4CAF50;
+  /* Color of the scrollbar thumb */
   border-radius: 10px;
+  /* Round the edges of the scrollbar thumb */
 }
 
-.sidebar::-webkit-scrollbar-thumb:hover {
-  background-color: #1abc9c;
-  /* Hover effect for the thumb */
+.sidebar::-webkit-scrollbar-track {
+  background-color: #e40505;
+  /* Color of the scrollbar track */
+  border-radius: 10px;
+  /* Round the edges of the scrollbar track */
 }
 
-/* For Firefox */
+/* Firefox scrollbar styling */
 .sidebar {
   scrollbar-width: thin;
-  /* Thin scrollbar */
-  scrollbar-color: #16a085 #b80303;
-  /* thumb and track colors */
+  /* Makes the scrollbar thinner */
+  scrollbar-color: #4CAF50 #f1f1f1;
+  /* thumb and track color */
 }
 
 /* =========================================== */
