@@ -8,36 +8,7 @@ body {
 }
 
 /* =========================================== */
-/* Sidebar container */
-.sidebar {
-  width: 300px; /* Example width */
-  height: 100vh; /* Full height of the page */
-  overflow-y: auto; /* Enable vertical scrolling */
-  background-color: #5e0202; /* Sidebar background color */
-  padding-right: 15px; /* Optional, space for the scrollbar */
-  box-sizing: content-box; /* Ensure padding does not affect width */
-}
 
-/* Styling the scrollbar for WebKit browsers (Chrome, Safari, Edge) */
-.sidebar::-webkit-scrollbar {
-  width: 12px; /* Set the width of the scrollbar */
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background-color: #4CAF50; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Round the edges of the scrollbar thumb */
-}
-
-.sidebar::-webkit-scrollbar-track {
-  background-color: #e40505; /* Color of the scrollbar track */
-  border-radius: 10px; /* Round the edges of the scrollbar track */
-}
-
-/* Firefox scrollbar styling */
-.sidebar {
-  scrollbar-width: thin; /* Makes the scrollbar thinner */
-  scrollbar-color: #4CAF50 #e40505; /* Thumb and track color */
-}
 /* =========================================== */
 
 img {
