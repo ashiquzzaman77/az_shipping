@@ -199,7 +199,10 @@
 
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
-                                    {{ $item->discharge_date }}
+                                    @if ($item->discharge_date)
+                                        {{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
+                                    @else
+                                    @endif
                                 </h6>
                             </td>
                             <td>
