@@ -206,9 +206,17 @@
                                 </h6>
                             </td>
                             <td>
-                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
-                                    {{ $item->end_of_contract }}
+                                
+
+                                <h6
+                                    style="{{ $shouldBeRed ? 'color: white;' : '' }}">
+
+                                    @if ($item->end_of_contract)
+                                        {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
+                                    @else
+                                    @endif
                                 </h6>
+
                             </td>
 
 
