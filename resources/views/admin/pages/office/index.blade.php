@@ -123,8 +123,8 @@
                         <th width="10%">Name</th>
                         <th width="10%">Rank</th>
                         <th width="7%">CDC NO</th>
-                        <th width="10%">Academy</th>
-                        <th width="10%">Batch</th>
+                        <th width="15%">Joining/Discharge</th>
+                        <th width="15%">End Of Contract</th>
                         <th width="10%">Contact</th>
                         <th width="10%">Current Status</th>
                         <th width="10%">Remarks</th>
@@ -227,11 +227,16 @@
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->cdc_no }}</h6>
                             </td>
                             <td>
-                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->academy }}</h6>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
+                                    {{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
+                                </h6>
                             </td>
                             <td>
-                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->batch }}</h6>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
+                                    {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
+                                </h6>
                             </td>
+                            
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->contact }}</h6>
                             </td>
