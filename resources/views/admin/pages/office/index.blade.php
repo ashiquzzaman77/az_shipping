@@ -123,12 +123,12 @@
                         <th width="10%">Name</th>
                         <th width="10%">Rank</th>
                         <th width="7%">CDC NO</th>
-                        <th width="15%">Joining/Discharge</th>
-                        <th width="15%">End Of Contract</th>
+                        <th width="12%">Joining/Discharge</th>
+                        <th width="12%">End Of Contract</th>
                         <th width="10%">Contact</th>
                         <th width="10%">Current Status</th>
                         <th width="10%">Remarks</th>
-                        <th width="10%">Actions</th>
+                        <th width="20%">Actions</th>
                     </tr>
                 </thead>
 
