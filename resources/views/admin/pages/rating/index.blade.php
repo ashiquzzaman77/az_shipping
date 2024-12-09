@@ -102,8 +102,8 @@
                         <th width="10%">Name</th>
                         <th width="10%">Rank</th>
                         <th width="10%">CDC NO</th>
-                        <th width="10%">Academy</th>
-                        <th width="5%">Batch</th>
+                        <th width="15%">Joining/Discharge</th>
+                        <th width="15%">End Of Contract</th>
                         <th width="10%">Contact</th>
                         <th width="10%">Status</th>
                         <th width="10%">Remarks</th>
@@ -196,12 +196,19 @@
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->cdc_no }}</h6>
                             </td>
+
                             <td>
-                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->academy }}</h6>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
+                                    {{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
+                                </h6>
                             </td>
                             <td>
-                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->batch }}</h6>
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
+                                    {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
+                                </h6>
                             </td>
+
+
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->contact }}</h6>
                             </td>
@@ -212,7 +219,8 @@
                                         ({{ $item->ship_name }})
                                     </h6>
                                 @elseif($item->status == 'leave')
-                                    <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">On Leave ({{ $item->ship_name }})</h6>
+                                    <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">On Leave
+                                        ({{ $item->ship_name }})</h6>
                                 @elseif($item->status == 'fleet')
                                     <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">Not in Fleet Yet</h6>
                                 @endif
@@ -621,15 +629,15 @@
                                 </a> --}}
 
                                 @if (Auth::guard('admin')->user()->can('edit.rating'))
-                                <a href="{{ route('admin.rating.edit', $item->id) }}" class="text-primary">
-                                    <i class="fa-solid fa-pencil text-primary fs-5"></i>
-                                </a>
+                                    <a href="{{ route('admin.rating.edit', $item->id) }}" class="text-primary">
+                                        <i class="fa-solid fa-pencil text-primary fs-5"></i>
+                                    </a>
                                 @endif
 
                                 @if (Auth::guard('admin')->user()->can('delete.rating'))
-                                <a href="{{ route('admin.rating.destroy', $item->id) }}" class="delete">
-                                    <i class="fa-solid fa-trash text-danger fs-5"></i>
-                                </a>
+                                    <a href="{{ route('admin.rating.destroy', $item->id) }}" class="delete">
+                                        <i class="fa-solid fa-trash text-danger fs-5"></i>
+                                    </a>
                                 @endif
 
                             </td>
@@ -648,7 +656,7 @@
             $("#kt_datatable_example_5").DataTable({
 
                 "pageLength": 15, // Set default number of entries to show
-                "lengthMenu": [15,20, 30, 50, 100, 200, 500],
+                "lengthMenu": [15, 20, 30, 50, 100, 200, 500],
 
                 "language": {
                     "lengthMenu": "Show _MENU_",
