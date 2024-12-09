@@ -107,7 +107,7 @@
                         <th width="10%">Contact</th>
                         <th width="10%">Status</th>
                         <th width="12%">Remarks</th>
-                        <th width="15%">Actions</th>
+                        <th width="20%">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="fw-bold text-gray-600">
