@@ -228,15 +228,27 @@
                             </td>
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
-                                    {{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
+                                    @if ($item->discharge_date)
+                                        {{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
+                                    @else
+                                    @endif
                                 </h6>
                             </td>
                             <td>
-                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
+                                {{-- <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
                                     {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
-                                </h6>
+                                </h6> --}}
+
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
+
+                                    @if ($item->end_of_contract)
+                                        {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
+                                    @else
+                                        N/A
+                                    @endif
                             </td>
-                            
+                            </h6>
+
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">{{ $item->contact }}</h6>
                             </td>
@@ -727,13 +739,6 @@
                                                                         style="{{ $item->end_of_contract && \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->end_of_contract)->subMonths(2)) ? 'color: red;' : '' }}">
                                                                         @if ($item->end_of_contract)
                                                                             {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
-                                                                            {{-- <br>
-                                                                            Current Date:
-                                                                            {{ \Carbon\Carbon::now()->format('F j, Y') }}
-                                                                            <br> --}}
-                                                                            {{-- Contract Ends In:
-                                                                            {{ \Carbon\Carbon::parse($item->end_of_contract)->diffInDays(\Carbon\Carbon::now()) }}
-                                                                            days --}}
                                                                         @else
                                                                             N/A
                                                                         @endif
