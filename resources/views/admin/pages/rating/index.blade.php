@@ -106,7 +106,7 @@
                         <th width="10%">End Of Contract</th>
                         <th width="10%">Contact</th>
                         <th width="10%">Status</th>
-                        <th width="16%">Remarks</th>
+                        <th width="12%">Remarks</th>
                         <th width="15%">Actions</th>
                     </tr>
                 </thead>
