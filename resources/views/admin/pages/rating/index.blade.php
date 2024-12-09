@@ -102,11 +102,11 @@
                         <th width="10%">Name</th>
                         <th width="10%">Rank</th>
                         <th width="10%">CDC NO</th>
-                        <th width="15%">Joining/Discharge</th>
-                        <th width="15%">End Of Contract</th>
+                        <th width="12%">Joining/Discharge</th>
+                        <th width="12%">End Of Contract</th>
                         <th width="10%">Contact</th>
                         <th width="10%">Status</th>
-                        <th width="10%">Remarks</th>
+                        <th width="16%">Remarks</th>
                         <th width="15%">Actions</th>
                     </tr>
                 </thead>
