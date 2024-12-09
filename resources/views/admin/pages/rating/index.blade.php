@@ -199,12 +199,12 @@
 
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
-                                    {{ \Carbon\Carbon::parse($item->discharge_date)->format('F j, Y') }}
+                                    {{ $item->discharge_date }}
                                 </h6>
                             </td>
                             <td>
                                 <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
-                                    {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
+                                    {{ $item->end_of_contract }}
                                 </h6>
                             </td>
 
