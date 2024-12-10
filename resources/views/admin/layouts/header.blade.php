@@ -94,6 +94,7 @@
             </div>
         </div>
         <!--end::Aside mobile toggle-->
+        
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 mt-3 flex-lg-grow-0">
             <a href="javascript:;" class="d-lg-none">
