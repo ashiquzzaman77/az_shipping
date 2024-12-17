@@ -811,7 +811,7 @@
                                 {{-- Show Modal  --}}
 
                                 @if (Auth::guard('admin')->user()->can('edit.officer'))
-                                    <a href="{{ route('office.user.pdf', $item->id) }}" title="Download"
+                                    <a href="{{ route('office.user.pdf', $item->id) }}" title=""
                                         class="">
                                         <i class="fa-solid fa-download text-dark"></i>
                                     </a>
