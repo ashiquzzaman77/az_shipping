@@ -243,11 +243,13 @@ class OfficersController extends Controller
         $item->delete();
     }
 
+    //export
     public function export()
     {
         return Excel::download(new OfficersExport, 'officers.xlsx');
     }
 
+    //check Cdc No
     public function checkCdcNo(Request $request)
     {
         // Check if the cdc_no is unique in the officers table
@@ -260,11 +262,21 @@ class OfficersController extends Controller
         return response()->json(['message' => 'The CDC No is available.']);
     }
 
+    //generate PDF
+    // public function generatePDF($id)
+    // {
+    //     $item = Officer::findOrFail($id);
+    //     $pdf = PDF::loadView('myPDF', compact('item'));
+
+    //     return $pdf->download('officer-details.pdf');
+    // }
+
     public function generatePDF($id)
     {
         $item = Officer::findOrFail($id);
+        $fileName = 'officer-details-' . $item->name . '-' . $item->id . '.pdf';
         $pdf = PDF::loadView('myPDF', compact('item'));
-
-        return $pdf->download('officer-details.pdf');
+        
+        return $pdf->download($fileName);
     }
 }
