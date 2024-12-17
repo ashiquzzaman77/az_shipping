@@ -810,11 +810,13 @@
                                 </div>
                                 {{-- Show Modal  --}}
 
-                                {{-- <a href="{{ route('office.user.pdf', $item->id) }}" title="Download" class="">
-                                    <i class="fa-solid fa-download text-dark"></i>
-                                </a> --}}
-
                                 @if (Auth::guard('admin')->user()->can('edit.officer'))
+                                    <a href="{{ route('office.user.pdf', $item->id) }}" title="Download"
+                                        class="">
+                                        <i class="fa-solid fa-download text-dark"></i>
+                                    </a>
+
+
                                     <a href="{{ route('admin.officer.edit', $item->id) }}" class="text-primary">
                                         <i class="fa-solid fa-pencil text-primary fs-5"></i>
                                     </a>
