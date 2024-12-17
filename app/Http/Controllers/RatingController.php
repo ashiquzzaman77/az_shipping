@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class RatingController extends Controller
 {
-    
+
 
     /**
      * Display a listing of the resource.
@@ -230,12 +230,20 @@ class RatingController extends Controller
         return response()->json(['error' => null]);
     }
 
+    // public function generateRatingPDF($id)
+    // {
+    //     $item = Rating::findOrFail($id);
+    //     $pdf = PDF::loadView('myRatingPDF', compact('item'));
+
+    //     return $pdf->download('rating-details.pdf');
+    // }
+
     public function generateRatingPDF($id)
     {
         $item = Rating::findOrFail($id);
-        $pdf = PDF::loadView('myRatingPDF', compact('item'));
+        $fileName =  $item->name . '.pdf';
+        $pdf = PDF::loadView('myPDF', compact('item'));
 
-        return $pdf->download('rating-details.pdf');
+        return $pdf->download($fileName);
     }
-
 }

@@ -206,10 +206,9 @@
                                 </h6>
                             </td>
                             <td>
-                                
 
-                                <h6
-                                    style="{{ $shouldBeRed ? 'color: white;' : '' }}">
+
+                                <h6 style="{{ $shouldBeRed ? 'color: white;' : '' }}">
 
                                     @if ($item->end_of_contract)
                                         {{ \Carbon\Carbon::parse($item->end_of_contract)->format('F j, Y') }}
@@ -635,11 +634,12 @@
                                     </div>
                                 </div>
 
-                                {{-- <a href="{{ route('rating.user.pdf', $item->id) }}" title="Download" class="">
-                                    <i class="fa-solid fa-download text-dark"></i>
-                                </a> --}}
-
                                 @if (Auth::guard('admin')->user()->can('edit.rating'))
+                                    <a href="{{ route('rating.user.pdf', $item->id) }}" title="Download"
+                                        class="">
+                                        <i class="fa-solid fa-download text-dark"></i>
+                                    </a>
+
                                     <a href="{{ route('admin.rating.edit', $item->id) }}" class="text-primary">
                                         <i class="fa-solid fa-pencil text-primary fs-5"></i>
                                     </a>
