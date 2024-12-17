@@ -274,9 +274,9 @@ class OfficersController extends Controller
     public function generatePDF($id)
     {
         $item = Officer::findOrFail($id);
-        $fileName = 'officer-details-' . $item->name . '-' . $item->id . '.pdf';
+        $fileName =  $item->name . '.pdf';
         $pdf = PDF::loadView('myPDF', compact('item'));
-        
+
         return $pdf->download($fileName);
     }
 }
