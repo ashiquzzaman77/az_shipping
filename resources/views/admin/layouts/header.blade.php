@@ -116,7 +116,7 @@
 
                 {{-- Frontend  --}}
                 <div class="my-auto ms-3" id="frontend">
-                    <a href="{{ route('homepage') }}" class="btn btn-secondary rounded-1 text-danger"
+                    <a href="{{ route('admin.download') }}" class="btn btn-secondary rounded-1 text-danger"
                         target="blank">DataBase</a>
                 </div>
                 {{-- Frontend  --}}
