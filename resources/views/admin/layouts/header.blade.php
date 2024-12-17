@@ -109,15 +109,15 @@
 
                 {{-- Frontend  --}}
                 <div class="my-auto" id="frontend">
-                    <a href="{{ route('homepage') }}" class="btn btn-secondary rounded-1 text-danger"
+                    <a href="{{ route('homepage') }}" class="btn btn-success rounded-0 text-light"
                         target="blank">Frontend</a>
                 </div>
                 {{-- Frontend  --}}
 
                 {{-- Frontend  --}}
-                <div class="my-auto ms-3" id="frontend">
-                    <a href="{{ route('admin.download') }}" class="btn btn-secondary rounded-1 text-danger"
-                        target="blank">DataBase</a>
+                <div class="my-auto ms-3">
+                    <a href="{{ route('admin.download') }}" class="btn btn-dark rounded-0 text-light"
+                        target="blank">Database</a>
                 </div>
                 {{-- Frontend  --}}
 
