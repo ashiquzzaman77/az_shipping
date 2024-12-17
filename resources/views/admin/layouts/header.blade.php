@@ -6,9 +6,9 @@
         /* Font size */
         color: #ffffff;
         /* Text color */
-        background: linear-gradient(135deg, #023154, #302b63, #023154);
+        background: linear-gradient(90deg, #01090f, #302b63, #023154);
         /* Gradient with specified colors */
-        padding: 10px 20px;
+        padding: 10px 12px;
         /* Padding */
         border-radius: 4px;
         /* Rounded corners */
@@ -35,13 +35,13 @@
     .time-segment {
         margin: 0 5px;
         font-weight: bold;
-        font-size: 30px;
+        font-size: 20px;
     }
 
     .colon {
         margin: 0 5px;
         font-weight: bold;
-        font-size: 30px;
+        font-size: 20px;
     }
 
     #day {
@@ -94,7 +94,7 @@
             </div>
         </div>
         <!--end::Aside mobile toggle-->
-        
+
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 mt-3 flex-lg-grow-0">
             <a href="javascript:;" class="d-lg-none">
@@ -111,6 +111,13 @@
                 <div class="my-auto" id="frontend">
                     <a href="{{ route('homepage') }}" class="btn btn-secondary rounded-1 text-danger"
                         target="blank">Frontend</a>
+                </div>
+                {{-- Frontend  --}}
+
+                {{-- Frontend  --}}
+                <div class="my-auto ms-3" id="frontend">
+                    <a href="{{ route('homepage') }}" class="btn btn-secondary rounded-1 text-danger"
+                        target="blank">DataBase</a>
                 </div>
                 {{-- Frontend  --}}
 

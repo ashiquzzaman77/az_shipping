@@ -107,7 +107,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     );
 
-    Route::get('/backup', [Controller::class, 'downloadBackup']);
+    Route::get('/backup', [Controller::class, 'downloadBackup'])->name('download');
 
     // ============================================
 
