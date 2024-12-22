@@ -242,7 +242,7 @@ class RatingController extends Controller
     {
         $item = Rating::findOrFail($id);
         $fileName =  $item->name . '.pdf';
-        $pdf = PDF::loadView('myPDF', compact('item'));
+        $pdf = PDF::loadView('myRatingPDF', compact('item'));
 
         return $pdf->download($fileName);
     }
