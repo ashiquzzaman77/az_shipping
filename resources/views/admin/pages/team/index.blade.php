@@ -185,6 +185,7 @@
 
 
                             <td>
+                                
                                 {{-- @if (Auth::guard('admin')->user()->can('edit.team')) --}}
                                 <a href="{{ route('admin.team.edit', $item->id) }}" class="text-primary">
                                     <i class="fa-solid fa-pencil text-primary"></i>
@@ -198,6 +199,7 @@
                                 {{-- @endif --}}
 
                             </td>
+
                         </tr>
                     @endforeach
 

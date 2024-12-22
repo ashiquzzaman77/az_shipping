@@ -56,7 +56,15 @@
                     </ul>
                 </div>
                 <div class="col-lg-6 col-sm-6">
+
+
                     <ul class="right-info">
+
+
+                        {{-- <li class="text-danger me-2"><a class="text-danger" href="">Bangla</a></li>
+
+                        <li class="mr-20"><a href="">English</a></li> --}}
+
                         <li class="mr-20">
                             <a href="{{ route('contact') }}">Contact</a>
                         </li>

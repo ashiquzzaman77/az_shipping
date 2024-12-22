@@ -400,7 +400,7 @@
 
                  {{-- Frontend Section  --}}
 
-                 {{-- @if (Auth::guard('admin')->user()->can('frontend.menu')) --}}
+                 @if (Auth::guard('admin')->user()->can('frontend.menu'))
                      <div data-kt-menu-trigger="click"
                          class="menu-item menu-accordion {{ Request::routeIs('admin.banner.index', 'admin.about.index', 'admin.team.index', 'admin.service.index', 'admin.principle.index', 'admin.client.index') ? 'here show' : '' }}">
                          <span class="menu-link">
@@ -503,9 +503,9 @@
                              {{-- @endif --}}
 
                              {{-- Team Member  --}}
-                             {{-- @if (Auth::guard('admin')->user()->can('team.menu')) --}}
+                             @if (Auth::guard('admin')->user()->can('team.menu'))
                                  <div class="menu-item">
-                                     {{-- @if (Auth::guard('admin')->user()->can('all.team')) --}}
+                                     @if (Auth::guard('admin')->user()->can('all.team'))
                                          <a class="menu-link {{ Route::is('admin.team.index') ? 'active' : '' }}"
                                              href="{{ route('admin.team.index') }}">
                                              <span class="menu-bullet">
@@ -513,9 +513,9 @@
                                              </span>
                                              <span class="menu-title">Team Member</span>
                                          </a>
-                                     {{-- @endif --}}
+                                     @endif
                                  </div>
-                             {{-- @endif --}}
+                             @endif
 
 
                              {{-- Service Section  --}}
@@ -568,7 +568,7 @@
                          </div>
                      </div>
 
-                 {{-- @endif --}}
+                 @endif
 
 
                  {{-- Employee Management --}}
