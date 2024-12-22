@@ -24,13 +24,8 @@ class TeamApiController extends Controller
     {
         // Validate the incoming request data
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|max:255|email|unique:teams,email',
-            'position' => 'nullable|string|max:255',
-            'order_team' => 'nullable|integer',
-            'short_descp' => 'nullable|string',
-            'facebook' => 'nullable|url|max:255',
-            'whatup' => 'nullable|string|max:15',
+            'name' => 'nullable|string|max:255',
+            'email' => 'nullable',
             'phone' => 'nullable|string|max:15',
             'status' => 'nullable|boolean',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
@@ -39,11 +34,6 @@ class TeamApiController extends Controller
         $data = $request->only([
             'name',
             'email',
-            'position',
-            'order_team',
-            'short_descp',
-            'facebook',
-            'whatup',
             'phone',
             'status'
         ]);
