@@ -66,3 +66,4 @@ Route::post('/search', [HomeController::class, 'courseSearch'])->name('course.se
 Route::post('global-search', [HomeController::class, 'globalSearch'])->name('global.search');
 
 require __DIR__ . '/frontend.php';
+require __DIR__ . '/api.php';
