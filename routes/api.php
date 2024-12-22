@@ -38,6 +38,6 @@ Route::prefix('admin')->group(function () {
     Route::post('teams/api/store', [TeamApiController::class, 'store']);
     Route::get('teams/api/{id}', [TeamApiController::class, 'show']);
     Route::put('teams/api/{id}', [TeamApiController::class, 'update']);
-    Route::delete('teams/api/{id}', [TeamApiController::class, 'destroy']);
+    Route::delete('teams/api/delete/{id}', [TeamApiController::class, 'destroy']);
     
 });
