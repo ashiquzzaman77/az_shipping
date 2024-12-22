@@ -46,9 +46,10 @@ class TeamApiController extends Controller
         // }
 
         // Insert team data into database
-        $teamApi = Team::create($data);
+        Team::create($data);
 
-        return response()->json(['data' => $teamApi], 201); // 201 Created status code
+        // return response()->json(['data' => $teamApi], 201); // 201 Created status code
+        return redirect()->back();
     }
 
     /**
