@@ -27,7 +27,7 @@ class TeamApiController extends Controller
             'name' => 'nullable|string|max:255',
             'email' => 'nullable',
             'phone' => 'nullable|string|max:15',
-            'status' => 'nullable|boolean',
+            'status' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
         ]);
 
