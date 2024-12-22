@@ -38,17 +38,17 @@ class TeamApiController extends Controller
             'status'
         ]);
 
-        // // Handle image upload if present
-        // if ($request->hasFile('image')) {
-        //     $image = $request->file('image');
-        //     $imagePath = $image->store('team', 'public'); // Store image in storage/app/public/team
-        //     $data['image'] = $imagePath;
-        // }
+        // Handle image upload if present
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagePath = $image->store('team', 'public'); // Store image in storage/app/public/team
+            $data['image'] = $imagePath;
+        }
 
         // Insert team data into database
-        Team::create($data);
+        $teamApi = Team::create($data);
 
-        // return response()->json(['data' => $teamApi], 201); // 201 Created status code
+        return response()->json(['data' => $teamApi], 201); // 201 Created status code
         // return redirect()->back();
     }
 
