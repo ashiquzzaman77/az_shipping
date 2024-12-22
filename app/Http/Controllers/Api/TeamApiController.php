@@ -28,7 +28,7 @@ class TeamApiController extends Controller
             'email' => 'nullable',
             'phone' => 'nullable|string|max:15',
             'status' => 'nullable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
+            // 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
         ]);
 
         $data = $request->only([
@@ -38,12 +38,12 @@ class TeamApiController extends Controller
             'status'
         ]);
 
-        // Handle image upload if present
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imagePath = $image->store('team', 'public'); // Store image in storage/app/public/team
-            $data['image'] = $imagePath;
-        }
+        // // Handle image upload if present
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $imagePath = $image->store('team', 'public'); // Store image in storage/app/public/team
+        //     $data['image'] = $imagePath;
+        // }
 
         // Insert team data into database
         $teamApi = Team::create($data);
