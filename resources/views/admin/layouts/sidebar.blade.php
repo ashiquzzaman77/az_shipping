@@ -399,6 +399,7 @@
                  {{-- @endif --}}
 
                  {{-- Frontend Section  --}}
+
                  @if (Auth::guard('admin')->user()->can('frontend.menu'))
                      <div data-kt-menu-trigger="click"
                          class="menu-item menu-accordion {{ Request::routeIs('admin.banner.index', 'admin.about.index', 'admin.team.index', 'admin.service.index', 'admin.principle.index', 'admin.client.index') ? 'here show' : '' }}">
@@ -566,6 +567,7 @@
 
                          </div>
                      </div>
+
                  @endif
 
 

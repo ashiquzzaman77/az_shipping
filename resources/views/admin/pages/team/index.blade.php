@@ -185,19 +185,21 @@
 
 
                             <td>
-                                @if (Auth::guard('admin')->user()->can('edit.team'))
-                                    <a href="{{ route('admin.team.edit', $item->id) }}" class="text-primary">
-                                        <i class="fa-solid fa-pencil text-primary"></i>
-                                    </a>
-                                @endif
+                                
+                                {{-- @if (Auth::guard('admin')->user()->can('edit.team')) --}}
+                                <a href="{{ route('admin.team.edit', $item->id) }}" class="text-primary">
+                                    <i class="fa-solid fa-pencil text-primary"></i>
+                                </a>
+                                {{-- @endif
 
-                                @if (Auth::guard('admin')->user()->can('delete.team'))
-                                    <a href="{{ route('admin.team.destroy', $item->id) }}" class="delete">
-                                        <i class="fa-solid fa-trash text-danger"></i>
-                                    </a>
-                                @endif
+                                @if (Auth::guard('admin')->user()->can('delete.team')) --}}
+                                <a href="{{ route('admin.team.destroy', $item->id) }}" class="delete">
+                                    <i class="fa-solid fa-trash text-danger"></i>
+                                </a>
+                                {{-- @endif --}}
 
                             </td>
+
                         </tr>
                     @endforeach
 
