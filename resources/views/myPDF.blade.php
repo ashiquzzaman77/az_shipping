@@ -115,7 +115,7 @@
             </td>
         </tr>
 
-        <tr>
+        {{-- <tr>
             <th style="width:45%;">COC</th>
             <td
                 style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->coc)->subMonths(3)) ? 'color: red;' : '' }}">
@@ -126,9 +126,9 @@
                 @endif
 
             </td>
-        </tr>
+        </tr> --}}
 
-        <tr>
+        {{-- <tr>
             <th style="width:45%;">GOC</th>
             <td
                 style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->goc)->subMonths(3)) ? 'color: red;' : '' }}">
@@ -139,7 +139,7 @@
                 @endif
 
             </td>
-        </tr>
+        </tr> --}}
 
         <tr>
             <th style="width:45%;">SID</th>
@@ -167,7 +167,7 @@
             </td>
         </tr>
 
-        <tr>
+        {{-- <tr>
             <th style="width:45%;">EDH</th>
             <td
                 style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->edh)->subMonths(3)) ? 'color: red;' : '' }}">
@@ -178,7 +178,7 @@
                 @endif
 
             </td>
-        </tr>
+        </tr> --}}
 
         <tr>
             <th style="width:45%;">PST</th>
@@ -271,7 +271,7 @@
             </td>
         </tr>
 
-        <tr>
+        {{-- <tr>
             <th style="width:45%;">Rader Navigation</th>
             <td
                 style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->radar_navigation)->subMonths(3)) ? 'color: red;' : '' }}">
@@ -282,7 +282,7 @@
                 @endif
 
             </td>
-        </tr>
+        </tr> --}}
 
         <tr>
             <th style="width:45%;">AFF</th>
@@ -297,7 +297,7 @@
             </td>
         </tr>
 
-        <tr>
+        {{-- <tr>
             <th style="width:45%;">MFA</th>
             <td
                 style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->mfa)->subMonths(3)) ? 'color: red;' : '' }}">
@@ -307,9 +307,9 @@
                 @else
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
-        <tr>
+        {{-- <tr>
             <th style="width:45%;">Medical Care</th>
             <td
                 style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->madical_care)->subMonths(3)) ? 'color: red;' : '' }}">
@@ -344,9 +344,9 @@
                 @else
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
-        <tr>
+        {{-- <tr>
             <th style="width:45%;">BRM/ERM</th>
             <td
                 style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->brm)->subMonths(3)) ? 'color: red;' : '' }}">
@@ -368,9 +368,9 @@
                 @else
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
-        <tr>
+        {{-- <tr>
             <th style="width:45%;">Ship Simulation</th>
             <td
                 style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->ship_simulation)->subMonths(3)) ? 'color: red;' : '' }}">
@@ -392,7 +392,7 @@
                 @else
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
         <tr>
             <th style="width:45%;">ATOTO</th>
@@ -407,7 +407,7 @@
             </td>
         </tr>
 
-        <tr>
+        {{-- <tr>
             <th style="width:45%;">COR</th>
             <td
                 style="{{ \Carbon\Carbon::now()->greaterThanOrEqualTo(\Carbon\Carbon::parse($item->cor)->subMonths(3)) ? 'color: red;' : '' }}">
@@ -417,7 +417,7 @@
                 @else
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
 
         <tr>
