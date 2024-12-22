@@ -26,13 +26,13 @@ class TeamApiController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255|email|unique:teams,email',
-            'position' => 'required|string|max:255',
-            'order_team' => 'required|integer',
+            'position' => 'nullable|string|max:255',
+            'order_team' => 'nullable|integer',
             'short_descp' => 'nullable|string',
             'facebook' => 'nullable|url|max:255',
             'whatup' => 'nullable|string|max:15',
             'phone' => 'nullable|string|max:15',
-            'status' => 'required|boolean',
+            'status' => 'nullable|boolean',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
         ]);
 

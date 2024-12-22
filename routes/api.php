@@ -35,7 +35,7 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::prefix('admin')->group(function () {
 
     Route::get('teams/api', [TeamApiController::class, 'index']);
-    Route::post('teams/api', [TeamApiController::class, 'store']);
+    Route::post('teams/api/store', [TeamApiController::class, 'store']);
     Route::get('teams/api/{id}', [TeamApiController::class, 'show']);
     Route::put('teams/api/{id}', [TeamApiController::class, 'update']);
     Route::delete('teams/api/{id}', [TeamApiController::class, 'destroy']);
