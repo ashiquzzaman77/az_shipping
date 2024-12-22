@@ -49,7 +49,7 @@ class TeamApiController extends Controller
         Team::create($data);
 
         // return response()->json(['data' => $teamApi], 201); // 201 Created status code
-        return redirect()->back();
+        // return redirect()->back();
     }
 
     /**
