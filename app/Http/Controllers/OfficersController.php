@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OfficersExport;
 use App\Models\Officer;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
-use App\Exports\OfficersExport;
-use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OfficersController extends Controller
 {
@@ -274,7 +274,7 @@ class OfficersController extends Controller
     public function generatePDF($id)
     {
         $item = Officer::findOrFail($id);
-        $fileName =  $item->name . '.pdf';
+        $fileName = $item->name . '.pdf';
         $pdf = PDF::loadView('myPDF', compact('item'));
 
         return $pdf->download($fileName);
