@@ -52,6 +52,7 @@
 
         <tr>
             <th style="width:45%;">Office Type</th>
+            
             <td>
                 @if ($item->officer_type == 'deak')
                     <span>Deck Officer</span>

@@ -52,7 +52,17 @@
 
         <tr>
             <th class="fs-5">Rating Type</th>
-            <td class="text-capitalize">{{ $item->rating_type }}</td>
+
+            <td>
+                @if ($item->rating_type == 'deak')
+                    <span>Deck Rating</span>
+                @elseif ($item->rating_type == 'salon')
+                    <span>Salon Rating</span>
+                @elseif ($item->rating_type == 'engine')
+                    <span>Engine Rating</span>
+                @endif
+            </td>
+
         </tr>
 
         <tr>
