@@ -52,7 +52,7 @@
 
         <tr>
             <th class="fs-5">Rating Type</th>
-            <td>{{ $item->rating_type }}</td>
+            <td class="text-capitalize">{{ $item->rating_type }}</td>
         </tr>
 
         <tr>
