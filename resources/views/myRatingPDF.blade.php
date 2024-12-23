@@ -51,9 +51,15 @@
     <table>
 
         <tr>
+            <th class="fs-5">Rating Type</th>
+            <td>{{ $item->rating_type }}</td>
+        </tr>
+
+        <tr>
             <th class="fs-5">Rank</th>
             <td>{{ $item->rank }}</td>
         </tr>
+
         <tr>
             <th class="fs-5">CDC NO</th>
             <td>{{ $item->cdc_no }}</td>
@@ -303,6 +309,11 @@
             </td>
         </tr>
 
+        <tr>
+            <th class="fs-5">Remarks</th>
+            <td>{{ $item->remarks }}
+            </td>
+        </tr>
 
         <tr>
             <th class="fs-5">Joining/Discharge</th>
