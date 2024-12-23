@@ -64,6 +64,7 @@
             </td>
 
         </tr>
+        
 
         <tr>
             <th class="fs-5">Rank</th>
