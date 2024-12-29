@@ -9,6 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
+
+    {{-- Font Awesome CDN --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
     <meta property="og:title" content="{{ optional($setting)->site_name }}" />
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="{{ optional($setting)->site_name }}" />
