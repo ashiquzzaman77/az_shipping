@@ -157,10 +157,10 @@ class HomeController extends Controller
         try {
             // Validation rules
             $validator = Validator::make($request->all(), [
-                'job_id' => 'nullable|exists:jobs,id', // Ensure job exists
+                'job_id' => 'nullable', // Ensure job exists
                 'name' => 'required|string|max:255',
                 'email' => 'required|email|max:255',
-                'phone' => 'required|numeric',
+                'phone' => 'required',
                 'passport_number' => 'required|string|max:50', // Adjust as necessary
                 'cdc_number' => 'required|string|max:50', // Adjust as necessary
                 'nationality' => 'required|string|max:100',
