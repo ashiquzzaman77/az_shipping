@@ -204,7 +204,7 @@ class HomeController extends Controller
             }
 
             // Redirect with success message
-            return redirect()->route('all.job')->with('success', 'Application submitted successfully!');
+            return redirect()->back()->with('success', 'Application submitted successfully!');
         } catch (\Exception $e) {
             // Log the exception
             Log::error('Job application failed: ' . $e->getMessage());
