@@ -33,8 +33,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:admin')->group(function () {
 
-    // Route::get('office/login', [AuthenticatedSessionController::class, 'create'])
-    //     ->name('admin.login');
+    Route::get('office/login', [AuthenticatedSessionController::class, 'create'])
+        ->name('admin.login');
 
     Route::post('office/login', [AuthenticatedSessionController::class, 'store']);
 
